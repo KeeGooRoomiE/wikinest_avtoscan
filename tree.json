@@ -43,5 +43,117 @@
     "folder_titles": {
       "reference": "Reference"
     }
+  },
+  {
+    "path": "tp/devices/adm",
+    "title": "ADM",
+    "excerpt": "`ADM007` `ADM007BLE` `ADM333` `ADM333BLE` `ADM333V2`",
+    "parts": [
+      "tp",
+      "devices",
+      "adm"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/arnavi",
+    "title": "Arnavi (A4 / A4MAX)",
+    "excerpt": "> **A4MAX: слева — GPS, справа — GSM**",
+    "parts": [
+      "tp",
+      "devices",
+      "arnavi"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/galileosky",
+    "title": "GalileoSky 5",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "tp",
+      "devices",
+      "galileosky"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/navtelecom",
+    "title": "Навтелеком",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "tp",
+      "devices",
+      "navtelecom"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/omnicom",
+    "title": "Omnicom Optim",
+    "excerpt": "```",
+    "parts": [
+      "tp",
+      "devices",
+      "omnicom"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/umka",
+    "title": "УМКа",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "tp",
+      "devices",
+      "umka"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/devices/vega",
+    "title": "Vega MT / CAN-WAY",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "tp",
+      "devices",
+      "vega"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "devices": "Devices"
+    }
+  },
+  {
+    "path": "tp/software/axenta",
+    "title": "Axenta",
+    "excerpt": "**Хост:** `hw.axenta.cloud` / `5.159.100.97`",
+    "parts": [
+      "tp",
+      "software",
+      "axenta"
+    ],
+    "folder_titles": {
+      "tp": "Tp",
+      "software": "Software"
+    }
   }
 ]
