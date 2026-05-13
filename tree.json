@@ -1,12 +1,23 @@
 [
   {
+    "path": "contacts",
+    "title": "Контакты",
+    "excerpt": "**Тел/факс:** 44-12-41",
+    "parts": [
+      "contacts"
+    ],
+    "folder_titles": {},
+    "updated_at": "2026-05-13T23:48:40+07:00"
+  },
+  {
     "path": "index",
     "title": "Добро пожаловать",
     "excerpt": "Документация компании АвтоСкан содержится здесь",
     "parts": [
       "index"
     ],
-    "folder_titles": {}
+    "folder_titles": {},
+    "updated_at": "2026-05-13T13:24:36+07:00"
   },
   {
     "path": "reference/folder-structure",
@@ -18,7 +29,8 @@
     ],
     "folder_titles": {
       "reference": "Reference"
-    }
+    },
+    "updated_at": "2026-05-13T12:59:07+07:00"
   },
   {
     "path": "reference/i18n",
@@ -30,7 +42,8 @@
     ],
     "folder_titles": {
       "reference": "Reference"
-    }
+    },
+    "updated_at": "2026-05-13T12:59:07+07:00"
   },
   {
     "path": "reference/markdown",
@@ -42,7 +55,8 @@
     ],
     "folder_titles": {
       "reference": "Reference"
-    }
+    },
+    "updated_at": "2026-05-13T14:28:39+07:00"
   },
   {
     "path": "tp/devices/adm",
@@ -56,7 +70,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/devices/arnavi",
@@ -70,7 +85,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/devices/galileosky",
@@ -84,7 +100,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/devices/navtelecom",
@@ -98,7 +115,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T17:32:32+07:00"
   },
   {
     "path": "tp/devices/omnicom",
@@ -112,7 +130,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/devices/umka",
@@ -126,7 +145,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/devices/vega",
@@ -140,7 +160,8 @@
     "folder_titles": {
       "tp": "Tp",
       "devices": "Devices"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
     "path": "tp/software/axenta",
@@ -154,6 +175,7 @@
     "folder_titles": {
       "tp": "Tp",
       "software": "Software"
-    }
+    },
+    "updated_at": "2026-05-13T15:25:27+07:00"
   }
 ]
