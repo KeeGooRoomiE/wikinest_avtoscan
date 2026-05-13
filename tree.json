@@ -1,8 +1,8 @@
 [
   {
     "path": "index",
-    "title": "Welcome to WikiNest",
-    "excerpt": "WikiNest is a lightweight wiki that lives entirely in your GitHub repository. No server, no build step, no dependencies beyond GitHub itself",
+    "title": "Добро пожаловать",
+    "excerpt": "Документация компании АвтоСкан содержится здесь",
     "parts": [
       "index"
     ],
