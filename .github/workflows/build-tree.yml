@@ -2,9 +2,9 @@ name: Build tree
 
 on:
   push:
+    branches: [main]
     paths:
       - 'docs/**'
-      - 'config.json'
 
 permissions:
   contents: write
@@ -17,7 +17,7 @@ jobs:
 
       - name: Generate tree.json
         run: |
-          python3 - <<'EOF'
+          python3 - <<'PYEOF'
           import os, json
 
           docs_dir = 'docs'
@@ -67,14 +67,17 @@ jobs:
 
           with open('tree.json', 'w', encoding='utf-8') as f:
             json.dump(tree, f, ensure_ascii=False, indent=2)
-          print(f'Generated tree.json with {len(tree)} pages')
-          EOF
+          print(f'tree.json: {len(tree)} pages')
+          PYEOF
 
       - name: Commit tree.json
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tree.json
+          git stash
           git pull origin main
+          git stash pop
           git add tree.json
           git diff --staged --quiet || git commit -m "chore: update tree.json"
           git push
