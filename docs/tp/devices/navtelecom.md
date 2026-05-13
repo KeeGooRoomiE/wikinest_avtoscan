@@ -1,5 +1,7 @@
 # Навтелеком
 
+Ссылка на NTC Wiki https://wiki.navtelecom.ru/ru/home/devices/commands/standard_cmd
+
 ## Основные команды
 
 | Команда | Описание |
