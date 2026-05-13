@@ -35,7 +35,7 @@
   {
     "path": "reference/markdown",
     "title": "YAML",
-    "excerpt": "This page demonstrates every markdown feature supported by WikiNest. Use it to verify rendering and as a copy-paste reference when writing d",
+    "excerpt": "На этой странице находятся все примеры форматирования документа. Поддерживается стандартный markdown формат, который есть во всем интернете.",
     "parts": [
       "reference",
       "markdown"
