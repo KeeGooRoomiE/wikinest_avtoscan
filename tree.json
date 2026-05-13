@@ -164,6 +164,36 @@
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
   {
+    "path": "tp/examples/index",
+    "title": "Примеры шаблонов для ТС в сервисах",
+    "excerpt": "Датчики актуальные аксента",
+    "parts": [
+      "tp",
+      "examples",
+      "index"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "examples": "Шаблоны"
+    },
+    "updated_at": "2026-05-14T00:24:57+07:00"
+  },
+  {
+    "path": "tp/reglamentation/index",
+    "title": "Список регламентов",
+    "excerpt": "",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "index"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-05-14T00:24:57+07:00"
+  },
+  {
     "path": "tp/software/axenta",
     "title": "Axenta",
     "excerpt": "**Хост:** `hw.axenta.cloud` / `5.159.100.97`",
