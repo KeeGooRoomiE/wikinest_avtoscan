@@ -541,6 +541,7 @@ function toast(msg){
 
 // ── Actions status ──
 let pollTimer = null;
+let watchingRunId = null;
 
 const statusCfg = {
   in_progress:  { dot: '🟡', label: 'Deploying...', color: '#BA7517' },
@@ -553,7 +554,12 @@ const statusCfg = {
 async function fetchLatestRun(){
   if(!cfg.owner||!cfg.repo||!cfg.token) return null;
   try{
-    const data=await ghFetch('actions/runs?per_page=1');
+    const data=await ghFetch('actions/runs?per_page=3');
+    if(watchingRunId){
+      return data.workflow_runs?.find(r=>r.id===watchingRunId)
+          || data.workflow_runs?.[0]
+          || null;
+    }
     return data.workflow_runs?.[0]||null;
   }catch{ return null; }
 }
@@ -577,21 +583,35 @@ async function pollActions(onDone){
   if(!run) return;
   const active=run.status==='in_progress'||run.status==='queued';
   if(active){
-    pollTimer=setTimeout(()=>pollActions(onDone), 6000);
+    pollTimer=setTimeout(()=>pollActions(onDone), 5000);
   } else {
+    watchingRunId=null;
     if(run.conclusion==='success'&&onDone) onDone();
     pollTimer=setTimeout(()=>pollActions(null), 30000);
   }
 }
 
-function watchDeploy(){
-  toast('Saved — waiting for deploy...');
-  setTimeout(()=>{
-    pollActions(()=>{
-      toast('✓ Deploy complete');
-      loadTree();
-    });
-  }, 3000);
+async function watchDeploy(){
+  toast('Saved — waiting for Actions...');
+  // grab current latest run id so we know what to watch for
+  const before=await fetchLatestRun();
+  const beforeId=before?.id||null;
+  // poll until a NEW run appears (different id) then track it
+  async function waitForNewRun(attempts=0){
+    if(attempts>20){ pollActions(null); return; }
+    const run=await fetchLatestRun();
+    if(run&&run.id!==beforeId){
+      watchingRunId=run.id;
+      renderStatus(run);
+      pollActions(()=>{
+        toast('✓ Deploy complete');
+        loadTree();
+      });
+    } else {
+      setTimeout(()=>waitForNewRun(attempts+1), 4000);
+    }
+  }
+  setTimeout(()=>waitForNewRun(), 5000);
 }
 
 init();
