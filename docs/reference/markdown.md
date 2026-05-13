@@ -60,23 +60,23 @@ Line two follows immediately.
 Цитирование может быть многовложенным
 
 ```
-> Single level quote.
+> Просто обычная цитата
 
-> First level.
->> Second level nested.
->>> Third level nested.
+> Форумный формат цитаты
+>> Ответ на цитату
+>>> Ответ на ответ на цитату
 ```
 
-> Single level quote.
+> Просто обычная цитата
 
-> First level.
->> Second level nested.
->>> Third level nested.
+> Форумный формат цитаты
+>> Ответ на цитату
+>>> Ответ на ответ на цитату
 
-Blockquotes can contain other markdown:
+Все цитаты поддерживают все остальные форматировки текста:
 
-> **Note:** this is important.
-> Use them for callouts, warnings, or citations.
+> **Важно:** Это работает.
+> Можно использовать для уведомлений
 
 ---
 
