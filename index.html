@@ -424,14 +424,15 @@ async function createPage(){
 
 // ── Delete ──
 async function deletePage(){
-  if(!currentPath||!currentSha) return;
+  if(!currentPath) return;
   if(!confirm(t('delete_confirm'))) return;
   const ok=await requireUnlock();
   if(!ok) return;
   try{
+    const meta=await ghFetch(`contents/${currentPath}`);
     await ghFetch(`contents/${currentPath}`,'DELETE',{
       message:`docs: delete ${currentPath}`,
-      sha:currentSha
+      sha:meta.sha
     });
     currentPath=null; currentSha=null;
     $('empty').style.display='flex';
