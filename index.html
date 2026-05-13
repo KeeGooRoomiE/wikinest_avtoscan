@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WikiNest</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div id="header">
+  <div class="logo">
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <span id="site-name">WikiNest</span>
+  </div>
+  <div id="h-space"></div>
+  <button id="burger" onclick="toggleSidebar()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <div id="search-box" onclick="openSearch()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
+  </div>
+  <select id="lang-switcher" onchange="switchLang(this.value)"><option value="en">EN</option><option value="ru">RU</option></select>
+  <button id="btn-settings" onclick="openSettings()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+  </button>
+</div>
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+<div id="layout">
+  <div id="sidebar">
+    <div id="sidebar-top">
+      <button id="btn-new" onclick="openNewPage()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span id="lbl-new-page">New page</span>
+      </button>
+    </div>
+    <div id="tree"></div>
+  </div>
+  <div id="content">
+    <div id="content-bar">
+      <div class="breadcrumb" id="breadcrumb"></div>
+      <div id="cb-space"></div>
+      <button class="bar-btn" id="btn-delete" onclick="deletePage()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+        <span id="lbl-delete">Delete</span>
+      </button>
+      <button class="bar-btn" id="btn-edit" onclick="startEdit()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <span id="lbl-edit">Edit</span>
+      </button>
+      <div class="edit-btns" id="edit-btns">
+        <button class="bar-btn" id="btn-cancel" onclick="cancelEdit()"><span id="lbl-cancel">Cancel</span></button>
+        <button class="bar-btn" id="btn-save" onclick="savePage()">
+          <span id="save-spin" style="display:none" class="spin"></span>
+          <span id="lbl-save">Save</span>
+        </button>
+      </div>
+    </div>
+    <div id="panels">
+      <div id="empty"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span id="lbl-empty">Select a page or create a new one</span></div>
+      <div id="view-wrap" style="display:none"><div id="view"></div></div>
+      <div id="editor-wrap"><textarea id="editor" spellcheck="false"></textarea></div>
+      <div id="toc"><div class="toc-title" id="lbl-toc">On this page</div><div id="toc-list"></div></div>
+    </div>
+  </div>
+</div>
+<div id="search-overlay" onclick="if(event.target===this)closeSearch()">
+  <div id="search-panel">
+    <div id="search-input-wrap">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search-q" autocomplete="off" oninput="runSearch(this.value)" onkeydown="searchKey(event)">
+    </div>
+    <div id="search-results"></div>
+  </div>
+</div>
+<div id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div id="modal"><h3 id="modal-title"></h3><div id="modal-body"></div><div class="modal-actions" id="modal-actions"></div></div>
+</div>
+<div id="pw-overlay">
+  <div id="pw-box">
+    <h3 id="pw-title">Enter password to edit</h3>
+    <input type="password" id="pw-input" onkeydown="if(event.key==='Enter')submitPw()">
+    <div id="pw-error"></div>
+    <div class="pw-actions">
+      <button onclick="closePw()"><span id="lbl-pw-cancel">Cancel</span></button>
+      <button class="btn-primary" onclick="submitPw()"><span id="lbl-pw-ok">Unlock</span></button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let cfg={},i18n={},tree=[],currentPath=null,currentSha=null,unlocked=false;
+
+const t=k=>i18n[k]??k;
+
+async function init(){
+  // 1. load config.json from repo — source of truth for owner/repo/site_name/password hash
+  try{
+    const r=await fetch('config.json', {cache:'no-cache'});
+    if(r.ok) cfg=await r.json();
+  }catch{}
+
+  // 2. merge user-local overrides from localStorage (enc_token stays separate)
+  const saved=localStorage.getItem('wn_cfg');
+  if(saved){
+    const local=JSON.parse(saved);
+    // only allow local override of non-sensitive display prefs
+    if(local.lang) cfg.lang=local.lang;
+  }
+
+  const lang=localStorage.getItem('wn_lang')||cfg.lang||'en';
+  $('lang-switcher').value=lang;
+  await loadI18n(lang);
+  applyI18n();
+
+  if(cfg.owner&&cfg.repo) loadTree();
+  else showSetupBanner();
+
+  document.addEventListener('keydown',e=>{
+    if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}
+    if(e.key==='Escape'){closeSearch();closeModal();}
+  });
+}
+
+function showSetupBanner(){
+  $('empty').innerHTML=`
+    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.25"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+    <span style="font-size:13px;color:var(--text2)">Click ⚙ to add your token and get started</span>`;
+}
+
+async function loadI18n(lang){
+  try{
+    const r=await fetch(`i18n/${lang}.json`);
+    i18n=await r.json();
+  }catch{i18n={};}
+}
+
+function applyI18n(){
+  $('lbl-search').textContent=t('search');
+  $('lbl-new-page').textContent=t('new_page');
+  $('lbl-edit').textContent=t('edit');
+  $('lbl-save').textContent=t('save');
+  $('lbl-cancel').textContent=t('cancel');
+  $('lbl-delete').textContent=t('delete_page');
+  $('lbl-empty').textContent=t('empty_state');
+  $('lbl-toc').textContent=t('on_this_page');
+  $('lbl-pw-cancel').textContent=t('cancel');
+  $('lbl-pw-ok').textContent='Unlock';
+  $('pw-title').textContent=t('enter_password');
+  const sn=cfg.site_name||'WikiNest';
+  $('site-name').textContent=sn;
+  document.title=sn;
+}
+
+async function switchLang(lang){
+  localStorage.setItem('wn_lang',lang);
+  await loadI18n(lang);
+  applyI18n();
+}
+
+// ── GitHub API ──
+const ghFetch=async(path,method='GET',body)=>{
+  const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/${path}`,{
+    method,
+    headers:{Authorization:`Bearer ${cfg.token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},
+    body:body?JSON.stringify(body):undefined
+  });
+  if(!r.ok){const e=await r.json();throw new Error(e.message||r.statusText);}
+  return r.json();
+};
+const b64enc=s=>btoa(unescape(encodeURIComponent(s)));
+const b64dec=s=>decodeURIComponent(escape(atob(s)));
+
+// ── Password / crypto ──
+const sha256=async s=>{
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+};
+
+async function checkPassword(pw){
+  const hash=await sha256(pw);
+  return hash===cfg.edit_password_hash;
+}
+
+let pwResolve=null;
+function requireUnlock(){
+  return new Promise(resolve=>{
+    if(unlocked){resolve(true);return;}
+    pwResolve=resolve;
+    $('pw-input').value='';
+    $('pw-error').style.display='none';
+    $('pw-overlay').classList.add('open');
+    setTimeout(()=>$('pw-input').focus(),50);
+  });
+}
+async function submitPw(){
+  const pw=$('pw-input').value;
+  if(!cfg.edit_password_hash||await checkPassword(pw)){
+    unlocked=true;
+    cfg.token=decrypt(localStorage.getItem('wn_enc_token'),pw);
+    closePw();
+    if(pwResolve){pwResolve(true);pwResolve=null;}
+  }else{
+    $('pw-error').textContent=t('password_wrong');
+    $('pw-error').style.display='block';
+  }
+}
+function closePw(){$('pw-overlay').classList.remove('open');}
+function toggleSidebar(){const s=$("sidebar");s.classList.toggle("open");$("sidebar-overlay").style.display=s.classList.contains("open")?"block":"none";}
+
+// simple XOR "encryption" for token — good enough for localStorage
+function encrypt(str,key){
+  if(!str||!key)return str;
+  return btoa([...str].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join(''));
+}
+function decrypt(enc,key){
+  if(!enc||!key)return '';
+  try{return [...atob(enc)].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');}catch{return '';}
+}
+
+// ── Tree ──
+async function loadTree(){
+  $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
+  try{
+    const r=await fetch(`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/tree.json`,{cache:'no-cache'});
+    if(!r.ok) throw new Error();
+    tree=await r.json();
+    renderTree(tree);
+  }catch{
+    $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
+  }
+}
+
+function renderTree(pages){
+  const root={};
+  pages.forEach(p=>{
+    const parts=p.parts;
+    let node=root;
+    parts.forEach((part,i)=>{
+      if(!node[part]) node[part]={_page:i===parts.length-1?p:null,_children:{}};
+      node=node[part]._children;
+    });
+  });
+  const el=$('tree');
+  el.innerHTML=`<div class="tree-section">${t('pages')}</div>`;
+  renderNode(root,el,0);
+}
+
+function getFolderTitle(node,key){
+  const item=node[key];
+  function findFirst(n){for(const k of Object.keys(n)){if(n[k]._page)return n[k]._page;const r=findFirst(n[k]._children);if(r)return r;}return null;}
+  const p=item._page||findFirst(item._children);
+  return p?.folder_titles?.[key]||key.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+}
+function renderNode(node,el,depth){
+  Object.keys(node).sort((a,b)=>{
+    const aHasKids=Object.keys(node[a]._children).length>0;
+    const bHasKids=Object.keys(node[b]._children).length>0;
+    if(aHasKids!==bHasKids) return aHasKids?-1:1;
+    return a.localeCompare(b);
+  }).forEach(key=>{
+    const item=node[key];
+    const hasKids=Object.keys(item._children).length>0;
+    const wrap=document.createElement('div');
+
+    const row=document.createElement('div');
+    row.className='tree-row'+(hasKids?' folder':'');
+    row.style.paddingLeft=(14+depth*14)+'px';
+    row.innerHTML=`${hasKids
+      ?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>'
+      :'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
+    }<span class="tree-label">${hasKids?getFolderTitle(node,key):item._page.title}</span>`;
+
+    if(hasKids){
+      const kids=document.createElement('div');
+      kids.className='tree-children';
+      renderNode(item._children,kids,depth+1);
+      row.onclick=()=>kids.classList.toggle('collapsed');
+      wrap.appendChild(row);
+      wrap.appendChild(kids);
+    }else{
+      row.onclick=()=>openPage(item._page);
+      wrap.appendChild(row);
+    }
+    el.appendChild(wrap);
+  });
+}
+
+// ── Page open ──
+async function openPage(page){
+  currentPath=`docs/${page.path}.md`;
+  document.querySelectorAll('.tree-row').forEach(r=>r.classList.remove('active'));
+  document.querySelectorAll('.tree-row').forEach(r=>{if(r.querySelector('.tree-label')?.textContent===page.title)r.classList.add('active');});
+
+  const parts=page.parts;
+  const bc=$('breadcrumb');
+  bc.innerHTML=parts.map((p,i)=>
+    i<parts.length-1
+      ?`<span>${p}</span><span class="sep">›</span>`
+      :`<span class="cur">${page.title}</span>`
+  ).join('');
+
+  $('empty').style.display='none';
+  $('view-wrap').style.display='block';
+  $('editor-wrap').style.display='none';
+  $('edit-btns').style.display='none';
+  $('btn-edit').style.display='flex';
+  $('btn-delete').style.display='flex';
+  cancelEdit();
+
+  try{
+    const rawUrl=`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${currentPath}`;
+    const r=await fetch(rawUrl,{cache:'no-cache'});
+    if(!r.ok) throw new Error(r.statusText);
+    const md=await r.text();
+    currentSha=null;
+    renderView(md);
+  }catch(e){
+    $('view').innerHTML=`<p style="color:var(--text2)">${t('error_load')}: ${e.message}</p>`;
+  }
+}
+
+function renderView(md){
+  $('view').innerHTML=`<div class="page-meta">${currentPath}</div>`+marked.parse(md);
+  buildToc();
+}
+
+function buildToc(){
+  const headings=[...$('view').querySelectorAll('h2,h3')];
+  if(headings.length<2){$('toc').style.display='none';return;}
+  $('toc').style.display='block';
+  $('toc-list').innerHTML=headings.map(h=>{
+    const id=h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
+    h.id=id;
+    return `<div class="toc-item ${h.tagName==='H3'?'toc-h2':''}" onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth'})">${h.textContent}</div>`;
+  }).join('');
+}
+
+// ── Edit ──
+async function startEdit(){
+  const ok=await requireUnlock();
+  if(!ok) return;
+  const data=await ghFetch(`contents/${currentPath}`);
+  currentSha=data.sha;
+  const md=b64dec(data.content.replace(/\n/g,''));
+  $('editor').value=md;
+  $('editor-wrap').style.display='block';
+  $('toc').style.display='none';
+  $('btn-edit').style.display='none';
+  $('btn-delete').style.display='none';
+  $('edit-btns').style.display='flex';
+  $('editor').oninput=()=>{
+    $('view').innerHTML=marked.parse($('editor').value);
+  };
+  $('editor').focus();
+}
+
+function cancelEdit(){
+  $('editor-wrap').style.display='none';
+  $('edit-btns').style.display='none';
+  $('btn-edit').style.display=currentPath?'flex':'none';
+  $('btn-delete').style.display=currentPath?'flex':'none';
+  buildToc();
+}
+
+async function savePage(){
+  const content=$('editor').value;
+  const btn=$('btn-save');
+  const spin=$('save-spin');
+  btn.disabled=true; spin.style.display='inline-block';
+  try{
+    await ghFetch(`contents/${currentPath}`,'PUT',{
+      message:`docs: update ${currentPath}`,
+      content:b64enc(content),
+      sha:currentSha
+    });
+    toast(t('saved'));
+    renderView(content);
+    cancelEdit();
+    loadTree();
+  }catch(e){
+    toast(`${t('error_save')}: ${e.message}`);
+  }finally{
+    btn.disabled=false; spin.style.display='none';
+  }
+}
+
+// ── New page ──
+function openNewPage(){
+  $('modal-title').textContent=t('new_page_title');
+  $('modal-body').innerHTML=`
+    <div class="field"><label>${t('page_path')}</label>
+    <input id="m-path" placeholder="folder/page-name">
+    <div class="hint">${t('page_path_hint')}</div></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="createPage()">${t('create')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('m-path').focus(),50);
+}
+
+async function createPage(){
+  const ok=await requireUnlock();
+  if(!ok) return;
+  const path=$('m-path').value.trim().replace(/\.md$/,'');
+  if(!path) return;
+  const fullPath=`docs/${path}.md`;
+  const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  const content=`# ${title}\n\nStart writing here.\n`;
+  try{
+    await ghFetch(`contents/${fullPath}`,'PUT',{
+      message:`docs: create ${fullPath}`,
+      content:b64enc(content)
+    });
+    closeModal();
+    toast(t('saved'));
+    await loadTree();
+    const page={path,title,parts:path.split('/'),excerpt:''};
+    openPage(page);
+  }catch(e){toast(`${t('error_save')}: ${e.message}`);}
+}
+
+// ── Delete ──
+async function deletePage(){
+  if(!currentPath||!currentSha) return;
+  if(!confirm(t('delete_confirm'))) return;
+  const ok=await requireUnlock();
+  if(!ok) return;
+  try{
+    await ghFetch(`contents/${currentPath}`,'DELETE',{
+      message:`docs: delete ${currentPath}`,
+      sha:currentSha
+    });
+    currentPath=null; currentSha=null;
+    $('empty').style.display='flex';
+    $('view-wrap').style.display='none';
+    $('btn-edit').style.display='none';
+    $('btn-delete').style.display='none';
+    $('breadcrumb').innerHTML='';
+    $('toc').style.display='none';
+    toast('Deleted');
+    loadTree();
+  }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Search ──
+function openSearch(){
+  $('search-overlay').classList.add('open');
+  $('search-q').value='';
+  $('search-results').innerHTML='';
+  setTimeout(()=>$('search-q').focus(),50);
+}
+function closeSearch(){$('search-overlay').classList.remove('open');}
+
+function runSearch(q){
+  q=q.trim().toLowerCase();
+  const res=$('search-results');
+  if(!q){res.innerHTML='';return;}
+  const hits=tree.filter(p=>
+    p.title.toLowerCase().includes(q)||
+    (p.excerpt||'').toLowerCase().includes(q)
+  ).slice(0,12);
+  if(!hits.length){res.innerHTML=`<div class="sr-empty">${t('search')} — no results</div>`;return;}
+  const hl=s=>s.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<mark>${m}</mark>`);
+  res.innerHTML=hits.map(p=>`
+    <div class="sr-item" onclick="closeSearch();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+      <div class="sr-title">${hl(p.title)}</div>
+      <div class="sr-excerpt">${hl(p.excerpt||p.path)}</div>
+    </div>`).join('');
+}
+
+function searchKey(e){
+  if(e.key==='Escape') closeSearch();
+}
+
+// ── Settings modal ──
+function openSettings(){
+  const hasToken=!!localStorage.getItem('wn_enc_token');
+  $('modal-title').textContent=t('configure_title');
+  $('modal-body').innerHTML=`
+    <div style="font-size:12px;color:var(--text2);background:var(--bg2);padding:8px 10px;border-radius:6px;margin-bottom:4px">
+      <span style="font-weight:500;color:var(--text)">${cfg.owner||'?'}/${cfg.repo||'?'}</span><br>
+      <span style="color:var(--text3);font-size:11px">From config.json — edit in the repo to change</span>
+    </div>
+    <div class="field"><label>${t('token')}</label>
+      <input id="m-token" type="password" placeholder="${hasToken?'stored — paste to replace':'ghp_...'}">
+      <div class="hint">${t('token_hint')}</div>
+    </div>
+    <div class="field"><label>${t('password')}</label>
+      <input id="m-pw" type="password" placeholder="••••••••">
+      <div class="hint">${t('password_hint')}</div>
+    </div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="saveSettings()">${t('save')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('m-token').focus(),50);
+}
+
+async function saveSettings(){
+  const pw=$('m-pw').value;
+  const token=$('m-token').value.trim();
+  if(!token&&!localStorage.getItem('wn_enc_token')){
+    toast('Paste your Personal Access Token first');
+    return;
+  }
+  const activeToken=token||cfg.token||'';
+  if(pw){
+    localStorage.setItem('wn_enc_token',encrypt(activeToken,pw));
+    cfg.token=activeToken;
+    unlocked=true;
+  }else if(token){
+    // no password change — re-encrypt new token with existing password
+    // user will be prompted for password on next edit attempt
+    cfg.token=token;
+    unlocked=false;
+  }
+  // lang preference is the only user-local thing we persist
+  localStorage.setItem('wn_cfg',JSON.stringify({lang:cfg.lang}));
+  closeModal();
+  applyI18n();
+  loadTree();
+}
+
+function closeModal(){$('modal-overlay').classList.remove('open');}
+
+// ── Toast ──
+let toastTimer;
+function toast(msg){
+  const el=$('toast');
+  el.textContent=msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),2500);
+}
+
+init();
+</script>
+</body>
+</html>

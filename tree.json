@@ -1,0 +1,71 @@
+[
+  {
+    "path": "index",
+    "title": "Welcome to WikiNest",
+    "excerpt": "WikiNest is a lightweight wiki that lives entirely in your GitHub repository. No server, no build step, no dependencies beyond GitHub itself",
+    "parts": [
+      "index"
+    ],
+    "folder_titles": {}
+  },
+  {
+    "path": "reference/folder-structure",
+    "title": "Folder structure",
+    "excerpt": "Pages in WikiNest map directly to files in the `docs/` directory. The sidebar tree mirrors the directory structure.",
+    "parts": [
+      "reference",
+      "folder-structure"
+    ],
+    "folder_titles": {
+      "reference": "Reference"
+    }
+  },
+  {
+    "path": "reference/i18n",
+    "title": "Internationalization",
+    "excerpt": "WikiNest supports multiple UI languages. Page content language is not managed — write pages in any language you want.",
+    "parts": [
+      "reference",
+      "i18n"
+    ],
+    "folder_titles": {
+      "reference": "Reference"
+    }
+  },
+  {
+    "path": "reference/markdown",
+    "title": "YAML",
+    "excerpt": "This page demonstrates every markdown feature supported by WikiNest. Use it to verify rendering and as a copy-paste reference when writing d",
+    "parts": [
+      "reference",
+      "markdown"
+    ],
+    "folder_titles": {
+      "reference": "Reference"
+    }
+  },
+  {
+    "path": "setup/configuration",
+    "title": "Configuration",
+    "excerpt": "WikiNest is configured through two places: `config.json` in the repository root, and the settings UI in the browser.",
+    "parts": [
+      "setup",
+      "configuration"
+    ],
+    "folder_titles": {
+      "setup": "Setup & Installation"
+    }
+  },
+  {
+    "path": "setup/installation",
+    "title": "Installation",
+    "excerpt": "WikiNest requires no build step. Fork the repository, enable GitHub Pages, configure your token — done in under 5 minutes.",
+    "parts": [
+      "setup",
+      "installation"
+    ],
+    "folder_titles": {
+      "setup": "Setup & Installation"
+    }
+  }
+]
