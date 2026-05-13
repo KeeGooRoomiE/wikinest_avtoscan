@@ -20,6 +20,7 @@
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
   </div>
+  <a id="actions-status" title="GitHub Actions status" target="_blank" style="display:none;align-items:center;gap:5px;font-size:11px;padding:4px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2);text-decoration:none;cursor:pointer"></a>
   <select id="lang-switcher" onchange="switchLang(this.value)"><option value="en">EN</option><option value="ru">RU</option></select>
   <button id="btn-settings" onclick="openSettings()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
@@ -115,8 +116,10 @@ async function init(){
   await loadI18n(lang);
   applyI18n();
 
-  if(cfg.owner&&cfg.repo) loadTree();
-  else showSetupBanner();
+  if(cfg.owner&&cfg.repo){
+    loadTree();
+    setTimeout(()=>pollActions(null), 1500);
+  } else showSetupBanner();
 
   document.addEventListener('keydown',e=>{
     if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}
@@ -376,10 +379,9 @@ async function savePage(){
       content:b64enc(content),
       sha:currentSha
     });
-    toast(t('saved'));
     renderView(content);
     cancelEdit();
-    loadTree();
+    watchDeploy();
   }catch(e){
     toast(`${t('error_save')}: ${e.message}`);
   }finally{
@@ -441,8 +443,7 @@ async function deletePage(){
     $('btn-delete').style.display='none';
     $('breadcrumb').innerHTML='';
     $('toc').style.display='none';
-    toast('Deleted');
-    loadTree();
+    watchDeploy();
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
@@ -535,6 +536,62 @@ function toast(msg){
   el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>el.classList.remove('show'),2500);
+}
+
+
+// ── Actions status ──
+let pollTimer = null;
+
+const statusCfg = {
+  in_progress:  { dot: '🟡', label: 'Deploying...', color: '#BA7517' },
+  queued:       { dot: '🟡', label: 'Queued',       color: '#BA7517' },
+  success:      { dot: '🟢', label: 'Deployed',     color: '#1a7f37' },
+  failure:      { dot: '🔴', label: 'Failed',       color: '#cf222e' },
+  cancelled:    { dot: '⚪', label: 'Cancelled',    color: 'var(--text3)' },
+};
+
+async function fetchLatestRun(){
+  if(!cfg.owner||!cfg.repo||!cfg.token) return null;
+  try{
+    const data=await ghFetch('actions/runs?per_page=1');
+    return data.workflow_runs?.[0]||null;
+  }catch{ return null; }
+}
+
+function renderStatus(run){
+  const el=$('actions-status');
+  if(!run){el.style.display='none';return;}
+  const conclusion=run.conclusion||run.status;
+  const s=statusCfg[conclusion]||{dot:'⚪',label:conclusion,color:'var(--text3)'};
+  el.style.display='flex';
+  el.style.color=s.color;
+  el.style.borderColor=s.color==='var(--text3)'?'var(--border)':s.color+'44';
+  el.href=run.html_url;
+  el.innerHTML=`<span>${s.dot}</span><span>${s.label}</span>`;
+}
+
+async function pollActions(onDone){
+  clearTimeout(pollTimer);
+  const run=await fetchLatestRun();
+  renderStatus(run);
+  if(!run) return;
+  const active=run.status==='in_progress'||run.status==='queued';
+  if(active){
+    pollTimer=setTimeout(()=>pollActions(onDone), 6000);
+  } else {
+    if(run.conclusion==='success'&&onDone) onDone();
+    pollTimer=setTimeout(()=>pollActions(null), 30000);
+  }
+}
+
+function watchDeploy(){
+  toast('Saved — waiting for deploy...');
+  setTimeout(()=>{
+    pollActions(()=>{
+      toast('✓ Deploy complete');
+      loadTree();
+    });
+  }, 3000);
 }
 
 init();
