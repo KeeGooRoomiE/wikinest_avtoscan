@@ -1,37 +1,42 @@
-# Markdown reference
+# Памятка по форматированию
 
-This page demonstrates every markdown feature supported by WikiNest. Use it to verify rendering and as a copy-paste reference when writing documentation.
-
----
-
-## Headings
-
-```
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
-```
-
-# Heading 1
-## Heading 2
-### Heading 3
-#### Heading 4
-##### Heading 5
-###### Heading 6
+На этой странице находятся все примеры форматирования документа. Поддерживается стандартный markdown формат, который есть во всем интернете.
 
 ---
 
-## Paragraphs and line breaks
+## Заголовки
 
-A paragraph is one or more lines of text separated by a blank line.
+```
+# Заголовок 1
+## Заголовок 2
+### Заголовок 3
+#### Заголовок 4
+##### Заголовок 5
+###### Заголовок 6
+```
+
+# Заголовок 1
+## Заголовок 2
+### Заголовок 3
+#### Заголовок 4
+##### Заголовок 5
+###### Заголовок 6
+
+---
+
+## Разбивка на параграфы
+
+
 
 This is a second paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 To force a line break within a paragraph, end a line with two spaces or a backslash.
 Line two follows immediately.
+
+```
+---
+```
+
 
 ---
 
