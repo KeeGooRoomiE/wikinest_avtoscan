@@ -30,7 +30,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-05-14T00:13:24+07:00"
+    "updated_at": "2026-05-14T00:19:34+07:00"
   },
   {
     "path": "reference/markdown",
@@ -44,6 +44,19 @@
       "reference": "Памятки"
     },
     "updated_at": "2026-05-14T00:13:24+07:00"
+  },
+  {
+    "path": "tp/main",
+    "title": "Основная информация для техподдержки",
+    "excerpt": "Пароль для редактирования документации",
+    "parts": [
+      "tp",
+      "main"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП"
+    },
+    "updated_at": "2026-05-14T00:19:34+07:00"
   },
   {
     "path": "tp/devices/adm",
