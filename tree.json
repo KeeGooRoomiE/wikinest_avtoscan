@@ -20,43 +20,30 @@
     "updated_at": "2026-05-13T13:24:36+07:00"
   },
   {
-    "path": "reference/folder-structure",
-    "title": "Folder structure",
-    "excerpt": "Pages in WikiNest map directly to files in the `docs/` directory. The sidebar tree mirrors the directory structure.",
+    "path": "reference/links",
+    "title": "Ссылки на полезные ресурсы",
+    "excerpt": "Таблица Контакты",
     "parts": [
       "reference",
-      "folder-structure"
+      "links"
     ],
     "folder_titles": {
-      "reference": "Reference"
+      "reference": "Памятки"
     },
-    "updated_at": "2026-05-13T12:59:07+07:00"
-  },
-  {
-    "path": "reference/i18n",
-    "title": "Internationalization",
-    "excerpt": "WikiNest supports multiple UI languages. Page content language is not managed — write pages in any language you want.",
-    "parts": [
-      "reference",
-      "i18n"
-    ],
-    "folder_titles": {
-      "reference": "Reference"
-    },
-    "updated_at": "2026-05-13T12:59:07+07:00"
+    "updated_at": "2026-05-14T00:13:24+07:00"
   },
   {
     "path": "reference/markdown",
-    "title": "YAML",
-    "excerpt": "На этой странице находятся все примеры форматирования документа. Поддерживается стандартный markdown формат, который есть во всем интернете.",
+    "title": "YAML пример",
+    "excerpt": "Этот документ используется как внутренняя памятка компании по оформлению документации в markdown.",
     "parts": [
       "reference",
       "markdown"
     ],
     "folder_titles": {
-      "reference": "Reference"
+      "reference": "Памятки"
     },
-    "updated_at": "2026-05-13T14:28:39+07:00"
+    "updated_at": "2026-05-14T00:13:24+07:00"
   },
   {
     "path": "tp/devices/adm",
@@ -68,8 +55,8 @@
       "adm"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -83,8 +70,8 @@
       "arnavi"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -98,8 +85,8 @@
       "galileosky"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -113,8 +100,8 @@
       "navtelecom"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T17:32:32+07:00"
   },
@@ -128,8 +115,8 @@
       "omnicom"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -143,8 +130,8 @@
       "umka"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -158,8 +145,8 @@
       "vega"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "devices": "Devices"
+      "tp": "Документация для ТП",
+      "devices": "Документация по АТ"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   },
@@ -173,8 +160,8 @@
       "axenta"
     ],
     "folder_titles": {
-      "tp": "Tp",
-      "software": "Software"
+      "tp": "Документация для ТП",
+      "software": "Сервисы"
     },
     "updated_at": "2026-05-13T15:25:27+07:00"
   }
