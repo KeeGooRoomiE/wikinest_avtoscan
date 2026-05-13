@@ -1,5 +1,9 @@
 # Памятка по форматированию
 
+Этот документ используется как внутренняя памятка компании по оформлению документации в markdown.
+
+Рекомендуется придерживаться единого стиля оформления страниц, чтобы документация оставалась читаемой, структурированной и удобной для поддержки.
+
 На этой странице находятся все примеры форматирования документа. Поддерживается стандартный markdown формат, который есть во всем интернете.
 
 ---
@@ -26,17 +30,18 @@
 
 ## Разбивка на параграфы
 
+```
+Это первый параграф текста.
+```
 
+Это второй параграф текста. Между параграфами всегда должна быть пустая строка.
 
-This is a second paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-To force a line break within a paragraph, end a line with two spaces or a backslash.
-Line two follows immediately.
+Чтобы сделать перенос строки внутри одного параграфа, завершите строку двумя пробелами или символом `\\`.
+Следующая строка будет идти сразу после переноса.
 
 ```
 ---
 ```
-
 
 ---
 
@@ -49,7 +54,7 @@ Line two follows immediately.
 ~~перечеркнутый~~
 ```
 
-*италик* · **жирный** · ***жирный курсив*** · ~~перечеркнутый~~
+*курсив* · **жирный** · ***жирный курсив*** · ~~перечеркнутый~~
 
 Можно написать *самым* **разнообразным** ~~и интересным~~ путем *документацию* в пределах **одного предложения** даже.
 
@@ -80,110 +85,110 @@ Line two follows immediately.
 
 ---
 
-## Lists
+## Списки
 
-### Unordered
-
-```
-- Item one
-- Item two
-  - Nested item
-  - Another nested item
-    - Deeply nested
-- Item three
-```
-
-- Item one
-- Item two
-  - Nested item
-  - Another nested item
-    - Deeply nested
-- Item three
-
-### Ordered
+### Ненумерованный список
 
 ```
-1. First item
-2. Second item
-   1. Nested ordered
-   2. Another nested
-3. Third item
+- Пункт один
+- Пункт два
+  - Вложенный пункт
+  - Еще один вложенный пункт
+    - Глубоко вложенный
+- Пункт три
 ```
 
-1. First item
-2. Second item
-   1. Nested ordered
-   2. Another nested
-3. Third item
+- Пункт один
+- Пункт два
+  - Вложенный пункт
+  - Еще один вложенный пункт
+    - Глубоко вложенный
+- Пункт три
 
-### Mixed
-
-- Unordered item
-  1. Ordered nested
-  2. Another ordered nested
-- Back to unordered
-
-### Task list
+### Нумерованный список
 
 ```
-- [x] Completed task
-- [ ] Incomplete task
-- [x] Another done
+1. Первый пункт
+2. Второй пункт
+   1. Вложенный нумерованный
+   2. Еще вложенный
+3. Третий пункт
 ```
 
-- [x] Completed task
-- [ ] Incomplete task
-- [x] Another done
+1. Первый пункт
+2. Второй пункт
+   1. Вложенный нумерованный
+   2. Еще вложенный
+3. Третий пункт
+
+### Смешанный список
+
+- Ненумерованный пункт
+  1. Вложенный нумерованный
+  2. Еще вложенный нумерованный
+- Возврат к ненумерованному
+
+### Список задач
+
+```
+- [x] Выполненная задача
+- [ ] Невыполненная задача
+- [x] Еще одна выполненная
+```
+
+- [x] Выполненная задача
+- [ ] Невыполненная задача
+- [x] Еще одна выполненная
 
 ---
 
-## Code
+## Код
 
-### Inline code
+### Встроенный код
 
-Use `backticks` for inline code. Example: run `npm install` to install dependencies.
+Используйте `обратные кавычки` для вставки кода внутри текста. Пример: выполните `npm install` для установки зависимостей.
 
-### Fenced code blocks
+### Блоки кода
 
-With language for syntax highlighting:
+С указанием языка для подсветки синтаксиса:
 
 ```js
-// JavaScript
+// JavaScript пример
 const greet = (name) => {
-  return `Hello, ${name}!`;
+  return `Привет, ${name}!`;
 };
 
 console.log(greet('WikiNest'));
 ```
 
 ```python
-# Python
+# Python пример
 def greet(name: str) -> str:
-    return f"Hello, {name}!"
+    return f"Привет, {name}!"
 
 print(greet("WikiNest"))
 ```
 
 ```bash
-# Bash
+# Bash пример
 for file in docs/**/*.md; do
-  echo "Processing: $file"
+  echo "Обработка: $file"
 done
 ```
 
 ```go
-// Go
+// Go пример
 package main
 
 import "fmt"
 
 func main() {
-    fmt.Println("Hello, WikiNest!")
+    fmt.Println("Привет, WikiNest!")
 }
 ```
 
 ```yaml
-# YAML
+# YAML пример
 name: Deploy
 on:
   push:
@@ -208,19 +213,19 @@ WHERE p.path LIKE 'docs/%'
 ORDER BY p.title ASC;
 ```
 
-Without a language:
+Без указания языка:
 
 ```
-Plain text block.
-No syntax highlighting.
-Useful for output or generic preformatted text.
+Простой текстовый блок.
+Без подсветки синтаксиса.
+Полезно для вывода или общего предварительно форматированного текста.
 ```
 
 ---
 
-## Horizontal rules
+## Горизонтальные разделители
 
-Three or more hyphens, asterisks, or underscores on a line:
+Три и более дефиса, звездочки или подчеркивания на строке:
 
 ```
 ---
@@ -230,211 +235,263 @@ ___
 
 ---
 
-## Links
+## Ссылки
 
-### Inline links
-
-```
-[WikiNest on GitHub](https://github.com/KeeGooRoomiE/wikinest)
-[Link with title](https://github.com/ "GitHub homepage")
-```
-
-[WikiNest on GitHub](https://github.com/KeeGooRoomiE/wikinest)
-
-### Reference-style links
+### Обычные ссылки
 
 ```
-[GitHub][gh] is where the code lives.
+[WikiNest на GitHub](https://github.com/KeeGooRoomiE/wikinest)
+[Ссылка с заголовком](https://github.com/ "Главная страница GitHub")
+```
+
+[WikiNest на GitHub](https://github.com/KeeGooRoomiE/wikinest)
+
+### Ссылки через reference
+
+```
+[GitHub][gh] — место, где хранится код.
 
 [gh]: https://github.com
 ```
 
-[GitHub][gh] is where the code lives.
+[GitHub][gh] — место, где хранится код.
 
 [gh]: https://github.com
 
-### Internal links
+### Внутренние ссылки
 
 ```
-[Installation](setup/installation)
-[Configuration](setup/configuration)
+[Установка](setup/installation)
+[Настройки](setup/configuration)
 ```
 
-[Installation](setup/installation) · [Configuration](setup/configuration)
+[Установка](setup/installation) · [Настройки](setup/configuration)
 
-### Bare URLs
+### Прямые URL
 
 <https://github.com/KeeGooRoomiE/wikinest>
 
 ---
 
-## Images
+## Изображения
+
+WikiNest поддерживает как локальные изображения внутри репозитория, так и внешние ссылки на изображения.
+
+### Внешнее изображение
 
 ```
-![Alt text](https://via.placeholder.com/400x200 "Optional title")
+![Логотип GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
 ```
 
-![WikiNest placeholder](https://via.placeholder.com/600x200/E6F1FB/185FA5?text=WikiNest "WikiNest banner")
+![Логотип GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
 
-### Image as a link
+### Баннер
 
 ```
-[![Alt text](image-url)](link-url)
+![Markdown Banner](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
 ```
 
-[![GitHub](https://via.placeholder.com/120x40/1f2328/ffffff?text=GitHub)](https://github.com)
+![Markdown Banner](https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg)
+
+### Локальные изображения
+
+```
+![Скриншот](../assets/images/example.png)
+```
+
+### Изображение как ссылка
+```
+[![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)](https://github.com)
+```
+
+[![GitHub](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)](https://github.com)
 
 ---
 
-## Tables
+## Таблицы
 
 ```
-| Column 1 | Column 2 | Column 3 |
+| Колонка 1 | Колонка 2 | Колонка 3 |
 |---|---|---|
-| Cell 1 | Cell 2 | Cell 3 |
-| Cell 4 | Cell 5 | Cell 6 |
+| Ячейка 1 | Ячейка 2 | Ячейка 3 |
+| Ячейка 4 | Ячейка 5 | Ячейка 6 |
 ```
 
-| Column 1 | Column 2 | Column 3 |
+| Колонка 1 | Колонка 2 | Колонка 3 |
 |---|---|---|
-| Cell 1 | Cell 2 | Cell 3 |
-| Cell 4 | Cell 5 | Cell 6 |
+| Ячейка 1 | Ячейка 2 | Ячейка 3 |
+| Ячейка 4 | Ячейка 5 | Ячейка 6 |
 
-### Alignment
+### Выравнивание
 
 ```
-| Left | Center | Right |
+| Влево | По центру | Вправо |
 |:---|:---:|---:|
-| aligned left | centered | aligned right |
-| `code` | **bold** | *italic* |
+| выровнено влево | по центру | выровнено вправо |
+| `код` | **жирный** | *курсив* |
 ```
 
-| Left | Center | Right |
+| Влево | По центру | Вправо |
 |:---|:---:|---:|
-| aligned left | centered | aligned right |
-| `code` | **bold** | *italic* |
+| выровнено влево | по центру | выровнено вправо |
+| `код` | **жирный** | *курсив* |
 
-### Wider table
+### Расширенная таблица
 
-| Name | Type | Default | Description |
+| Имя | Тип | По умолчанию | Описание |
 |---|---|---|---|
-| `site_name` | string | `WikiNest` | Displayed in header and tab |
-| `lang` | string | `en` | Default UI language |
-| `edit_password_hash` | string | `""` | SHA-256 hash of edit password |
-| `owner` | string | `""` | GitHub owner |
-| `repo` | string | `""` | Repository name |
+| `site_name` | строка | `WikiNest` | Отображается в заголовке и вкладке |
+| `lang` | строка | `en` | Язык интерфейса по умолчанию |
+| `edit_password_hash` | строка | `""` | SHA-256 хэш пароля для редактирования |
+| `owner` | строка | `""` | Владелец на GitHub |
+| `repo` | строка | `""` | Название репозитория |
 
 ---
 
-## Footnotes
+## Сноски
 
-Some text with a footnote.[^1] Another sentence with a different note.[^note]
+Некоторый текст с сноской.[^1] Другое предложение с другой сноской.[^note]
 
-[^1]: This is the first footnote.
-[^note]: Footnotes can have multi-line content.
-
----
-
-## Definition lists
-
-WikiNest
-: A lightweight wiki hosted on GitHub Pages with no server required.
-
-Markdown
-: A lightweight markup language with plain-text formatting syntax.
+[^1]: Это первая сноска.
+[^note]: Сноски могут содержать многострочный текст.
 
 ---
 
-## Abbreviations
+## Списки определений
 
-*[HTML]: HyperText Markup Language
-*[API]: Application Programming Interface
+WikiNest  
+: Легковесное вики, размещенное на GitHub Pages без необходимости сервера.
 
-Using HTML and API in text — hover over them to see the expansion (if supported by the renderer).
+Markdown  
+: Легковесный язык разметки с простым синтаксисом форматирования.
 
 ---
 
-## Escaping
+## Аббревиатуры
 
-Use a backslash to escape special characters:
+*[HTML]: Язык гипертекстовой разметки  
+*[API]: Интерфейс программирования приложений
+
+Используйте HTML и API в тексте — наведите курсор, чтобы увидеть расшифровку (если поддерживается рендерером).
+
+---
+
+## Экранирование
+
+Используйте обратный слеш для экранирования специальных символов:
 
 ```
-\*not italic\*
-\`not code\`
-\# not a heading
-\[not a link\]
+\*не курсив\*
+\`не код\`
+\# не заголовок
+\[не ссылка\]
 ```
 
-\*not italic\* · \`not code\` · \# not a heading
+\*не курсив\* · \`не код\` · \# не заголовок
 
 ---
 
-## HTML in markdown
+## Чекбоксы и статус задач
 
-Raw HTML is supported inside markdown:
+Markdown удобно использовать для ведения задач прямо внутри документации.
+
+```
+- [x] Документация написана
+- [ ] Проверка безопасности
+- [ ] Актуализация API
+- [x] Скриншоты обновлены
+```
+
+- [x] Документация написана
+- [ ] Проверка безопасности
+- [ ] Актуализация API
+- [x] Скриншоты обновлены
+
+---
+
+## HTML внутри markdown
+
+Raw HTML поддерживается внутри markdown:
 
 <details>
-<summary>Click to expand</summary>
+<summary>Нажмите для раскрытия</summary>
 
-This content is hidden by default and revealed on click. You can put any markdown here.
+Это содержимое скрыто по умолчанию и раскрывается по клику. Вы можете использовать любой markdown здесь.
 
-- Item one
-- Item two
+- Пункт один
+- Пункт два
 
 </details>
 
 <br>
 
-<kbd>Ctrl</kbd> + <kbd>K</kbd> — keyboard shortcut notation using `<kbd>` tags.
+<kbd>Ctrl</kbd> + <kbd>K</kbd> — обозначение сочетания клавиш с помощью тегов `<kbd>`.
 
-<mark>Highlighted text</mark> using the `<mark>` tag.
+<mark>Выделенный текст</mark> с использованием тега `<mark>`.
 
 ---
 
-## Nested markdown in blockquotes
+## Рекомендации по оформлению
 
-> ## Heading inside blockquote
+- Используйте один `#` заголовок на страницу.
+- Не делайте слишком глубокую вложенность заголовков.
+- Для команд и путей используйте inline-code.
+- Для логов и конфигов используйте fenced code blocks.
+- Изображения храните локально внутри репозитория, если это внутренняя документация.
+- Используйте таблицы только там, где они действительно повышают читаемость.
+- Не смешивайте русский и английский язык без необходимости.
+- Для предупреждений используйте blockquote.
+
+Пример уведомления:
+
+> **Важно:** Перед изменением production-конфигурации обязательно создайте резервную копию.
+
+---
+
+## Markdown внутри цитат
+
+> ## Заголовок внутри цитаты
 >
-> A paragraph inside a blockquote with **bold** and *italic* text.
+> Абзац внутри цитаты с **жирным** и *курсивным* текстом.
 >
-> - List item one
-> - List item two
+> - Пункт списка один
+> - Пункт списка два
 >
 > ```js
-> // Code block inside blockquote
+> // Блок кода внутри цитаты
 > const x = 42;
 > ```
 
 ---
 
-## Long content example
+## Пример длинного текста
 
-This section demonstrates how longer prose renders inside WikiNest.
+Этот раздел демонстрирует, как более длинные тексты отображаются внутри WikiNest.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Ведение документации в компании — важная часть процесса разработки и поддержки проектов. Хорошо структурированная документация помогает новым сотрудникам быстро вникнуть в работу, а также облегчает передачу знаний внутри команды.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Важно соблюдать единый стиль оформления, чтобы вся документация выглядела гармонично и была удобна для чтения. Использование markdown позволяет создавать понятные и легко редактируемые документы.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+Регулярное обновление документации и проверка актуальности информации помогают избежать ошибок и недопониманий в процессе работы, а также повышают общую эффективность команды.
 
 ---
 
-## Summary
+## Краткая памятка
 
-| Element | Syntax |
+| Элемент | Синтаксис |
 |---|---|
-| Heading | `# H1` `## H2` `### H3` |
-| Bold | `**text**` |
-| Italic | `*text*` |
-| Strikethrough | `~~text~~` |
-| Inline code | `` `code` `` |
-| Code block | ```` ```lang ```` |
-| Link | `[text](url)` |
-| Image | `![alt](url)` |
-| Blockquote | `> text` |
-| Unordered list | `- item` |
-| Ordered list | `1. item` |
-| Task list | `- [x] done` |
-| Table | `\| col \| col \|` |
-| Horizontal rule | `---` |
-| Footnote | `[^1]` |
+| Заголовок | `# H1` `## H2` `### H3` |
+| Жирный | `**текст**` |
+| Курсив | `*текст*` |
+| Перечеркнутый | `~~текст~~` |
+| Встроенный код | `` `код` `` |
+| Блок кода | ```` ```lang ```` |
+| Ссылка | `[текст](url)` |
+| Изображение | `![alt](url)` |
+| Цитата | `> текст` |
+| Ненумерованный список | `- пункт` |
+| Нумерованный список | `1. пункт` |
+| Чекбокс | `- [ ] задача` |
+| Сноска | `[^1]` |
+| Горизонтальный разделитель | `---` |
+| HTML | `<details></details>` |
