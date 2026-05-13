@@ -40,20 +40,22 @@ Line two follows immediately.
 
 ---
 
-## Emphasis
+## Стили текста
 
 ```
-*italic* or _italic_
-**bold** or __bold__
-***bold italic*** or ___bold italic___
-~~strikethrough~~
+*курсив* или _курсив_
+**жирный** или __жирный__
+***жирный курсив*** или ___жирный курсив___
+~~перечеркнутый~~
 ```
 
-*italic* · **bold** · ***bold italic*** · ~~strikethrough~~
+*италик* · **жирный** · ***жирный курсив*** · ~~перечеркнутый~~
 
 ---
 
-## Blockquotes
+## Цитирование
+
+Цитирование может быть многовложенным
 
 ```
 > Single level quote.
