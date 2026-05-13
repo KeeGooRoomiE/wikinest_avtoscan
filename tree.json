@@ -55,17 +55,5 @@
     "folder_titles": {
       "setup": "Setup & Installation"
     }
-  },
-  {
-    "path": "setup/installation",
-    "title": "Installation",
-    "excerpt": "WikiNest requires no build step. Fork the repository, enable GitHub Pages, configure your token — done in under 5 minutes.",
-    "parts": [
-      "setup",
-      "installation"
-    ],
-    "folder_titles": {
-      "setup": "Setup & Installation"
-    }
   }
 ]
