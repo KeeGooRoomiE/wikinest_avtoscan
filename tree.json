@@ -43,17 +43,5 @@
     "folder_titles": {
       "reference": "Reference"
     }
-  },
-  {
-    "path": "setup/configuration",
-    "title": "Configuration",
-    "excerpt": "WikiNest is configured through two places: `config.json` in the repository root, and the settings UI in the browser.",
-    "parts": [
-      "setup",
-      "configuration"
-    ],
-    "folder_titles": {
-      "setup": "Setup & Installation"
-    }
   }
 ]
