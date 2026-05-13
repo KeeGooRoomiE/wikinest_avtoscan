@@ -24,7 +24,7 @@ jobs:
       - name: Generate tree.json
         run: |
           python3 - <<'PYEOF'
-          import os, json
+          import os, json, subprocess
 
           docs_dir = 'docs'
           tree = []
@@ -63,12 +63,17 @@ jobs:
                 folder_path = '/'.join(parts[:i+1])
                 meta = folder_meta.get(folder_path, {})
                 folder_titles[parts[i]] = meta.get('title', parts[i].replace('-', ' ').replace('_', ' ').capitalize())
+              updated_at = subprocess.run(
+                ['git', 'log', '-1', '--format=%cI', '--', full],
+                capture_output=True, text=True
+              ).stdout.strip() or None
               tree.append({
                 'path': path,
                 'title': title,
                 'excerpt': excerpt,
                 'parts': parts,
-                'folder_titles': folder_titles
+                'folder_titles': folder_titles,
+                'updated_at': updated_at
               })
 
           with open('tree.json', 'w', encoding='utf-8') as f:

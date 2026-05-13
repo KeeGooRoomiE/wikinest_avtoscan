@@ -29,5 +29,8 @@
   "enter_password": "Введите пароль для редактирования",
   "password_wrong": "Неверный пароль",
   "language": "Язык",
-  "pages": "Страницы"
+  "pages": "Страницы",
+  "rename": "Переименовать",
+  "rename_new_path": "Новый путь",
+  "recently_modified": "Недавно изменённые"
 }

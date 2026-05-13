@@ -471,6 +471,19 @@ body {
   margin: 20px 0;
 }
 
+#panels.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#panels.split #toc {
+  display: none !important;
+}
+
+#panels.split #view-wrap {
+  border-right: 0.5px solid var(--border);
+}
+
 #editor-wrap {
   display: none;
   flex: 1;
@@ -546,6 +559,48 @@ body {
 
 #empty svg {
   opacity: 0.25;
+}
+
+.recent-title {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text3);
+  margin-bottom: 10px;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.recent-item:hover {
+  background: var(--bg2);
+}
+
+.recent-item-title {
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-item-date {
+  color: var(--text3);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+#recent-wrap {
+  width: 100%;
+  max-width: 360px;
 }
 
 #search-overlay {
@@ -885,6 +940,14 @@ mark {
   }
 
   #toc {
+    display: none !important;
+  }
+
+  #panels.split {
+    grid-template-columns: 1fr;
+  }
+
+  #panels.split #view-wrap {
     display: none !important;
   }
 

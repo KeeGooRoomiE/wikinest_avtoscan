@@ -45,6 +45,10 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
         <span id="lbl-delete">Delete</span>
       </button>
+      <button class="bar-btn" id="btn-rename" onclick="openRenamePage()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+        <span id="lbl-rename">Rename</span>
+      </button>
       <button class="bar-btn" id="btn-edit" onclick="startEdit()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         <span id="lbl-edit">Edit</span>
@@ -58,7 +62,13 @@
       </div>
     </div>
     <div id="panels">
-      <div id="empty"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span id="lbl-empty">Select a page or create a new one</span></div>
+      <div id="empty">
+        <div id="empty-placeholder" style="display:flex;flex-direction:column;align-items:center;gap:10px">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="lbl-empty">Select a page or create a new one</span>
+        </div>
+        <div id="recent-wrap" style="display:none"></div>
+      </div>
       <div id="view-wrap" style="display:none"><div id="view"></div></div>
       <div id="editor-wrap"><textarea id="editor" spellcheck="false"></textarea></div>
       <div id="toc"><div class="toc-title" id="lbl-toc">On this page</div><div id="toc-list"></div></div>
@@ -92,7 +102,7 @@
 
 <script>
 const $=id=>document.getElementById(id);
-let cfg={},i18n={},tree=[],currentPath=null,currentSha=null,unlocked=false;
+let cfg={},i18n={},tree=[],currentPath=null,currentSha=null,unlocked=false,editorDirty=false,originalContent=null;
 
 const t=k=>i18n[k]??k;
 
@@ -102,6 +112,7 @@ async function init(){
     const r=await fetch('config.json', {cache:'no-cache'});
     if(r.ok) cfg=await r.json();
   }catch{}
+  cfg.provider=cfg.provider||'github';
 
   // 2. merge user-local overrides from localStorage (enc_token stays separate)
   const saved=localStorage.getItem('wn_cfg');
@@ -123,14 +134,19 @@ async function init(){
 
   document.addEventListener('keydown',e=>{
     if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}
+    if((e.metaKey||e.ctrlKey)&&e.key==='s'&&$('editor-wrap').style.display!=='none'){e.preventDefault();savePage();}
     if(e.key==='Escape'){closeSearch();closeModal();}
+  });
+  window.addEventListener('beforeunload',e=>{
+    if(editorDirty){e.preventDefault();e.returnValue='';}
   });
 }
 
 function showSetupBanner(){
-  $('empty').innerHTML=`
+  $('empty-placeholder').innerHTML=`
     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.25"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
     <span style="font-size:13px;color:var(--text2)">Click ⚙ to add your token and get started</span>`;
+  $('recent-wrap').style.display='none';
 }
 
 async function loadI18n(lang){
@@ -147,7 +163,9 @@ function applyI18n(){
   $('lbl-save').textContent=t('save');
   $('lbl-cancel').textContent=t('cancel');
   $('lbl-delete').textContent=t('delete_page');
-  $('lbl-empty').textContent=t('empty_state');
+  $('lbl-rename').textContent=t('rename');
+  const lbl=$('lbl-empty');
+  if(lbl) lbl.textContent=t('empty_state');
   $('lbl-toc').textContent=t('on_this_page');
   $('lbl-pw-cancel').textContent=t('cancel');
   $('lbl-pw-ok').textContent='Unlock';
@@ -163,7 +181,7 @@ async function switchLang(lang){
   applyI18n();
 }
 
-// ── GitHub API ──
+// ── API layer (GitHub + GitLab) ──
 const ghFetch=async(path,method='GET',body)=>{
   const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/${path}`,{
     method,
@@ -173,6 +191,68 @@ const ghFetch=async(path,method='GET',body)=>{
   if(!r.ok){const e=await r.json();throw new Error(e.message||r.statusText);}
   return r.json();
 };
+
+const glFetch=async(path,method='GET',body)=>{
+  const pid=encodeURIComponent(`${cfg.owner}/${cfg.repo}`);
+  const r=await fetch(`https://gitlab.com/api/v4/projects/${pid}/${path}`,{
+    method,
+    headers:{'PRIVATE-TOKEN':cfg.token,'Content-Type':'application/json'},
+    body:body?JSON.stringify(body):undefined
+  });
+  if(!r.ok){const e=await r.json();throw new Error(e.message||r.statusText);}
+  if(r.status===204||method==='DELETE') return null;
+  return r.json();
+};
+
+function rawUrl(path){
+  if(cfg.provider==='gitlab') return `https://gitlab.com/${cfg.owner}/${cfg.repo}/-/raw/main/${path}`;
+  return `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
+}
+
+async function apiGetFile(path){
+  if(cfg.provider==='gitlab'){
+    const d=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
+    return {sha:d.last_commit_id,content:d.content};
+  }
+  const d=await ghFetch(`contents/${path}`);
+  return {sha:d.sha,content:d.content};
+}
+
+async function apiPutFile(path,message,content,sha){
+  if(cfg.provider==='gitlab'){
+    const method=sha?'PUT':'POST';
+    const body={branch:'main',commit_message:message,content};
+    if(sha) body.last_commit_id=sha;
+    await glFetch(`repository/files/${encodeURIComponent(path)}`,method,body);
+    const updated=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
+    return {sha:updated.last_commit_id};
+  }
+  const body={message,content};
+  if(sha) body.sha=sha;
+  const d=await ghFetch(`contents/${path}`,'PUT',body);
+  return {sha:d.content.sha};
+}
+
+async function apiDeleteFile(path,message,sha){
+  if(cfg.provider==='gitlab'){
+    await glFetch(`repository/files/${encodeURIComponent(path)}`,'DELETE',{branch:'main',commit_message:message,last_commit_id:sha});
+    return;
+  }
+  await ghFetch(`contents/${path}`,'DELETE',{message,sha});
+}
+
+function normalizeRun(run){
+  if(cfg.provider!=='gitlab') return run;
+  const active=['running','preparing','pending','created','waiting_for_resource','scheduled'].includes(run.status);
+  const gl2c={success:'success',failed:'failure',canceled:'cancelled',skipped:'cancelled',manual:'cancelled'};
+  return {
+    id:run.id,
+    status:active?(run.status==='running'||run.status==='preparing'?'in_progress':'queued'):'completed',
+    conclusion:active?null:(gl2c[run.status]||run.status),
+    html_url:run.web_url
+  };
+}
+
 const b64enc=s=>btoa(unescape(encodeURIComponent(s)));
 const b64dec=s=>decodeURIComponent(escape(atob(s)));
 
@@ -227,10 +307,11 @@ function decrypt(enc,key){
 async function loadTree(){
   $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
   try{
-    const r=await fetch(`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/tree.json`,{cache:'no-cache'});
+    const r=await fetch(rawUrl('tree.json'),{cache:'no-cache'});
     if(!r.ok) throw new Error();
     tree=await r.json();
     renderTree(tree);
+    if(!currentPath) showEmpty();
   }catch{
     $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
   }
@@ -311,11 +392,11 @@ async function openPage(page){
   $('edit-btns').style.display='none';
   $('btn-edit').style.display='flex';
   $('btn-delete').style.display='flex';
+  $('btn-rename').style.display='flex';
   cancelEdit();
 
   try{
-    const rawUrl=`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${currentPath}`;
-    const r=await fetch(rawUrl,{cache:'no-cache'});
+    const r=await fetch(rawUrl(currentPath),{cache:'no-cache'});
     if(!r.ok) throw new Error(r.statusText);
     const md=await r.text();
     currentSha=null;
@@ -337,34 +418,53 @@ function buildToc(){
   $('toc-list').innerHTML=headings.map(h=>{
     const id=h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
     h.id=id;
-    return `<div class="toc-item ${h.tagName==='H3'?'toc-h2':''}" onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth'})">${h.textContent}</div>`;
+    return `<div class="toc-item ${h.tagName==='H3'?'toc-h2':''}" onclick="tocClick('${id}')">${h.textContent}</div>`;
   }).join('');
+  if(location.hash){
+    const target=document.getElementById(location.hash.slice(1));
+    if(target) setTimeout(()=>target.scrollIntoView({behavior:'smooth'}),100);
+  }
+}
+
+function tocClick(id){
+  const el=document.getElementById(id);
+  if(el){el.scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+id);}
 }
 
 // ── Edit ──
 async function startEdit(){
   const ok=await requireUnlock();
   if(!ok) return;
-  const data=await ghFetch(`contents/${currentPath}`);
+  const data=await apiGetFile(currentPath);
   currentSha=data.sha;
   const md=b64dec(data.content.replace(/\n/g,''));
+  originalContent=md;
+  editorDirty=false;
   $('editor').value=md;
+  $('panels').classList.add('split');
   $('editor-wrap').style.display='block';
   $('toc').style.display='none';
   $('btn-edit').style.display='none';
   $('btn-delete').style.display='none';
+  $('btn-rename').style.display='none';
   $('edit-btns').style.display='flex';
   $('editor').oninput=()=>{
+    editorDirty=$('editor').value!==originalContent;
     $('view').innerHTML=marked.parse($('editor').value);
   };
   $('editor').focus();
 }
 
 function cancelEdit(){
+  if(originalContent!==null){renderView(originalContent);originalContent=null;}
+  editorDirty=false;
+  $('panels').classList.remove('split');
   $('editor-wrap').style.display='none';
   $('edit-btns').style.display='none';
+  $('view-wrap').style.display=currentPath?'block':'none';
   $('btn-edit').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=currentPath?'flex':'none';
+  $('btn-rename').style.display=currentPath?'flex':'none';
   buildToc();
 }
 
@@ -374,11 +474,10 @@ async function savePage(){
   const spin=$('save-spin');
   btn.disabled=true; spin.style.display='inline-block';
   try{
-    await ghFetch(`contents/${currentPath}`,'PUT',{
-      message:`docs: update ${currentPath}`,
-      content:b64enc(content),
-      sha:currentSha
-    });
+    const saved=await apiPutFile(currentPath,`docs: update ${currentPath}`,b64enc(content),currentSha);
+    currentSha=saved.sha;
+    originalContent=content;
+    editorDirty=false;
     renderView(content);
     cancelEdit();
     watchDeploy();
@@ -412,39 +511,121 @@ async function createPage(){
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const content=`# ${title}\n\nStart writing here.\n`;
   try{
-    await ghFetch(`contents/${fullPath}`,'PUT',{
-      message:`docs: create ${fullPath}`,
-      content:b64enc(content)
-    });
+    await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content),null);
     closeModal();
-    toast(t('saved'));
-    await loadTree();
-    const page={path,title,parts:path.split('/'),excerpt:''};
+    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{}};
+    tree.push(page);
+    renderTree(tree);
     openPage(page);
+    watchDeploy();
   }catch(e){toast(`${t('error_save')}: ${e.message}`);}
 }
 
 // ── Delete ──
-async function deletePage(){
+function deletePage(){
   if(!currentPath) return;
-  if(!confirm(t('delete_confirm'))) return;
+  $('modal-title').textContent=t('delete_page');
+  $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px;line-height:1.6">${t('delete_confirm')}</p>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-danger" onclick="closeModal();doDelete()">${t('delete_page')}</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function doDelete(){
   const ok=await requireUnlock();
   if(!ok) return;
   try{
-    const meta=await ghFetch(`contents/${currentPath}`);
-    await ghFetch(`contents/${currentPath}`,'DELETE',{
-      message:`docs: delete ${currentPath}`,
-      sha:meta.sha
-    });
-    currentPath=null; currentSha=null;
-    $('empty').style.display='flex';
+    const meta=await apiGetFile(currentPath);
+    await apiDeleteFile(currentPath,`docs: delete ${currentPath}`,meta.sha);
+    const deletedRel=currentPath.replace('docs/','').replace(/\.md$/,'');
+    currentPath=null; currentSha=null; originalContent=null; editorDirty=false;
+    $('panels').classList.remove('split');
+    $('view-wrap').style.display='none';
+    $('editor-wrap').style.display='none';
+    $('btn-edit').style.display='none';
+    $('btn-delete').style.display='none';
+    $('btn-rename').style.display='none';
+    $('edit-btns').style.display='none';
+    $('breadcrumb').innerHTML='';
+    $('toc').style.display='none';
+    tree=tree.filter(p=>p.path!==deletedRel);
+    renderTree(tree);
+    showEmpty();
+    watchDeploy();
+  }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Rename ──
+function openRenamePage(){
+  if(!currentPath) return;
+  const cur=currentPath.replace('docs/','').replace(/\.md$/,'');
+  $('modal-title').textContent=t('rename');
+  $('modal-body').innerHTML=`
+    <div class="field"><label>${t('rename_new_path')}</label>
+    <input id="m-rename" value="${cur}">
+    <div class="hint">${t('page_path_hint')}</div></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="doRename()">${t('rename')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>{const el=$('m-rename');el.focus();el.setSelectionRange(el.value.length,el.value.length);},50);
+}
+
+async function doRename(){
+  const newRel=$('m-rename').value.trim().replace(/\.md$/,'');
+  if(!newRel) return;
+  const oldPath=currentPath;
+  const newPath=`docs/${newRel}.md`;
+  if(newPath===oldPath){closeModal();return;}
+  const ok=await requireUnlock();
+  if(!ok) return;
+  closeModal();
+  try{
+    const oldData=await apiGetFile(oldPath);
+    const content=b64dec(oldData.content.replace(/\n/g,''));
+    await apiPutFile(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc(content),null);
+    await apiDeleteFile(oldPath,`docs: rename ${oldPath} → ${newPath}`,oldData.sha);
+    const oldRel=oldPath.replace('docs/','').replace(/\.md$/,'');
+    const parts=newRel.split('/');
+    const title=parts[parts.length-1].replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    const renamedPage={path:newRel,title,parts,excerpt:'',folder_titles:{}};
+    tree=tree.filter(p=>p.path!==oldRel);
+    tree.push(renamedPage);
+    renderTree(tree);
+    currentPath=null; currentSha=null; originalContent=null; editorDirty=false;
+    $('panels').classList.remove('split');
     $('view-wrap').style.display='none';
     $('btn-edit').style.display='none';
     $('btn-delete').style.display='none';
+    $('btn-rename').style.display='none';
     $('breadcrumb').innerHTML='';
     $('toc').style.display='none';
+    showEmpty();
+    toast(t('saved'));
+    openPage(renamedPage);
     watchDeploy();
   }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Empty state ──
+function showEmpty(){
+  $('empty').style.display='flex';
+  const recent=[...tree].filter(p=>p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,5);
+  if(recent.length){
+    $('empty-placeholder').style.display='none';
+    $('recent-wrap').style.display='block';
+    $('recent-wrap').innerHTML=`
+      <div class="recent-title">${t('recently_modified')}</div>
+      ${recent.map(p=>`
+        <div class="recent-item" onclick="openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+          <span class="recent-item-title">${p.title}</span>
+          <span class="recent-item-date">${new Date(p.updated_at).toLocaleDateString()}</span>
+        </div>`).join('')}`;
+  }else{
+    $('empty-placeholder').style.display='flex';
+    $('recent-wrap').style.display='none';
+  }
 }
 
 // ── Search ──
@@ -487,7 +668,7 @@ function openSettings(){
       <span style="color:var(--text3);font-size:11px">From config.json — edit in the repo to change</span>
     </div>
     <div class="field"><label>${t('token')}</label>
-      <input id="m-token" type="password" placeholder="${hasToken?'stored — paste to replace':'ghp_...'}">
+      <input id="m-token" type="password" placeholder="${hasToken?'stored — paste to replace':cfg.provider==='gitlab'?'glpat-...':'ghp_...'}">
       <div class="hint">${t('token_hint')}</div>
     </div>
     <div class="field"><label>${t('password')}</label>
@@ -554,6 +735,13 @@ const statusCfg = {
 async function fetchLatestRun(){
   if(!cfg.owner||!cfg.repo||!cfg.token) return null;
   try{
+    if(cfg.provider==='gitlab'){
+      const runs=await glFetch('pipelines?per_page=3');
+      const run=watchingRunId
+        ?(runs.find(r=>r.id===watchingRunId)||runs[0]||null)
+        :(runs[0]||null);
+      return run?normalizeRun(run):null;
+    }
     const data=await ghFetch('actions/runs?per_page=3');
     if(watchingRunId){
       return data.workflow_runs?.find(r=>r.id===watchingRunId)

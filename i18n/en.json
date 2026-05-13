@@ -29,5 +29,8 @@
   "enter_password": "Enter password to edit",
   "password_wrong": "Wrong password",
   "language": "Language",
-  "pages": "Pages"
+  "pages": "Pages",
+  "rename": "Rename",
+  "rename_new_path": "New path",
+  "recently_modified": "Recently modified"
 }
