@@ -21,8 +21,8 @@
   },
   {
     "path": "reference/links",
-    "title": "Ссылки на полезные ресурсы",
-    "excerpt": "Таблица Контакты",
+    "title": "Ссылки на ресурсы",
+    "excerpt": "[Таблица Контакты][contacts_gdrive] - [Контакты](contacts)",
     "parts": [
       "reference",
       "links"
@@ -30,7 +30,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-05-14T00:19:34+07:00"
+    "updated_at": "2026-05-14T09:57:23+07:00"
   },
   {
     "path": "reference/markdown",
