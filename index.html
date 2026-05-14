@@ -123,7 +123,8 @@ async function init(){
   }
 
   const lang=localStorage.getItem('wn_lang')||cfg.lang||'en';
-  $('lang-switcher').value=lang;
+  const lsEl=$('lang-switcher');
+  if(lsEl) lsEl.value=lang;
   await loadI18n(lang);
   applyI18n();
 
@@ -157,21 +158,21 @@ async function loadI18n(lang){
 }
 
 function applyI18n(){
-  $('lbl-search').textContent=t('search');
-  $('lbl-new-page').textContent=t('new_page');
-  $('lbl-edit').textContent=t('edit');
-  $('lbl-save').textContent=t('save');
-  $('lbl-cancel').textContent=t('cancel');
-  $('lbl-delete').textContent=t('delete_page');
-  $('lbl-rename').textContent=t('rename');
-  const lbl=$('lbl-empty');
-  if(lbl) lbl.textContent=t('empty_state');
-  $('lbl-toc').textContent=t('on_this_page');
-  $('lbl-pw-cancel').textContent=t('cancel');
-  $('lbl-pw-ok').textContent='Unlock';
-  $('pw-title').textContent=t('enter_password');
+  const set=(id,val)=>{const el=$(id);if(el)el.textContent=val;};
+  set('lbl-search',    t('search'));
+  set('lbl-new-page',  t('new_page'));
+  set('lbl-edit',      t('edit'));
+  set('lbl-save',      t('save'));
+  set('lbl-cancel',    t('cancel'));
+  set('lbl-delete',    t('delete_page'));
+  set('lbl-rename',    t('rename'));
+  set('lbl-empty',     t('empty_state'));
+  set('lbl-toc',       t('on_this_page'));
+  set('lbl-pw-cancel', t('cancel'));
+  set('lbl-pw-ok',     'Unlock');
+  set('pw-title',      t('enter_password'));
   const sn=cfg.site_name||'WikiNest';
-  $('site-name').textContent=sn;
+  set('site-name', sn);
   document.title=sn;
 }
 
@@ -412,9 +413,11 @@ function renderView(md){
 }
 
 function buildToc(){
+  const tocEl=$('toc');
+  if(!tocEl) return;
   const headings=[...$('view').querySelectorAll('h2,h3')];
-  if(headings.length<2){$('toc').style.display='none';return;}
-  $('toc').style.display='block';
+  if(headings.length<2){tocEl.style.display='none';return;}
+  tocEl.style.display='block';
   $('toc-list').innerHTML=headings.map(h=>{
     const id=h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
     h.id=id;
@@ -443,7 +446,7 @@ async function startEdit(){
   $('editor').value=md;
   $('panels').classList.add('split');
   $('editor-wrap').style.display='block';
-  $('toc').style.display='none';
+  const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
   $('btn-edit').style.display='none';
   $('btn-delete').style.display='none';
   $('btn-rename').style.display='none';
@@ -548,7 +551,7 @@ async function doDelete(){
     $('btn-rename').style.display='none';
     $('edit-btns').style.display='none';
     $('breadcrumb').innerHTML='';
-    $('toc').style.display='none';
+    const tocDel=$('toc');if(tocDel)tocDel.style.display='none';
     tree=tree.filter(p=>p.path!==deletedRel);
     renderTree(tree);
     showEmpty();
@@ -600,7 +603,7 @@ async function doRename(){
     $('btn-delete').style.display='none';
     $('btn-rename').style.display='none';
     $('breadcrumb').innerHTML='';
-    $('toc').style.display='none';
+    const tocRen=$('toc');if(tocRen)tocRen.style.display='none';
     showEmpty();
     toast(t('saved'));
     openPage(renamedPage);
