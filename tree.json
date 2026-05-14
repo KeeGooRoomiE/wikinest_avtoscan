@@ -46,6 +46,20 @@
     "updated_at": "2026-05-14T00:13:24+07:00"
   },
   {
+    "path": "test/test/test",
+    "title": "Test",
+    "excerpt": "Start writing here.",
+    "parts": [
+      "test",
+      "test",
+      "test"
+    ],
+    "folder_titles": {
+      "test": "Test"
+    },
+    "updated_at": "2026-05-14T10:41:40+07:00"
+  },
+  {
     "path": "tp/main",
     "title": "Основная информация для техподдержки",
     "excerpt": "Пароль для редактирования документации",
