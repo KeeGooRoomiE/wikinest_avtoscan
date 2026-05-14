@@ -1,3 +1,0 @@
-# Test
-
-Start writing here.
