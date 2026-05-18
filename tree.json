@@ -12,14 +12,14 @@
     "author": ""
   },
   {
-    "path": "index",
+    "path": "home",
     "title": "Добро пожаловать",
     "excerpt": "Документация компании АвтоСкан содержится здесь",
     "parts": [
-      "index"
+      "home"
     ],
     "folder_titles": {},
-    "updated_at": "2026-05-13T13:24:36+07:00",
+    "updated_at": "2026-05-18T15:30:11+07:00",
     "tags": [],
     "author": ""
   },
