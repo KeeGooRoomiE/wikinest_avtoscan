@@ -71,7 +71,7 @@
   {
     "path": "tp/devices/adm",
     "title": "ADM",
-    "excerpt": "ччся",
+    "excerpt": "`ADM007` `ADM007BLE` `ADM333` `ADM333BLE` `ADM333V2`",
     "parts": [
       "tp",
       "devices",
@@ -81,7 +81,7 @@
       "tp": "Документация для ТП",
       "devices": "Документация по АТ"
     },
-    "updated_at": "2026-05-18T10:14:46+07:00",
+    "updated_at": "2026-05-18T10:15:11+07:00",
     "tags": [],
     "author": ""
   },
