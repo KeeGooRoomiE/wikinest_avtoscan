@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>WikiNest</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -49,6 +49,14 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
         <span id="lbl-rename">Rename</span>
       </button>
+      <button class="bar-btn" id="btn-history" onclick="openHistory()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="lbl-history">History</span>
+      </button>
+      <button class="bar-btn" id="btn-print" onclick="window.print()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span id="lbl-print">Print</span>
+      </button>
       <button class="bar-btn" id="btn-edit" onclick="startEdit()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         <span id="lbl-edit">Edit</span>
@@ -70,8 +78,43 @@
         <div id="recent-wrap" style="display:none"></div>
       </div>
       <div id="view-wrap" style="display:none"><div id="view"></div></div>
-      <div id="editor-wrap"><textarea id="editor" spellcheck="false"></textarea></div>
-      <!-- <div id="toc"><div class="toc-title" id="lbl-toc">On this page</div><div id="toc-list"></div></div> -->
+      <div id="editor-wrap">
+        <div id="md-toolbar">
+          <!-- Text formatting -->
+          <button class="tb-btn" title="Bold" onclick="fmt('**','**','bold text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 4h8a4 4 0 010 8H6z"/><path d="M6 12h9a4 4 0 010 8H6z"/></svg></button>
+          <button class="tb-btn" title="Italic" onclick="fmt('_','_','italic text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/></svg></button>
+          <button class="tb-btn" title="Strikethrough" onclick="fmt('~~','~~','strikethrough')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4H9a3 3 0 00-2.83 4"/><path d="M14 12a4 4 0 010 8H6"/><line x1="4" y1="12" x2="20" y2="12"/></svg></button>
+          <div class="tb-sep"></div>
+          <!-- Headings -->
+          <button class="tb-btn" title="Heading 1" onclick="fmtLine('# ')">H1</button>
+          <button class="tb-btn" title="Heading 2" onclick="fmtLine('## ')">H2</button>
+          <button class="tb-btn" title="Heading 3" onclick="fmtLine('### ')">H3</button>
+          <div class="tb-sep"></div>
+          <!-- Blocks & lists -->
+          <button class="tb-btn" title="Blockquote" onclick="fmtLine('> ')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="2" height="16" rx="1" fill="currentColor" stroke="none"/><line x1="9" y1="8" x2="20" y2="8"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="16" x2="20" y2="16"/></svg></button>
+          <button class="tb-btn" title="Unordered list" onclick="fmtLine('- ')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/></svg></button>
+          <button class="tb-btn" title="Ordered list" onclick="fmtLine('1. ')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="10" y1="6" x2="21" y2="6"/><line x1="10" y1="12" x2="21" y2="12"/><line x1="10" y1="18" x2="21" y2="18"/><path d="M4 6h1v4M4 10h2" stroke-linecap="round"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" stroke-linecap="round"/></svg></button>
+          <button class="tb-btn" title="Task list" onclick="fmtLine('- [ ] ')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="13" height="13" rx="2"/><path d="M6 11l3 3 5-5"/><line x1="19" y1="9" x2="21" y2="9"/><line x1="19" y1="14" x2="21" y2="14"/><line x1="19" y1="19" x2="21" y2="19"/></svg></button>
+          <div class="tb-sep"></div>
+          <!-- Code -->
+          <button class="tb-btn" title="Inline code" onclick="fmt('`','`','code')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+          <button class="tb-btn" title="Code block" onclick="fmt('\n```\n','\n```\n','code here')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="10 9 7 12 10 15"/><polyline points="14 9 17 12 14 15"/></svg></button>
+          <div class="tb-sep"></div>
+          <!-- Insert -->
+          <button class="tb-btn" title="Link" onclick="fmt('[','](url)','link text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
+          <button class="tb-btn" title="Image" onclick="fmt('![','](url)','alt text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></button>
+          <button class="tb-btn" title="Table" onclick="fmtTable()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg></button>
+          <button class="tb-btn" title="Horizontal rule" onclick="fmt('\n---\n','','')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/></svg></button>
+        </div>
+        <div id="draft-banner">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span id="draft-banner-msg">You have an unsaved draft.</span>
+          <button class="draft-banner-btn" onclick="restoreDraft()" id="btn-draft-restore">Restore draft</button>
+          <button class="draft-banner-btn" onclick="discardDraft()" id="btn-draft-discard">Discard</button>
+        </div>
+        <textarea id="editor" spellcheck="false"></textarea>
+      </div>
+      <div id="toc"><div class="toc-title" id="lbl-toc">On this page</div><div id="toc-list"></div></div>
     </div>
   </div>
 </div>
@@ -102,14 +145,137 @@
 
 <script>
 const $=id=>document.getElementById(id);
-let cfg={},i18n={},tree=[],currentPath=null,currentSha=null,unlocked=false,editorDirty=false,originalContent=null;
+
+// ── Config & i18n ──
+let cfg={},i18n={};
+
+// ── Page tree ──
+let tree=[];
+
+// ── Navigation state ──
+let currentPath=null,currentSha=null;
+
+// ── Editor state ──
+let editorDirty=false,originalContent=null,dragDropInit=false;
+
+// ── Auth state ──
+let unlocked=false,pwResolve=null;
+
+// ── Search ──
+let searchIndex=null;
+
+// ── Wiki autocomplete ──
+let wikiCompleteIdx=-1,wikiCompleteItems=[];
+
+// ── Pending restore content (avoids embedding large strings in onclick HTML) ──
+let _pendingRestoreContent=null;
+
+// ── Pending folder path for folder-rename modal ──
+let _pendingFolderPath=null;
+
+// ── Deploy watcher ──
+let pollTimer=null,watchingRunId=null,watchDeployGen=0;
+
+// ── Display preferences (persisted to localStorage) ──
+let displayPrefs={showToc:true,splitPreview:true};
+function loadDisplayPrefs(){
+  try{const d=localStorage.getItem('wn_display');if(d)displayPrefs={...displayPrefs,...JSON.parse(d)};}catch{}
+}
+function saveDisplayPref(key,val){
+  displayPrefs[key]=val;
+  localStorage.setItem('wn_display',JSON.stringify(displayPrefs));
+}
+function setDisplayPref(key,val){
+  saveDisplayPref(key,val);
+  if(key==='showToc') buildToc();
+  // splitPreview takes effect next time edit is opened — no re-init needed
+}
 
 const t=k=>i18n[k]??k;
 
+// ── Wiki link extension (registered after marked loads) ──
+const wikiLinkExtension={
+  name:'wikilink',
+  level:'inline',
+  start(src){return src.indexOf('[[');},
+  tokenizer(src){
+    const match=src.match(/^\[\[([^\]]+)\]\]/);
+    if(match) return{type:'wikilink',raw:match[0],text:match[1].trim()};
+  },
+  renderer(token){
+    const page=tree.find(p=>
+      p.title.toLowerCase()===token.text.toLowerCase()||
+      p.path.toLowerCase()===token.text.toLowerCase()
+    );
+    if(page){
+      const data=JSON.stringify(page).replace(/"/g,'&quot;');
+      return`<a href="#" class="wiki-link" onclick="openPage(${data});return false">${escHtml(token.text)}</a>`;
+    }
+    return`<span class="wiki-link broken" title="Page not found">${escHtml(token.text)}</span>`;
+  }
+};
+marked.use({extensions:[wikiLinkExtension]});
+
+// ── Helpers ──
+function debounce(fn,ms){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms);};}
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function relativeDate(iso){
+  const diff=Date.now()-new Date(iso).getTime();
+  const m=Math.floor(diff/60000);
+  if(m<2) return 'just now';
+  if(m<60) return `${m} minutes ago`;
+  const h=Math.floor(m/60);
+  if(h<24) return `${h} hour${h!==1?'s':''} ago`;
+  const d=Math.floor(h/24);
+  if(d<30) return `${d} day${d!==1?'s':''} ago`;
+  const mo=Math.floor(d/30);
+  if(mo<12) return `${mo} month${mo!==1?'s':''} ago`;
+  return `${Math.floor(mo/12)} year${Math.floor(mo/12)!==1?'s':''} ago`;
+}
+
+// ── Debounced preview render (shared by startEdit + restoreVersion) ──
+const renderPreviewDebounced=debounce(()=>{
+  const{body}=parseFrontmatter($('editor').value);
+  try{$('view').innerHTML=marked.parse(body);}
+  catch(e){$('view').innerHTML=`<pre style="color:var(--red);font-size:12px;padding:12px">Render error: ${escHtml(e.message)}</pre>`;}
+},150);
+
+// ── Draft helpers ──
+const draftKey=path=>`wn_draft_${path}`;
+function saveDraft(path,content){try{localStorage.setItem(draftKey(path),JSON.stringify({content,ts:Date.now()}));}catch{}}
+function loadDraft(path){try{const d=localStorage.getItem(draftKey(path));return d?JSON.parse(d):null;}catch{return null;}}
+function clearDraft(path){try{localStorage.removeItem(draftKey(path));}catch{}}
+
+// ── Frontmatter parser ──
+function parseFrontmatter(md){
+  const meta={};
+  let body=md;
+  const m=md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+  if(m){
+    body=md.slice(m[0].length);
+    m[1].split(/\r?\n/).forEach(line=>{
+      const kv=line.match(/^(\w[\w-]*):\s*(.*)$/);
+      if(!kv) return;
+      const k=kv[1],v=kv[2].trim();
+      if(v.startsWith('[')){
+        try{meta[k]=JSON.parse(v.replace(/'/g,'"'));}
+        catch{meta[k]=v.slice(1,-1).split(',').map(s=>s.trim()).filter(Boolean);}
+      } else {
+        meta[k]=v.replace(/^["']|["']$/g,'');
+      }
+    });
+    if(typeof meta.tags==='string'){
+      meta.tags=meta.tags.split(',').map(s=>s.trim()).filter(Boolean);
+    }
+  }
+  return{meta,body};
+}
+
 async function init(){
+  loadDisplayPrefs();
   // 1. load config.json from repo — source of truth for owner/repo/site_name/password hash
   try{
-    const r=await fetch('config.json', {cache:'no-cache'});
+    const r=await fetch('config.json',{cache:'no-cache'});
     if(r.ok) cfg=await r.json();
   }catch{}
   cfg.provider=cfg.provider||'github';
@@ -117,9 +283,10 @@ async function init(){
   // 2. merge user-local overrides from localStorage (enc_token stays separate)
   const saved=localStorage.getItem('wn_cfg');
   if(saved){
-    const local=JSON.parse(saved);
-    // only allow local override of non-sensitive display prefs
-    if(local.lang) cfg.lang=local.lang;
+    try{
+      const local=JSON.parse(saved);
+      if(local.lang) cfg.lang=local.lang;
+    }catch{localStorage.removeItem('wn_cfg');} // purge corrupted entry
   }
 
   const lang=localStorage.getItem('wn_lang')||cfg.lang||'en';
@@ -130,13 +297,13 @@ async function init(){
 
   if(cfg.owner&&cfg.repo){
     loadTree();
-    setTimeout(()=>pollActions(null), 1500);
+    setTimeout(()=>pollActions(null),1500);
   } else showSetupBanner();
 
   document.addEventListener('keydown',e=>{
     if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}
-    if((e.metaKey||e.ctrlKey)&&e.key==='s'&&$('editor-wrap').style.display!=='none'){e.preventDefault();savePage();}
-    if(e.key==='Escape'){closeSearch();closeModal();}
+    if((e.metaKey||e.ctrlKey)&&e.key==='s'&&$('editor-wrap').classList.contains('edit-active')){e.preventDefault();savePage();}
+    if(e.key==='Escape'){closeSearch();closeModal();hideWikiComplete();}
   });
   window.addEventListener('beforeunload',e=>{
     if(editorDirty){e.preventDefault();e.returnValue='';}
@@ -166,13 +333,18 @@ function applyI18n(){
   set('lbl-cancel',    t('cancel'));
   set('lbl-delete',    t('delete_page'));
   set('lbl-rename',    t('rename'));
+  set('lbl-history',   t('history'));
   set('lbl-empty',     t('empty_state'));
   set('lbl-toc',       t('on_this_page'));
   set('lbl-pw-cancel', t('cancel'));
   set('lbl-pw-ok',     'Unlock');
   set('pw-title',      t('enter_password'));
+  set('draft-banner-msg', t('draft_banner'));
+  set('btn-draft-restore', t('draft_restore'));
+  set('btn-draft-discard', t('draft_discard'));
+  set('lbl-print',         t('print'));
   const sn=cfg.site_name||'WikiNest';
-  set('site-name', sn);
+  set('site-name',sn);
   document.title=sn;
 }
 
@@ -189,7 +361,7 @@ const ghFetch=async(path,method='GET',body)=>{
     headers:{Authorization:`Bearer ${cfg.token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},
     body:body?JSON.stringify(body):undefined
   });
-  if(!r.ok){const e=await r.json();throw new Error(e.message||r.statusText);}
+  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
   return r.json();
 };
 
@@ -200,23 +372,23 @@ const glFetch=async(path,method='GET',body)=>{
     headers:{'PRIVATE-TOKEN':cfg.token,'Content-Type':'application/json'},
     body:body?JSON.stringify(body):undefined
   });
-  if(!r.ok){const e=await r.json();throw new Error(e.message||r.statusText);}
+  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
   if(r.status===204||method==='DELETE') return null;
   return r.json();
 };
 
 function rawUrl(path){
-  if(cfg.provider==='gitlab') return `https://gitlab.com/${cfg.owner}/${cfg.repo}/-/raw/main/${path}`;
-  return `https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
+  if(cfg.provider==='gitlab') return`https://gitlab.com/${cfg.owner}/${cfg.repo}/-/raw/main/${path}`;
+  return`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
 }
 
 async function apiGetFile(path){
   if(cfg.provider==='gitlab'){
     const d=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
-    return {sha:d.last_commit_id,content:d.content};
+    return{sha:d.last_commit_id,content:d.content};
   }
   const d=await ghFetch(`contents/${path}`);
-  return {sha:d.sha,content:d.content};
+  return{sha:d.sha,content:d.content};
 }
 
 async function apiPutFile(path,message,content,sha){
@@ -226,12 +398,12 @@ async function apiPutFile(path,message,content,sha){
     if(sha) body.last_commit_id=sha;
     await glFetch(`repository/files/${encodeURIComponent(path)}`,method,body);
     const updated=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
-    return {sha:updated.last_commit_id};
+    return{sha:updated.last_commit_id};
   }
   const body={message,content};
   if(sha) body.sha=sha;
   const d=await ghFetch(`contents/${path}`,'PUT',body);
-  return {sha:d.content.sha};
+  return{sha:d.content.sha};
 }
 
 async function apiDeleteFile(path,message,sha){
@@ -246,7 +418,7 @@ function normalizeRun(run){
   if(cfg.provider!=='gitlab') return run;
   const active=['running','preparing','pending','created','waiting_for_resource','scheduled'].includes(run.status);
   const gl2c={success:'success',failed:'failure',canceled:'cancelled',skipped:'cancelled',manual:'cancelled'};
-  return {
+  return{
     id:run.id,
     status:active?(run.status==='running'||run.status==='preparing'?'in_progress':'queued'):'completed',
     conclusion:active?null:(gl2c[run.status]||run.status),
@@ -268,7 +440,6 @@ async function checkPassword(pw){
   return hash===cfg.edit_password_hash;
 }
 
-let pwResolve=null;
 function requireUnlock(){
   return new Promise(resolve=>{
     if(unlocked){resolve(true);return;}
@@ -300,8 +471,9 @@ function encrypt(str,key){
   return btoa([...str].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join(''));
 }
 function decrypt(enc,key){
-  if(!enc||!key)return '';
-  try{return [...atob(enc)].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');}catch{return '';}
+  if(!enc) return '';
+  if(!key) return enc; // symmetric with encrypt(): no key → stored as plaintext
+  try{return[...atob(enc)].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');}catch{return '';}
 }
 
 // ── Tree ──
@@ -312,7 +484,11 @@ async function loadTree(){
     if(!r.ok) throw new Error();
     tree=await r.json();
     renderTree(tree);
-    if(!currentPath) showEmpty();
+    if(!currentPath){
+      const homePage=tree.find(p=>p.path==='home');
+      if(homePage) openPage(homePage);
+      else showEmpty();
+    }
   }catch{
     $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
   }
@@ -339,7 +515,7 @@ function getFolderTitle(node,key){
   const p=item._page||findFirst(item._children);
   return p?.folder_titles?.[key]||key.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase());
 }
-function renderNode(node,el,depth){
+function renderNode(node,el,depth,parentPath=''){
   Object.keys(node).sort((a,b)=>{
     const aHasKids=Object.keys(node[a]._children).length>0;
     const bHasKids=Object.keys(node[b]._children).length>0;
@@ -353,19 +529,31 @@ function renderNode(node,el,depth){
     const row=document.createElement('div');
     row.className='tree-row'+(hasKids?' folder':'');
     row.style.paddingLeft=(14+depth*14)+'px';
-    row.innerHTML=`${hasKids
-      ?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>'
-      :'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>'
-    }<span class="tree-label">${hasKids?getFolderTitle(node,key):item._page.title}</span>`;
 
     if(hasKids){
+      const fullFolderPath=parentPath?`${parentPath}/${key}`:key;
+      // Build folder row via DOM so the rename button can capture the path in a closure
+      row.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>';
+      const lbl=document.createElement('span');
+      lbl.className='tree-label';
+      lbl.textContent=getFolderTitle(node,key);
+      row.appendChild(lbl);
+      // Rename-display-name button (pencil) — visible on hover
+      const rBtn=document.createElement('button');
+      rBtn.className='folder-rename-btn';
+      rBtn.title=t('rename_folder')||'Rename folder';
+      rBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
+      rBtn.onclick=e=>{e.stopPropagation();openFolderRename(fullFolderPath);};
+      row.appendChild(rBtn);
       const kids=document.createElement('div');
       kids.className='tree-children';
-      renderNode(item._children,kids,depth+1);
+      renderNode(item._children,kids,depth+1,fullFolderPath);
       row.onclick=()=>kids.classList.toggle('collapsed');
       wrap.appendChild(row);
       wrap.appendChild(kids);
     }else{
+      row.dataset.path=item._page.path;
+      row.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(item._page.title)}</span>`;
       row.onclick=()=>openPage(item._page);
       wrap.appendChild(row);
     }
@@ -375,53 +563,83 @@ function renderNode(node,el,depth){
 
 // ── Page open ──
 async function openPage(page){
-  currentPath=`docs/${page.path}.md`;
+  if(editorDirty&&!confirm('You have unsaved changes. Leave this page and discard them?')) return;
+  const targetPath=`docs/${page.path}.md`;
+  currentPath=targetPath;
   document.querySelectorAll('.tree-row').forEach(r=>r.classList.remove('active'));
-  document.querySelectorAll('.tree-row').forEach(r=>{if(r.querySelector('.tree-label')?.textContent===page.title)r.classList.add('active');});
+  document.querySelectorAll(`.tree-row[data-path="${CSS.escape(page.path)}"]`).forEach(r=>r.classList.add('active'));
 
   const parts=page.parts;
   const bc=$('breadcrumb');
   bc.innerHTML=parts.map((p,i)=>
     i<parts.length-1
-      ?`<span>${p}</span><span class="sep">›</span>`
-      :`<span class="cur">${page.title}</span>`
+      ?`<span>${escHtml(p)}</span><span class="sep">›</span>`
+      :`<span class="cur">${escHtml(page.title)}</span>`
   ).join('');
 
   $('empty').style.display='none';
   $('view-wrap').style.display='block';
   $('editor-wrap').style.display='none';
+  $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
   $('btn-edit').style.display='flex';
+  $('btn-print').style.display='flex';
   $('btn-delete').style.display='flex';
   $('btn-rename').style.display='flex';
+  $('btn-history').style.display='flex';
   cancelEdit();
 
   try{
-    const r=await fetch(rawUrl(currentPath),{cache:'no-cache'});
+    const r=await fetch(rawUrl(targetPath),{cache:'no-cache'});
     if(!r.ok) throw new Error(r.statusText);
     const md=await r.text();
+    if(currentPath!==targetPath) return; // user navigated away before fetch completed
     currentSha=null;
     renderView(md);
   }catch(e){
-    $('view').innerHTML=`<p style="color:var(--text2)">${t('error_load')}: ${e.message}</p>`;
+    if(currentPath!==targetPath) return;
+    $('view').innerHTML=`<p style="color:var(--text2)">${t('error_load')}: ${escHtml(e.message)}</p>`;
   }
 }
 
 function renderView(md){
-  $('view').innerHTML=`<div class="page-meta">${currentPath}</div>`+marked.parse(md);
+  const{meta,body}=parseFrontmatter(md);
+  let metaHtml=`<div class="page-meta">`;
+  metaHtml+=`<span>${escHtml(currentPath)}</span>`;
+  if(meta.author) metaHtml+=` &nbsp;·&nbsp; <span>${escHtml(t('by'))} ${escHtml(meta.author)}</span>`;
+  metaHtml+=`</div>`;
+  try{$('view').innerHTML=metaHtml+marked.parse(body);}
+  catch(e){$('view').innerHTML=metaHtml+`<pre style="color:var(--red);font-size:12px;padding:12px">Render error: ${escHtml(e.message)}</pre>`;}
+  // Build tag chips via DOM — avoids embedding tag values in onclick HTML attributes
+  if(meta.tags&&meta.tags.length){
+    const tagsDiv=document.createElement('div');
+    tagsDiv.className='page-tags';
+    meta.tags.forEach(tag=>{
+      const chip=document.createElement('span');
+      chip.className='tag-chip';
+      chip.textContent=tag;
+      chip.onclick=()=>{openSearch();$('search-q').value=tag;runSearch(tag);};
+      tagsDiv.appendChild(chip);
+    });
+    $('view').insertBefore(tagsDiv,$('view').firstChild.nextSibling);
+  }
   buildToc();
 }
 
 function buildToc(){
   const tocEl=$('toc');
   if(!tocEl) return;
+  if(!displayPrefs.showToc){tocEl.style.display='none';return;}
   const headings=[...$('view').querySelectorAll('h2,h3')];
   if(headings.length<2){tocEl.style.display='none';return;}
   tocEl.style.display='block';
+  const usedIds={};
   $('toc-list').innerHTML=headings.map(h=>{
-    const id=h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
+    const base=h.textContent.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'');
+    let id=base;
+    if(usedIds[base]){usedIds[base]++;id=`${base}-${usedIds[base]}`;}else{usedIds[base]=1;}
     h.id=id;
-    return `<div class="toc-item ${h.tagName==='H3'?'toc-h2':''}" onclick="tocClick('${id}')">${h.textContent}</div>`;
+    return`<div class="toc-item ${h.tagName==='H3'?'toc-h2':''}" onclick="tocClick('${id}')">${escHtml(h.textContent)}</div>`;
   }).join('');
   if(location.hash){
     const target=document.getElementById(location.hash.slice(1));
@@ -434,40 +652,157 @@ function tocClick(id){
   if(el){el.scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+id);}
 }
 
+// ── Markdown toolbar formatting ──
+function fmt(before,after,placeholder){
+  const ta=$('editor');
+  const s=ta.selectionStart,e=ta.selectionEnd;
+  const hasSel=s!==e;
+  const sel=hasSel?ta.value.slice(s,e):placeholder;
+  const ins=before+sel+after;
+  ta.setRangeText(ins,s,e,'end');
+  if(!hasSel&&placeholder){
+    ta.selectionStart=s+before.length;
+    ta.selectionEnd=s+before.length+placeholder.length;
+  }
+  ta.dispatchEvent(new Event('input'));
+  ta.focus();
+}
+
+function fmtLine(prefix){
+  const ta=$('editor');
+  const s=ta.selectionStart;
+  const lineStart=ta.value.lastIndexOf('\n',s-1)+1;
+  const lineEnd=ta.value.indexOf('\n',s);
+  const end=lineEnd===-1?ta.value.length:lineEnd;
+  const line=ta.value.slice(lineStart,end);
+  const newLine=line.startsWith(prefix)?line.slice(prefix.length):prefix+line;
+  ta.setRangeText(newLine,lineStart,end,'end');
+  ta.dispatchEvent(new Event('input'));
+  ta.focus();
+}
+
+function fmtTable(){
+  const tmpl='\n| Column 1 | Column 2 |\n| --- | --- |\n| Cell | Cell |\n';
+  fmt(tmpl,'','');
+}
+
+// ── Drag-and-drop image upload ──
+function initDragDrop(){
+  if(dragDropInit) return;
+  dragDropInit=true;
+  const wrap=$('editor-wrap');
+  wrap.addEventListener('dragover',e=>{
+    e.preventDefault();
+    wrap.classList.add('drag-over');
+  });
+  wrap.addEventListener('dragleave',e=>{
+    if(!wrap.contains(e.relatedTarget)) wrap.classList.remove('drag-over');
+  });
+  wrap.addEventListener('drop',async e=>{
+    e.preventDefault();
+    wrap.classList.remove('drag-over');
+    const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/'));
+    if(!files.length) return;
+    const ok=await requireUnlock();
+    if(!ok) return;
+    for(const file of files){
+      try{
+        const ab=await file.arrayBuffer();
+        const bytes=new Uint8Array(ab);
+        let bin='';
+        for(let i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]);
+        const b64=btoa(bin);
+        const ts=Date.now();
+        const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+        const uploadPath=`docs/assets/${ts}-${safeName}`;
+        await apiPutFile(uploadPath,`docs: upload image ${safeName}`,b64,null);
+        const url=rawUrl(uploadPath);
+        const ta=$('editor');
+        const pos=ta.selectionStart;
+        const ins=`![${safeName}](${url})`;
+        ta.setRangeText(ins,pos,pos,'end');
+        ta.dispatchEvent(new Event('input'));
+        toast(t('image_uploaded'));
+      }catch(err){toast(`Upload failed: ${err.message}`);}
+    }
+  });
+}
+
+// ── Draft banner ──
+const saveDraftDebounced=debounce((path,content)=>saveDraft(path,content),500);
+
+function showDraftBanner(){$('draft-banner').classList.add('show');}
+function hideDraftBanner(){$('draft-banner').classList.remove('show');}
+
+function restoreDraft(){
+  const draft=loadDraft(currentPath);
+  if(!draft) return;
+  $('editor').value=draft.content;
+  $('editor').dispatchEvent(new Event('input'));
+  hideDraftBanner();
+}
+
+function discardDraft(){
+  clearDraft(currentPath);
+  hideDraftBanner();
+}
+
 // ── Edit ──
+
+// Shared panel activation — called by both startEdit() and restoreVersion()
+function _activateEditorPanel(){
+  if(displayPrefs.splitPreview) $('panels').classList.add('split');
+  $('editor-wrap').style.display='';
+  $('editor-wrap').classList.add('edit-active');
+  const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
+  $('btn-edit').style.display='none';
+  $('btn-print').style.display='none';
+  $('btn-delete').style.display='none';
+  $('btn-rename').style.display='none';
+  $('btn-history').style.display='none';
+  $('edit-btns').style.display='flex';
+  $('editor').oninput=()=>{
+    editorDirty=$('editor').value!==originalContent;
+    renderPreviewDebounced();
+    saveDraftDebounced(currentPath,$('editor').value);
+  };
+  initDragDrop();
+  $('editor').focus();
+}
+
 async function startEdit(){
+  $('btn-edit').disabled=true;
+  try{
   const ok=await requireUnlock();
-  if(!ok) return;
+  if(!ok){$('btn-edit').disabled=false;return;}
   const data=await apiGetFile(currentPath);
   currentSha=data.sha;
   const md=b64dec(data.content.replace(/\n/g,''));
   originalContent=md;
   editorDirty=false;
   $('editor').value=md;
-  $('panels').classList.add('split');
-  $('editor-wrap').style.display='block';
-  const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
-  $('btn-edit').style.display='none';
-  $('btn-delete').style.display='none';
-  $('btn-rename').style.display='none';
-  $('edit-btns').style.display='flex';
-  $('editor').oninput=()=>{
-    editorDirty=$('editor').value!==originalContent;
-    $('view').innerHTML=marked.parse($('editor').value);
-  };
-  $('editor').focus();
+  const draft=loadDraft(currentPath);
+  if(draft&&draft.content!==originalContent) showDraftBanner();
+  else hideDraftBanner();
+  _activateEditorPanel(); // btn-edit is hidden inside here, so no need to re-enable
+  }catch(e){$('btn-edit').disabled=false;toast(`${t('error_load')}: ${escHtml(e.message)}`);}
 }
 
 function cancelEdit(){
   if(originalContent!==null){renderView(originalContent);originalContent=null;}
   editorDirty=false;
+  hideDraftBanner();
+  hideWikiComplete();
   $('panels').classList.remove('split');
   $('editor-wrap').style.display='none';
+  $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
   $('view-wrap').style.display=currentPath?'block':'none';
   $('btn-edit').style.display=currentPath?'flex':'none';
+  $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=currentPath?'flex':'none';
   $('btn-rename').style.display=currentPath?'flex':'none';
+  $('btn-history').style.display=currentPath?'flex':'none';
   buildToc();
 }
 
@@ -475,19 +810,20 @@ async function savePage(){
   const content=$('editor').value;
   const btn=$('btn-save');
   const spin=$('save-spin');
-  btn.disabled=true; spin.style.display='inline-block';
+  btn.disabled=true;spin.style.display='inline-block';
   try{
     const saved=await apiPutFile(currentPath,`docs: update ${currentPath}`,b64enc(content),currentSha);
     currentSha=saved.sha;
     originalContent=content;
     editorDirty=false;
+    clearDraft(currentPath);
     renderView(content);
     cancelEdit();
-    watchDeploy();
+    watchDeploy(currentPath);
   }catch(e){
     toast(`${t('error_save')}: ${e.message}`);
   }finally{
-    btn.disabled=false; spin.style.display='none';
+    btn.disabled=false;spin.style.display='none';
   }
 }
 
@@ -510,6 +846,7 @@ async function createPage(){
   if(!ok) return;
   const path=$('m-path').value.trim().replace(/\.md$/,'');
   if(!path) return;
+  if(!/^[a-zA-Z0-9_\-][a-zA-Z0-9_\-\/]*$/.test(path)){toast('Invalid path — use letters, numbers, hyphens, underscores and slashes only');return;}
   const fullPath=`docs/${path}.md`;
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const content=`# ${title}\n\nStart writing here.\n`;
@@ -520,7 +857,7 @@ async function createPage(){
     tree.push(page);
     renderTree(tree);
     openPage(page);
-    watchDeploy();
+    watchDeploy(fullPath);
   }catch(e){toast(`${t('error_save')}: ${e.message}`);}
 }
 
@@ -539,23 +876,26 @@ async function doDelete(){
   const ok=await requireUnlock();
   if(!ok) return;
   try{
-    const meta=await apiGetFile(currentPath);
-    await apiDeleteFile(currentPath,`docs: delete ${currentPath}`,meta.sha);
-    const deletedRel=currentPath.replace('docs/','').replace(/\.md$/,'');
-    currentPath=null; currentSha=null; originalContent=null; editorDirty=false;
+    const deletedPath=currentPath; // capture before state reset
+    const meta=await apiGetFile(deletedPath);
+    await apiDeleteFile(deletedPath,`docs: delete ${deletedPath}`,meta.sha);
+    const deletedRel=deletedPath.replace('docs/','').replace(/\.md$/,'');
+    currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
     $('panels').classList.remove('split');
     $('view-wrap').style.display='none';
     $('editor-wrap').style.display='none';
+    $('editor-wrap').classList.remove('edit-active');
     $('btn-edit').style.display='none';
     $('btn-delete').style.display='none';
     $('btn-rename').style.display='none';
+    $('btn-history').style.display='none';
     $('edit-btns').style.display='none';
     $('breadcrumb').innerHTML='';
     const tocDel=$('toc');if(tocDel)tocDel.style.display='none';
     tree=tree.filter(p=>p.path!==deletedRel);
     renderTree(tree);
     showEmpty();
-    watchDeploy();
+    watchDeploy(deletedPath);
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
@@ -578,6 +918,7 @@ function openRenamePage(){
 async function doRename(){
   const newRel=$('m-rename').value.trim().replace(/\.md$/,'');
   if(!newRel) return;
+  if(!/^[a-zA-Z0-9_\-][a-zA-Z0-9_\-\/]*$/.test(newRel)){toast('Invalid path — use letters, numbers, hyphens, underscores and slashes only');return;}
   const oldPath=currentPath;
   const newPath=`docs/${newRel}.md`;
   if(newPath===oldPath){closeModal();return;}
@@ -596,19 +937,73 @@ async function doRename(){
     tree=tree.filter(p=>p.path!==oldRel);
     tree.push(renamedPage);
     renderTree(tree);
-    currentPath=null; currentSha=null; originalContent=null; editorDirty=false;
+    currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
     $('panels').classList.remove('split');
     $('view-wrap').style.display='none';
     $('btn-edit').style.display='none';
     $('btn-delete').style.display='none';
     $('btn-rename').style.display='none';
+    $('btn-history').style.display='none';
     $('breadcrumb').innerHTML='';
     const tocRen=$('toc');if(tocRen)tocRen.style.display='none';
     showEmpty();
     toast(t('saved'));
     openPage(renamedPage);
-    watchDeploy();
+    watchDeploy(newPath);
   }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Folder display-name rename (via _meta.json) ──
+function openFolderRename(folderPath){
+  _pendingFolderPath=folderPath;
+  const segKey=folderPath.split('/').pop();
+  // Try to get the current display name from any page inside this folder
+  const sample=tree.find(p=>p.path.startsWith(folderPath+'/'));
+  const currentTitle=sample?.folder_titles?.[segKey]
+    ||segKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  $('modal-title').textContent=t('rename_folder');
+  $('modal-body').innerHTML=`
+    <div class="field"><label>${t('folder_display_name')}</label>
+    <input id="m-folder-name" value="${escHtml(currentTitle)}">
+    <div class="hint">${t('folder_display_name_hint')}</div></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="doFolderRename()">${t('save')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>{const el=$('m-folder-name');if(el){el.focus();el.select();}},50);
+}
+
+async function doFolderRename(){
+  const newTitle=($('m-folder-name')?.value||'').trim();
+  if(!newTitle||!_pendingFolderPath) return;
+  const folderPath=_pendingFolderPath;
+  const ok=await requireUnlock();
+  if(!ok) return;
+  closeModal();
+  const metaPath=`docs/${folderPath}/_meta.json`;
+  const metaContent=b64enc(JSON.stringify({title:newTitle},null,2));
+  try{
+    // Check if _meta.json already exists (need SHA to update, null to create)
+    let sha=null;
+    try{const existing=await apiGetFile(metaPath);sha=existing.sha;}catch{}
+    await apiPutFile(metaPath,`chore: rename folder display name "${folderPath}"`,metaContent,sha);
+    // Optimistic update: set folder_titles[segKey] on all pages inside this folder
+    const segKey=folderPath.split('/').pop();
+    tree.forEach(p=>{
+      if(p.path.startsWith(folderPath+'/')){
+        if(!p.folder_titles) p.folder_titles={};
+        p.folder_titles[segKey]=newTitle;
+      }
+    });
+    renderTree(tree);
+    // Re-select active page row if one was open
+    if(currentPath){
+      const rel=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
+      document.querySelectorAll(`.tree-row[data-path="${CSS.escape(rel)}"]`).forEach(r=>r.classList.add('active'));
+    }
+    toast(t('folder_renamed'));
+    watchDeploy(metaPath);
+  }catch(e){toast(`Error: ${escHtml(e.message)}`);}
 }
 
 // ── Empty state ──
@@ -632,33 +1027,207 @@ function showEmpty(){
 }
 
 // ── Search ──
+async function ensureSearchIndex(){
+  if(searchIndex!==null) return;
+  try{
+    const r=await fetch(rawUrl('search.json'),{cache:'no-cache'});
+    if(r.ok) searchIndex=await r.json();
+    else searchIndex={};
+  }catch{searchIndex={};}
+}
+
 function openSearch(){
   $('search-overlay').classList.add('open');
   $('search-q').value='';
   $('search-results').innerHTML='';
   setTimeout(()=>$('search-q').focus(),50);
+  ensureSearchIndex();
 }
-function closeSearch(){$('search-overlay').classList.remove('open');}
+function closeSearch(){$('search-overlay').classList.remove('open');hideWikiComplete();}
 
 function runSearch(q){
   q=q.trim().toLowerCase();
   const res=$('search-results');
   if(!q){res.innerHTML='';return;}
-  const hits=tree.filter(p=>
-    p.title.toLowerCase().includes(q)||
-    (p.excerpt||'').toLowerCase().includes(q)
-  ).slice(0,12);
-  if(!hits.length){res.innerHTML=`<div class="sr-empty">${t('search')} — no results</div>`;return;}
   const hl=s=>s.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<mark>${m}</mark>`);
-  res.innerHTML=hits.map(p=>`
+
+  const titleHits=[];
+  const ftHits=[];
+  const seen=new Set();
+
+  tree.forEach(p=>{
+    const inTitle=p.title.toLowerCase().includes(q)||(p.excerpt||'').toLowerCase().includes(q);
+    if(inTitle){titleHits.push({p,ft:false});seen.add(p.path);}
+  });
+
+  if(searchIndex){
+    tree.forEach(p=>{
+      if(seen.has(p.path)) return;
+      const content=searchIndex[p.path]||searchIndex[`docs/${p.path}.md`]||'';
+      if(content.toLowerCase().includes(q)){ftHits.push({p,ft:true});seen.add(p.path);}
+    });
+  }
+
+  const hits=[...titleHits,...ftHits].slice(0,12);
+  if(!hits.length){res.innerHTML=`<div class="sr-empty">${t('search')} — no results</div>`;return;}
+  res.innerHTML=hits.map(({p,ft})=>`
     <div class="sr-item" onclick="closeSearch();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-      <div class="sr-title">${hl(p.title)}</div>
+      <div class="sr-title">${hl(p.title)}${ft?`<span class="sr-ft-badge">${t('full_text')}</span>`:''}</div>
       <div class="sr-excerpt">${hl(p.excerpt||p.path)}</div>
     </div>`).join('');
 }
 
 function searchKey(e){
   if(e.key==='Escape') closeSearch();
+}
+
+// ── Page History ──
+async function openHistory(){
+  if(!currentPath) return;
+  $('btn-history').disabled=true;
+  const ok=await requireUnlock();
+  $('btn-history').disabled=false;
+  if(!ok) return;
+  $('modal-title').textContent=t('page_history');
+  $('modal-body').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
+  $('modal-actions').innerHTML='';
+  $('modal-overlay').classList.add('open');
+  fetchHistory();
+}
+
+async function fetchHistory(){
+  try{
+    let commits;
+    if(cfg.provider==='gitlab'){
+      const raw=await glFetch(`repository/commits?path=${encodeURIComponent(currentPath)}&per_page=20`);
+      commits=raw.map(c=>({sha:c.id,short:c.id.slice(0,7),message:c.message.split('\n')[0],author:c.author_name,date:c.committed_date}));
+    } else {
+      const raw=await ghFetch(`commits?path=${currentPath}&per_page=20`);
+      commits=raw.map(c=>({sha:c.sha,short:c.sha.slice(0,7),message:c.commit.message.split('\n')[0],author:c.commit.author.name,date:c.commit.author.date}));
+    }
+    renderHistoryList(commits);
+  }catch(e){
+    $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px">Error: ${escHtml(e.message)}</p>`;
+  }
+}
+
+function renderHistoryList(commits){
+  if(!commits.length){$('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px">No history found.</p>`;return;}
+  $('modal-body').innerHTML=`<div class="history-list">${commits.map(c=>`
+    <div class="history-item" onclick="previewCommit('${escHtml(c.sha)}')">
+      <span class="history-sha">${escHtml(c.short)}</span>
+      <span class="history-msg">${escHtml(c.message)}</span>
+      <span class="history-meta">${escHtml(c.author)}<br>${relativeDate(c.date)}</span>
+    </div>`).join('')}</div>`;
+  $('modal-actions').innerHTML='';
+}
+
+async function previewCommit(sha){
+  $('modal-body').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
+  $('modal-actions').innerHTML='';
+  try{
+    let content;
+    if(cfg.provider==='gitlab'){
+      const d=await glFetch(`repository/files/${encodeURIComponent(currentPath)}?ref=${sha}`);
+      content=b64dec(d.content.replace(/\n/g,''));
+    } else {
+      const d=await ghFetch(`contents/${currentPath}?ref=${sha}`);
+      content=b64dec(d.content.replace(/\n/g,''));
+    }
+    const{body}=parseFrontmatter(content);
+    _pendingRestoreContent=content;
+    $('modal-body').innerHTML=`<div style="max-height:320px;overflow-y:auto;border:0.5px solid var(--border);border-radius:6px;padding:14px;font-size:13px;line-height:1.65">${marked.parse(body)}</div>`;
+    $('modal-actions').innerHTML=`
+      <button onclick="fetchHistory()">${t('back')}</button>
+      <button class="btn-primary" onclick="restoreVersion(_pendingRestoreContent)">${t('restore_version')}</button>`;
+  }catch(e){
+    $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px">Error: ${escHtml(e.message)}</p>`;
+    $('modal-actions').innerHTML=`<button onclick="fetchHistory()">${t('back')}</button>`;
+  }
+}
+
+async function restoreVersion(content){
+  closeModal();
+  const ok=await requireUnlock();
+  if(!ok) return;
+  const data=await apiGetFile(currentPath);
+  currentSha=data.sha;
+  originalContent=b64dec(data.content.replace(/\n/g,''));
+  editorDirty=true;
+  $('editor').value=content;
+  hideDraftBanner();
+  _activateEditorPanel();
+  const{body}=parseFrontmatter(content);
+  try{$('view').innerHTML=marked.parse(body);}catch{$('view').innerHTML='';}
+}
+
+// ── Wiki autocomplete ──
+function getOrCreateWikiComplete(){
+  let el=document.getElementById('wiki-complete');
+  if(!el){
+    el=document.createElement('div');
+    el.id='wiki-complete';
+    el.style.display='none';
+    document.body.appendChild(el);
+  }
+  return el;
+}
+
+function hideWikiComplete(){
+  const el=document.getElementById('wiki-complete');
+  if(el) el.style.display='none';
+  wikiCompleteIdx=-1;
+  wikiCompleteItems=[];
+}
+
+function insertWikiLink(title){
+  const ta=$('editor');
+  const pos=ta.selectionStart;
+  const before=ta.value.slice(0,pos);
+  const m=before.match(/\[\[([^\]]*)$/);
+  if(!m) return;
+  const start=pos-m[0].length;
+  ta.setRangeText(`[[${title}]]`,start,pos,'end');
+  ta.dispatchEvent(new Event('input'));
+  hideWikiComplete();
+  ta.focus();
+}
+
+function initWikiAutocomplete(){
+  const ta=$('editor');
+  if(!ta) return;
+  ta.addEventListener('keyup',e=>{
+    if(['ArrowUp','ArrowDown','Enter','Escape'].includes(e.key)) return;
+    const pos=ta.selectionStart;
+    const before=ta.value.slice(0,pos);
+    const m=before.match(/\[\[([^\]]{0,40})$/);
+    if(!m){hideWikiComplete();return;}
+    const q=m[1].toLowerCase();
+    const matches=tree.filter(p=>p.title.toLowerCase().includes(q)).slice(0,8);
+    if(!matches.length){hideWikiComplete();return;}
+    wikiCompleteItems=matches;
+    wikiCompleteIdx=-1;
+    const wrap=$('editor-wrap');
+    const rect=wrap.getBoundingClientRect();
+    const el=getOrCreateWikiComplete();
+    el.style.left=rect.left+'px';
+    el.style.top=(rect.bottom-2)+'px';
+    el.style.display='block';
+    el.innerHTML=matches.map((p,i)=>`<div class="wc-item" data-idx="${i}" onmousedown="event.preventDefault();insertWikiLink(${JSON.stringify(p.title)})">${escHtml(p.title)}</div>`).join('');
+  });
+  ta.addEventListener('keydown',e=>{
+    const el=document.getElementById('wiki-complete');
+    if(!el||el.style.display==='none') return;
+    if(e.key==='ArrowDown'){e.preventDefault();wikiCompleteIdx=Math.min(wikiCompleteIdx+1,wikiCompleteItems.length-1);updateWikiActive();}
+    else if(e.key==='ArrowUp'){e.preventDefault();wikiCompleteIdx=Math.max(wikiCompleteIdx-1,0);updateWikiActive();}
+    else if(e.key==='Enter'&&wikiCompleteIdx>=0){e.preventDefault();insertWikiLink(wikiCompleteItems[wikiCompleteIdx].title);}
+    else if(e.key==='Escape'){hideWikiComplete();}
+  });
+}
+
+function updateWikiActive(){
+  const items=document.querySelectorAll('#wiki-complete .wc-item');
+  items.forEach((el,i)=>el.classList.toggle('active',i===wikiCompleteIdx));
 }
 
 // ── Settings modal ──
@@ -677,6 +1246,12 @@ function openSettings(){
     <div class="field"><label>${t('password')}</label>
       <input id="m-pw" type="password" placeholder="••••••••">
       <div class="hint">${t('password_hint')}</div>
+    </div>
+    <div class="field-sep"></div>
+    <div class="field">
+      <label>${t('display_prefs')}</label>
+      <label class="toggle-row"><input type="checkbox" id="pref-toc" ${displayPrefs.showToc?'checked':''} onchange="setDisplayPref('showToc',this.checked)"><span>${t('pref_show_toc')}</span></label>
+      <label class="toggle-row"><input type="checkbox" id="pref-split" ${displayPrefs.splitPreview?'checked':''} onchange="setDisplayPref('splitPreview',this.checked)"><span>${t('pref_split_preview')}</span></label>
     </div>`;
   $('modal-actions').innerHTML=`
     <button onclick="closeModal()">${t('cancel')}</button>
@@ -693,15 +1268,21 @@ async function saveSettings(){
     return;
   }
   const activeToken=token||cfg.token||'';
+  const hasPwHash=!!cfg.edit_password_hash;
   if(pw){
+    // Password supplied — encrypt token with it
     localStorage.setItem('wn_enc_token',encrypt(activeToken,pw));
     cfg.token=activeToken;
     unlocked=true;
+  }else if(!hasPwHash){
+    // No password configured — store as plaintext (encrypt with empty key returns str)
+    localStorage.setItem('wn_enc_token',activeToken);
+    cfg.token=activeToken;
+    unlocked=true;
   }else if(token){
-    // no password change — re-encrypt new token with existing password
-    // user will be prompted for password on next edit attempt
-    cfg.token=token;
-    unlocked=false;
+    // New token entered but password required and not entered — refuse silently dropping it
+    toast(t('password_hint')||'Enter your password to save the token');
+    return;
   }
   // lang preference is the only user-local thing we persist
   localStorage.setItem('wn_cfg',JSON.stringify({lang:cfg.lang}));
@@ -711,6 +1292,22 @@ async function saveSettings(){
 }
 
 function closeModal(){$('modal-overlay').classList.remove('open');}
+
+// ── Tree per-file deploy status ──
+function setTreeRowStatus(relPath,status){
+  const row=document.querySelector(`.tree-row[data-path="${CSS.escape(relPath)}"]`);
+  if(!row) return;
+  row.querySelector('.tree-status')?.remove();
+  if(!status) return;
+  const span=document.createElement('span');
+  span.className=`tree-status tree-status--${status}`;
+  span.title=status==='pending'?'Deploying…':status==='success'?'Deployed':'Deploy failed';
+  span.textContent=status==='pending'?'●':status==='success'?'✓':'✗';
+  row.appendChild(span);
+}
+function clearAllTreeStatuses(){
+  document.querySelectorAll('.tree-status').forEach(el=>el.remove());
+}
 
 // ── Toast ──
 let toastTimer;
@@ -724,15 +1321,13 @@ function toast(msg){
 
 
 // ── Actions status ──
-let pollTimer = null;
-let watchingRunId = null;
 
-const statusCfg = {
-  in_progress:  { dot: '🟡', label: 'Deploying...', color: '#BA7517' },
-  queued:       { dot: '🟡', label: 'Queued',       color: '#BA7517' },
-  success:      { dot: '🟢', label: 'Deployed',     color: '#1a7f37' },
-  failure:      { dot: '🔴', label: 'Failed',       color: '#cf222e' },
-  cancelled:    { dot: '⚪', label: 'Cancelled',    color: 'var(--text3)' },
+const statusCfg={
+  in_progress:{dot:'🟡',label:'Deploying...',color:'#BA7517'},
+  queued:     {dot:'🟡',label:'Queued',      color:'#BA7517'},
+  success:    {dot:'🟢',label:'Deployed',    color:'#1a7f37'},
+  failure:    {dot:'🔴',label:'Failed',      color:'#cf222e'},
+  cancelled:  {dot:'⚪',label:'Cancelled',   color:'var(--text3)'},
 };
 
 async function fetchLatestRun(){
@@ -752,7 +1347,7 @@ async function fetchLatestRun(){
           || null;
     }
     return data.workflow_runs?.[0]||null;
-  }catch{ return null; }
+  }catch{return null;}
 }
 
 function renderStatus(run){
@@ -767,43 +1362,62 @@ function renderStatus(run){
   el.innerHTML=`<span>${s.dot}</span><span>${s.label}</span>`;
 }
 
-async function pollActions(onDone){
+async function pollActions(onDone,onFail){
   clearTimeout(pollTimer);
   const run=await fetchLatestRun();
   renderStatus(run);
   if(!run) return;
   const active=run.status==='in_progress'||run.status==='queued';
   if(active){
-    pollTimer=setTimeout(()=>pollActions(onDone), 5000);
+    pollTimer=setTimeout(()=>pollActions(onDone,onFail),5000);
   } else {
     watchingRunId=null;
-    if(run.conclusion==='success'&&onDone) onDone();
-    pollTimer=setTimeout(()=>pollActions(null), 30000);
+    if(run.conclusion==='success'){if(onDone) onDone();}
+    else{if(onFail) onFail(run.conclusion);}
+    pollTimer=setTimeout(()=>pollActions(null,null),30000);
   }
 }
 
-async function watchDeploy(){
+async function watchDeploy(savedPath){
   toast('Saved — waiting for Actions...');
-  // grab current latest run id so we know what to watch for
+  const savedRel=savedPath.replace(/^docs\//,'').replace(/\.md$/,'');
+  // Cancel indicators from any previous deploy, mark this file as pending
+  clearAllTreeStatuses();
+  setTreeRowStatus(savedRel,'pending');
+  // Each call gets a unique generation; stale loops self-cancel when gen changes
+  const gen=++watchDeployGen;
   const before=await fetchLatestRun();
   const beforeId=before?.id||null;
-  // poll until a NEW run appears (different id) then track it
   async function waitForNewRun(attempts=0){
-    if(attempts>20){ pollActions(null); return; }
+    if(gen!==watchDeployGen){setTreeRowStatus(savedRel,null);return;} // superseded
+    if(attempts>20){setTreeRowStatus(savedRel,null);pollActions(null,null);return;}
     const run=await fetchLatestRun();
     if(run&&run.id!==beforeId){
       watchingRunId=run.id;
       renderStatus(run);
-      pollActions(()=>{
-        toast('✓ Deploy complete');
-        loadTree();
-      });
+      pollActions(
+        ()=>{
+          if(gen===watchDeployGen){
+            setTreeRowStatus(savedRel,'success');
+            setTimeout(()=>setTreeRowStatus(savedRel,null),3500);
+          }
+          toast('✓ Deploy complete');
+          loadTree();
+        },
+        ()=>{
+          if(gen===watchDeployGen) setTreeRowStatus(savedRel,'failure');
+          toast('✗ Deploy failed');
+        }
+      );
     } else {
-      setTimeout(()=>waitForNewRun(attempts+1), 4000);
+      setTimeout(()=>waitForNewRun(attempts+1),4000);
     }
   }
-  setTimeout(()=>waitForNewRun(), 5000);
+  setTimeout(()=>waitForNewRun(),5000);
 }
+
+// Initialize wiki autocomplete after DOM ready
+initWikiAutocomplete();
 
 init();
 </script>
