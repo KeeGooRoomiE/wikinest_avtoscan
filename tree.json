@@ -24,6 +24,25 @@
     "author": ""
   },
   {
+    "path": "docs/tp/reglamentation/add-car-reglament",
+    "title": "Add Car Reglament",
+    "excerpt": "Start writing here.",
+    "parts": [
+      "docs",
+      "tp",
+      "reglamentation",
+      "add-car-reglament"
+    ],
+    "folder_titles": {
+      "docs": "Docs",
+      "tp": "Tp",
+      "reglamentation": "Reglamentation"
+    },
+    "updated_at": "2026-05-21T12:55:16+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
     "excerpt": "[Таблица Контакты][contacts_gdrive] - [Контакты](contacts)",
