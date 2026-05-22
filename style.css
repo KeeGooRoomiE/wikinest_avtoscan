@@ -250,8 +250,9 @@ body {
   flex: 1;
 }
 
-/* Folder rename button — pencil icon, shown on row hover */
-.folder-rename-btn {
+/* Folder action buttons (rename pencil, add plus) — shown on row hover */
+.folder-rename-btn,
+.folder-add-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,10 +268,12 @@ body {
   opacity: 0;
   transition: opacity 0.12s, background 0.12s;
 }
-.tree-row.folder:hover .folder-rename-btn {
+.tree-row.folder:hover .folder-rename-btn,
+.tree-row.folder:hover .folder-add-btn {
   opacity: 1;
 }
-.folder-rename-btn:hover {
+.folder-rename-btn:hover,
+.folder-add-btn:hover {
   background: var(--bg3);
   color: var(--text);
 }

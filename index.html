@@ -545,6 +545,12 @@ function renderNode(node,el,depth,parentPath=''){
       rBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
       rBtn.onclick=e=>{e.stopPropagation();openFolderRename(fullFolderPath);};
       row.appendChild(rBtn);
+      const aBtn=document.createElement('button');
+      aBtn.className='folder-add-btn';
+      aBtn.title=t('new_page_in_folder')||'New page in this folder';
+      aBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
+      aBtn.onclick=e=>{e.stopPropagation();openNewPage(fullFolderPath);};
+      row.appendChild(aBtn);
       const kids=document.createElement('div');
       kids.className='tree-children';
       renderNode(item._children,kids,depth+1,fullFolderPath);
@@ -828,25 +834,56 @@ async function savePage(){
 }
 
 // ── New page ──
-function openNewPage(){
+function openNewPage(presetFolder=''){
+  // Collect unique folder paths from tree
+  const folders=new Set();
+  tree.forEach(p=>{
+    for(let i=1;i<p.parts.length;i++) folders.add(p.parts.slice(0,i).join('/'));
+  });
+  const folderOpts=['',...[...folders].sort()]
+    .map(f=>`<option value="${escHtml(f)}"${f===presetFolder?' selected':''}>${f||'/ (корень)'}</option>`)
+    .join('');
+
   $('modal-title').textContent=t('new_page_title');
   $('modal-body').innerHTML=`
-    <div class="field"><label>${t('page_path')}</label>
-    <input id="m-path" placeholder="folder/page-name">
-    <div class="hint">${t('page_path_hint')}</div></div>`;
+    <div class="field">
+      <label>Папка</label>
+      <select id="m-folder">${folderOpts}</select>
+    </div>
+    <div class="field">
+      <label>Имя страницы</label>
+      <input id="m-name" placeholder="my-page-name">
+      <div class="hint">Латиница, цифры, дефисы, подчёркивания — без пробелов</div>
+    </div>
+    <div class="field" style="margin-top:2px">
+      <label style="font-size:11px;color:var(--text3)">Итоговый путь</label>
+      <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code>
+    </div>`;
   $('modal-actions').innerHTML=`
     <button onclick="closeModal()">${t('cancel')}</button>
     <button class="btn-primary" onclick="createPage()">${t('create')}</button>`;
+
+  const updatePreview=()=>{
+    const folder=$('m-folder').value;
+    const name=$('m-name').value.trim();
+    const path=folder?`${folder}/${name}`:name;
+    $('m-path-preview').textContent=name?`docs/${path}.md`:'—';
+  };
+  $('m-folder').oninput=updatePreview;
+  $('m-name').oninput=updatePreview;
+
   $('modal-overlay').classList.add('open');
-  setTimeout(()=>$('m-path').focus(),50);
+  setTimeout(()=>$('m-name').focus(),50);
 }
 
 async function createPage(){
   const ok=await requireUnlock();
   if(!ok) return;
-  const path=$('m-path').value.trim().replace(/\.md$/,'');
-  if(!path) return;
-  if(!/^[a-zA-Z0-9_\-][a-zA-Z0-9_\-\/]*$/.test(path)){toast('Invalid path — use letters, numbers, hyphens, underscores and slashes only');return;}
+  const folder=($('m-folder')||{value:''}).value.trim();
+  const name=($('m-name')||{value:''}).value.trim().replace(/\.md$/,'');
+  if(!name){toast('Введите имя страницы');return;}
+  if(!/^[a-zA-Z0-9_\-]+$/.test(name)){toast('Имя страницы: только латиница, цифры, дефисы и подчёркивания');return;}
+  const path=folder?`${folder}/${name}`:name;
   const fullPath=`docs/${path}.md`;
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const content=`# ${title}\n\nStart writing here.\n`;
