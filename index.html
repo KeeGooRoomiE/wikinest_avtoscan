@@ -6,7 +6,11 @@
 <title>WikiNest</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
-
+<style>
+.folder-add-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:20px;height:20px;padding:0;background:none;border:none;border-radius:4px;color:var(--text2);cursor:pointer;opacity:0;transition:opacity .12s,background .12s}
+.tree-row.folder:hover .folder-add-btn{opacity:1}
+.folder-add-btn:hover{background:var(--bg3);color:var(--text)}
+</style>
 </head>
 <body>
 <div id="header">
