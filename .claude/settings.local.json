@@ -9,7 +9,13 @@
       "Bash(brew install *)",
       "Bash(mkdir -p /tmp/glonass_media)",
       "Bash(pdfimages -png \"/Users/xandergusarov/Downloads/1C-Connect/Регламент Glonassoft 2026.pdf\" /tmp/glonass_media/img)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan add docs/tp/reglamentation/add-car-reglament.md)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan commit -m ' *)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan pull origin main --rebase)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan push origin main)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan stash)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan stash pop)"
     ]
   }
 }
