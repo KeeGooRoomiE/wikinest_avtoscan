@@ -206,8 +206,8 @@
   },
   {
     "path": "tp/reglamentation/add-car-reglament",
-    "title": "Add Car Reglament",
-    "excerpt": "Start writing here.",
+    "title": "Регламент создания и настройки учётной записи клиента",
+    "excerpt": "Пошаговые регламенты создания учётной записи клиента в AXENTA и Глонасс Soft: создание в 1С, настройка кабинета, выдача прав, шаблоны отчётов.",
     "parts": [
       "tp",
       "reglamentation",
