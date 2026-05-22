@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /tmp/axenta_media/media/ | head -20 && ls /tmp/axenta_media/media/ | wc -l)",
+      "Bash(mkdir -p /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/images/axenta && cp /tmp/axenta_media/media/* /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/images/axenta/ && echo \"Copied $\\(ls /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/images/axenta/ | wc -l\\) files\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(pdfimages -list \"/Users/xandergusarov/Downloads/1C-Connect/Регламент Glonassoft 2026.pdf\")",
+      "Bash(brew install *)",
+      "Bash(mkdir -p /tmp/glonass_media)",
+      "Bash(pdfimages -png \"/Users/xandergusarov/Downloads/1C-Connect/Регламент Glonassoft 2026.pdf\" /tmp/glonass_media/img)",
+      "Read(//tmp/**)"
+    ]
+  }
+}
