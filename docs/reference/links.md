@@ -12,6 +12,8 @@
 
 [Памятка пользователям][accounts_git]
 
+[Waddle][waddle_monitoring] - мониторинг сервисов
+
 ---
 ## Внешние ссылки
 
@@ -50,6 +52,7 @@
 [nav_wialon]:https://w.avtoscan42.ru
 
 [accounts_git]:account.avtoscan42.ru
+[waddle_monitoring]: https://avtoscan.github.io/waddle/
 
 [sim_mts]:https://lk-b2b.mts.ru/mts_business_auth/
 [sim_t2]:https://newlk.t2.ru/lk?utm_referrer=https%3A%2F%2Fkuzbass.t2.ru%2F
