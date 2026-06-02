@@ -50,5 +50,13 @@
   "rename_folder": "Rename folder",
   "folder_display_name": "Display name",
   "folder_display_name_hint": "Shown in the sidebar. The actual folder path doesn't change.",
-  "folder_renamed": "Folder renamed"
+  "folder_renamed": "Folder renamed",
+  "new_page_in_folder": "New page in this folder",
+  "new_page_folder": "Folder",
+  "new_page_name": "Page name",
+  "new_page_name_hint": "Letters, numbers, hyphens, underscores — no spaces",
+  "new_page_path_preview": "Full path",
+  "root_folder": "/ (root)",
+  "page_name_empty": "Enter a page name",
+  "page_name_invalid": "Page name: letters, numbers, hyphens and underscores only"
 }

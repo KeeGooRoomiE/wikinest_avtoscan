@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WikiNest</title>
+<script>
+  // SPA redirect for GitHub Pages (and GitLab Pages).
+  //
+  // When a user opens a direct link like:
+  //   https://user.github.io/wikinest/setup/installation
+  // the host returns 404 and serves this file. We capture the requested path
+  // and redirect to index.html with it encoded as ?p=, which the app reads
+  // on startup and navigates to the correct page.
+  //
+  // pathSegmentsToKeep
+  //   1 — GitHub/GitLab project pages  (user.github.io/repo-name/)
+  //   0 — user/org pages or custom domains  (user.github.io/ or docs.example.com/)
+  var pathSegmentsToKeep = 1;
+
+  var l = window.location;
+  var base = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
+  var page = l.pathname.split('/').slice(1 + pathSegmentsToKeep).join('/');
+
+  if (page) {
+    l.replace(
+      l.protocol + '//' + l.host + base + '/' +
+      '?p=' + encodeURIComponent(page) +
+      l.hash
+    );
+  } else {
+    // No page path — just go home
+    l.replace(l.protocol + '//' + l.host + base + '/');
+  }
+</script>
+</head>
+<body style="font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f6f8fa;color:#636c76">
+  Redirecting…
+</body>
+</html>
