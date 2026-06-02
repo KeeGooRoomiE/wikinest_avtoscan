@@ -50,5 +50,13 @@
   "rename_folder": "Переименовать папку",
   "folder_display_name": "Отображаемое название",
   "folder_display_name_hint": "Показывается в сайдбаре. Реальный путь папки не изменится.",
-  "folder_renamed": "Папка переименована"
+  "folder_renamed": "Папка переименована",
+  "new_page_in_folder": "Новая страница в этой папке",
+  "new_page_folder": "Папка",
+  "new_page_name": "Имя страницы",
+  "new_page_name_hint": "Латиница, цифры, дефисы, подчёркивания — без пробелов",
+  "new_page_path_preview": "Итоговый путь",
+  "root_folder": "/ (корень)",
+  "page_name_empty": "Введите имя страницы",
+  "page_name_invalid": "Имя страницы: только латиница, цифры, дефисы и подчёркивания"
 }

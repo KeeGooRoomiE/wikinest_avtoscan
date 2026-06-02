@@ -6,11 +6,7 @@
 <title>WikiNest</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
-<style>
-.folder-add-btn{display:flex;align-items:center;justify-content:center;flex-shrink:0;width:20px;height:20px;padding:0;background:none;border:none;border-radius:4px;color:var(--text2);cursor:pointer;opacity:0;transition:opacity .12s,background .12s}
-.tree-row.folder:hover .folder-add-btn{opacity:1}
-.folder-add-btn:hover{background:var(--bg3);color:var(--text)}
-</style>
+
 </head>
 <body>
 <div id="header">
@@ -25,7 +21,7 @@
     <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
   </div>
   <a id="actions-status" title="GitHub Actions status" target="_blank" style="display:none;align-items:center;gap:5px;font-size:11px;padding:4px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2);text-decoration:none;cursor:pointer"></a>
-  <!-- <select id="lang-switcher" onchange="switchLang(this.value)"><option value="en">EN</option><option value="ru">RU</option></select> -->
+  <select id="lang-switcher" onchange="switchLang(this.value)"><option value="en">EN</option><option value="ru">RU</option></select>
   <button id="btn-settings" onclick="openSettings()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
   </button>
@@ -177,6 +173,11 @@ let _pendingRestoreContent=null;
 // ── Pending folder path for folder-rename modal ──
 let _pendingFolderPath=null;
 
+// ── Deep-link routing ──
+// _pendingUrlPage: page path read from ?p= on startup (set by 404.html redirect)
+// _basePath: repo root prefix in the URL, e.g. '/wikinest' or '' for custom domains
+let _pendingUrlPage=null,_basePath='';
+
 // ── Deploy watcher ──
 let pollTimer=null,watchingRunId=null,watchDeployGen=0;
 
@@ -237,6 +238,19 @@ function relativeDate(iso){
   return `${Math.floor(mo/12)} year${Math.floor(mo/12)!==1?'s':''} ago`;
 }
 
+// Resolve a path relative to the current markdown file's directory.
+// e.g. currentPath='docs/setup/installation.md', rel='../assets/img.png'
+//      → 'docs/assets/img.png'
+function resolveDocRelative(rel){
+  const parts=currentPath.split('/');
+  parts.pop(); // drop filename, keep directory segments
+  for(const seg of rel.split('/')){
+    if(seg==='..')parts.pop();
+    else if(seg&&seg!=='.')parts.push(seg);
+  }
+  return parts.join('/');
+}
+
 // ── Debounced preview render (shared by startEdit + restoreVersion) ──
 const renderPreviewDebounced=debounce(()=>{
   const{body}=parseFrontmatter($('editor').value);
@@ -277,6 +291,14 @@ function parseFrontmatter(md){
 
 async function init(){
   loadDisplayPrefs();
+  // Base path = pathname root of this page (e.g. '/wikinest' for project pages, '' for root)
+  _basePath=location.pathname.replace(/\/$/, '').replace(/\/[^/]*\.[^/]*$/, '');
+  // Handle incoming deep link from 404.html redirect (?p=some/page)
+  const _urlParam=new URLSearchParams(location.search).get('p');
+  if(_urlParam){
+    _pendingUrlPage=decodeURIComponent(_urlParam).replace(/^\/+|\.md$/g,'');
+    history.replaceState(null,'',location.pathname); // strip ?p= immediately
+  }
   // 1. load config.json from repo — source of truth for owner/repo/site_name/password hash
   try{
     const r=await fetch('config.json',{cache:'no-cache'});
@@ -305,9 +327,24 @@ async function init(){
   } else showSetupBanner();
 
   document.addEventListener('keydown',e=>{
+    const inEditor=$('editor-wrap').classList.contains('edit-active');
+    const modalOpen=$('modal-overlay').classList.contains('open');
     if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSearch();}
-    if((e.metaKey||e.ctrlKey)&&e.key==='s'&&$('editor-wrap').classList.contains('edit-active')){e.preventDefault();savePage();}
-    if(e.key==='Escape'){closeSearch();closeModal();hideWikiComplete();}
+    if((e.metaKey||e.ctrlKey)&&e.key==='s'&&inEditor){e.preventDefault();savePage();}
+    // Ctrl/Cmd+E — open editor (only when viewing, not already editing)
+    if((e.metaKey||e.ctrlKey)&&e.key==='e'&&!inEditor&&currentPath&&!modalOpen){e.preventDefault();startEdit();}
+    // Ctrl/Cmd+Enter — confirm the primary action of an open modal
+    if((e.metaKey||e.ctrlKey)&&e.key==='Enter'&&modalOpen){
+      e.preventDefault();
+      const primary=$('modal-actions').querySelector('.btn-primary');
+      if(primary) primary.click();
+    }
+    if(e.key==='Escape'){
+      closeSearch();
+      hideWikiComplete();
+      if(modalOpen) closeModal();
+      else if(inEditor) cancelEdit();
+    }
   });
   window.addEventListener('beforeunload',e=>{
     if(editorDirty){e.preventDefault();e.returnValue='';}
@@ -489,6 +526,11 @@ async function loadTree(){
     tree=await r.json();
     renderTree(tree);
     if(!currentPath){
+      if(_pendingUrlPage){
+        const targetPage=tree.find(p=>p.path.toLowerCase()===_pendingUrlPage.toLowerCase());
+        _pendingUrlPage=null;
+        if(targetPage){openPage(targetPage);return;}
+      }
       const homePage=tree.find(p=>p.path==='home');
       if(homePage) openPage(homePage);
       else showEmpty();
@@ -549,6 +591,7 @@ function renderNode(node,el,depth,parentPath=''){
       rBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
       rBtn.onclick=e=>{e.stopPropagation();openFolderRename(fullFolderPath);};
       row.appendChild(rBtn);
+      // Add-page button (+) — opens New page dialog pre-filled with this folder
       const aBtn=document.createElement('button');
       aBtn.className='folder-add-btn';
       aBtn.title=t('new_page_in_folder')||'New page in this folder';
@@ -604,6 +647,9 @@ async function openPage(page){
     if(!r.ok) throw new Error(r.statusText);
     const md=await r.text();
     if(currentPath!==targetPath) return; // user navigated away before fetch completed
+    // Update the address bar so users can copy a shareable direct link.
+    // On next open the URL goes through 404.html → index.html?p= → openPage().
+    history.replaceState(null,'',_basePath+'/'+page.path);
     currentSha=null;
     renderView(md);
   }catch(e){
@@ -618,8 +664,20 @@ function renderView(md){
   metaHtml+=`<span>${escHtml(currentPath)}</span>`;
   if(meta.author) metaHtml+=` &nbsp;·&nbsp; <span>${escHtml(t('by'))} ${escHtml(meta.author)}</span>`;
   metaHtml+=`</div>`;
-  try{$('view').innerHTML=metaHtml+marked.parse(body);}
-  catch(e){$('view').innerHTML=metaHtml+`<pre style="color:var(--red);font-size:12px;padding:12px">Render error: ${escHtml(e.message)}</pre>`;}
+  try{
+    let html=marked.parse(body);
+    // Rewrite relative image src attributes to absolute raw-CDN URLs.
+    // Needed because the SPA is served from the Pages root, so the browser
+    // resolves relative paths against the site URL, not the .md file location.
+    // Matches src="..." that are not already absolute (http/https/protocol-relative/data/fragment).
+    if(currentPath){
+      html=html.replace(
+        /(<img\b[^>]*?\bsrc=")(?!https?:\/\/|\/\/|data:|#)([^"]+)"/gi,
+        (_,prefix,rel)=>`${prefix}${rawUrl(resolveDocRelative(rel))}"`
+      );
+    }
+    $('view').innerHTML=metaHtml+html;
+  }catch(e){$('view').innerHTML=metaHtml+`<pre style="color:var(--red);font-size:12px;padding:12px">Render error: ${escHtml(e.message)}</pre>`;}
   // Build tag chips via DOM — avoids embedding tag values in onclick HTML attributes
   if(meta.tags&&meta.tags.length){
     const tagsDiv=document.createElement('div');
@@ -663,19 +721,30 @@ function tocClick(id){
 }
 
 // ── Markdown toolbar formatting ──
+// Use execCommand('insertText') so every toolbar action is a single undo step.
+// setRangeText() bypasses the browser's input pipeline and breaks Ctrl+Z on
+// many browsers; execCommand preserves the native undo/redo stack.
+function taInsert(ta,text,start,end){
+  ta.focus();
+  ta.setSelectionRange(start,end);
+  if(!document.execCommand('insertText',false,text)){
+    // Fallback for environments where execCommand is unavailable
+    ta.setRangeText(text,start,end,'end');
+  }
+}
+
 function fmt(before,after,placeholder){
   const ta=$('editor');
   const s=ta.selectionStart,e=ta.selectionEnd;
   const hasSel=s!==e;
   const sel=hasSel?ta.value.slice(s,e):placeholder;
   const ins=before+sel+after;
-  ta.setRangeText(ins,s,e,'end');
+  taInsert(ta,ins,s,e);
   if(!hasSel&&placeholder){
     ta.selectionStart=s+before.length;
     ta.selectionEnd=s+before.length+placeholder.length;
   }
   ta.dispatchEvent(new Event('input'));
-  ta.focus();
 }
 
 function fmtLine(prefix){
@@ -686,9 +755,8 @@ function fmtLine(prefix){
   const end=lineEnd===-1?ta.value.length:lineEnd;
   const line=ta.value.slice(lineStart,end);
   const newLine=line.startsWith(prefix)?line.slice(prefix.length):prefix+line;
-  ta.setRangeText(newLine,lineStart,end,'end');
+  taInsert(ta,newLine,lineStart,end);
   ta.dispatchEvent(new Event('input'));
-  ta.focus();
 }
 
 function fmtTable(){
@@ -730,7 +798,7 @@ function initDragDrop(){
         const ta=$('editor');
         const pos=ta.selectionStart;
         const ins=`![${safeName}](${url})`;
-        ta.setRangeText(ins,pos,pos,'end');
+        taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
         toast(t('image_uploaded'));
       }catch(err){toast(`Upload failed: ${err.message}`);}
@@ -839,34 +907,28 @@ async function savePage(){
 
 // ── New page ──
 function openNewPage(presetFolder=''){
-  // Collect unique folder paths from tree
+  // Collect all unique folder paths from the tree
   const folders=new Set();
   tree.forEach(p=>{
     for(let i=1;i<p.parts.length;i++) folders.add(p.parts.slice(0,i).join('/'));
   });
   const folderOpts=['',...[...folders].sort()]
-    .map(f=>`<option value="${escHtml(f)}"${f===presetFolder?' selected':''}>${f||'/ (корень)'}</option>`)
+    .map(f=>`<option value="${escHtml(f)}"${f===presetFolder?' selected':''}>${escHtml(f)||t('root_folder')||'/ (root)'}</option>`)
     .join('');
-
   $('modal-title').textContent=t('new_page_title');
   $('modal-body').innerHTML=`
-    <div class="field">
-      <label>Папка</label>
-      <select id="m-folder">${folderOpts}</select>
-    </div>
-    <div class="field">
-      <label>Имя страницы</label>
-      <input id="m-name" placeholder="my-page-name">
-      <div class="hint">Латиница, цифры, дефисы, подчёркивания — без пробелов</div>
-    </div>
+    <div class="field"><label>${t('new_page_folder')}</label>
+    <select id="m-folder">${folderOpts}</select></div>
+    <div class="field"><label>${t('new_page_name')}</label>
+    <input id="m-name" placeholder="my-page-name">
+    <div class="hint">${t('new_page_name_hint')}</div></div>
     <div class="field" style="margin-top:2px">
-      <label style="font-size:11px;color:var(--text3)">Итоговый путь</label>
+      <label style="font-size:11px;color:var(--text3)">${t('new_page_path_preview')}</label>
       <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code>
     </div>`;
   $('modal-actions').innerHTML=`
     <button onclick="closeModal()">${t('cancel')}</button>
     <button class="btn-primary" onclick="createPage()">${t('create')}</button>`;
-
   const updatePreview=()=>{
     const folder=$('m-folder').value;
     const name=$('m-name').value.trim();
@@ -875,7 +937,6 @@ function openNewPage(presetFolder=''){
   };
   $('m-folder').oninput=updatePreview;
   $('m-name').oninput=updatePreview;
-
   $('modal-overlay').classList.add('open');
   setTimeout(()=>$('m-name').focus(),50);
 }
@@ -885,8 +946,8 @@ async function createPage(){
   if(!ok) return;
   const folder=($('m-folder')||{value:''}).value.trim();
   const name=($('m-name')||{value:''}).value.trim().replace(/\.md$/,'');
-  if(!name){toast('Введите имя страницы');return;}
-  if(!/^[a-zA-Z0-9_\-]+$/.test(name)){toast('Имя страницы: только латиница, цифры, дефисы и подчёркивания');return;}
+  if(!name){toast(t('page_name_empty')||'Enter a page name');return;}
+  if(!/^[a-zA-Z0-9_\-]+$/.test(name)){toast(t('page_name_invalid')||'Page name: letters, numbers, hyphens and underscores only');return;}
   const path=folder?`${folder}/${name}`:name;
   const fullPath=`docs/${path}.md`;
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
@@ -1228,10 +1289,9 @@ function insertWikiLink(title){
   const m=before.match(/\[\[([^\]]*)$/);
   if(!m) return;
   const start=pos-m[0].length;
-  ta.setRangeText(`[[${title}]]`,start,pos,'end');
+  taInsert(ta,`[[${title}]]`,start,pos);
   ta.dispatchEvent(new Event('input'));
   hideWikiComplete();
-  ta.focus();
 }
 
 function initWikiAutocomplete(){
@@ -1457,7 +1517,37 @@ async function watchDeploy(savedPath){
   setTimeout(()=>waitForNewRun(),5000);
 }
 
+// ── Editor keyboard shortcuts (Tab indent, Ctrl+B/I) ──
+function initEditorShortcuts(){
+  const ta=$('editor');
+  if(!ta) return;
+  ta.addEventListener('keydown',e=>{
+    if(!$('editor-wrap').classList.contains('edit-active')) return;
+    // Tab → insert 2 spaces (prevent focus shift)
+    if(e.key==='Tab'&&!e.metaKey&&!e.ctrlKey&&!e.altKey){
+      e.preventDefault();
+      const s=ta.selectionStart,end=ta.selectionEnd;
+      taInsert(ta,'  ',s,end);
+      ta.dispatchEvent(new Event('input'));
+      return;
+    }
+    // Ctrl/Cmd+B → Bold
+    if((e.metaKey||e.ctrlKey)&&e.key==='b'){
+      e.preventDefault();
+      fmt('**','**','bold text');
+      return;
+    }
+    // Ctrl/Cmd+I → Italic
+    if((e.metaKey||e.ctrlKey)&&e.key==='i'){
+      e.preventDefault();
+      fmt('_','_','italic text');
+      return;
+    }
+  });
+}
+
 // Initialize wiki autocomplete after DOM ready
+initEditorShortcuts();
 initWikiAutocomplete();
 
 init();
