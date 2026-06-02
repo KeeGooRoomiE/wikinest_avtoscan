@@ -14,6 +14,10 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) · Versioning: 
 
 - **Keyboard shortcuts** — new shortcuts in the editor: **Tab** inserts 2 spaces instead of shifting focus (standard indent behaviour); **Ctrl/Cmd+B** applies Bold; **Ctrl/Cmd+I** applies Italic. All three are implemented in `initEditorShortcuts()` as a textarea `keydown` listener that only fires while edit mode is active
 
+### View
+
+- **Share button** — "Share" button added to the content bar alongside Print and History. Clicking it copies the current page URL to the clipboard via the Clipboard API (falls back to a `prompt()` dialog on HTTP contexts without clipboard access). The button is visible only while viewing a page and is hidden in edit mode. Localized in English and Russian
+
 ### Navigation
 
 - **Ctrl/Cmd+E** — opens the editor for the current page from view mode (equivalent to clicking the Edit button); no-op when already editing or no page is open

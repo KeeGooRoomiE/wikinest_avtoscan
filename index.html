@@ -53,6 +53,10 @@
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span id="lbl-history">History</span>
       </button>
+      <button class="bar-btn" id="btn-share" onclick="sharePage()" style="display:none">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <span id="lbl-share">Share</span>
+      </button>
       <button class="bar-btn" id="btn-print" onclick="window.print()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         <span id="lbl-print">Print</span>
@@ -384,9 +388,20 @@ function applyI18n(){
   set('btn-draft-restore', t('draft_restore'));
   set('btn-draft-discard', t('draft_discard'));
   set('lbl-print',         t('print'));
+  set('lbl-share',         t('share'));
   const sn=cfg.site_name||'WikiNest';
   set('site-name',sn);
   document.title=sn;
+}
+
+function sharePage(){
+  const url=window.location.href;
+  navigator.clipboard.writeText(url).then(()=>{
+    toast(t('share_copied'));
+  }).catch(()=>{
+    // Fallback for browsers without clipboard API (e.g. http context)
+    prompt(t('share_prompt')||'Copy link:',url);
+  });
 }
 
 async function switchLang(lang){
@@ -636,6 +651,7 @@ async function openPage(page){
   $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
   $('btn-edit').style.display='flex';
+  $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
   $('btn-delete').style.display='flex';
   $('btn-rename').style.display='flex';
@@ -834,6 +850,7 @@ function _activateEditorPanel(){
   $('editor-wrap').classList.add('edit-active');
   const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
   $('btn-edit').style.display='none';
+  $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
   $('btn-rename').style.display='none';
@@ -877,6 +894,7 @@ function cancelEdit(){
   $('edit-btns').style.display='none';
   $('view-wrap').style.display=currentPath?'block':'none';
   $('btn-edit').style.display=currentPath?'flex':'none';
+  $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=currentPath?'flex':'none';
   $('btn-rename').style.display=currentPath?'flex':'none';
