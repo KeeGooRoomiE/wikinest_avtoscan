@@ -58,5 +58,8 @@
   "new_page_path_preview": "Full path",
   "root_folder": "/ (root)",
   "page_name_empty": "Enter a page name",
-  "page_name_invalid": "Page name: letters, numbers, hyphens and underscores only"
+  "page_name_invalid": "Page name: letters, numbers, hyphens and underscores only",
+  "share": "Share",
+  "share_copied": "Link copied to clipboard",
+  "share_prompt": "Copy link:"
 }
