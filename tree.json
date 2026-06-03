@@ -155,8 +155,8 @@
   },
   {
     "path": "tp/devices/term-pin",
-    "title": "Term Pin",
-    "excerpt": "Start writing here.",
+    "title": "Пароли от АТ",
+    "excerpt": "---",
     "parts": [
       "tp",
       "devices",
@@ -166,7 +166,7 @@
       "tp": "Документация для ТП",
       "devices": "Документация по АТ"
     },
-    "updated_at": "2026-06-03T14:16:34+07:00",
+    "updated_at": "2026-06-03T14:18:33+07:00",
     "tags": [],
     "author": ""
   },
