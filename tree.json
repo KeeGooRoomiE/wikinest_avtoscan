@@ -104,8 +104,8 @@
   },
   {
     "path": "tp/devices/at-links",
-    "title": "At Links",
-    "excerpt": "Start writing here.",
+    "title": "Адреса",
+    "excerpt": "Список адресов для терминалов для синхронизации и ретрансляции",
     "parts": [
       "tp",
       "devices",
@@ -115,7 +115,7 @@
       "tp": "Документация для ТП",
       "devices": "Терминалы"
     },
-    "updated_at": "2026-06-03T14:24:14+07:00",
+    "updated_at": "2026-06-03T14:48:55+07:00",
     "tags": [],
     "author": ""
   },
