@@ -103,6 +103,23 @@
     "author": ""
   },
   {
+    "path": "tp/devices/at-links",
+    "title": "At Links",
+    "excerpt": "Start writing here.",
+    "parts": [
+      "tp",
+      "devices",
+      "at-links"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "devices": "Терминалы"
+    },
+    "updated_at": "2026-06-03T14:24:14+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "tp/devices/galileosky",
     "title": "GalileoSky 5",
     "excerpt": "| Команда | Описание |",
