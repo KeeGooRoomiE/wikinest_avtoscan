@@ -51,7 +51,7 @@
 [nav_glonass]:https://hosting.glonasssoft.ru/login?return=login
 [nav_wialon]:https://w.avtoscan42.ru
 
-[accounts_git]:account.avtoscan42.ru
+[accounts_git]:https://account.avtoscan42.ru
 [waddle_monitoring]: https://avtoscan.github.io/waddle/
 
 [sim_mts]:https://lk-b2b.mts.ru/mts_business_auth/
