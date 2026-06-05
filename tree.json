@@ -256,6 +256,23 @@
     "author": ""
   },
   {
+    "path": "tp/reglamentation/add-object-axenta",
+    "title": "Регламент создания объекта в AXENTA",
+    "excerpt": "Создание объекта в мониторинге: заполнение формы, настройка датчиков, детектор поездок, рекомендации по датчику топлива.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "add-object-axenta"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-06-05T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "tp/reglamentation/index",
     "title": "Список регламентов",
     "excerpt": "",

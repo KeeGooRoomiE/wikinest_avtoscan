@@ -7,7 +7,8 @@
 Далее выбрать нужный сервер и действовать по соответствующему разделу ниже:
 
 - [AXENTA](#axenta) — для клиентов филиалов г. Кемерово и г. Екатеринбург
-- [Глонасс Soft](#глонасс-soft) — для всех остальных клиентов
+- [Глонасс Soft](#глонасс-soft) — для клиентов на сервере ГЛОНАССофт
+- [Wialon](#wialon) — для клиентов на сервере Wialon
 
 ---
 
@@ -245,8 +246,139 @@
 
 ---
 
+---
+
+## Wialon
+
+### 1. Создание учётной записи
+
+1. Открывшаяся форма выглядит следующим образом:
+
+   ![Форма создания в 1С](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p1-form-1c.png)
+
+2. Выбрать сервер:
+   - **г. Кемерово** → `WialonHosting (Кем)`
+   - **г. Екатеринбург** → `WialonHosting (Екб)`
+
+3. Шаблон имени заполнится автоматически — можно оставить или сократить. Конечный результат имени административного пользователя виден в третьей строке.
+
+   ![Шаблон имени](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p1-template-name.png)
+
+4. Проставить галочки как на скриншоте — **Синхронизировать**, **Синхронизировать объекты**, **Управлять блокированием**:
+
+   ![Настройки галочек](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p2-checkboxes.png)
+
+   Нажать **«Записать»**. Если имя занято — появится предупреждение, изменить шаблон и повторить. Спуститься к таблице **«Пользователи»**:
+
+   ![Таблица пользователей](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p2-users-table.png)
+
+   Нажать **«Создать»**, ввести тот же шаблон имени. Если все новые ТС нужно добавлять в просмотр — установить галочку **«Назначать права на новые объекты»**.
+
+   Нажать **«Записать и закрыть»** на карточке пользователя, затем на карточке учётной записи.
+
+   Через несколько минут учётная запись, административный пользователь и пользователь клиента будут созданы в Wialon.
+
+---
+
+### 2. Настройка кабинета клиента
+
+Открыть административного пользователя (постфикс `_adm`). ТС создаются и настраиваются под этим пользователем.
+
+![Административный пользователь](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p3-admin-user.png)
+
+#### 2.1 Загрузка шаблонов отчётов
+
+В меню административного пользователя выбрать **Импорт/Экспорт** → **Импорт из WLP**:
+
+![Меню импорта](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p4-import-menu.png)
+
+Выбрать файл **«Бланк отчётов»**, нажать **«загрузить»**. В таблице «Что импортировать» выбрать:
+- **«Общий по машине»** — если ТС одна
+- **«Общий по машине»** и **«Общий по группе»** — если ТС несколько
+
+В таблице **«Куда импортировать»** выбрать учётную запись клиента и нажать **«OK»**:
+
+![Диалог импорта](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p4-import-dialog.png)
+
+#### 2.2 Переключение под пользователя клиента
+
+Переключиться на пользователя без постфикса `_adm`:
+
+![Переключение пользователя](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p5-switch-user.png)
+
+#### 2.3 Настройка главного меню
+
+Оставить только **3 вкладки**: Мониторинг, Треки, Отчёты:
+
+![Главное меню](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p5-main-menu.png)
+
+#### 2.4 Настройка рабочей области
+
+В первой колонке оставить: **Слежение за объектом**, **Состояние движения**, **Актуальность данных**, **Состояние соединения** (установить 10 минут), **Быстрый трек**, **Быстрый отчёт**:
+
+![Рабочая область](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p6-workspace.png)
+
+#### 2.5 Настройки пользователя
+
+Открыть **Настройки пользователя**:
+
+![Настройки пользователя](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p6-user-settings.png)
+
+**6.1 Общие настройки.** Установить:
+- Часовой пояс клиента
+- Формат даты: `dd.MM.yyyy`
+- Город клиента
+- Включить: **Значения датчиков**, **Произвольные поля**, **Техобслуживание**, **Водители**
+- Включить **Группировку перекрывающихся объектов**
+
+![Общие настройки](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p7-settings-general.png)
+
+Дополнительная информация (Подсказка, Список) — включить согласно скриншоту:
+
+![Дополнительная информация](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p7-settings-extra-info.png)
+
+![Таблица доп. информации](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p8-settings-extra-table.png)
+
+Настройки отображения объектов на карте:
+
+![Настройки объектов](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p8-settings-objects.png)
+
+**6.2 Безопасность** — ничего не меняем.
+
+**6.3 Карты.** Добавить все доступные карты. Если **Яндекс** в списке отсутствует — добавить через учётную запись клиента в `cms.wialon.com`:
+
+![Настройки карт](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p8-maps-settings.png)
+
+После добавления Яндекс появится в списке:
+
+![Список карт](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p9-maps-list.png)
+
+![Яндекс карта](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p9-yandex-map.png)
+
+**6.4 Дроби в датчиках** — на всех пунктах установить **«Округлять»**:
+
+![Дроби в датчиках](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p10-sensor-rounding.png)
+
+#### 2.6 Конечный результат
+
+![Конечный результат](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p10-final-result.png)
+
+#### 2.7 Установка пароля пользователю клиента
+
+Открыть административного пользователя → раздел **«Пользователи»** → открыть свойства пользователя → придумать пароль, ввести его дважды, нажать **«OK»**:
+
+![Установка пароля](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p11-password-set.png)
+
+---
+
 ## Финальный шаг — Отправка данных менеджеру
 
-Перейти на [account.avtoscan42.ru](http://account.avtoscan42.ru). Ввести логин и пароль клиента, выбрать систему мониторинга (**АКСЕНТА** или **ГЛОНАСССОФТ** — в зависимости от того, какая была настроена) и нажать **«Отправить менеджеру»**, выбрав менеджера из выпадающего списка.
+Перейти на [account.avtoscan42.ru](http://account.avtoscan42.ru). Ввести логин и пароль клиента, выбрать систему мониторинга и нажать **«Отправить менеджеру»**, выбрав менеджера из выпадающего списка.
 
-![Отправить менеджеру](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/glonassoft/gs-p8-account-site.png)
+- **АКСЕНТА** — для клиентов AXENTA
+- **ГЛОНАСССОФТ** — для клиентов Глонасс Soft
+- **WIALON LOCAL** — для клиентов Wialon
+
+![Отправить менеджеру — Глонасссофт](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/glonassoft/gs-p8-account-site.png)
+
+![Отправить менеджеру — Wialon](https://raw.githubusercontent.com/KeeGooRoomiE/wikinest_avtoscan/HEAD/docs/assets/images/wialon/w-p12-account-site.png)
