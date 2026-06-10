@@ -7,5 +7,6 @@
 **Wialon:** 
 ```
 wialon.avtoscan.com 21626 WialonIPS
-```
 
+Wialon IPS v1	80.89.147.217	12304
+```
