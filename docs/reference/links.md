@@ -19,9 +19,9 @@
 
 [Аксента][nav_axenta]
 
-[ГлонассСофт][nav_glonass]
+[ГлонассСофт][nav_glonass] 
 
-[Виалон][nav_wialon]
+[Виалон][nav_wialon] | [CMS Виалон][nav_cms_wialon] 
 
 
 ---
@@ -50,6 +50,7 @@
 [nav_axenta]:https://cms.axenta.cloud/main/accounts
 [nav_glonass]:https://hosting.glonasssoft.ru/login?return=login
 [nav_wialon]:https://w.avtoscan42.ru
+[nav_cms_wialon]:https://cms-my.gpsnetwork.ru/
 
 [accounts_git]:https://account.avtoscan42.ru
 [waddle_monitoring]: https://avtoscan.github.io/waddle/
