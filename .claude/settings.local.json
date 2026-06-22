@@ -15,7 +15,20 @@
       "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan pull origin main --rebase)",
       "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan push origin main)",
       "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan stash)",
-      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan stash pop)"
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan stash pop)",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; head -5 {}')",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan add docs/tp/reglamentation/add-car-reglament.md docs/tp/reglamentation/add-object-axenta.md docs/assets/images/wialon/ docs/assets/images/axenta-obj/ tree.json)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan diff --staged --stat)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan add docs/home.md)",
+      "Bash(mkdir -p /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/.claude/compacts /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/.claude/audits)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npx --yes serve --version)",
+      "Bash(node -e ' *)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan diff --stat HEAD)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan diff HEAD -- index.html)",
+      "Bash(node --check /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(node --check /tmp/check_js.js)"
     ]
   }
 }

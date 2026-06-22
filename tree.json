@@ -9,7 +9,8 @@
     "folder_titles": {},
     "updated_at": "2026-05-14T09:41:08+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": []
   },
   {
     "path": "home",
@@ -21,7 +22,8 @@
     "folder_titles": {},
     "updated_at": "2026-06-05T14:06:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": []
   },
   {
     "path": "reference/links",
@@ -36,7 +38,8 @@
     },
     "updated_at": "2026-06-15T12:21:03+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": []
   },
   {
     "path": "reference/markdown",
@@ -51,7 +54,10 @@
     },
     "updated_at": "2026-05-14T00:13:24+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   },
   {
     "path": "tp/main",
@@ -66,7 +72,10 @@
     },
     "updated_at": "2026-06-10T09:35:19+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   },
   {
     "path": "tp/devices/adm",
@@ -83,7 +92,11 @@
     },
     "updated_at": "2026-05-18T10:15:11+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/arnavi",
@@ -100,7 +113,11 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/at-links",
@@ -117,7 +134,11 @@
     },
     "updated_at": "2026-06-10T09:32:23+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/galileosky",
@@ -134,7 +155,11 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/navtelecom",
@@ -151,7 +176,11 @@
     },
     "updated_at": "2026-05-13T17:32:32+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/omnicom",
@@ -168,7 +197,11 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/term-pin",
@@ -185,7 +218,11 @@
     },
     "updated_at": "2026-06-04T11:16:00+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/umka",
@@ -202,7 +239,11 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/devices/vega",
@@ -219,7 +260,11 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/examples/index",
@@ -236,7 +281,11 @@
     },
     "updated_at": "2026-05-14T00:24:57+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support",
+      "installer"
+    ]
   },
   {
     "path": "tp/reglamentation/add-car-reglament",
@@ -253,7 +302,10 @@
     },
     "updated_at": "2026-06-05T12:52:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   },
   {
     "path": "tp/reglamentation/add-object-axenta",
@@ -270,7 +322,10 @@
     },
     "updated_at": "2026-06-05T12:52:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   },
   {
     "path": "tp/reglamentation/index",
@@ -287,7 +342,10 @@
     },
     "updated_at": "2026-05-14T00:24:57+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   },
   {
     "path": "tp/software/axenta",
@@ -304,6 +362,9 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   }
 ]

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,12 @@
 </head>
 <body>
 <div id="header">
-  <div class="logo">
+  <div class="logo" onclick="goHome()">
     <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-    <span id="site-name">WikiNest</span>
+    <div class="logo-text">
+      <span id="site-name">WikiNest</span>
+      <span class="logo-sub">База знаний</span>
+    </div>
   </div>
   <div id="h-space"></div>
   <button id="burger" onclick="toggleSidebar()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
@@ -21,7 +24,7 @@
     <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
   </div>
   <a id="actions-status" title="GitHub Actions status" target="_blank" style="display:none;align-items:center;gap:5px;font-size:11px;padding:4px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2);text-decoration:none;cursor:pointer"></a>
-  <select id="lang-switcher" onchange="switchLang(this.value)"><option value="en">EN</option><option value="ru">RU</option></select>
+  <div id="role-badge" style="display:none;align-items:center;gap:5px;font-size:12px;padding:3px 6px 3px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span id="role-name"></span><button onclick="logoutRole()" title="Выйти" style="background:none;border:none;cursor:pointer;padding:0;color:var(--text3);font-size:14px;line-height:1;margin-left:3px;display:flex;align-items:center">✕</button></div>
   <button id="btn-settings" onclick="openSettings()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
   </button>
@@ -36,6 +39,30 @@
       </button>
     </div>
     <div id="tree"></div>
+    <div id="sidebar-quick">
+      <div class="sidebar-label">БЫСТРЫЙ ДОСТУП</div>
+      <div class="quick-item" onclick="openFavoritesView()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Избранное</span>
+        <span id="fav-count" class="quick-badge" style="display:none">0</span>
+      </div>
+      <div class="quick-item" onclick="openRecentView()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Недавние</span>
+      </div>
+      <a class="quick-item" href="https://docs.google.com/spreadsheets/d/14AHFR4iF3fzVtlW5v57DtNLadojGM-os4wGasmk6QN8" target="_blank" rel="noopener noreferrer">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        <span>Контакты</span>
+      </a>
+      <div class="quick-item" onclick="openLinksPage()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        <span>Ссылки</span>
+      </div>
+    </div>
+    <div id="sidebar-suggest">
+      <div class="suggest-text">Не нашли нужное?</div>
+      <button class="suggest-btn" onclick="toast('Функция обращения появится в следующем обновлении')">Предложить статью</button>
+    </div>
   </div>
   <div id="content">
     <div id="content-bar">
@@ -52,6 +79,12 @@
       <button class="bar-btn" id="btn-history" onclick="openHistory()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span id="lbl-history">History</span>
+      </button>
+      <button class="bar-btn" id="btn-visibility" onclick="openPageVisibility()" style="display:none" title="Видимость страницы">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+      <button class="bar-btn" id="btn-fav" onclick="toggleFavorite()" style="display:none" title="Добавить в избранное">
+        <svg id="btn-fav-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </button>
       <button class="bar-btn" id="btn-share" onclick="sharePage()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -134,14 +167,14 @@
 <div id="modal-overlay" onclick="if(event.target===this)closeModal()">
   <div id="modal"><h3 id="modal-title"></h3><div id="modal-body"></div><div class="modal-actions" id="modal-actions"></div></div>
 </div>
-<div id="pw-overlay">
-  <div id="pw-box">
-    <h3 id="pw-title">Enter password to edit</h3>
-    <input type="password" id="pw-input" onkeydown="if(event.key==='Enter')submitPw()">
-    <div id="pw-error"></div>
-    <div class="pw-actions">
-      <button onclick="closePw()"><span id="lbl-pw-cancel">Cancel</span></button>
-      <button class="btn-primary" onclick="submitPw()"><span id="lbl-pw-ok">Unlock</span></button>
+<div id="role-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:400;align-items:center;justify-content:center">
+  <div style="background:var(--bg);border:0.5px solid var(--border);border-radius:12px;padding:32px 28px;width:340px;box-shadow:0 12px 36px rgba(0,0,0,.2)">
+    <div style="font-weight:600;font-size:16px;margin-bottom:6px;color:var(--text)">АвтоСкан — База знаний</div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:20px">Введите пароль для доступа к базе знаний</div>
+    <input type="password" id="role-pw-input" style="width:100%;box-sizing:border-box;padding:8px 10px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text);font-size:13px;outline:none" placeholder="Пароль" onkeydown="if(event.key==='Enter')submitRoleLogin()">
+    <div id="role-pw-error" style="display:none;color:#cf222e;font-size:12px;margin-top:6px"></div>
+    <div style="margin-top:16px;display:flex;justify-content:flex-end">
+      <button class="btn-primary" onclick="submitRoleLogin()">Войти</button>
     </div>
   </div>
 </div>
@@ -163,7 +196,27 @@ let currentPath=null,currentSha=null;
 let editorDirty=false,originalContent=null,dragDropInit=false;
 
 // ── Auth state ──
-let unlocked=false,pwResolve=null;
+
+// ── Role system ──
+let roles=[],currentRole=null,_ownerPw=null;
+
+// ── Sections config ──
+const SECTIONS=[
+  {slug:'company',       name:'Компания',              folder:'company',           icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>'},
+  {slug:'products',      name:'Продукты',              folder:'products',          icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>'},
+  {slug:'devices',       name:'Оборудование',          folder:'tp/devices',        icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'},
+  {slug:'processes',     name:'Процессы',              folder:'processes',         icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>'},
+  {slug:'reglamentation',name:'Регламенты',            folder:'tp/reglamentation', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'},
+  {slug:'incidents',     name:'Инциденты и решения',   folder:'incidents',         icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'},
+  {slug:'software',      name:'Сервисы и инструменты', folder:'tp/software',       icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'},
+  {slug:'examples',      name:'Шаблоны',               folder:'tp/examples',       icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>'},
+  {slug:'glossary',      name:'Глоссарий',             folder:'glossary',          icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>'},
+];
+
+// ── UI navigation state ──
+let currentSection=null;
+let sessionRecent=[];
+let sessionFavorites=[];
 
 // ── Search ──
 let searchIndex=null;
@@ -175,7 +228,6 @@ let wikiCompleteIdx=-1,wikiCompleteItems=[];
 let _pendingRestoreContent=null;
 
 // ── Pending folder path for folder-rename modal ──
-let _pendingFolderPath=null;
 
 // ── Deep-link routing ──
 // _pendingUrlPage: page path read from ?p= on startup (set by 404.html redirect)
@@ -319,11 +371,14 @@ async function init(){
     }catch{localStorage.removeItem('wn_cfg');} // purge corrupted entry
   }
 
-  const lang=localStorage.getItem('wn_lang')||cfg.lang||'en';
-  const lsEl=$('lang-switcher');
-  if(lsEl) lsEl.value=lang;
-  await loadI18n(lang);
+  await loadI18n('ru');
   applyI18n();
+
+  await loadRoles();
+  const savedSlug=sessionStorage.getItem('wn_role');
+  if(savedSlug) currentRole=roles.find(r=>r.slug===savedSlug)||null;
+  applyRoleUI();
+  if(!currentRole){openRoleModal();return;}
 
   if(cfg.owner&&cfg.repo){
     loadTree();
@@ -402,12 +457,6 @@ function sharePage(){
     // Fallback for browsers without clipboard API (e.g. http context)
     prompt(t('share_prompt')||'Copy link:',url);
   });
-}
-
-async function switchLang(lang){
-  localStorage.setItem('wn_lang',lang);
-  await loadI18n(lang);
-  applyI18n();
 }
 
 // ── API layer (GitHub + GitLab) ──
@@ -498,27 +547,318 @@ async function checkPassword(pw){
 
 function requireUnlock(){
   return new Promise(resolve=>{
-    if(unlocked){resolve(true);return;}
-    pwResolve=resolve;
-    $('pw-input').value='';
-    $('pw-error').style.display='none';
-    $('pw-overlay').classList.add('open');
-    setTimeout(()=>$('pw-input').focus(),50);
+    if(canEdit()){resolve(true);return;}
+    toast('Нет прав на редактирование');
+    resolve(false);
   });
 }
-async function submitPw(){
-  const pw=$('pw-input').value;
-  if(!cfg.edit_password_hash||await checkPassword(pw)){
-    unlocked=true;
-    cfg.token=decrypt(localStorage.getItem('wn_enc_token'),pw);
-    closePw();
-    if(pwResolve){pwResolve(true);pwResolve=null;}
+// ── Role functions ──
+async function loadRoles(){
+  try{const r=await fetch('roles.json',{cache:'no-cache'});if(r.ok)roles=await r.json();}catch{}
+}
+
+async function matchRole(pw){
+  const hash=await sha256(pw);
+  return roles.find(r=>r.password_hash&&r.password_hash===hash)||null;
+}
+
+function canEdit(){return currentRole?.can_edit===true;}
+
+function isHiddenPage(page){
+  // Check folder-level hiding from role config
+  const hs=currentRole?.hidden_sections||[];
+  if(hs.some(s=>page.path===s||page.path.startsWith(s+'/'))) return true;
+  // Owner, admin, director always have full document access
+  if(['owner','admin','director'].includes(currentRole?.slug)) return false;
+  // Check per-document role whitelist (empty/absent = visible to all)
+  const allowed=page.roles;
+  if(allowed&&allowed.length>0){
+    const slug=currentRole?.slug||null;
+    if(!slug||!allowed.includes(slug)) return true;
+  }
+  return false;
+}
+
+function openRoleModal(){
+  $('role-overlay').style.display='flex';
+  $('role-pw-input').value='';
+  $('role-pw-error').style.display='none';
+  setTimeout(()=>$('role-pw-input').focus(),50);
+}
+
+async function submitRoleLogin(){
+  const pw=$('role-pw-input').value;
+  const role=await matchRole(pw);
+  if(role){
+    currentRole=role;
+    sessionStorage.setItem('wn_role',role.slug);
+    if(role.slug==='owner'){
+      _ownerPw=pw;
+      const enc=localStorage.getItem('wn_enc_token');
+      if(enc){const tok=decrypt(enc,pw);if(tok)cfg.token=tok;}
+    }
+    $('role-overlay').style.display='none';
+    applyRoleUI();
+    if(cfg.owner&&cfg.repo){loadTree();setTimeout(()=>pollActions(null),1500);}
+    else showSetupBanner();
   }else{
-    $('pw-error').textContent=t('password_wrong');
-    $('pw-error').style.display='block';
+    $('role-pw-error').textContent='Неверный пароль';
+    $('role-pw-error').style.display='block';
   }
 }
-function closePw(){$('pw-overlay').classList.remove('open');}
+
+function logoutRole(){
+  currentRole=null;
+  _ownerPw=null;
+  cfg.token='';
+  sessionStorage.removeItem('wn_role');
+  $('tree').innerHTML='';
+  $('view-wrap').style.display='none';
+  $('empty').style.display='none';
+  $('role-badge').style.display='none';
+  openRoleModal();
+}
+
+function applyRoleUI(){
+  const badge=$('role-badge');
+  if(badge&&currentRole){badge.style.display='flex';$('role-name').textContent=currentRole.name;}
+  const isOwner=canEdit();
+  const sidebarTop=$('sidebar-top');
+  if(sidebarTop) sidebarTop.style.display=isOwner?'':'none';
+  const btnNew=$('btn-new');
+  if(btnNew) btnNew.style.display=isOwner?'':'none';
+  // Owner-only header controls
+  ['btn-settings','actions-status'].forEach(id=>{
+    const el=$( id);
+    if(el) el.style.display=isOwner?'':'none';
+  });
+}
+
+// Helper: call from browser console to generate a password hash for roles.json
+// Example: generatePasswordHash('mypassword').then(h => console.log(h))
+async function generatePasswordHash(pw){
+  const h=await sha256(pw);
+  console.log(`Password: "${pw}"\nHash: "${h}"`);
+  return h;
+}
+
+// ── Section helpers ──
+function isHiddenSection(sec){
+  const hs=currentRole?.hidden_sections||[];
+  return hs.some(s=>sec.folder===s||sec.folder.startsWith(s+'/'));
+}
+
+function findSectionForPage(page){
+  return SECTIONS.find(s=>page.path.startsWith(s.folder+'/')||page.path===s.folder)||null;
+}
+
+function trackRecentPage(page){
+  sessionRecent=sessionRecent.filter(p=>p.path!==page.path);
+  sessionRecent.unshift(page);
+  if(sessionRecent.length>10) sessionRecent.pop();
+}
+
+function openLinksPage(){
+  const page=tree.find(p=>p.path==='reference/links');
+  if(page) openPage(page);
+  else toast('Страница ссылок не найдена');
+}
+
+function updateFavBtn(){
+  if(!currentPath) return;
+  const rawPath=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
+  const isFav=sessionFavorites.some(p=>p.path===rawPath);
+  const icon=$('btn-fav-icon');
+  if(icon){
+    icon.setAttribute('fill', isFav ? 'currentColor' : 'none');
+    $('btn-fav').title = isFav ? 'Убрать из избранного' : 'Добавить в избранное';
+    $('btn-fav').style.color = isFav ? 'var(--accent)' : '';
+  }
+  const cnt=$('fav-count');
+  if(cnt){
+    cnt.textContent=sessionFavorites.length;
+    cnt.style.display=sessionFavorites.length?'':'none';
+  }
+}
+
+function openPageVisibility(){
+  if(!currentPath) return;
+  const rawPath=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
+  const page=tree.find(p=>p.path===rawPath);
+  if(!page) return;
+  $('modal-title').textContent='Видимость страницы';
+  $('modal-body').innerHTML=`
+    <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
+      Кто может видеть <strong>${escHtml(page.title)}</strong>?<br>
+      <span style="color:var(--text3)">Владелец, администратор и директор всегда видят все страницы.</span>
+    </p>
+    <div class="field">${rolesChecklistHtml(page.roles||[])}</div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="savePageVisibility('${escHtml(rawPath)}')">Сохранить</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function savePageVisibility(rawPath){
+  const newRoles=getSelectedRoles();
+  const page=tree.find(p=>p.path===rawPath);
+  if(!page) return;
+  page.roles=newRoles;
+  closeModal();
+  await updateTreeJson();
+  toast('Видимость обновлена');
+}
+
+function openSectionVisibility(sec){
+  const opts=[
+    {slug:'support',label:'Техническая поддержка'},
+    {slug:'installer',label:'Установщик'},
+    {slug:'sales',label:'Менеджер продаж'}
+  ];
+  const folderKey=sec.folder||sec.slug;
+  $('modal-title').textContent='Видимость раздела';
+  $('modal-body').innerHTML=`
+    <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
+      Кто может видеть раздел <strong>${escHtml(sec.name)}</strong>?<br>
+      <span style="color:var(--text3)">Владелец, администратор и директор всегда видят все разделы.</span>
+    </p>
+    <div class="field">
+      ${opts.map(o=>{
+        const role=roles.find(r=>r.slug===o.slug);
+        const sees=!role?.hidden_sections?.includes(folderKey);
+        return `<label class="toggle-row"><input type="checkbox" id="secvis-${o.slug}" ${sees?'checked':''}><span>${o.label}</span></label>`;
+      }).join('')}
+    </div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="saveSectionVisibility('${escHtml(folderKey)}')">Сохранить</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function saveSectionVisibility(folderKey){
+  ['support','installer','sales'].forEach(slug=>{
+    const el=$('secvis-'+slug);
+    if(!el) return;
+    const role=roles.find(r=>r.slug===slug);
+    if(!role) return;
+    const hs=role.hidden_sections||[];
+    if(el.checked){
+      role.hidden_sections=hs.filter(s=>s!==folderKey);
+    }else{
+      if(!hs.includes(folderKey)) role.hidden_sections=[...hs,folderKey];
+    }
+  });
+  closeModal();
+  await updateRolesJson();
+  renderTree(tree);
+  toast('Видимость раздела обновлена');
+}
+
+function toggleFavorite(){
+  if(!currentPath) return;
+  const rawPath=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
+  const page=tree.find(p=>p.path===rawPath);
+  if(!page) return;
+  const idx=sessionFavorites.findIndex(p=>p.path===rawPath);
+  if(idx>=0) sessionFavorites.splice(idx,1);
+  else sessionFavorites.push({path:page.path,title:page.title});
+  updateFavBtn();
+}
+
+function openFavoritesView(){
+  if(!sessionFavorites.length){toast('Нет избранных страниц');return;}
+  $('modal-title').textContent='Избранное';
+  $('modal-body').innerHTML=sessionFavorites.map(p=>`
+    <div class="recent-item" onclick="closeModal();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+      <span class="recent-item-title">${escHtml(p.title)}</span>
+    </div>`).join('');
+  $('modal-actions').innerHTML=`<button onclick="closeModal()">Закрыть</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+function openRecentView(){
+  if(!sessionRecent.length){toast('Нет недавно просмотренных');return;}
+  $('modal-title').textContent='Недавние';
+  $('modal-body').innerHTML=sessionRecent.map(p=>`
+    <div class="recent-item" onclick="closeModal();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+      <span class="recent-item-title">${escHtml(p.title)}</span>
+    </div>`).join('');
+  $('modal-actions').innerHTML=`<button onclick="closeModal()">Закрыть</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+function declDoc(n){
+  if(n%100>=11&&n%100<=19) return 'документов';
+  if(n%10===1) return 'документ';
+  if(n%10>=2&&n%10<=4) return 'документа';
+  return 'документов';
+}
+
+function showDashboard(){
+  const visibleSections=SECTIONS.filter(s=>!isHiddenSection(s));
+  const recent=[...tree].filter(p=>p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,8);
+  const cards=visibleSections.map(sec=>{
+    const count=tree.filter(p=>p.path.startsWith(sec.folder+'/')&&!isHiddenPage(p)).length;
+    return`<div class="dash-card" onclick="openSection('${sec.slug}')">
+      <div class="dash-card-icon">${sec.icon}</div>
+      <div class="dash-card-name">${escHtml(sec.name)}</div>
+      <div class="dash-card-count">${count} ${declDoc(count)}</div>
+    </div>`;
+  }).join('');
+  const recentHtml=recent.length
+    ?recent.map(p=>`<div class="recent-upd-item" onclick="openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+        <div class="recent-upd-title">${escHtml(p.title)}</div>
+        <div class="recent-upd-date">${new Date(p.updated_at).toLocaleDateString('ru-RU')}</div>
+      </div>`).join('')
+    :'<div style="color:var(--text3);font-size:12px;padding:8px 0">Нет данных</div>';
+  const el=$('empty');
+  el.style.display='block';
+  el.innerHTML=`<div class="dash-layout">
+    <div class="dash-main">
+      <div class="dash-welcome">
+        <h1 class="dash-title">Добро пожаловать в базу знаний АвтоСкан</h1>
+        <p class="dash-sub">Найдите ответы на вопросы, инструкции и руководства по продуктам, процессам и оборудованию</p>
+      </div>
+      <div class="dash-cards">${cards}</div>
+    </div>
+    <div class="dash-sidebar">
+      <div class="dash-panel-title">Недавние обновления</div>
+      ${recentHtml}
+    </div>
+  </div>`;
+}
+
+function openSection(slug){
+  currentSection=currentSection===slug?null:slug;
+  renderTree(tree);
+  const hdr=document.querySelector('.sec-hdr.active');
+  if(hdr) hdr.scrollIntoView({block:'nearest',behavior:'smooth'});
+}
+
+function goHome(){
+  if(editorDirty&&!confirm('Вы не сохранили изменения. Покинуть страницу?')) return;
+  currentSection=null;
+  currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
+  $('panels').classList.remove('split');
+  $('view-wrap').style.display='none';
+  $('editor-wrap').style.display='none';
+  $('editor-wrap').classList.remove('edit-active');
+  $('edit-btns').style.display='none';
+  $('btn-edit').style.display='none';
+  $('btn-visibility').style.display='none';
+  $('btn-fav').style.display='none';
+  $('btn-share').style.display='none';
+  $('btn-print').style.display='none';
+  $('btn-delete').style.display='none';
+  $('btn-rename').style.display='none';
+  $('btn-history').style.display='none';
+  $('breadcrumb').innerHTML='';
+  const toc=$('toc');if(toc)toc.style.display='none';
+  history.replaceState(null,'',_basePath||'/');
+  renderTree(tree);
+  showEmpty();
+}
+
 function toggleSidebar(){const s=$("sidebar");s.classList.toggle("open");$("sidebar-overlay").style.display=s.classList.contains("open")?"block":"none";}
 
 // simple XOR "encryption" for token — good enough for localStorage
@@ -530,6 +870,47 @@ function decrypt(enc,key){
   if(!enc) return '';
   if(!key) return enc; // symmetric with encrypt(): no key → stored as plaintext
   try{return[...atob(enc)].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');}catch{return '';}
+}
+
+// ── JSON file updaters ──
+async function updateTreeJson(){
+  try{
+    const {sha}=await apiGetFile('tree.json');
+    await apiPutFile('tree.json','chore: update tree.json',b64enc(JSON.stringify(tree,null,2)),sha);
+  }catch(e){toast('Ошибка обновления tree.json: '+e.message);}
+}
+
+async function updateRolesJson(){
+  try{
+    const {sha}=await apiGetFile('roles.json');
+    await apiPutFile('roles.json','chore: update roles visibility',b64enc(JSON.stringify(roles,null,2)),sha);
+  }catch(e){toast('Ошибка сохранения ролей: '+e.message);}
+}
+
+// Role visibility checklist HTML (shared by page & section modals)
+function rolesChecklistHtml(selected=[]){
+  const all=selected.length===0;
+  const opts=[{slug:'support',label:'Техническая поддержка'},{slug:'installer',label:'Установщик'},{slug:'sales',label:'Менеджер продаж'}];
+  return `<label class="toggle-row" style="margin-bottom:6px">
+    <input type="checkbox" id="vis-all" ${all?'checked':''} onchange="handleVisAll(this)">
+    <span style="font-weight:500">Все роли</span>
+  </label>
+  ${opts.map(o=>`<label class="toggle-row" style="padding-left:16px">
+    <input type="checkbox" id="vis-${o.slug}" ${!all&&selected.includes(o.slug)?'checked':''} ${all?'disabled':''}>
+    <span>${o.label}</span>
+  </label>`).join('')}`;
+}
+
+function handleVisAll(cb){
+  ['support','installer','sales'].forEach(s=>{
+    const el=$('vis-'+s);
+    if(el){el.disabled=cb.checked;if(cb.checked)el.checked=false;}
+  });
+}
+
+function getSelectedRoles(){
+  if($('vis-all')?.checked) return [];
+  return ['support','installer','sales'].filter(s=>$('vis-'+s)?.checked);
 }
 
 // ── Tree ──
@@ -546,9 +927,7 @@ async function loadTree(){
         _pendingUrlPage=null;
         if(targetPage){openPage(targetPage);return;}
       }
-      const homePage=tree.find(p=>p.path==='home');
-      if(homePage) openPage(homePage);
-      else showEmpty();
+      showEmpty();
     }
   }catch{
     $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
@@ -556,82 +935,85 @@ async function loadTree(){
 }
 
 function renderTree(pages){
-  const root={};
-  pages.forEach(p=>{
-    const parts=p.parts;
-    let node=root;
-    parts.forEach((part,i)=>{
-      if(!node[part]) node[part]={_page:i===parts.length-1?p:null,_children:{}};
-      node=node[part]._children;
-    });
-  });
   const el=$('tree');
-  el.innerHTML=`<div class="tree-section">${t('pages')}</div>`;
-  renderNode(root,el,0);
-}
+  el.innerHTML='';
 
-function getFolderTitle(node,key){
-  const item=node[key];
-  function findFirst(n){for(const k of Object.keys(n)){if(n[k]._page)return n[k]._page;const r=findFirst(n[k]._children);if(r)return r;}return null;}
-  const p=item._page||findFirst(item._children);
-  return p?.folder_titles?.[key]||key.replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-}
-function renderNode(node,el,depth,parentPath=''){
-  Object.keys(node).sort((a,b)=>{
-    const aHasKids=Object.keys(node[a]._children).length>0;
-    const bHasKids=Object.keys(node[b]._children).length>0;
-    if(aHasKids!==bHasKids) return aHasKids?-1:1;
-    return a.localeCompare(b);
-  }).forEach(key=>{
-    const item=node[key];
-    const hasKids=Object.keys(item._children).length>0;
+  // Home link
+  const homeDiv=document.createElement('div');
+  homeDiv.className='sec-home'+((!currentPath&&!currentSection)?' active':'');
+  homeDiv.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Главная</span>`;
+  homeDiv.onclick=()=>goHome();
+  el.appendChild(homeDiv);
+
+  const lbl=document.createElement('div');
+  lbl.className='sidebar-label';
+  lbl.textContent='РАЗДЕЛЫ';
+  el.appendChild(lbl);
+
+  SECTIONS.forEach(sec=>{
+    if(isHiddenSection(sec)) return;
+    const secPages=pages.filter(p=>(p.path.startsWith(sec.folder+'/')||p.path===sec.folder)&&!isHiddenPage(p));
+    const isActive=currentSection===sec.slug;
     const wrap=document.createElement('div');
+    wrap.className='sec-wrap';
 
-    const row=document.createElement('div');
-    row.className='tree-row'+(hasKids?' folder':'');
-    row.style.paddingLeft=(14+depth*14)+'px';
+    const hdr=document.createElement('div');
+    hdr.className='sec-hdr'+(isActive?' active':'');
+    hdr.innerHTML=`<span class="sec-icon">${sec.icon}</span><span class="sec-name">${escHtml(sec.name)}</span><span class="sec-cnt">${secPages.length}</span><svg class="sec-arrow${isActive?' open':''}" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>`;
+    if(canEdit()){
+      const gearBtn=document.createElement('button');
+      gearBtn.className='sec-gear-btn';
+      gearBtn.title='Видимость раздела';
+      gearBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>';
+      gearBtn.onclick=e=>{e.stopPropagation();openSectionVisibility(sec);};
+      hdr.appendChild(gearBtn);
+    }
+    hdr.onclick=e=>{if(!e.target.closest('.sec-gear-btn'))openSection(sec.slug);};
+    wrap.appendChild(hdr);
 
-    if(hasKids){
-      const fullFolderPath=parentPath?`${parentPath}/${key}`:key;
-      // Build folder row via DOM so the rename button can capture the path in a closure
-      row.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>';
-      const lbl=document.createElement('span');
-      lbl.className='tree-label';
-      lbl.textContent=getFolderTitle(node,key);
-      row.appendChild(lbl);
-      // Rename-display-name button (pencil) — visible on hover
-      const rBtn=document.createElement('button');
-      rBtn.className='folder-rename-btn';
-      rBtn.title=t('rename_folder')||'Rename folder';
-      rBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
-      rBtn.onclick=e=>{e.stopPropagation();openFolderRename(fullFolderPath);};
-      row.appendChild(rBtn);
-      // Add-page button (+) — opens New page dialog pre-filled with this folder
-      const aBtn=document.createElement('button');
-      aBtn.className='folder-add-btn';
-      aBtn.title=t('new_page_in_folder')||'New page in this folder';
-      aBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>';
-      aBtn.onclick=e=>{e.stopPropagation();openNewPage(fullFolderPath);};
-      row.appendChild(aBtn);
-      const kids=document.createElement('div');
-      kids.className='tree-children';
-      renderNode(item._children,kids,depth+1,fullFolderPath);
-      row.onclick=()=>kids.classList.toggle('collapsed');
-      wrap.appendChild(row);
-      wrap.appendChild(kids);
-    }else{
-      row.dataset.path=item._page.path;
-      row.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(item._page.title)}</span>`;
-      row.onclick=()=>openPage(item._page);
-      wrap.appendChild(row);
+    if(isActive){
+      const list=document.createElement('div');
+      list.className='sec-pages';
+      if(secPages.length){
+        secPages.forEach(p=>{
+          const row=document.createElement('div');
+          row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'');
+          row.dataset.path=p.path;
+          row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
+          row.onclick=()=>openPage(p);
+          list.appendChild(row);
+        });
+      } else {
+        const empty=document.createElement('div');
+        empty.className='sec-empty';
+        empty.textContent='Нет страниц';
+        list.appendChild(empty);
+      }
+      if(canEdit()){
+        const addRow=document.createElement('div');
+        addRow.className='tree-row sec-add-row';
+        addRow.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="tree-label">Новая страница</span>`;
+        addRow.onclick=()=>openNewPage(sec.folder);
+        list.appendChild(addRow);
+      }
+      wrap.appendChild(list);
     }
     el.appendChild(wrap);
   });
 }
 
+
 // ── Page open ──
 async function openPage(page){
   if(editorDirty&&!confirm('You have unsaved changes. Leave this page and discard them?')) return;
+  if(isHiddenPage(page)){
+    toast('У вас нет доступа к этой странице');
+    return;
+  }
+  // Auto-expand the section this page belongs to
+  const sec=findSectionForPage(page);
+  if(sec&&currentSection!==sec.slug){currentSection=sec.slug;renderTree(tree);}
+  trackRecentPage(page);
   const targetPath=`docs/${page.path}.md`;
   currentPath=targetPath;
   document.querySelectorAll('.tree-row').forEach(r=>r.classList.remove('active'));
@@ -650,12 +1032,16 @@ async function openPage(page){
   $('editor-wrap').style.display='none';
   $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
-  $('btn-edit').style.display='flex';
+  const _e=canEdit()?'flex':'none';
+  $('btn-edit').style.display=_e;
+  $('btn-visibility').style.display=_e;
+  $('btn-fav').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
-  $('btn-delete').style.display='flex';
-  $('btn-rename').style.display='flex';
-  $('btn-history').style.display='flex';
+  $('btn-delete').style.display=_e;
+  $('btn-rename').style.display=_e;
+  $('btn-history').style.display=_e;
+  updateFavBtn();
   cancelEdit();
 
   try{
@@ -850,6 +1236,8 @@ function _activateEditorPanel(){
   $('editor-wrap').classList.add('edit-active');
   const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
   $('btn-edit').style.display='none';
+  $('btn-visibility').style.display='none';
+  $('btn-fav').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
@@ -893,12 +1281,15 @@ function cancelEdit(){
   $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
   $('view-wrap').style.display=currentPath?'block':'none';
-  $('btn-edit').style.display=currentPath?'flex':'none';
+  const _ce=canEdit()&&!!currentPath;
+  $('btn-edit').style.display=_ce?'flex':'none';
+  $('btn-visibility').style.display=_ce?'flex':'none';
+  $('btn-fav').style.display=currentPath?'flex':'none';
   $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
-  $('btn-delete').style.display=currentPath?'flex':'none';
-  $('btn-rename').style.display=currentPath?'flex':'none';
-  $('btn-history').style.display=currentPath?'flex':'none';
+  $('btn-delete').style.display=_ce?'flex':'none';
+  $('btn-rename').style.display=_ce?'flex':'none';
+  $('btn-history').style.display=_ce?'flex':'none';
   buildToc();
 }
 
@@ -941,12 +1332,14 @@ function openNewPage(presetFolder=''){
     <input id="m-name" placeholder="my-page-name">
     <div class="hint">${t('new_page_name_hint')}</div></div>
     <div class="field" style="margin-top:2px">
-      <label style="font-size:11px;color:var(--text3)">${t('new_page_path_preview')}</label>
+      <label style="font-size:11px;color:var(--text3)">Путь</label>
       <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code>
-    </div>`;
+    </div>
+    <div class="field-sep"></div>
+    <div class="field"><label>Видимость</label>${rolesChecklistHtml()}</div>`;
   $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">${t('cancel')}</button>
-    <button class="btn-primary" onclick="createPage()">${t('create')}</button>`;
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="createPage()">Создать</button>`;
   const updatePreview=()=>{
     const folder=$('m-folder').value;
     const name=$('m-name').value.trim();
@@ -970,15 +1363,17 @@ async function createPage(){
   const fullPath=`docs/${path}.md`;
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const content=`# ${title}\n\nStart writing here.\n`;
+  const pageRoles=getSelectedRoles();
   try{
     await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content),null);
     closeModal();
-    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{}};
+    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{},roles:pageRoles,updated_at:new Date().toISOString(),tags:[],author:''};
     tree.push(page);
+    await updateTreeJson();
     renderTree(tree);
     openPage(page);
     watchDeploy(fullPath);
-  }catch(e){toast(`${t('error_save')}: ${e.message}`);}
+  }catch(e){toast(`Ошибка: ${e.message}`);}
 }
 
 // ── Delete ──
@@ -1073,77 +1468,11 @@ async function doRename(){
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
-// ── Folder display-name rename (via _meta.json) ──
-function openFolderRename(folderPath){
-  _pendingFolderPath=folderPath;
-  const segKey=folderPath.split('/').pop();
-  // Try to get the current display name from any page inside this folder
-  const sample=tree.find(p=>p.path.startsWith(folderPath+'/'));
-  const currentTitle=sample?.folder_titles?.[segKey]
-    ||segKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-  $('modal-title').textContent=t('rename_folder');
-  $('modal-body').innerHTML=`
-    <div class="field"><label>${t('folder_display_name')}</label>
-    <input id="m-folder-name" value="${escHtml(currentTitle)}">
-    <div class="hint">${t('folder_display_name_hint')}</div></div>`;
-  $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">${t('cancel')}</button>
-    <button class="btn-primary" onclick="doFolderRename()">${t('save')}</button>`;
-  $('modal-overlay').classList.add('open');
-  setTimeout(()=>{const el=$('m-folder-name');if(el){el.focus();el.select();}},50);
-}
-
-async function doFolderRename(){
-  const newTitle=($('m-folder-name')?.value||'').trim();
-  if(!newTitle||!_pendingFolderPath) return;
-  const folderPath=_pendingFolderPath;
-  const ok=await requireUnlock();
-  if(!ok) return;
-  closeModal();
-  const metaPath=`docs/${folderPath}/_meta.json`;
-  const metaContent=b64enc(JSON.stringify({title:newTitle},null,2));
-  try{
-    // Check if _meta.json already exists (need SHA to update, null to create)
-    let sha=null;
-    try{const existing=await apiGetFile(metaPath);sha=existing.sha;}catch{}
-    await apiPutFile(metaPath,`chore: rename folder display name "${folderPath}"`,metaContent,sha);
-    // Optimistic update: set folder_titles[segKey] on all pages inside this folder
-    const segKey=folderPath.split('/').pop();
-    tree.forEach(p=>{
-      if(p.path.startsWith(folderPath+'/')){
-        if(!p.folder_titles) p.folder_titles={};
-        p.folder_titles[segKey]=newTitle;
-      }
-    });
-    renderTree(tree);
-    // Re-select active page row if one was open
-    if(currentPath){
-      const rel=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
-      document.querySelectorAll(`.tree-row[data-path="${CSS.escape(rel)}"]`).forEach(r=>r.classList.add('active'));
-    }
-    toast(t('folder_renamed'));
-    watchDeploy(metaPath);
-  }catch(e){toast(`Error: ${escHtml(e.message)}`);}
-}
 
 // ── Empty state ──
 function showEmpty(){
-  $('empty').style.display='flex';
-  const recent=[...tree].filter(p=>p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,5);
-  if(recent.length){
-    $('empty-placeholder').style.display='none';
-    $('recent-wrap').style.display='block';
-    $('recent-wrap').innerHTML=`
-      <div class="recent-title">${t('recently_modified')}</div>
-      ${recent.map(p=>`
-        <div class="recent-item" onclick="openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-          <span class="recent-item-title">${p.title}</span>
-          <span class="recent-item-date">${new Date(p.updated_at).toLocaleDateString()}</span>
-        </div>`).join('')}`;
-  }else{
-    $('empty-placeholder').style.display='flex';
-    $('recent-wrap').style.display='none';
-  }
+  $('view-wrap').style.display='none';
+  showDashboard();
 }
 
 // ── Search ──
@@ -1351,62 +1680,58 @@ function updateWikiActive(){
 
 // ── Settings modal ──
 function openSettings(){
-  const hasToken=!!localStorage.getItem('wn_enc_token');
-  $('modal-title').textContent=t('configure_title');
+  const isOwner=canEdit();
+  const hasToken=!!(localStorage.getItem('wn_enc_token')||cfg.token);
+  $('modal-title').textContent='Настройки';
   $('modal-body').innerHTML=`
     <div style="font-size:12px;color:var(--text2);background:var(--bg2);padding:8px 10px;border-radius:6px;margin-bottom:4px">
       <span style="font-weight:500;color:var(--text)">${cfg.owner||'?'}/${cfg.repo||'?'}</span><br>
-      <span style="color:var(--text3);font-size:11px">From config.json — edit in the repo to change</span>
+      <span style="color:var(--text3);font-size:11px">Из config.json — изменить в репозитории</span>
     </div>
-    <div class="field"><label>${t('token')}</label>
-      <input id="m-token" type="password" placeholder="${hasToken?'stored — paste to replace':cfg.provider==='gitlab'?'glpat-...':'ghp_...'}">
-      <div class="hint">${t('token_hint')}</div>
+    <div class="field"><label>GitHub Token</label>
+      <input id="m-token" type="password" placeholder="${hasToken?'сохранён — вставьте чтобы заменить':'ghp_...'}">
+      <div class="hint">Personal Access Token с правами на contents репозитория</div>
     </div>
-    <div class="field"><label>${t('password')}</label>
+    ${isOwner?'':`<div class="field"><label>Пароль</label>
       <input id="m-pw" type="password" placeholder="••••••••">
-      <div class="hint">${t('password_hint')}</div>
-    </div>
+      <div class="hint">Пароль для шифрования токена</div>
+    </div>`}
     <div class="field-sep"></div>
     <div class="field">
-      <label>${t('display_prefs')}</label>
-      <label class="toggle-row"><input type="checkbox" id="pref-toc" ${displayPrefs.showToc?'checked':''} onchange="setDisplayPref('showToc',this.checked)"><span>${t('pref_show_toc')}</span></label>
-      <label class="toggle-row"><input type="checkbox" id="pref-split" ${displayPrefs.splitPreview?'checked':''} onchange="setDisplayPref('splitPreview',this.checked)"><span>${t('pref_split_preview')}</span></label>
+      <label>Отображение</label>
+      <label class="toggle-row"><input type="checkbox" id="pref-toc" ${displayPrefs.showToc?'checked':''} onchange="setDisplayPref('showToc',this.checked)"><span>Показывать оглавление</span></label>
+      <label class="toggle-row"><input type="checkbox" id="pref-split" ${displayPrefs.splitPreview?'checked':''} onchange="setDisplayPref('splitPreview',this.checked)"><span>Разделённый редактор</span></label>
     </div>`;
   $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">${t('cancel')}</button>
-    <button class="btn-primary" onclick="saveSettings()">${t('save')}</button>`;
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="saveSettings()">Сохранить</button>`;
   $('modal-overlay').classList.add('open');
   setTimeout(()=>$('m-token').focus(),50);
 }
 
 async function saveSettings(){
-  const pw=$('m-pw').value;
   const token=$('m-token').value.trim();
-  if(!token&&!localStorage.getItem('wn_enc_token')){
-    toast('Paste your Personal Access Token first');
+  const isOwner=canEdit();
+  if(!token&&!localStorage.getItem('wn_enc_token')&&!cfg.token){
+    toast('Вставьте Personal Access Token');
     return;
   }
   const activeToken=token||cfg.token||'';
-  const hasPwHash=!!cfg.edit_password_hash;
-  if(pw){
-    // Password supplied — encrypt token with it
-    localStorage.setItem('wn_enc_token',encrypt(activeToken,pw));
+  if(isOwner&&_ownerPw){
+    localStorage.setItem('wn_enc_token',encrypt(activeToken,_ownerPw));
     cfg.token=activeToken;
-    unlocked=true;
-  }else if(!hasPwHash){
-    // No password configured — store as plaintext (encrypt with empty key returns str)
-    localStorage.setItem('wn_enc_token',activeToken);
-    cfg.token=activeToken;
-    unlocked=true;
-  }else if(token){
-    // New token entered but password required and not entered — refuse silently dropping it
-    toast(t('password_hint')||'Enter your password to save the token');
-    return;
+  }else{
+    const pw=$('m-pw')?.value||'';
+    if(pw){
+      localStorage.setItem('wn_enc_token',encrypt(activeToken,pw));
+      cfg.token=activeToken;
+    }else{
+      localStorage.setItem('wn_enc_token',activeToken);
+      cfg.token=activeToken;
+    }
   }
-  // lang preference is the only user-local thing we persist
   localStorage.setItem('wn_cfg',JSON.stringify({lang:cfg.lang}));
   closeModal();
-  applyI18n();
   loadTree();
 }
 

@@ -1,0 +1,44 @@
+[
+  {
+    "slug": "owner",
+    "name": "Владелец",
+    "password_hash": "bac85bb7fed9752ca78b368fb4c91fd99049afc3bdad8906c3ee3b9c245b5f0f",
+    "can_edit": true,
+    "hidden_sections": []
+  },
+  {
+    "slug": "admin",
+    "name": "Администратор",
+    "password_hash": "e92671e598e03b402e251a8873210a3eed44ceaf3587f2190a787528156f02db",
+    "can_edit": false,
+    "hidden_sections": []
+  },
+  {
+    "slug": "director",
+    "name": "Директор",
+    "password_hash": "bec80e925ab2e38c2dc728992b75e14bac94d29c836031a0ef86630351bd122c",
+    "can_edit": false,
+    "hidden_sections": []
+  },
+  {
+    "slug": "support",
+    "name": "Техническая поддержка",
+    "password_hash": "9227c6a44d8f2ed7366af7853a20d71abb3d0a3666704751b33cb68a9e7b820c",
+    "can_edit": false,
+    "hidden_sections": []
+  },
+  {
+    "slug": "sales",
+    "name": "Менеджер продаж",
+    "password_hash": "cc4c6f81ba9448e9836b240579d893165c3e7c947bc9829f9a8c2a3fb2e0c894",
+    "can_edit": false,
+    "hidden_sections": ["tp/devices"]
+  },
+  {
+    "slug": "installer",
+    "name": "Установщик",
+    "password_hash": "a08367915e7c869f465993413f594ec0ebeec87ac5b88059cae31dfd9f1baf4f",
+    "can_edit": false,
+    "hidden_sections": []
+  }
+]

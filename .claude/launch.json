@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "wikinest",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8082", "."],
+      "port": 8082
+    }
+  ]
+}
