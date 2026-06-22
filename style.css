@@ -1325,9 +1325,9 @@ mark {
    PHASE 2 — новый sidebar и dashboard
    ───────────────────────────────────────────── */
 
-/* Header: поиск растягивается */
-#search-box { width: auto; flex: 1; max-width: 520px; }
-#h-space    { display: none; }
+/* Header: лого слева, поиск + пользователь справа */
+#search-box { width: 200px; flex: none; }
+#h-space    { flex: 1; display: block; }
 .logo       { cursor: pointer; flex-shrink: 0; }
 
 /* Logo subtitle */
@@ -1548,10 +1548,11 @@ mark {
 .dash-card-icon {
   display: flex;
   align-items: center;
-  width: 28px;
-  height: 28px;
-  margin-bottom: 8px;
-  color: var(--accent);
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 .dash-card-icon svg { width: 18px; height: 18px; }
 
