@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WikiNest</title>
+<title>База знаний автоскан</title>
+<link rel="icon" type="image/x-icon" href="docs/assets/brand/autoskan-favicon-32x32.ico">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
 
@@ -11,7 +12,7 @@
 <body>
 <div id="header">
   <div class="logo" onclick="goHome()">
-    <div class="logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <img class="logo-img" src="docs/assets/brand/autoskan-logo-transparent.png" alt="автоскан">
     <div class="logo-text">
       <span id="site-name">База знаний</span>
       <span class="logo-sub">автоскан</span>
@@ -82,6 +83,9 @@
       </button>
       <button class="bar-btn" id="btn-visibility" onclick="openPageVisibility()" style="display:none" title="Видимость страницы">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </button>
+      <button class="bar-btn" id="btn-editors" onclick="openPageEditors()" style="display:none" title="Редакторы страницы">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
       </button>
       <button class="bar-btn" id="btn-fav" onclick="toggleFavorite()" style="display:none" title="Добавить в избранное">
         <svg id="btn-fav-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -564,12 +568,22 @@ async function matchRole(pw){
 
 function canEdit(){return currentRole?.can_edit===true;}
 
+// Returns true if current role can edit a specific page
+function canEditPage(page){
+  if(canEdit()) return true; // owner always can
+  const slug=currentRole?.slug;
+  if(!slug||!page) return false;
+  return Array.isArray(page.editors)&&page.editors.includes(slug);
+}
+
+const FULL_ACCESS_ROLES=['owner','admin','director','head'];
+
 function isHiddenPage(page){
   // Check folder-level hiding from role config
   const hs=currentRole?.hidden_sections||[];
   if(hs.some(s=>page.path===s||page.path.startsWith(s+'/'))) return true;
-  // Owner, admin, director always have full document access
-  if(['owner','admin','director'].includes(currentRole?.slug)) return false;
+  // Full-access roles bypass per-document restrictions
+  if(FULL_ACCESS_ROLES.includes(currentRole?.slug)) return false;
   // Check per-document role whitelist (empty/absent = visible to all)
   const allowed=page.roles;
   if(allowed&&allowed.length>0){
@@ -707,6 +721,35 @@ async function savePageVisibility(rawPath){
   closeModal();
   await updateTreeJson();
   toast('Видимость обновлена');
+}
+
+function openPageEditors(){
+  if(!currentPath) return;
+  const rawPath=currentPath.replace(/^docs\//,'').replace(/\.md$/,'');
+  const page=tree.find(p=>p.path===rawPath);
+  if(!page) return;
+  $('modal-title').textContent='Редакторы страницы';
+  $('modal-body').innerHTML=`
+    <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
+      Кто может редактировать <strong>${escHtml(page.title)}</strong>?
+    </p>
+    <div class="field">${editorsChecklistHtml(page.editors||[])}</div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="savePageEditors('${escHtml(rawPath)}')">Сохранить</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function savePageEditors(rawPath){
+  const page=tree.find(p=>p.path===rawPath);
+  if(!page) return;
+  page.editors=getSelectedEditors();
+  closeModal();
+  await updateTreeJson();
+  // Refresh edit button visibility for current page
+  const _e=canEditPage(page)?'flex':'none';
+  $('btn-edit').style.display=_e;
+  toast('Редакторы обновлены');
 }
 
 function openSectionVisibility(sec){
@@ -847,6 +890,7 @@ function goHome(){
   $('edit-btns').style.display='none';
   $('btn-edit').style.display='none';
   $('btn-visibility').style.display='none';
+  $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
@@ -889,29 +933,57 @@ async function updateRolesJson(){
 }
 
 // Role visibility checklist HTML (shared by page & section modals)
+const ROLE_OPTS=[
+  {slug:'support',     label:'Техническая поддержка'},
+  {slug:'sales',       label:'Менеджер продаж'},
+  {slug:'accounting',  label:'Бухгалтерия'},
+  {slug:'office-manager',label:'Офис-менеджер'},
+  {slug:'warehouse',   label:'Кладовщик'},
+  {slug:'logistics',   label:'Логист'},
+  {slug:'installer',   label:'Установщик'},
+];
+
+const EDITOR_OPTS=[
+  {slug:'head',          label:'Руководитель отдела'},
+  {slug:'support',       label:'Техническая поддержка'},
+  {slug:'office-manager',label:'Офис-менеджер'},
+  {slug:'sales',         label:'Менеджер продаж'},
+];
+
 function rolesChecklistHtml(selected=[]){
   const all=selected.length===0;
-  const opts=[{slug:'support',label:'Техническая поддержка'},{slug:'installer',label:'Установщик'},{slug:'sales',label:'Менеджер продаж'}];
   return `<label class="toggle-row" style="margin-bottom:6px">
     <input type="checkbox" id="vis-all" ${all?'checked':''} onchange="handleVisAll(this)">
     <span style="font-weight:500">Все роли</span>
   </label>
-  ${opts.map(o=>`<label class="toggle-row" style="padding-left:16px">
+  ${ROLE_OPTS.map(o=>`<label class="toggle-row" style="padding-left:16px">
     <input type="checkbox" id="vis-${o.slug}" ${!all&&selected.includes(o.slug)?'checked':''} ${all?'disabled':''}>
     <span>${o.label}</span>
   </label>`).join('')}`;
 }
 
+function editorsChecklistHtml(selected=[]){
+  return `<p style="font-size:11px;color:var(--text3);margin:0 0 8px">Владелец всегда может редактировать. Укажите дополнительные роли:</p>
+  ${EDITOR_OPTS.map(o=>`<label class="toggle-row">
+    <input type="checkbox" id="edt-${o.slug}" ${selected.includes(o.slug)?'checked':''}>
+    <span>${o.label}</span>
+  </label>`).join('')}`;
+}
+
 function handleVisAll(cb){
-  ['support','installer','sales'].forEach(s=>{
-    const el=$('vis-'+s);
+  ROLE_OPTS.forEach(o=>{
+    const el=$('vis-'+o.slug);
     if(el){el.disabled=cb.checked;if(cb.checked)el.checked=false;}
   });
 }
 
 function getSelectedRoles(){
   if($('vis-all')?.checked) return [];
-  return ['support','installer','sales'].filter(s=>$('vis-'+s)?.checked);
+  return ROLE_OPTS.map(o=>o.slug).filter(s=>$('vis-'+s)?.checked);
+}
+
+function getSelectedEditors(){
+  return EDITOR_OPTS.map(o=>o.slug).filter(s=>$('edt-'+s)?.checked);
 }
 
 // ── Tree ──
@@ -1033,14 +1105,16 @@ async function openPage(page){
   $('editor-wrap').style.display='none';
   $('editor-wrap').classList.remove('edit-active');
   $('edit-btns').style.display='none';
-  const _e=canEdit()?'flex':'none';
+  const _e=canEditPage(page)?'flex':'none';
+  const _o=canEdit()?'flex':'none';
   $('btn-edit').style.display=_e;
-  $('btn-visibility').style.display=_e;
+  $('btn-visibility').style.display=_o;
+  $('btn-editors').style.display=_o;
   $('btn-fav').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
-  $('btn-delete').style.display=_e;
-  $('btn-rename').style.display=_e;
+  $('btn-delete').style.display=_o;
+  $('btn-rename').style.display=_o;
   $('btn-history').style.display=_e;
   updateFavBtn();
   cancelEdit();
@@ -1238,6 +1312,7 @@ function _activateEditorPanel(){
   const tocEl=$('toc');if(tocEl)tocEl.style.display='none';
   $('btn-edit').style.display='none';
   $('btn-visibility').style.display='none';
+  $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
@@ -1337,7 +1412,9 @@ function openNewPage(presetFolder=''){
       <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code>
     </div>
     <div class="field-sep"></div>
-    <div class="field"><label>Видимость</label>${rolesChecklistHtml()}</div>`;
+    <div class="field"><label>Видимость</label>${rolesChecklistHtml()}</div>
+    <div class="field-sep"></div>
+    <div class="field"><label>Редакторы</label>${editorsChecklistHtml()}</div>`;
   $('modal-actions').innerHTML=`
     <button onclick="closeModal()">Отмена</button>
     <button class="btn-primary" onclick="createPage()">Создать</button>`;
@@ -1365,10 +1442,11 @@ async function createPage(){
   const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const content=`# ${title}\n\nStart writing here.\n`;
   const pageRoles=getSelectedRoles();
+  const pageEditors=getSelectedEditors();
   try{
     await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content),null);
     closeModal();
-    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{},roles:pageRoles,updated_at:new Date().toISOString(),tags:[],author:''};
+    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{},roles:pageRoles,editors:pageEditors,updated_at:new Date().toISOString(),tags:[],author:''};
     tree.push(page);
     await updateTreeJson();
     renderTree(tree);

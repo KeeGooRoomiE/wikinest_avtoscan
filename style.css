@@ -4,6 +4,12 @@
   padding: 0;
 }
 
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+}
+
 :root {
   --bg: #ffffff;
   --bg2: #f6f8fa;
@@ -76,22 +82,11 @@ body {
   cursor: default;
 }
 
-.logo-mark {
-  width: 22px;
-  height: 22px;
-  background: var(--accent);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-mark svg {
-  width: 13px;
-  height: 13px;
-  stroke: #fff;
-  fill: none;
-  stroke-width: 2.2;
+.logo-img {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 #search-box {
@@ -1068,16 +1063,25 @@ mark {
   color: var(--text);
 }
 
+button.btn-primary,
 .btn-primary,
 .modal-actions .btn-primary {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 6px 16px;
+  border-radius: 6px !important;
+  border: 0.5px solid var(--accent);
+  cursor: pointer;
+  font-size: 13px;
   background: var(--accent);
   color: #fff;
-  border-color: var(--accent);
 }
 
+button.btn-primary:hover,
 .btn-primary:hover,
 .modal-actions .btn-primary:hover {
   background: var(--accent2);
+  border-color: var(--accent2);
 }
 
 .modal-actions .btn-danger {
