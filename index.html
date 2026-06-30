@@ -218,7 +218,7 @@ const SECTIONS=[
   {slug:'incidents',     name:'Инциденты и решения',   folder:'incidents',         color:'#F97316', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'},
   {slug:'software',      name:'Сервисы и инструменты', folder:'tp/software',       color:'#06B6D4', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'},
   {slug:'examples',      name:'Шаблоны',               folder:'tp/examples',       color:'#6366F1', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>'},
-  {slug:'glossary',      name:'Глоссарий',             folder:'glossary',          color:'#EC4899', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>'},
+  {slug:'glossary',      name:'Глоссарий',             folder:'glossary',          color:'#EC4899', direct:true, directPath:'glossary/index', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>'},
 ];
 
 // ── UI navigation state ──
@@ -1034,6 +1034,19 @@ function renderTree(pages){
     const isActive=currentSection===sec.slug;
     const wrap=document.createElement('div');
     wrap.className='sec-wrap';
+
+    // Direct-link section: renders as a single clickable row, no expand
+    if(sec.direct){
+      const directPage=pages.find(p=>p.path===sec.directPath);
+      const isActiveDirect=currentPath===`docs/${sec.directPath}.md`;
+      const hdr=document.createElement('div');
+      hdr.className='sec-hdr'+(isActiveDirect?' active':'');
+      hdr.innerHTML=`<span class="sec-icon">${sec.icon}</span><span class="sec-name">${escHtml(sec.name)}</span>`;
+      if(directPage) hdr.onclick=()=>openPage(directPage);
+      wrap.appendChild(hdr);
+      el.appendChild(wrap);
+      return;
+    }
 
     const hdr=document.createElement('div');
     hdr.className='sec-hdr'+(isActive?' active':'');

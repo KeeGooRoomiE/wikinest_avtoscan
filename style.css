@@ -293,7 +293,7 @@ body {
 }
 
 .tree-children {
-  padding-left: 14px;
+  padding-left: 4px;
 }
 
 .tree-children.collapsed {
@@ -1429,7 +1429,7 @@ button.btn-primary:hover,
 .sec-pages { padding: 2px 0 4px; }
 
 .sec-pages .tree-row {
-  padding-left: 32px;
+  padding-left: 18px;
   font-size: 12px;
   font-weight: 400;
   color: var(--text2);

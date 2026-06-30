@@ -1,32 +1,49 @@
 [
   {
+    "path": "glossary/index",
+    "title": "Глоссарий",
+    "excerpt": "Словарь терминов и сокращений компании автоскан",
+    "parts": [
+      "glossary",
+      "index"
+    ],
+    "folder_titles": {
+      "glossary": "Глоссарий"
+    },
+    "updated_at": "2026-06-30T00:00:00+07:00",
+    "tags": [],
+    "author": "",
+    "roles": [],
+    "editors": []
+  },
+  {
     "path": "contacts",
-    "title": "Контакты",
-    "excerpt": "**Тел/факс:** 44-12-41",
+    "title": "Контакты сотрудников",
+    "excerpt": "| ФИО | Должность | Рабочий | Личный | Почта |",
     "parts": [
       "contacts"
     ],
     "folder_titles": {},
-    "updated_at": "2026-05-14T09:41:08+07:00",
+    "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "home",
-    "title": "Документация АвтоСкан",
+    "title": "База знаний автоскан",
     "excerpt": "Внутренняя база знаний технической поддержки. Используй боковое меню или быстрые ссылки ниже.",
     "parts": [
       "home"
     ],
     "folder_titles": {},
-    "updated_at": "2026-06-05T14:06:50+07:00",
+    "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "company/contacts",
     "title": "Контакты сотрудников",
-    "excerpt": "**Тел/факс:** 44-12-41",
+    "excerpt": "| ФИО | Должность | Рабочий | Личный | Почта |",
     "parts": [
       "company",
       "contacts"
@@ -34,14 +51,14 @@
     "folder_titles": {
       "company": "Company"
     },
-    "updated_at": "2026-06-22T19:34:32+07:00",
+    "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "incidents/index",
     "title": "Инциденты и решения",
-    "excerpt": "Таблица фиксирует возникающие технические инциденты, их описание, клиента и найденное решение.",
+    "excerpt": "Таблица фиксирует возникающие инциденты по отделам, их описание и найденное решение.",
     "parts": [
       "incidents",
       "index"
@@ -49,7 +66,7 @@
     "folder_titles": {
       "incidents": "Incidents"
     },
-    "updated_at": "2026-06-24T13:44:15+07:00",
+    "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
     "author": ""
   },
@@ -349,7 +366,83 @@
       "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-06-24T13:44:15+07:00",
+    "updated_at": "2026-06-30T13:08:28+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/dept/accounting",
+    "title": "Регламент бухгалтерии",
+    "excerpt": "| Роль | Ответственный |",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "accounting"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "dept": "Dept"
+    },
+    "updated_at": "2026-06-30T13:08:28+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/dept/sales",
+    "title": "Регламент отдела продаж",
+    "excerpt": "| Роль | Ответственный |",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "sales"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "dept": "Dept"
+    },
+    "updated_at": "2026-06-30T13:08:28+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/dept/service",
+    "title": "Регламент отдела сервиса (СО)",
+    "excerpt": "| Роль | Ответственный |",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "service"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "dept": "Dept"
+    },
+    "updated_at": "2026-06-30T13:08:28+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/dept/support",
+    "title": "Регламент отдела технической поддержки",
+    "excerpt": "| Роль | Ответственный |",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "support"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "dept": "Dept"
+    },
+    "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
     "author": ""
   },
@@ -449,25 +542,6 @@
     "author": ""
   },
   {
-    "path": "tp/reglamentation/dept/support",
-    "title": "Регламент отдела ТП",
-    "excerpt": "Процессы и регламенты технической поддержки",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "support"
-    ],
-    "folder_titles": {
-      "tp": "ТП",
-      "reglamentation": "Регламенты",
-      "dept": "По отделам"
-    },
-    "updated_at": "2026-06-30T00:00:00+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "tp/reglamentation/functions/logistics",
     "title": "Должностные функции — Логист",
     "excerpt": "Логист организует доставку оборудования клиентам и между офисами компании.",
@@ -534,76 +608,14 @@
       "functions",
       "support"
     ],
-    "editors": []
-  },
-  {
-    "path": "tp/reglamentation/dept/sales",
-    "title": "Регламент отдела продаж",
-    "excerpt": "Процессы и регламенты отдела продаж",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "sales"
-    ],
     "folder_titles": {
-      "tp": "ТП",
+      "tp": "Документация для ТП",
       "reglamentation": "Регламенты",
-      "dept": "По отделам"
+      "functions": "Functions"
     },
-    "updated_at": "2026-06-30T00:00:00+07:00",
+    "updated_at": "2026-06-24T13:44:15+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "sales"
-    ],
-    "editors": []
-  },
-  {
-    "path": "tp/reglamentation/dept/service",
-    "title": "Регламент отдела сервиса",
-    "excerpt": "Процессы и регламенты сервисного отдела",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "service"
-    ],
-    "folder_titles": {
-      "tp": "ТП",
-      "reglamentation": "Регламенты",
-      "dept": "По отделам"
-    },
-    "updated_at": "2026-06-30T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [
-      "installer"
-    ],
-    "editors": []
-  },
-  {
-    "path": "tp/reglamentation/dept/accounting",
-    "title": "Регламент бухгалтерии",
-    "excerpt": "Процессы и регламенты бухгалтерского отдела",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "accounting"
-    ],
-    "folder_titles": {
-      "tp": "ТП",
-      "reglamentation": "Регламенты",
-      "dept": "По отделам"
-    },
-    "updated_at": "2026-06-30T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [
-      "accounting"
-    ],
-    "editors": []
+    "author": ""
   },
   {
     "path": "tp/reglamentation/functions/warehouse",
