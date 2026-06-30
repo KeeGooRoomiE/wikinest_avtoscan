@@ -90,6 +90,10 @@
       <button class="bar-btn" id="btn-fav" onclick="toggleFavorite()" style="display:none" title="Добавить в избранное">
         <svg id="btn-fav-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       </button>
+      <button class="bar-btn" id="btn-test" style="display:none" title="Тестирование">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+        <span>Тестирование</span>
+      </button>
       <button class="bar-btn" id="btn-share" onclick="sharePage()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
         <span id="lbl-share">Share</span>
@@ -892,6 +896,7 @@ function goHome(){
   $('btn-visibility').style.display='none';
   $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
+  $('btn-test').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
@@ -1111,6 +1116,7 @@ async function openPage(page){
   $('btn-visibility').style.display=_o;
   $('btn-editors').style.display=_o;
   $('btn-fav').style.display='flex';
+  $('btn-test').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
   $('btn-delete').style.display=_o;
@@ -1154,6 +1160,23 @@ function renderView(md){
       );
     }
     $('view').innerHTML=metaHtml+html;
+    // Intercept link clicks: external → new tab, internal → openPage()
+    $('view').querySelectorAll('a:not(.wiki-link)').forEach(a=>{
+      const href=a.getAttribute('href');
+      if(!href||href.startsWith('#')) return;
+      if(/^https?:\/\/|^\/\//.test(href)){
+        a.target='_blank';a.rel='noopener noreferrer';
+      } else {
+        a.onclick=e=>{
+          e.preventDefault();
+          const rel=href.replace(/\.md$/,'');
+          const resolved=/^\//.test(rel)?rel.replace(/^\//,''):resolveDocRelative(rel);
+          const page=tree.find(p=>p.path===resolved||p.path===resolved+'/index');
+          if(page) openPage(page);
+          else toast('Страница не найдена: '+resolved);
+        };
+      }
+    });
   }catch(e){$('view').innerHTML=metaHtml+`<pre style="color:var(--red);font-size:12px;padding:12px">Render error: ${escHtml(e.message)}</pre>`;}
   // Build tag chips via DOM — avoids embedding tag values in onclick HTML attributes
   if(meta.tags&&meta.tags.length){
@@ -1169,6 +1192,28 @@ function renderView(md){
     $('view').insertBefore(tagsDiv,$('view').firstChild.nextSibling);
   }
   buildToc();
+  if(window._searchHighlight){highlightInView(window._searchHighlight);window._searchHighlight=null;}
+}
+
+function highlightInView(q){
+  if(!q) return;
+  const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
+  const walker=document.createTreeWalker($('view'),NodeFilter.SHOW_TEXT);
+  const nodes=[];let n;
+  while((n=walker.nextNode())) nodes.push(n);
+  nodes.forEach(node=>{
+    if(!re.test(node.nodeValue)) return;
+    re.lastIndex=0;
+    const frag=document.createDocumentFragment();
+    let last=0,m;
+    while((m=re.exec(node.nodeValue))!==null){
+      frag.appendChild(document.createTextNode(node.nodeValue.slice(last,m.index)));
+      const mark=document.createElement('mark');mark.textContent=m[0];frag.appendChild(mark);
+      last=m.index+m[0].length;
+    }
+    frag.appendChild(document.createTextNode(node.nodeValue.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  });
 }
 
 function buildToc(){
@@ -1314,6 +1359,7 @@ function _activateEditorPanel(){
   $('btn-visibility').style.display='none';
   $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
+  $('btn-test').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
@@ -1361,6 +1407,7 @@ function cancelEdit(){
   $('btn-edit').style.display=_ce?'flex':'none';
   $('btn-visibility').style.display=_ce?'flex':'none';
   $('btn-fav').style.display=currentPath?'flex':'none';
+  $('btn-test').style.display=currentPath?'flex':'none';
   $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=_ce?'flex':'none';
@@ -1599,7 +1646,7 @@ function runSearch(q){
   const hits=[...titleHits,...ftHits].slice(0,12);
   if(!hits.length){res.innerHTML=`<div class="sr-empty">${t('search')} — no results</div>`;return;}
   res.innerHTML=hits.map(({p,ft})=>`
-    <div class="sr-item" onclick="closeSearch();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
+    <div class="sr-item" onclick="closeSearch();window._searchHighlight=${JSON.stringify(q)};openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
       <div class="sr-title">${hl(p.title)}${ft?`<span class="sr-ft-badge">${t('full_text')}</span>`:''}</div>
       <div class="sr-excerpt">${hl(p.excerpt||p.path)}</div>
     </div>`).join('');

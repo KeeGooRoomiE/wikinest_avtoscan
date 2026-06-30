@@ -1,163 +1,5 @@
 [
   {
-    "path": "company/contacts",
-    "title": "Контакты сотрудников",
-    "excerpt": "Сотрудники ООО «автоскан» Кемерово, Новокузнецк, Екатеринбург",
-    "parts": ["company", "contacts"],
-    "folder_titles": {"company": "Компания"},
-    "updated_at": "2026-06-22T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [],
-    "editors": ["office-manager"]
-  },
-  {
-    "path": "incidents/index",
-    "title": "Инциденты и решения",
-    "excerpt": "Журнал технических инцидентов и найденных решений",
-    "parts": ["incidents", "index"],
-    "folder_titles": {"incidents": "Инциденты"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [],
-    "editors": ["head"]
-  },
-  {
-    "path": "processes/1c/index",
-    "title": "1С — Процессы",
-    "excerpt": "Регламенты и инструкции по работе в 1С",
-    "parts": ["processes", "1c", "index"],
-    "folder_titles": {"processes": "Процессы", "1c": "1С"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [],
-    "editors": []
-  },
-  {
-    "path": "processes/bitrix/index",
-    "title": "Битрикс — Процессы",
-    "excerpt": "Инструкции и обучающие материалы по работе в Битрикс24",
-    "parts": ["processes", "bitrix", "index"],
-    "folder_titles": {"processes": "Процессы", "bitrix": "Битрикс"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [],
-    "editors": []
-  },
-  {
-    "path": "tp/reglamentation/functions/admin",
-    "title": "Функции — Администратор",
-    "excerpt": "Управление базой знаний, настройка прав доступа и поддержка инфраструктуры",
-    "parts": ["tp", "reglamentation", "functions", "admin"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["admin"]
-  },
-  {
-    "path": "tp/reglamentation/functions/director",
-    "title": "Функции — Директор",
-    "excerpt": "Стратегическое управление и контроль ключевых показателей",
-    "parts": ["tp", "reglamentation", "functions", "director"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["director"]
-  },
-  {
-    "path": "tp/reglamentation/functions/head",
-    "title": "Функции — Руководитель отдела",
-    "excerpt": "Управление командой, фиксация инцидентов, согласование регламентов",
-    "parts": ["tp", "reglamentation", "functions", "head"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["head"]
-  },
-  {
-    "path": "tp/reglamentation/functions/support",
-    "title": "Функции — Техническая поддержка",
-    "excerpt": "Подключение и настройка терминалов, сопровождение клиентов",
-    "parts": ["tp", "reglamentation", "functions", "support"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["support"]
-  },
-  {
-    "path": "tp/reglamentation/functions/sales",
-    "title": "Функции — Менеджер продаж",
-    "excerpt": "Привлечение клиентов, ведение сделок, работа в CRM",
-    "parts": ["tp", "reglamentation", "functions", "sales"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["sales"]
-  },
-  {
-    "path": "tp/reglamentation/functions/accounting",
-    "title": "Функции — Бухгалтерия",
-    "excerpt": "Бухгалтерский учёт, налоговая отчётность, работа с документацией",
-    "parts": ["tp", "reglamentation", "functions", "accounting"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["accounting"]
-  },
-  {
-    "path": "tp/reglamentation/functions/office-manager",
-    "title": "Функции — Офис-менеджер",
-    "excerpt": "Ведение контактов, административная документация, жизнедеятельность офиса",
-    "parts": ["tp", "reglamentation", "functions", "office-manager"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["office-manager"]
-  },
-  {
-    "path": "tp/reglamentation/functions/warehouse",
-    "title": "Функции — Кладовщик",
-    "excerpt": "Приём, хранение и выдача оборудования, складской учёт",
-    "parts": ["tp", "reglamentation", "functions", "warehouse"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["warehouse"]
-  },
-  {
-    "path": "tp/reglamentation/functions/logistics",
-    "title": "Функции — Логист",
-    "excerpt": "Организация доставок, работа с ТК, оформление транспортных документов",
-    "parts": ["tp", "reglamentation", "functions", "logistics"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["logistics"]
-  },
-  {
-    "path": "tp/reglamentation/functions/installer",
-    "title": "Функции — Установщик",
-    "excerpt": "Монтаж и настройка оборудования мониторинга на ТС",
-    "parts": ["tp", "reglamentation", "functions", "installer"],
-    "folder_titles": {"tp": "ТП", "reglamentation": "Регламенты", "functions": "Должностные функции"},
-    "updated_at": "2026-06-24T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": ["installer"]
-  },
-  {
     "path": "contacts",
     "title": "Контакты",
     "excerpt": "**Тел/факс:** 44-12-41",
@@ -167,12 +9,11 @@
     "folder_titles": {},
     "updated_at": "2026-05-14T09:41:08+07:00",
     "tags": [],
-    "author": "",
-    "roles": []
+    "author": ""
   },
   {
     "path": "home",
-    "title": "База знаний автоскан",
+    "title": "Документация АвтоСкан",
     "excerpt": "Внутренняя база знаний технической поддержки. Используй боковое меню или быстрые ссылки ниже.",
     "parts": [
       "home"
@@ -180,8 +21,71 @@
     "folder_titles": {},
     "updated_at": "2026-06-05T14:06:50+07:00",
     "tags": [],
-    "author": "",
-    "roles": []
+    "author": ""
+  },
+  {
+    "path": "company/contacts",
+    "title": "Контакты сотрудников",
+    "excerpt": "**Тел/факс:** 44-12-41",
+    "parts": [
+      "company",
+      "contacts"
+    ],
+    "folder_titles": {
+      "company": "Company"
+    },
+    "updated_at": "2026-06-22T19:34:32+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "incidents/index",
+    "title": "Инциденты и решения",
+    "excerpt": "Таблица фиксирует возникающие технические инциденты, их описание, клиента и найденное решение.",
+    "parts": [
+      "incidents",
+      "index"
+    ],
+    "folder_titles": {
+      "incidents": "Incidents"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "processes/1c/index",
+    "title": "1С — Процессы",
+    "excerpt": "Раздел в разработке. Здесь будут регламенты и инструкции по работе в 1С.",
+    "parts": [
+      "processes",
+      "1c",
+      "index"
+    ],
+    "folder_titles": {
+      "processes": "Processes",
+      "1c": "1c"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "processes/bitrix/index",
+    "title": "Битрикс — Процессы",
+    "excerpt": "Раздел в разработке. Здесь будут инструкции и обучающие материалы по работе в Битрикс24.",
+    "parts": [
+      "processes",
+      "bitrix",
+      "index"
+    ],
+    "folder_titles": {
+      "processes": "Processes",
+      "bitrix": "Bitrix"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
   },
   {
     "path": "reference/links",
@@ -196,8 +100,7 @@
     },
     "updated_at": "2026-06-15T12:21:03+07:00",
     "tags": [],
-    "author": "",
-    "roles": []
+    "author": ""
   },
   {
     "path": "reference/markdown",
@@ -212,10 +115,7 @@
     },
     "updated_at": "2026-05-14T00:13:24+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support"
-    ]
+    "author": ""
   },
   {
     "path": "tp/main",
@@ -230,10 +130,7 @@
     },
     "updated_at": "2026-06-10T09:35:19+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/adm",
@@ -250,11 +147,7 @@
     },
     "updated_at": "2026-05-18T10:15:11+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/arnavi",
@@ -271,11 +164,7 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/at-links",
@@ -292,11 +181,7 @@
     },
     "updated_at": "2026-06-10T09:32:23+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/galileosky",
@@ -313,11 +198,7 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/navtelecom",
@@ -334,11 +215,7 @@
     },
     "updated_at": "2026-05-13T17:32:32+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/omnicom",
@@ -355,11 +232,7 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/term-pin",
@@ -376,11 +249,7 @@
     },
     "updated_at": "2026-06-04T11:16:00+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/umka",
@@ -397,11 +266,7 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/devices/vega",
@@ -418,11 +283,7 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/examples/index",
@@ -439,11 +300,7 @@
     },
     "updated_at": "2026-05-14T00:24:57+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support",
-      "installer"
-    ]
+    "author": ""
   },
   {
     "path": "tp/reglamentation/add-car-reglament",
@@ -460,10 +317,7 @@
     },
     "updated_at": "2026-06-05T12:52:50+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support"
-    ]
+    "author": ""
   },
   {
     "path": "tp/reglamentation/add-object-axenta",
@@ -480,15 +334,12 @@
     },
     "updated_at": "2026-06-05T12:52:50+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support"
-    ]
+    "author": ""
   },
   {
     "path": "tp/reglamentation/index",
     "title": "Список регламентов",
-    "excerpt": "",
+    "excerpt": "| Регламент | Описание |",
     "parts": [
       "tp",
       "reglamentation",
@@ -498,12 +349,291 @@
       "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-05-14T00:24:57+07:00",
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/accounting",
+    "title": "Должностные функции — Бухгалтерия",
+    "excerpt": "Бухгалтер обеспечивает ведение бухгалтерского и налогового учёта компании.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "accounting"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/admin",
+    "title": "Должностные функции — Администратор",
+    "excerpt": "Администратор отвечает за работоспособность базы знаний, настройку прав доступа и поддержку инфраструктуры компании.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "admin"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/director",
+    "title": "Должностные функции — Директор",
+    "excerpt": "Директор осуществляет общее руководство деятельностью компании, стратегическое планирование и контроль ключевых показателей.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "director"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/head",
+    "title": "Должностные функции — Руководитель отдела",
+    "excerpt": "Руководитель отдела управляет работой своей команды, фиксирует инциденты и обеспечивает выполнение регламентов.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "head"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/installer",
+    "title": "Должностные функции — Установщик",
+    "excerpt": "Установщик выполняет монтаж и настройку оборудования мониторинга на транспортных средствах клиентов.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "installer"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/dept/support",
+    "title": "Регламент отдела ТП",
+    "excerpt": "Процессы и регламенты технической поддержки",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "support"
+    ],
+    "folder_titles": {
+      "tp": "ТП",
+      "reglamentation": "Регламенты",
+      "dept": "По отделам"
+    },
+    "updated_at": "2026-06-30T00:00:00+07:00",
     "tags": [],
     "author": "",
     "roles": [
       "support"
-    ]
+    ],
+    "editors": []
+  },
+  {
+    "path": "tp/reglamentation/dept/sales",
+    "title": "Регламент отдела продаж",
+    "excerpt": "Процессы и регламенты отдела продаж",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "sales"
+    ],
+    "folder_titles": {
+      "tp": "ТП",
+      "reglamentation": "Регламенты",
+      "dept": "По отделам"
+    },
+    "updated_at": "2026-06-30T00:00:00+07:00",
+    "tags": [],
+    "author": "",
+    "roles": [
+      "sales"
+    ],
+    "editors": []
+  },
+  {
+    "path": "tp/reglamentation/dept/service",
+    "title": "Регламент отдела сервиса",
+    "excerpt": "Процессы и регламенты сервисного отдела",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "service"
+    ],
+    "folder_titles": {
+      "tp": "ТП",
+      "reglamentation": "Регламенты",
+      "dept": "По отделам"
+    },
+    "updated_at": "2026-06-30T00:00:00+07:00",
+    "tags": [],
+    "author": "",
+    "roles": [
+      "installer"
+    ],
+    "editors": []
+  },
+  {
+    "path": "tp/reglamentation/dept/accounting",
+    "title": "Регламент бухгалтерии",
+    "excerpt": "Процессы и регламенты бухгалтерского отдела",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "dept",
+      "accounting"
+    ],
+    "folder_titles": {
+      "tp": "ТП",
+      "reglamentation": "Регламенты",
+      "dept": "По отделам"
+    },
+    "updated_at": "2026-06-30T00:00:00+07:00",
+    "tags": [],
+    "author": "",
+    "roles": [
+      "accounting"
+    ],
+    "editors": []
+  },
+  {
+    "path": "tp/reglamentation/functions/logistics",
+    "title": "Должностные функции — Логист",
+    "excerpt": "Логист организует доставку оборудования клиентам и между офисами компании.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "logistics"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/office-manager",
+    "title": "Должностные функции — Офис-менеджер",
+    "excerpt": "Офис-менеджер обеспечивает жизнедеятельность офиса и ведёт административную документацию.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "office-manager"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/sales",
+    "title": "Должностные функции — Менеджер продаж",
+    "excerpt": "Менеджер продаж отвечает за привлечение клиентов, сопровождение сделок и выполнение плана продаж.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "sales"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/support",
+    "title": "Должностные функции — Техническая поддержка",
+    "excerpt": "Специалист технической поддержки обеспечивает подключение, настройку и сопровождение оборудования и сервисов мониторинга у клиентов.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "support"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/functions/warehouse",
+    "title": "Должностные функции — Кладовщик",
+    "excerpt": "Кладовщик отвечает за приём, хранение и выдачу оборудования и материалов на складе.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "functions",
+      "warehouse"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "functions": "Functions"
+    },
+    "updated_at": "2026-06-24T13:44:15+07:00",
+    "tags": [],
+    "author": ""
   },
   {
     "path": "tp/software/axenta",
@@ -520,9 +650,6 @@
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
     "tags": [],
-    "author": "",
-    "roles": [
-      "support"
-    ]
+    "author": ""
   }
 ]
