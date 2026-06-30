@@ -1202,8 +1202,52 @@ function renderView(md){
     });
     $('view').insertBefore(tagsDiv,$('view').firstChild.nextSibling);
   }
+  if(currentPath&&/contacts/.test(currentPath)) injectBirthdayBanner($('view'));
   buildToc();
   if(window._searchHighlight){highlightInView(window._searchHighlight);window._searchHighlight=null;}
+}
+
+function injectBirthdayBanner(container){
+  const MONTHS=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  const now=new Date();
+  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const upcoming=[];
+  let section='';
+  Array.from(container.childNodes).forEach(el=>{
+    if(!el.tagName) return;
+    if(el.tagName==='H2') section=el.textContent.trim();
+    if(el.tagName!=='TABLE') return;
+    const headers=Array.from(el.querySelectorAll('thead th')).map(th=>th.textContent.trim());
+    const bdayIdx=headers.findIndex(h=>h.includes('🎂'));
+    const nameIdx=headers.findIndex(h=>h.includes('ФИО'));
+    const roleIdx=headers.findIndex(h=>h.includes('Должность'));
+    if(bdayIdx<0||nameIdx<0) return;
+    el.querySelectorAll('tbody tr').forEach(row=>{
+      const cells=Array.from(row.querySelectorAll('td'));
+      const bStr=(cells[bdayIdx]||{}).textContent?.trim();
+      const name=(cells[nameIdx]||{}).textContent?.trim();
+      const role=roleIdx>=0?(cells[roleIdx]||{}).textContent?.trim():'';
+      if(!bStr||bStr==='—'||!name||name==='—') return;
+      const m=bStr.match(/^(\d{1,2})\.(\d{1,2})/);
+      if(!m) return;
+      const day=parseInt(m[1]),month=parseInt(m[2])-1;
+      let bday=new Date(today.getFullYear(),month,day);
+      if(bday<today) bday=new Date(today.getFullYear()+1,month,day);
+      const diff=Math.round((bday-today)/86400000);
+      if(diff<=30) upcoming.push({name,role,section,day,month,diff});
+    });
+  });
+  if(!upcoming.length) return;
+  upcoming.sort((a,b)=>a.diff-b.diff);
+  const banner=document.createElement('div');
+  banner.id='birthday-banner';
+  const cards=upcoming.map(p=>{
+    const whenTxt=p.diff===0?'<span class="bday-today">🎉 Сегодня!</span>':p.diff===1?'завтра':'через '+p.diff+' дн.';
+    return `<div class="bday-card"><div class="bday-name">${escHtml(p.name)}</div><div class="bday-role">${escHtml(p.role)} · ${escHtml(p.section)}</div><div class="bday-when">${p.day} ${MONTHS[p.month]} · ${whenTxt}</div></div>`;
+  }).join('');
+  banner.innerHTML=`<div class="bday-title">🎂 Дни рождения — ближайшие 30 дней</div><div class="bday-list">${cards}</div>`;
+  const meta=container.querySelector('.page-meta');
+  if(meta) meta.after(banner); else container.prepend(banner);
 }
 
 function highlightInView(q){

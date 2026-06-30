@@ -416,6 +416,62 @@ body {
   border-bottom: 0.5px solid var(--border);
 }
 
+#birthday-banner {
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
+  border: 1px solid #f0c040;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+[data-theme="dark"] #birthday-banner {
+  background: linear-gradient(135deg, #2a2410 0%, #221f0d 100%);
+  border-color: #6b5a10;
+}
+.bday-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7a5a00;
+  margin-bottom: 12px;
+}
+[data-theme="dark"] .bday-title { color: #c9a830; }
+.bday-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bday-card {
+  background: #fff;
+  border: 1px solid #f0c040;
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 180px;
+  max-width: 240px;
+  flex: 1 1 180px;
+}
+[data-theme="dark"] .bday-card {
+  background: #1e1c0e;
+  border-color: #5a4c08;
+}
+.bday-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+.bday-role {
+  font-size: 11px;
+  color: var(--text2);
+  margin-bottom: 6px;
+}
+.bday-when {
+  font-size: 12px;
+  font-weight: 600;
+  color: #b07800;
+}
+[data-theme="dark"] .bday-when { color: #e0b830; }
+.bday-today { color: #c0392b !important; }
+[data-theme="dark"] .bday-today { color: #ff6b6b !important; }
+
 #view h2 {
   font-size: 17px;
   font-weight: 600;
