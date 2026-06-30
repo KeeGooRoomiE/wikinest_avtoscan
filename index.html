@@ -20,6 +20,10 @@
   </div>
   <div id="h-space"></div>
   <button id="burger" onclick="toggleSidebar()" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <button class="bar-btn" id="btn-test" title="Тестирование">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+    <span>Тестирование</span>
+  </button>
   <div id="search-box" onclick="openSearch()">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
@@ -89,10 +93,6 @@
       </button>
       <button class="bar-btn" id="btn-fav" onclick="toggleFavorite()" style="display:none" title="Добавить в избранное">
         <svg id="btn-fav-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      </button>
-      <button class="bar-btn" id="btn-test" style="display:none" title="Тестирование">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-        <span>Тестирование</span>
       </button>
       <button class="bar-btn" id="btn-share" onclick="sharePage()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -896,7 +896,6 @@ function goHome(){
   $('btn-visibility').style.display='none';
   $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
-  $('btn-test').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
@@ -1129,7 +1128,6 @@ async function openPage(page){
   $('btn-visibility').style.display=_o;
   $('btn-editors').style.display=_o;
   $('btn-fav').style.display='flex';
-  $('btn-test').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
   $('btn-delete').style.display=_o;
@@ -1372,7 +1370,6 @@ function _activateEditorPanel(){
   $('btn-visibility').style.display='none';
   $('btn-editors').style.display='none';
   $('btn-fav').style.display='none';
-  $('btn-test').style.display='none';
   $('btn-share').style.display='none';
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
@@ -1420,7 +1417,6 @@ function cancelEdit(){
   $('btn-edit').style.display=_ce?'flex':'none';
   $('btn-visibility').style.display=_ce?'flex':'none';
   $('btn-fav').style.display=currentPath?'flex':'none';
-  $('btn-test').style.display=currentPath?'flex':'none';
   $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=_ce?'flex':'none';
