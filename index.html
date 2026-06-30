@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>База знаний автоскан</title>
+<title>База знаний Автоскан</title>
 <link rel="icon" type="image/x-icon" href="docs/assets/brand/autoskan-favicon-32x32.ico">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
@@ -12,10 +12,10 @@
 <body>
 <div id="header">
   <div class="logo" onclick="goHome()">
-    <img class="logo-img" src="docs/assets/brand/autoskan-logo-transparent.png" alt="автоскан">
+    <img class="logo-img" src="docs/assets/brand/autoskan-logo-transparent.png" alt="Автоскан">
     <div class="logo-text">
       <span id="site-name">База знаний</span>
-      <span class="logo-sub">автоскан</span>
+      <span class="logo-sub">Автоскан</span>
     </div>
   </div>
   <div id="h-space"></div>
@@ -177,7 +177,7 @@
 </div>
 <div id="role-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:400;align-items:center;justify-content:center">
   <div style="background:var(--bg);border:0.5px solid var(--border);border-radius:12px;padding:32px 28px;width:340px;box-shadow:0 12px 36px rgba(0,0,0,.2)">
-    <div style="font-weight:600;font-size:16px;margin-bottom:6px;color:var(--text)">автоскан — База знаний</div>
+    <div style="font-weight:600;font-size:16px;margin-bottom:6px;color:var(--text)">Автоскан — База знаний</div>
     <div style="font-size:12px;color:var(--text2);margin-bottom:20px">Введите пароль для доступа к базе знаний</div>
     <input type="password" id="role-pw-input" style="width:100%;box-sizing:border-box;padding:8px 10px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text);font-size:13px;outline:none" placeholder="Пароль" onkeydown="if(event.key==='Enter')submitRoleLogin()">
     <div id="role-pw-error" style="display:none;color:#cf222e;font-size:12px;margin-top:6px"></div>
@@ -864,7 +864,7 @@ function showDashboard(){
   el.innerHTML=`<div class="dash-layout">
     <div class="dash-main">
       <div class="dash-welcome">
-        <h1 class="dash-title">Добро пожаловать в базу знаний автоскан</h1>
+        <h1 class="dash-title">Добро пожаловать в базу знаний Автоскан</h1>
         <p class="dash-sub">Найдите ответы на вопросы, инструкции и руководства по продуктам, процессам и оборудованию</p>
       </div>
       <div class="dash-cards">${cards}</div>

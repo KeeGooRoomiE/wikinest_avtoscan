@@ -1,22 +1,5 @@
 [
   {
-    "path": "glossary/index",
-    "title": "Глоссарий",
-    "excerpt": "Словарь терминов и сокращений компании автоскан",
-    "parts": [
-      "glossary",
-      "index"
-    ],
-    "folder_titles": {
-      "glossary": "Глоссарий"
-    },
-    "updated_at": "2026-06-30T00:00:00+07:00",
-    "tags": [],
-    "author": "",
-    "roles": [],
-    "editors": []
-  },
-  {
     "path": "contacts",
     "title": "Контакты сотрудников",
     "excerpt": "| ФИО | Должность | Рабочий | Личный | Почта |",
@@ -52,6 +35,21 @@
       "company": "Company"
     },
     "updated_at": "2026-06-30T13:08:28+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "glossary/index",
+    "title": "Глоссарий",
+    "excerpt": "Словарь терминов и сокращений, используемых в компании автоскан.",
+    "parts": [
+      "glossary",
+      "index"
+    ],
+    "folder_titles": {
+      "glossary": "Glossary"
+    },
+    "updated_at": "2026-06-30T13:39:57+07:00",
     "tags": [],
     "author": ""
   },
