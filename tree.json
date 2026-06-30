@@ -2,12 +2,12 @@
   {
     "path": "contacts",
     "title": "Контакты сотрудников",
-    "excerpt": "**Тел:** 8(3842) 44-12-41 · 8(3842) 44-22-82",
+    "excerpt": "**Тел:** 8(3842) 44-22-82",
     "parts": [
       "contacts"
     ],
     "folder_titles": {},
-    "updated_at": "2026-06-30T15:25:17+07:00",
+    "updated_at": "2026-06-30T17:19:37+07:00",
     "tags": [],
     "author": ""
   },
@@ -26,7 +26,7 @@
   {
     "path": "company/contacts",
     "title": "Контакты сотрудников",
-    "excerpt": "**Тел:** 8(3842) 44-12-41 · 8(3842) 44-22-82",
+    "excerpt": "**Тел:** 8(3842) 44-22-82",
     "parts": [
       "company",
       "contacts"
@@ -34,7 +34,7 @@
     "folder_titles": {
       "company": "Company"
     },
-    "updated_at": "2026-06-30T15:25:17+07:00",
+    "updated_at": "2026-06-30T17:19:37+07:00",
     "tags": [],
     "author": ""
   },
