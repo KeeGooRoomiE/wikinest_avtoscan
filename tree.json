@@ -333,6 +333,23 @@
     "author": ""
   },
   {
+    "path": "tp/examples/markdown-reference",
+    "title": "Заголовок 1",
+    "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
+    "parts": [
+      "tp",
+      "examples",
+      "markdown-reference"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "examples": "Шаблоны"
+    },
+    "updated_at": "2026-07-01T09:52:02+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "tp/reglamentation/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
