@@ -333,23 +333,6 @@
     "author": ""
   },
   {
-    "path": "tp/reglamentation/index",
-    "title": "Список регламентов",
-    "excerpt": "| Регламент | Описание |",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "index"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "tp/reglamentation/dept/accounting",
     "title": "Регламент бухгалтерии",
     "excerpt": "| Роль | Ответственный |",
