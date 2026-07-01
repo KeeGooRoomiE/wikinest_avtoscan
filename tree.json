@@ -133,6 +133,21 @@
     "author": ""
   },
   {
+    "path": "templates/markdown-reference",
+    "title": "Заголовок 1",
+    "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
+    "parts": [
+      "templates",
+      "markdown-reference"
+    ],
+    "folder_titles": {
+      "templates": "Templates"
+    },
+    "updated_at": "2026-07-01T09:43:05+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "tp/main",
     "title": "Основная информация для техподдержки",
     "excerpt": "```",
