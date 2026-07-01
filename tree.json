@@ -1,20 +1,8 @@
 [
   {
-    "path": "home",
-    "title": "База знаний Автоскан",
-    "excerpt": "",
-    "parts": [
-      "home"
-    ],
-    "folder_titles": {},
-    "updated_at": "2026-06-30T13:50:42+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "company/welcome",
     "title": "Приветствие",
-    "excerpt": "Автоскан — это команда, которая помогает компаниям эффективнее управлять своим транспортом с помощью технологий.",
+    "excerpt": "",
     "parts": [
       "company",
       "welcome"
@@ -207,6 +195,18 @@
     "author": ""
   },
   {
+    "path": "home",
+    "title": "База знаний Автоскан",
+    "excerpt": "",
+    "parts": [
+      "home"
+    ],
+    "folder_titles": {},
+    "updated_at": "2026-06-30T13:50:42+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "incidents/index",
     "title": "Инциденты и решения",
     "excerpt": "",
@@ -331,21 +331,6 @@
     "author": ""
   },
   {
-    "path": "reglamentation/tp",
-    "title": "Регламенты ТП",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "tp"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T14:17:50+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "",
@@ -374,6 +359,21 @@
     "folder_titles": {
       "reglamentation": "Регламенты",
       "support": "Техподдержка"
+    },
+    "updated_at": "2026-07-01T14:17:50+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "reglamentation/tp",
+    "title": "Регламенты ТП",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
