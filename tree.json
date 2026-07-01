@@ -333,40 +333,6 @@
     "author": ""
   },
   {
-    "path": "tp/reglamentation/add-car-reglament",
-    "title": "Регламент создания и настройки учётной записи клиента",
-    "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "add-car-reglament"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-06-05T12:52:50+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/add-object-axenta",
-    "title": "Регламент создания объекта в AXENTA",
-    "excerpt": "Объект можно создать двумя способами:",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "add-object-axenta"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-06-05T12:52:50+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "tp/reglamentation/index",
     "title": "Список регламентов",
     "excerpt": "| Регламент | Описание |",
@@ -473,6 +439,44 @@
       "software": "Сервисы"
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-car-reglament",
+    "title": "Регламент создания и настройки учётной записи клиента",
+    "excerpt": "Создание учётной записи в 1С, настройка в системах мониторинга (AXENTA, Глонасс Soft, Wialon).",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-car-reglament"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-object-axenta",
+    "title": "Регламент создания объекта в AXENTA",
+    "excerpt": "Объект можно создать двумя способами: через интерфейс или через 1С.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-object-axenta"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
     "tags": [],
     "author": ""
   }
