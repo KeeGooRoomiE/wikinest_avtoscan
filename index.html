@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>База знаний Автоскан</title>
+<link rel="icon" type="image/png" href="docs/assets/brand/autoskan-logo-transparent.png">
 <link rel="icon" type="image/x-icon" href="docs/assets/brand/autoskan-favicon-32x32.ico">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="style.css">
@@ -167,7 +168,7 @@
   <div id="search-panel">
     <div id="search-input-wrap">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="search-q" autocomplete="off" oninput="runSearch(this.value)" onkeydown="searchKey(event)">
+      <input id="search-q" autocomplete="new-password" name="search_q" oninput="runSearch(this.value)" onkeydown="searchKey(event)">
     </div>
     <div id="search-results"></div>
   </div>
@@ -815,22 +816,36 @@ function toggleFavorite(){
 function openFavoritesView(){
   if(!sessionFavorites.length){toast('Нет избранных страниц');return;}
   $('modal-title').textContent='Избранное';
-  $('modal-body').innerHTML=sessionFavorites.map(p=>`
-    <div class="recent-item" onclick="closeModal();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-      <span class="recent-item-title">${escHtml(p.title)}</span>
-    </div>`).join('');
-  $('modal-actions').innerHTML=`<button onclick="closeModal()">Закрыть</button>`;
+  $('modal-body').innerHTML='';
+  sessionFavorites.forEach(p=>{
+    const div=document.createElement('div');
+    div.className='recent-item';
+    div.innerHTML=`<span class="recent-item-title">${escHtml(p.title)}</span>`;
+    div.onclick=()=>{closeModal();openPage(p);};
+    $('modal-body').appendChild(div);
+  });
+  $('modal-actions').innerHTML='';
+  const btn=document.createElement('button');
+  btn.textContent='Закрыть';btn.onclick=closeModal;
+  $('modal-actions').appendChild(btn);
   $('modal-overlay').classList.add('open');
 }
 
 function openRecentView(){
   if(!sessionRecent.length){toast('Нет недавно просмотренных');return;}
   $('modal-title').textContent='Недавние';
-  $('modal-body').innerHTML=sessionRecent.map(p=>`
-    <div class="recent-item" onclick="closeModal();openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-      <span class="recent-item-title">${escHtml(p.title)}</span>
-    </div>`).join('');
-  $('modal-actions').innerHTML=`<button onclick="closeModal()">Закрыть</button>`;
+  $('modal-body').innerHTML='';
+  sessionRecent.forEach(p=>{
+    const div=document.createElement('div');
+    div.className='recent-item';
+    div.innerHTML=`<span class="recent-item-title">${escHtml(p.title)}</span>`;
+    div.onclick=()=>{closeModal();openPage(p);};
+    $('modal-body').appendChild(div);
+  });
+  $('modal-actions').innerHTML='';
+  const btn=document.createElement('button');
+  btn.textContent='Закрыть';btn.onclick=closeModal;
+  $('modal-actions').appendChild(btn);
   $('modal-overlay').classList.add('open');
 }
 
@@ -1204,7 +1219,12 @@ function renderView(md){
   }
   if(currentPath&&/contacts/.test(currentPath)) injectBirthdayBanner($('view'));
   buildToc();
-  if(window._searchHighlight){highlightInView(window._searchHighlight);window._searchHighlight=null;}
+  if(window._searchHighlight){
+    const _q=window._searchHighlight;window._searchHighlight=null;
+    highlightInView(_q);
+    const firstMark=$('view').querySelector('mark');
+    if(firstMark) setTimeout(()=>firstMark.scrollIntoView({behavior:'smooth',block:'center'}),80);
+  }
 }
 
 function injectBirthdayBanner(container){
@@ -1698,11 +1718,14 @@ function runSearch(q){
 
   const hits=[...titleHits,...ftHits].slice(0,12);
   if(!hits.length){res.innerHTML=`<div class="sr-empty">${t('search')} — no results</div>`;return;}
-  res.innerHTML=hits.map(({p,ft})=>`
-    <div class="sr-item" onclick="closeSearch();window._searchHighlight=${JSON.stringify(q)};openPage(${JSON.stringify(p).replace(/"/g,'&quot;')})">
-      <div class="sr-title">${hl(p.title)}${ft?`<span class="sr-ft-badge">${t('full_text')}</span>`:''}</div>
-      <div class="sr-excerpt">${hl(p.excerpt||p.path)}</div>
-    </div>`).join('');
+  res.innerHTML='';
+  hits.forEach(({p,ft})=>{
+    const div=document.createElement('div');
+    div.className='sr-item';
+    div.innerHTML=`<div class="sr-title">${hl(p.title)}${ft?`<span class="sr-ft-badge">${t('full_text')}</span>`:''}</div><div class="sr-excerpt">${hl(p.excerpt||p.path)}</div>`;
+    div.onclick=()=>{closeSearch();window._searchHighlight=q;openPage(p);};
+    res.appendChild(div);
+  });
 }
 
 function searchKey(e){
