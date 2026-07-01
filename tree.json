@@ -32,7 +32,7 @@
       "contacts"
     ],
     "folder_titles": {
-      "company": "Company"
+      "company": "Компания"
     },
     "updated_at": "2026-07-01T12:30:38+07:00",
     "tags": [],
@@ -47,7 +47,7 @@
       "index"
     ],
     "folder_titles": {
-      "glossary": "Glossary"
+      "glossary": "Глоссарий"
     },
     "updated_at": "2026-06-30T13:50:42+07:00",
     "tags": [],
@@ -62,7 +62,7 @@
       "index"
     ],
     "folder_titles": {
-      "incidents": "Incidents"
+      "incidents": "Инциденты"
     },
     "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
@@ -78,8 +78,8 @@
       "index"
     ],
     "folder_titles": {
-      "processes": "Processes",
-      "1c": "1c"
+      "processes": "Процессы",
+      "1c": "1С"
     },
     "updated_at": "2026-06-24T13:44:15+07:00",
     "tags": [],
@@ -95,8 +95,8 @@
       "index"
     ],
     "folder_titles": {
-      "processes": "Processes",
-      "bitrix": "Bitrix"
+      "processes": "Процессы",
+      "bitrix": "Битрикс"
     },
     "updated_at": "2026-06-24T13:44:15+07:00",
     "tags": [],
@@ -141,7 +141,7 @@
       "markdown-reference"
     ],
     "folder_titles": {
-      "templates": "Templates"
+      "templates": "Шаблоны"
     },
     "updated_at": "2026-07-01T09:54:15+07:00",
     "tags": [],
@@ -413,7 +413,7 @@
     "folder_titles": {
       "tp": "Документация для ТП",
       "reglamentation": "Регламенты",
-      "support": "Support"
+      "support": "Техподдержка"
     },
     "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
@@ -432,7 +432,7 @@
     "folder_titles": {
       "tp": "Документация для ТП",
       "reglamentation": "Регламенты",
-      "support": "Support"
+      "support": "Техподдержка"
     },
     "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
