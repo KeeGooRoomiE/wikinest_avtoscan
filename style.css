@@ -1355,7 +1355,6 @@ button.btn-primary:hover,
 }
 .sec-subfolder-hdr:hover { color: var(--text2); background: var(--bg3); }
 .sec-subfolder-arrow {
-  margin-left: auto;
   transition: transform .15s;
   opacity: .5;
   flex-shrink: 0;

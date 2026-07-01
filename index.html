@@ -1111,7 +1111,7 @@ function renderTree(pages){
           const isOpen=localStorage.getItem(storageKey)!=='0';
           const hdr=document.createElement('div');
           hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
-          hdr.innerHTML=`<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="flex-shrink:0;opacity:.6"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>${escHtml(name)}<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>`;
+          hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>${escHtml(name)}</span>`;
           const pageWrap=document.createElement('div');
           pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
           pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
