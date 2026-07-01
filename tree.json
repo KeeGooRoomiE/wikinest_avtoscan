@@ -26,7 +26,7 @@
   {
     "path": "company/contacts",
     "title": "Контакты сотрудников",
-    "excerpt": "**Тел:** 8(3842) 44-22-82",
+    "excerpt": "**Тел:** 8 (3842) 44-22-82",
     "parts": [
       "company",
       "contacts"
@@ -34,7 +34,7 @@
     "folder_titles": {
       "company": "Company"
     },
-    "updated_at": "2026-06-30T17:26:04+07:00",
+    "updated_at": "2026-07-01T12:30:38+07:00",
     "tags": [],
     "author": ""
   },
