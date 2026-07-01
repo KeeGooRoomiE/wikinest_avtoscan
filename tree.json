@@ -1,17 +1,5 @@
 [
   {
-    "path": "contacts",
-    "title": "Контакты сотрудников",
-    "excerpt": "**Тел:** 8(3842) 44-22-82",
-    "parts": [
-      "contacts"
-    ],
-    "folder_titles": {},
-    "updated_at": "2026-06-30T17:26:04+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
     "path": "home",
     "title": "База знаний Автоскан",
     "excerpt": "Внутренняя база знаний технической поддержки. Используй боковое меню или быстрые ссылки ниже.",
@@ -35,6 +23,171 @@
       "company": "Компания"
     },
     "updated_at": "2026-07-01T12:30:38+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/adm",
+    "title": "ADM",
+    "excerpt": "`ADM007` `ADM007BLE` `ADM333` `ADM333BLE` `ADM333V2`",
+    "parts": [
+      "devices",
+      "adm"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/arnavi",
+    "title": "Arnavi (A4 / A4MAX)",
+    "excerpt": "> **A4MAX: слева — GPS, справа — GSM**",
+    "parts": [
+      "devices",
+      "arnavi"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/at-links",
+    "title": "Адреса",
+    "excerpt": "Список адресов для терминалов для синхронизации и ретрансляции",
+    "parts": [
+      "devices",
+      "at-links"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/galileosky",
+    "title": "GalileoSky 5",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "devices",
+      "galileosky"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/navtelecom",
+    "title": "Навтелеком",
+    "excerpt": "Ссылка на NTC Wiki https://wiki.navtelecom.ru/ru/home/devices/commands/standard_cmd",
+    "parts": [
+      "devices",
+      "navtelecom"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/omnicom",
+    "title": "Omnicom Optim",
+    "excerpt": "```",
+    "parts": [
+      "devices",
+      "omnicom"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/term-pin",
+    "title": "Пароли от АТ",
+    "excerpt": "---",
+    "parts": [
+      "devices",
+      "term-pin"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/umka",
+    "title": "УМКа",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "devices",
+      "umka"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "devices/vega",
+    "title": "Vega MT / CAN-WAY",
+    "excerpt": "| Команда | Описание |",
+    "parts": [
+      "devices",
+      "vega"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "examples/index",
+    "title": "Примеры шаблонов для ТС в сервисах",
+    "excerpt": "Датчики актуальные аксента",
+    "parts": [
+      "examples",
+      "index"
+    ],
+    "folder_titles": {
+      "examples": "Шаблоны"
+    },
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "examples/markdown-reference",
+    "title": "Справочник по Markdown",
+    "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
+    "parts": [
+      "examples",
+      "markdown-reference"
+    ],
+    "folder_titles": {
+      "examples": "Шаблоны"
+    },
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
@@ -133,325 +286,126 @@
     "author": ""
   },
   {
-    "path": "templates/markdown-reference",
-    "title": "Заголовок 1",
-    "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
-    "parts": [
-      "templates",
-      "markdown-reference"
-    ],
-    "folder_titles": {
-      "templates": "Шаблоны"
-    },
-    "updated_at": "2026-07-01T09:54:15+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/main",
-    "title": "Основная информация для техподдержки",
-    "excerpt": "```",
-    "parts": [
-      "tp",
-      "main"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП"
-    },
-    "updated_at": "2026-06-10T09:35:19+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/adm",
-    "title": "ADM",
-    "excerpt": "`ADM007` `ADM007BLE` `ADM333` `ADM333BLE` `ADM333V2`",
-    "parts": [
-      "tp",
-      "devices",
-      "adm"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-18T10:15:11+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/arnavi",
-    "title": "Arnavi (A4 / A4MAX)",
-    "excerpt": "> **A4MAX: слева — GPS, справа — GSM**",
-    "parts": [
-      "tp",
-      "devices",
-      "arnavi"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/at-links",
-    "title": "Адреса",
-    "excerpt": "Список адресов для терминалов для синхронизации и ретрансляции",
-    "parts": [
-      "tp",
-      "devices",
-      "at-links"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-06-10T09:32:23+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/galileosky",
-    "title": "GalileoSky 5",
-    "excerpt": "| Команда | Описание |",
-    "parts": [
-      "tp",
-      "devices",
-      "galileosky"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/navtelecom",
-    "title": "Навтелеком",
-    "excerpt": "Ссылка на NTC Wiki https://wiki.navtelecom.ru/ru/home/devices/commands/standard_cmd",
-    "parts": [
-      "tp",
-      "devices",
-      "navtelecom"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T17:32:32+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/omnicom",
-    "title": "Omnicom Optim",
-    "excerpt": "```",
-    "parts": [
-      "tp",
-      "devices",
-      "omnicom"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/term-pin",
-    "title": "Пароли от АТ",
-    "excerpt": "---",
-    "parts": [
-      "tp",
-      "devices",
-      "term-pin"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-06-04T11:16:00+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/umka",
-    "title": "УМКа",
-    "excerpt": "| Команда | Описание |",
-    "parts": [
-      "tp",
-      "devices",
-      "umka"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/devices/vega",
-    "title": "Vega MT / CAN-WAY",
-    "excerpt": "| Команда | Описание |",
-    "parts": [
-      "tp",
-      "devices",
-      "vega"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/examples/index",
-    "title": "Примеры шаблонов для ТС в сервисах",
-    "excerpt": "Датчики актуальные аксента",
-    "parts": [
-      "tp",
-      "examples",
-      "index"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "examples": "Шаблоны"
-    },
-    "updated_at": "2026-05-14T00:24:57+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/accounting",
+    "path": "reglamentation/accounting",
     "title": "Регламенты Бухгалтерии",
     "excerpt": "| Роль | Ответственный |",
     "parts": [
-      "tp",
       "reglamentation",
       "accounting"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-07-01T13:10:01+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/reglamentation/sales",
+    "path": "reglamentation/sales",
     "title": "Регламенты ОП",
     "excerpt": "| Роль                                               | Ответственный                                             |",
     "parts": [
-      "tp",
       "reglamentation",
       "sales"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-07-01T13:10:01+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/reglamentation/service",
+    "path": "reglamentation/service",
     "title": "Регламенты ОС",
     "excerpt": "| Роль                                                 | Ответственный                                                    |",
     "parts": [
-      "tp",
       "reglamentation",
       "service"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-07-01T13:10:01+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/reglamentation/tp",
+    "path": "reglamentation/tp",
     "title": "Регламенты ТП",
     "excerpt": "| Роль | Сотрудник | Внутр. | Телефон |",
     "parts": [
-      "tp",
       "reglamentation",
       "tp"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-07-01T13:10:01+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/reglamentation/support/add-car-reglament",
+    "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
     "parts": [
-      "tp",
       "reglamentation",
       "support",
       "add-car-reglament"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты",
       "support": "Техподдержка"
     },
-    "updated_at": "2026-07-01T12:29:51+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/reglamentation/support/add-object-axenta",
+    "path": "reglamentation/support/add-object-axenta",
     "title": "Регламент создания объекта в AXENTA",
     "excerpt": "Объект можно создать двумя способами:",
     "parts": [
-      "tp",
       "reglamentation",
       "support",
       "add-object-axenta"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "reglamentation": "Регламенты",
       "support": "Техподдержка"
     },
-    "updated_at": "2026-07-01T12:29:51+07:00",
+    "updated_at": null,
     "tags": [],
     "author": ""
   },
   {
-    "path": "tp/software/axenta",
+    "path": "software/axenta",
     "title": "Axenta",
     "excerpt": "**Хост:** `hw.axenta.cloud` / `5.159.100.97`",
     "parts": [
-      "tp",
       "software",
       "axenta"
     ],
     "folder_titles": {
-      "tp": "Документация для ТП",
       "software": "Сервисы"
     },
-    "updated_at": "2026-05-13T15:25:27+07:00",
+    "updated_at": null,
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "software/main",
+    "title": "Основная информация для техподдержки",
+    "excerpt": "```",
+    "parts": [
+      "software",
+      "main"
+    ],
+    "folder_titles": {
+      "software": "Сервисы"
+    },
+    "updated_at": null,
     "tags": [],
     "author": ""
   }

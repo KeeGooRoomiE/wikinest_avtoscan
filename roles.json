@@ -39,41 +39,79 @@
     "name": "Менеджер продаж",
     "password_hash": "08ea1ee0ee22007df922b95553a26c4995386b393122a5d40ec48b27ec9abb2c",
     "can_edit": false,
-    "hidden_sections": ["tp/devices"]
+    "hidden_sections": [
+      "devices"
+    ]
   },
   {
     "slug": "accounting",
     "name": "Бухгалтерия",
     "password_hash": "c25dbe05bdc40ea08520220dfbebff5544f849c81225eb5f4c4c225d3dfc104c",
     "can_edit": false,
-    "hidden_sections": ["tp/devices", "tp/reglamentation", "tp/software", "tp/examples"]
+    "hidden_sections": [
+      "devices",
+      "reglamentation",
+      "software",
+      "examples"
+    ]
   },
   {
     "slug": "office-manager",
     "name": "Офис-менеджер",
     "password_hash": "91a67745a30125f7fbd40aaaad6e1717ea76da489a488f15f941811e45c7540a",
     "can_edit": false,
-    "hidden_sections": ["products", "tp/reglamentation", "incidents", "tp/software", "tp/examples", "glossary"]
+    "hidden_sections": [
+      "products",
+      "reglamentation",
+      "incidents",
+      "software",
+      "examples",
+      "glossary"
+    ]
   },
   {
     "slug": "warehouse",
     "name": "Кладовщик",
     "password_hash": "cbc2b1fcbee319a9f50724c4ef8d20a62ca113600b9005bf0bee93538d1e234a",
     "can_edit": false,
-    "hidden_sections": ["company", "products", "tp/reglamentation", "incidents", "tp/software", "tp/examples", "glossary"]
+    "hidden_sections": [
+      "company",
+      "products",
+      "reglamentation",
+      "incidents",
+      "software",
+      "examples",
+      "glossary"
+    ]
   },
   {
     "slug": "logistics",
     "name": "Логист",
     "password_hash": "038886897b04aba39011f33cd8dd1a971f4636e75fcdc8d716ee710d2853fa87",
     "can_edit": false,
-    "hidden_sections": ["company", "products", "tp/reglamentation", "incidents", "tp/software", "tp/examples", "glossary"]
+    "hidden_sections": [
+      "company",
+      "products",
+      "reglamentation",
+      "incidents",
+      "software",
+      "examples",
+      "glossary"
+    ]
   },
   {
     "slug": "installer",
     "name": "Установщик",
     "password_hash": "6538023883effae66c92d51f798ab972473536e321642255cbc1099cc9f08864",
     "can_edit": false,
-    "hidden_sections": ["company", "products", "tp/reglamentation", "incidents", "tp/software", "tp/examples", "glossary"]
+    "hidden_sections": [
+      "company",
+      "products",
+      "reglamentation",
+      "incidents",
+      "software",
+      "examples",
+      "glossary"
+    ]
   }
 ]

@@ -72,7 +72,15 @@
       "Bash(git fetch *)",
       "Bash(python3 -c \"import json; data=json.load\\(open\\('tree.json'\\)\\); [print\\(p['path']\\) for p in data]\")",
       "Bash(python3 -)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(python3 -c \"import json; data=json.load\\(open\\('tree.json'\\)\\); [print\\(p['path'],'|',p['title']\\) for p in data if 'reglamentation' in p['path']]\")",
+      "Bash(sed -i '' 's/^# Регламент бухгалтерии$/# Регламенты Бухгалтерии/' docs/tp/reglamentation/accounting.md)",
+      "Bash(sed -i '' 's/^# Регламент отдела технической поддержки$/# Регламенты ТП/' docs/tp/reglamentation/tp.md)",
+      "Bash(sed -i '' 's/^# Регламенты отдела продаж$/# Регламенты ОП/' docs/tp/reglamentation/sales.md)",
+      "Bash(sed -i '' 's/^# Регламенты отдела сервиса$/# Регламенты ОС/' docs/tp/reglamentation/service.md)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan log --oneline -10)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan show f878c44 --name-only --stat)",
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan show e0b9ae6 --name-only)"
     ]
   }
 }
