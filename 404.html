@@ -15,7 +15,7 @@
   // pathSegmentsToKeep
   //   1 — GitHub/GitLab project pages  (user.github.io/repo-name/)
   //   0 — user/org pages or custom domains  (user.github.io/ or docs.example.com/)
-  var pathSegmentsToKeep = 1;
+  var pathSegmentsToKeep = 0; // custom domain — no repo-name segment
 
   var l = window.location;
   var base = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
