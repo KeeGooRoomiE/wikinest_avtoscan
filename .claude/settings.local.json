@@ -95,7 +95,13 @@
       "Bash(python3 -c \"import json; print\\(json.load\\(open\\('/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/config.json'\\)\\)['trigger_token']\\)\")",
       "Bash(curl -s -o /tmp/dispatch_result.json -w '%{http_code}' -X POST -H 'Authorization: Bearer __CMDSUB_OUTPUT__' -H 'Accept: application/vnd.github.v3+json' -H 'Content-Type: application/json' https://api.github.com/repos/KeeGooRoomiE/wikinest_avtoscan/actions/workflows/api-write.yml/dispatches -d '{ *)",
       "Bash(curl -s -I -H 'Authorization: Bearer __CMDSUB_OUTPUT__' https://api.github.com/user)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(curl -s --max-time 10 https://api.github.com)",
+      "Bash(GIT_TRACE=1 git push)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://github.com/KeeGooRoomiE/wikinest_avtoscan.git/info/refs?service=git-receive-pack)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://github.com/KeeGooRoomiE/wikinest_avtoscan.git/info/refs?service=git-receive-pack\")",
+      "Bash(git config *)",
+      "Bash(gh auth *)"
     ]
   }
 }
