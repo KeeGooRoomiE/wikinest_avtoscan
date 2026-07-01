@@ -1349,17 +1349,20 @@ button.btn-primary:hover,
   text-transform: uppercase;
   color: var(--text3);
   margin-top: 2px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
 }
-.sec-subfolder-hdr::before {
-  content: '';
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border: 1.5px solid var(--text3);
-  border-radius: 2px;
-  opacity: .7;
+.sec-subfolder-hdr:hover { color: var(--text2); background: var(--bg3); }
+.sec-subfolder-arrow {
+  margin-left: auto;
+  transition: transform .15s;
+  opacity: .5;
   flex-shrink: 0;
 }
+.sec-subfolder-hdr.open .sec-subfolder-arrow { transform: rotate(90deg); }
+.sec-subfolder-pages { overflow: hidden; }
+.sec-subfolder-pages.collapsed { display: none; }
 .sec-pages .tree-row.indented { padding-left: 28px; }
 
 /* ── Sidebar: quick access ── */
