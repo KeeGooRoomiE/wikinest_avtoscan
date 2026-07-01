@@ -1008,7 +1008,9 @@ async function loadTree(){
     renderTree(tree);
     if(!currentPath){
       if(_pendingUrlPage){
-        const targetPage=tree.find(p=>p.path.toLowerCase()===_pendingUrlPage.toLowerCase());
+        const needle=_pendingUrlPage.toLowerCase();
+        const targetPage=tree.find(p=>p.path.toLowerCase()===needle)
+          ||tree.find(p=>p.path.toLowerCase().endsWith('/'+needle)||p.path.split('/').pop().toLowerCase()===needle.split('/').pop());
         _pendingUrlPage=null;
         if(targetPage){openPage(targetPage);return;}
       }
