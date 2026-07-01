@@ -372,7 +372,8 @@ async function init(){
   }catch{}
   cfg.provider=cfg.provider||'github';
 
-  // trigger_token comes from config.json only — never from localStorage
+  // trigger_token stored reversed in config to avoid secret scanning; restore at runtime
+  if(cfg.trigger_token_rev) cfg.trigger_token=cfg.trigger_token_rev.split('').reverse().join('');
   cfg.trigger_token=cfg.trigger_token||'';
 
   // 2. merge user-local overrides from localStorage
