@@ -133,17 +133,19 @@
     "author": ""
   },
   {
-    "path": "templates/markdown-reference",
+    "path": "tp/examples/markdown-reference",
     "title": "Справочник по оформлению",
     "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
     "parts": [
-      "templates",
+      "tp",
+      "examples",
       "markdown-reference"
     ],
     "folder_titles": {
-      "templates": "Шаблоны"
+      "tp": "Документация для ТП",
+      "examples": "Шаблоны"
     },
-    "updated_at": "2026-07-01T09:43:05+07:00",
+    "updated_at": "2026-07-01T00:00:00+07:00",
     "tags": [],
     "author": ""
   },
