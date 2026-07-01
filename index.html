@@ -966,14 +966,14 @@ async function updateTreeJson(){
   try{
     const {sha}=await apiGetFile('tree.json');
     await apiPutFile('tree.json','chore: update tree.json',b64enc(JSON.stringify(tree,null,2)),sha);
-  }catch(e){toast('Ошибка обновления tree.json: '+e.message);}
+  }catch(e){toast('Ошибка обновления tree.json: '+e.message,true);}
 }
 
 async function updateRolesJson(){
   try{
     const {sha}=await apiGetFile('roles.json');
     await apiPutFile('roles.json','chore: update roles visibility',b64enc(JSON.stringify(roles,null,2)),sha);
-  }catch(e){toast('Ошибка сохранения ролей: '+e.message);}
+  }catch(e){toast('Ошибка сохранения ролей: '+e.message,true);}
 }
 
 // Role visibility checklist HTML (shared by page & section modals)
@@ -1423,7 +1423,7 @@ function initDragDrop(){
         taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
         toast(t('image_uploaded'));
-      }catch(err){toast(`Upload failed: ${err.message}`);}
+      }catch(err){toast(`Upload failed: ${err.message}`,true);}
     }
   });
 }
@@ -1489,7 +1489,7 @@ async function startEdit(){
   if(draft&&draft.content!==originalContent) showDraftBanner();
   else hideDraftBanner();
   _activateEditorPanel(); // btn-edit is hidden inside here, so no need to re-enable
-  }catch(e){$('btn-edit').disabled=false;toast(`${t('error_load')}: ${escHtml(e.message)}`);}
+  }catch(e){$('btn-edit').disabled=false;toast(`${t('error_load')}: ${escHtml(e.message)}`,true);}
 }
 
 function cancelEdit(){
@@ -1529,7 +1529,7 @@ async function savePage(){
     cancelEdit();
     watchDeploy(currentPath);
   }catch(e){
-    toast(`${t('error_save')}: ${e.message}`);
+    toast(`${t('error_save')}: ${e.message}`,true);
   }finally{
     btn.disabled=false;spin.style.display='none';
   }
@@ -1982,12 +1982,13 @@ function clearAllTreeStatuses(){
 
 // ── Toast ──
 let toastTimer;
-function toast(msg){
+function toast(msg,isError=false){
   const el=$('toast');
   el.textContent=msg;
+  el.classList.toggle('toast-error',isError);
   el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),2500);
+  toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},isError?6000:2500);
 }
 
 

@@ -1069,6 +1069,11 @@ button.btn-primary:hover,
   opacity: 1;
 }
 
+#toast.toast-error {
+  background: #cf222e;
+  color: #fff;
+}
+
 .spin {
   display: inline-block;
   width: 11px;

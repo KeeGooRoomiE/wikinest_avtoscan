@@ -80,7 +80,13 @@
       "Bash(sed -i '' 's/^# Регламенты отдела сервиса$/# Регламенты ОС/' docs/tp/reglamentation/service.md)",
       "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan log --oneline -10)",
       "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan show f878c44 --name-only --stat)",
-      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan show e0b9ae6 --name-only)"
+      "Bash(git -C /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan show e0b9ae6 --name-only)",
+      "Bash(git rm *)",
+      "Bash(sed -i '' 's/toast\\('\\\\''Ошибка обновления tree.json: '\\\\''+e.message\\)/toast\\('\\\\''Ошибка обновления tree.json: '\\\\''+e.message,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/toast\\('\\\\''Ошибка сохранения ролей: '\\\\''+e.message\\)/toast\\('\\\\''Ошибка сохранения ролей: '\\\\''+e.message,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/toast\\(`Upload failed: ${err.message}`\\)/toast\\(`Upload failed: ${err.message}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/toast\\(`${t\\('\\\\''error_load'\\\\''\\)}: ${escHtml\\(e.message\\)}`\\)/toast\\(`${t\\('\\\\''error_load'\\\\''\\)}: ${escHtml\\(e.message\\)}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`\\)/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)"
     ]
   }
 }
