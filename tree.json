@@ -392,6 +392,9 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "roles": [
+      "support"
+    ]
   }
 ]
