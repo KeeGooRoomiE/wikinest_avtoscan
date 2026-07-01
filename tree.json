@@ -12,6 +12,21 @@
     "author": ""
   },
   {
+    "path": "company/welcome",
+    "title": "Приветствие",
+    "excerpt": "Автоскан — это команда, которая помогает компаниям эффективнее управлять своим транспортом с помощью технологий.",
+    "parts": [
+      "company",
+      "welcome"
+    ],
+    "folder_titles": {
+      "company": "Компания"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
     "path": "company/contacts",
     "title": "Контакты сотрудников",
     "excerpt": "",
