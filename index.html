@@ -389,8 +389,14 @@ async function init(){
   applyI18n();
 
   await loadRoles();
-  const savedSlug=localStorage.getItem('wn_role');
-  if(savedSlug) currentRole=roles.find(r=>r.slug===savedSlug)||null;
+  const savedRaw=localStorage.getItem('wn_role');
+  if(savedRaw){
+    try{
+      const parsed=JSON.parse(savedRaw);
+      if(parsed&&parsed.slug) currentRole=parsed;
+      else currentRole=roles.find(r=>r.slug===savedRaw)||null;
+    }catch{currentRole=roles.find(r=>r.slug===savedRaw)||null;}
+  }
   applyRoleUI();
   if(!currentRole){openRoleModal();return;}
 
@@ -625,7 +631,8 @@ async function submitRoleLogin(){
   const role=await matchRole(pw);
   if(role){
     currentRole=role;
-    localStorage.setItem('wn_role',role.slug);
+    const {password_hash:_,...roleToStore}=role;
+    localStorage.setItem('wn_role',JSON.stringify(roleToStore));
     $('role-overlay').style.display='none';
     applyRoleUI();
     if(cfg.owner&&cfg.repo){loadTree();setTimeout(()=>pollActions(null),1500);}
