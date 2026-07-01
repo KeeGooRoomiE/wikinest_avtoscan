@@ -1338,6 +1338,30 @@ button.btn-primary:hover,
 .sec-add-row { color: var(--text3) !important; font-style: italic; }
 .sec-add-row:hover { color: var(--text) !important; font-style: normal; }
 
+.sec-subfolder-hdr {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px 3px 14px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-top: 2px;
+}
+.sec-subfolder-hdr::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--text3);
+  border-radius: 2px;
+  opacity: .7;
+  flex-shrink: 0;
+}
+.sec-pages .tree-row.indented { padding-left: 28px; }
+
 /* ── Sidebar: quick access ── */
 #sidebar-quick {
   flex-shrink: 0;

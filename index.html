@@ -1082,13 +1082,36 @@ function renderTree(pages){
       const list=document.createElement('div');
       list.className='sec-pages';
       if(secPages.length){
+        // Group pages: direct children vs pages in subfolders
+        const directPages=[];
+        const subfolderMap=new Map(); // subfolder key → {name, pages[]}
         secPages.forEach(p=>{
+          const rel=p.path.substring(sec.folder.length+1);
+          const relParts=rel.split('/');
+          if(relParts.length===1){
+            directPages.push(p);
+          } else {
+            const subKey=relParts[0];
+            const subName=p.folder_titles[subKey]||subKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+            if(!subfolderMap.has(subKey)) subfolderMap.set(subKey,{name:subName,pages:[]});
+            subfolderMap.get(subKey).pages.push(p);
+          }
+        });
+        const makePageRow=(p,indented=false)=>{
           const row=document.createElement('div');
-          row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'');
+          row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
           row.dataset.path=p.path;
           row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
           row.onclick=()=>openPage(p);
-          list.appendChild(row);
+          return row;
+        };
+        directPages.forEach(p=>list.appendChild(makePageRow(p)));
+        subfolderMap.forEach(({name,pages})=>{
+          const hdr=document.createElement('div');
+          hdr.className='sec-subfolder-hdr';
+          hdr.textContent=name;
+          list.appendChild(hdr);
+          pages.forEach(p=>list.appendChild(makePageRow(p,true)));
         });
       } else {
         const empty=document.createElement('div');

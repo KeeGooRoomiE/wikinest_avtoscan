@@ -121,6 +121,22 @@ jobs:
               # Store full content in search index keyed by path (without docs/ prefix)
               search[path] = raw_content
 
+          def page_sort_key(entry):
+              parts = entry['parts']
+              key = []
+              for depth in range(len(parts)):
+                  parent = '/'.join(parts[:depth]) if depth > 0 else '.'
+                  part = parts[depth]
+                  meta = folder_meta.get(parent, {})
+                  pages_order = meta.get('pages', [])
+                  if part in pages_order:
+                      key.append((0, pages_order.index(part), part))
+                  else:
+                      key.append((1, 0, part))
+              return key
+
+          tree.sort(key=page_sort_key)
+
           with open('tree.json', 'w', encoding='utf-8') as f:
             json.dump(tree, f, ensure_ascii=False, indent=2)
           print(f'tree.json: {len(tree)} pages')
