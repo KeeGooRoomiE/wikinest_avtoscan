@@ -1265,7 +1265,7 @@ function injectBirthdayBanner(container){
     const whenTxt=p.diff===0?'<span class="bday-today">🎉 Сегодня!</span>':p.diff===1?'завтра':'через '+p.diff+' дн.';
     return `<div class="bday-card"><div class="bday-name">${escHtml(p.name)}</div><div class="bday-role">${escHtml(p.role)} · ${escHtml(p.section)}</div><div class="bday-when">${p.day} ${MONTHS[p.month]} · ${whenTxt}</div></div>`;
   }).join('');
-  banner.innerHTML=`<div class="bday-title">🎂 Дни рождения — ближайшие 30 дней</div><div class="bday-list">${cards}</div>`;
+  banner.innerHTML=`<div class="bday-title">🎂 Дни рождения в этом месяце</div><div class="bday-list">${cards}</div>`;
   const meta=container.querySelector('.page-meta');
   if(meta) meta.after(banner); else container.prepend(banner);
 }
