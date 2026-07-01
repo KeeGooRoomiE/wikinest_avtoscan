@@ -2,7 +2,7 @@
   {
     "path": "home",
     "title": "База знаний Автоскан",
-    "excerpt": "Внутренняя база знаний технической поддержки. Используй боковое меню или быстрые ссылки ниже.",
+    "excerpt": "",
     "parts": [
       "home"
     ],
@@ -14,7 +14,7 @@
   {
     "path": "company/contacts",
     "title": "Контакты сотрудников",
-    "excerpt": "**Тел:** 8 (3842) 44-22-82",
+    "excerpt": "",
     "parts": [
       "company",
       "contacts"
@@ -29,7 +29,7 @@
   {
     "path": "devices/adm",
     "title": "ADM",
-    "excerpt": "`ADM007` `ADM007BLE` `ADM333` `ADM333BLE` `ADM333V2`",
+    "excerpt": "",
     "parts": [
       "devices",
       "adm"
@@ -37,14 +37,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/arnavi",
     "title": "Arnavi (A4 / A4MAX)",
-    "excerpt": "> **A4MAX: слева — GPS, справа — GSM**",
+    "excerpt": "",
     "parts": [
       "devices",
       "arnavi"
@@ -52,14 +52,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/at-links",
     "title": "Адреса",
-    "excerpt": "Список адресов для терминалов для синхронизации и ретрансляции",
+    "excerpt": "",
     "parts": [
       "devices",
       "at-links"
@@ -67,14 +67,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/galileosky",
     "title": "GalileoSky 5",
-    "excerpt": "| Команда | Описание |",
+    "excerpt": "",
     "parts": [
       "devices",
       "galileosky"
@@ -82,14 +82,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/navtelecom",
     "title": "Навтелеком",
-    "excerpt": "Ссылка на NTC Wiki https://wiki.navtelecom.ru/ru/home/devices/commands/standard_cmd",
+    "excerpt": "",
     "parts": [
       "devices",
       "navtelecom"
@@ -97,14 +97,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/omnicom",
     "title": "Omnicom Optim",
-    "excerpt": "```",
+    "excerpt": "",
     "parts": [
       "devices",
       "omnicom"
@@ -112,14 +112,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/term-pin",
     "title": "Пароли от АТ",
-    "excerpt": "---",
+    "excerpt": "",
     "parts": [
       "devices",
       "term-pin"
@@ -127,14 +127,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/umka",
     "title": "УМКа",
-    "excerpt": "| Команда | Описание |",
+    "excerpt": "",
     "parts": [
       "devices",
       "umka"
@@ -142,14 +142,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "devices/vega",
     "title": "Vega MT / CAN-WAY",
-    "excerpt": "| Команда | Описание |",
+    "excerpt": "",
     "parts": [
       "devices",
       "vega"
@@ -157,14 +157,14 @@
     "folder_titles": {
       "devices": "Терминалы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
-    "excerpt": "Датчики актуальные аксента",
+    "excerpt": "",
     "parts": [
       "examples",
       "index"
@@ -172,14 +172,14 @@
     "folder_titles": {
       "examples": "Шаблоны"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "examples/markdown-reference",
     "title": "Справочник по Markdown",
-    "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
+    "excerpt": "",
     "parts": [
       "examples",
       "markdown-reference"
@@ -187,14 +187,14 @@
     "folder_titles": {
       "examples": "Шаблоны"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "glossary/index",
     "title": "Глоссарий",
-    "excerpt": "Словарь терминов и сокращений, используемых в компании Автоскан.",
+    "excerpt": "",
     "parts": [
       "glossary",
       "index"
@@ -209,7 +209,7 @@
   {
     "path": "incidents/index",
     "title": "Инциденты и решения",
-    "excerpt": "Таблица фиксирует возникающие инциденты по отделам, их описание и найденное решение.",
+    "excerpt": "",
     "parts": [
       "incidents",
       "index"
@@ -224,7 +224,7 @@
   {
     "path": "processes/1c/index",
     "title": "1С — Процессы",
-    "excerpt": "Раздел в разработке. Здесь будут регламенты и инструкции по работе в 1С.",
+    "excerpt": "",
     "parts": [
       "processes",
       "1c",
@@ -241,7 +241,7 @@
   {
     "path": "processes/bitrix/index",
     "title": "Битрикс — Процессы",
-    "excerpt": "Раздел в разработке. Здесь будут инструкции и обучающие материалы по работе в Битрикс24.",
+    "excerpt": "",
     "parts": [
       "processes",
       "bitrix",
@@ -258,7 +258,7 @@
   {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
-    "excerpt": "[Таблица Контакты][contacts_gdrive] - [Контакты](contacts)",
+    "excerpt": "",
     "parts": [
       "reference",
       "links"
@@ -272,8 +272,8 @@
   },
   {
     "path": "reference/markdown",
-    "title": "YAML пример",
-    "excerpt": "Этот документ используется как внутренняя памятка компании по оформлению документации в markdown.",
+    "title": "Памятка по форматированию",
+    "excerpt": "",
     "parts": [
       "reference",
       "markdown"
@@ -288,7 +288,7 @@
   {
     "path": "reglamentation/accounting",
     "title": "Регламенты Бухгалтерии",
-    "excerpt": "| Роль | Ответственный |",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "accounting"
@@ -296,14 +296,14 @@
     "folder_titles": {
       "reglamentation": "Регламенты"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "reglamentation/sales",
     "title": "Регламенты ОП",
-    "excerpt": "| Роль                                               | Ответственный                                             |",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "sales"
@@ -311,14 +311,14 @@
     "folder_titles": {
       "reglamentation": "Регламенты"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "reglamentation/service",
     "title": "Регламенты ОС",
-    "excerpt": "| Роль                                                 | Ответственный                                                    |",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "service"
@@ -326,14 +326,14 @@
     "folder_titles": {
       "reglamentation": "Регламенты"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "reglamentation/tp",
     "title": "Регламенты ТП",
-    "excerpt": "| Роль | Сотрудник | Внутр. | Телефон |",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "tp"
@@ -341,14 +341,14 @@
     "folder_titles": {
       "reglamentation": "Регламенты"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
-    "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "support",
@@ -358,14 +358,14 @@
       "reglamentation": "Регламенты",
       "support": "Техподдержка"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "reglamentation/support/add-object-axenta",
     "title": "Регламент создания объекта в AXENTA",
-    "excerpt": "Объект можно создать двумя способами:",
+    "excerpt": "",
     "parts": [
       "reglamentation",
       "support",
@@ -375,14 +375,14 @@
       "reglamentation": "Регламенты",
       "support": "Техподдержка"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "software/axenta",
     "title": "Axenta",
-    "excerpt": "**Хост:** `hw.axenta.cloud` / `5.159.100.97`",
+    "excerpt": "",
     "parts": [
       "software",
       "axenta"
@@ -390,14 +390,14 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "software/main",
     "title": "Основная информация для техподдержки",
-    "excerpt": "```",
+    "excerpt": "",
     "parts": [
       "software",
       "main"
@@ -405,7 +405,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": null,
+    "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
     "author": ""
   }
