@@ -389,7 +389,7 @@ async function init(){
   applyI18n();
 
   await loadRoles();
-  const savedSlug=sessionStorage.getItem('wn_role');
+  const savedSlug=localStorage.getItem('wn_role');
   if(savedSlug) currentRole=roles.find(r=>r.slug===savedSlug)||null;
   applyRoleUI();
   if(!currentRole){openRoleModal();return;}
@@ -625,7 +625,7 @@ async function submitRoleLogin(){
   const role=await matchRole(pw);
   if(role){
     currentRole=role;
-    sessionStorage.setItem('wn_role',role.slug);
+    localStorage.setItem('wn_role',role.slug);
     $('role-overlay').style.display='none';
     applyRoleUI();
     if(cfg.owner&&cfg.repo){loadTree();setTimeout(()=>pollActions(null),1500);}
@@ -638,7 +638,7 @@ async function submitRoleLogin(){
 
 function logoutRole(){
   currentRole=null;
-  sessionStorage.removeItem('wn_role');
+  localStorage.removeItem('wn_role');
   $('tree').innerHTML='';
   $('view-wrap').style.display='none';
   $('empty').style.display='none';
