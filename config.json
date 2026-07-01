@@ -1,7 +1,7 @@
 {
   "site_name": "База знаний",
   "lang": "ru",
-  "edit_password_hash": "",
   "owner": "KeeGooRoomiE",
-  "repo": "wikinest_avtoscan"
+  "repo": "wikinest_avtoscan",
+  "trigger_token": ""
 }

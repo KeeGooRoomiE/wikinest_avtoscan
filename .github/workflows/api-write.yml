@@ -1,0 +1,86 @@
+name: API Write
+
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: 'put_file | delete_file'
+        required: true
+        type: string
+      path:
+        description: 'File path relative to repo root'
+        required: true
+        type: string
+      content:
+        description: 'Base64-encoded file content (put_file only)'
+        required: false
+        type: string
+        default: ''
+      message:
+        description: 'Commit message'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute file operation
+        run: |
+          python3 - <<'PYEOF'
+          import os, json, base64, urllib.request, urllib.error
+
+          op      = os.environ['OP']
+          path    = os.environ['FILE_PATH']
+          content = os.environ['CONTENT']
+          message = os.environ['MESSAGE']
+          token   = os.environ['GH_PAT']
+          repo    = os.environ['GITHUB_REPOSITORY']
+
+          api = f'https://api.github.com/repos/{repo}/contents/{path}'
+          headers = {
+            'Authorization': f'Bearer {token}',
+            'Content-Type':  'application/json',
+            'Accept':        'application/vnd.github.v3+json',
+          }
+
+          sha = None
+          try:
+            req = urllib.request.Request(api, headers=headers)
+            with urllib.request.urlopen(req) as r:
+              sha = json.load(r).get('sha')
+          except urllib.error.HTTPError as e:
+            if e.code != 404:
+              raise
+
+          if op == 'put_file':
+            body = {'message': message, 'content': content}
+            if sha:
+              body['sha'] = sha
+            data = json.dumps(body).encode()
+            req = urllib.request.Request(api, data=data, headers=headers, method='PUT')
+            with urllib.request.urlopen(req):
+              print(f'Written: {path}')
+
+          elif op == 'delete_file':
+            if not sha:
+              print(f'File not found, skipping delete: {path}')
+            else:
+              body = {'message': message, 'sha': sha}
+              data = json.dumps(body).encode()
+              req = urllib.request.Request(api, data=data, headers=headers, method='DELETE')
+              with urllib.request.urlopen(req):
+                print(f'Deleted: {path}')
+
+          else:
+            raise ValueError(f'Unknown operation: {op}')
+          PYEOF
+        env:
+          OP:        ${{ inputs.operation }}
+          FILE_PATH: ${{ inputs.path }}
+          CONTENT:   ${{ inputs.content }}
+          MESSAGE:   ${{ inputs.message }}
+          GH_PAT:    ${{ secrets.GH_PAT }}

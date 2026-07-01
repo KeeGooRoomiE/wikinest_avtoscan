@@ -207,7 +207,7 @@ let editorDirty=false,originalContent=null,dragDropInit=false;
 // ── Auth state ──
 
 // ── Role system ──
-let roles=[],currentRole=null,_ownerPw=null;
+let roles=[],currentRole=null;
 
 // ── Sections config ──
 const SECTIONS=[
@@ -372,13 +372,16 @@ async function init(){
   }catch{}
   cfg.provider=cfg.provider||'github';
 
-  // 2. merge user-local overrides from localStorage (enc_token stays separate)
+  // trigger_token comes from config.json only — never from localStorage
+  cfg.trigger_token=cfg.trigger_token||'';
+
+  // 2. merge user-local overrides from localStorage
   const saved=localStorage.getItem('wn_cfg');
   if(saved){
     try{
       const local=JSON.parse(saved);
       if(local.lang) cfg.lang=local.lang;
-    }catch{localStorage.removeItem('wn_cfg');} // purge corrupted entry
+    }catch{localStorage.removeItem('wn_cfg');}
   }
 
   await loadI18n('ru');
@@ -469,64 +472,50 @@ function sharePage(){
   });
 }
 
-// ── API layer (GitHub + GitLab) ──
+// ── API layer ──
+// ghFetch — for Actions API calls (status polling, workflow dispatch)
+// Uses cfg.trigger_token, which is a fine-grained PAT with actions:write only
 const ghFetch=async(path,method='GET',body)=>{
   const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/${path}`,{
     method,
-    headers:{Authorization:`Bearer ${cfg.token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},
+    headers:{Authorization:`Bearer ${cfg.trigger_token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},
     body:body?JSON.stringify(body):undefined
   });
   if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
-  return r.json();
-};
-
-const glFetch=async(path,method='GET',body)=>{
-  const pid=encodeURIComponent(`${cfg.owner}/${cfg.repo}`);
-  const r=await fetch(`https://gitlab.com/api/v4/projects/${pid}/${path}`,{
-    method,
-    headers:{'PRIVATE-TOKEN':cfg.token,'Content-Type':'application/json'},
-    body:body?JSON.stringify(body):undefined
-  });
-  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
-  if(r.status===204||method==='DELETE') return null;
+  if(r.status===204) return null;
   return r.json();
 };
 
 function rawUrl(path){
-  if(cfg.provider==='gitlab') return`https://gitlab.com/${cfg.owner}/${cfg.repo}/-/raw/main/${path}`;
   return`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
 }
 
+// apiGetFile — unauthenticated read (repo is public)
 async function apiGetFile(path){
-  if(cfg.provider==='gitlab'){
-    const d=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
-    return{sha:d.last_commit_id,content:d.content};
-  }
-  const d=await ghFetch(`contents/${path}`);
+  const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`,{
+    headers:{Accept:'application/vnd.github.v3+json'}
+  });
+  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
+  const d=await r.json();
   return{sha:d.sha,content:d.content};
 }
 
-async function apiPutFile(path,message,content,sha){
-  if(cfg.provider==='gitlab'){
-    const method=sha?'PUT':'POST';
-    const body={branch:'main',commit_message:message,content};
-    if(sha) body.last_commit_id=sha;
-    await glFetch(`repository/files/${encodeURIComponent(path)}`,method,body);
-    const updated=await glFetch(`repository/files/${encodeURIComponent(path)}?ref=main`);
-    return{sha:updated.last_commit_id};
-  }
-  const body={message,content};
-  if(sha) body.sha=sha;
-  const d=await ghFetch(`contents/${path}`,'PUT',body);
-  return{sha:d.content.sha};
+// dispatchApiWrite — triggers api-write.yml; actual commit uses secrets.GH_PAT server-side
+async function dispatchApiWrite(operation,path,message,content=''){
+  if(!cfg.trigger_token) throw new Error('trigger_token не настроен в config.json');
+  await ghFetch('actions/workflows/api-write.yml/dispatches','POST',{
+    ref:'main',
+    inputs:{operation,path,message,content}
+  });
 }
 
-async function apiDeleteFile(path,message,sha){
-  if(cfg.provider==='gitlab'){
-    await glFetch(`repository/files/${encodeURIComponent(path)}`,'DELETE',{branch:'main',commit_message:message,last_commit_id:sha});
-    return;
-  }
-  await ghFetch(`contents/${path}`,'DELETE',{message,sha});
+async function apiPutFile(path,message,content){
+  await dispatchApiWrite('put_file',path,message,content);
+  return{sha:null};
+}
+
+async function apiDeleteFile(path,message){
+  await dispatchApiWrite('delete_file',path,message);
 }
 
 function normalizeRun(run){
@@ -636,11 +625,6 @@ async function submitRoleLogin(){
   if(role){
     currentRole=role;
     sessionStorage.setItem('wn_role',role.slug);
-    if(role.slug==='owner'){
-      _ownerPw=pw;
-      const enc=localStorage.getItem('wn_enc_token');
-      if(enc){const tok=decrypt(enc,pw);if(tok)cfg.token=tok;}
-    }
     $('role-overlay').style.display='none';
     applyRoleUI();
     if(cfg.owner&&cfg.repo){loadTree();setTimeout(()=>pollActions(null),1500);}
@@ -653,8 +637,6 @@ async function submitRoleLogin(){
 
 function logoutRole(){
   currentRole=null;
-  _ownerPw=null;
-  cfg.token='';
   sessionStorage.removeItem('wn_role');
   $('tree').innerHTML='';
   $('view-wrap').style.display='none';
@@ -750,7 +732,6 @@ async function savePageVisibility(rawPath){
   page.roles=newRoles;
   closeModal();
   await updateTreeJson();
-  toast('Видимость обновлена');
 }
 
 function openPageEditors(){
@@ -776,10 +757,8 @@ async function savePageEditors(rawPath){
   page.editors=getSelectedEditors();
   closeModal();
   await updateTreeJson();
-  // Refresh edit button visibility for current page
   const _e=canEditPage(page)?'flex':'none';
   $('btn-edit').style.display=_e;
-  toast('Редакторы обновлены');
 }
 
 function openSectionVisibility(sec){
@@ -824,7 +803,6 @@ async function saveSectionVisibility(folderKey){
   closeModal();
   await updateRolesJson();
   renderTree(tree);
-  toast('Видимость раздела обновлена');
 }
 
 function toggleFavorite(){
@@ -950,29 +928,18 @@ function goHome(){
 
 function toggleSidebar(){const s=$("sidebar");s.classList.toggle("open");$("sidebar-overlay").style.display=s.classList.contains("open")?"block":"none";}
 
-// simple XOR "encryption" for token — good enough for localStorage
-function encrypt(str,key){
-  if(!str||!key)return str;
-  return btoa([...str].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join(''));
-}
-function decrypt(enc,key){
-  if(!enc) return '';
-  if(!key) return enc; // symmetric with encrypt(): no key → stored as plaintext
-  try{return[...atob(enc)].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^key.charCodeAt(i%key.length))).join('');}catch{return '';}
-}
-
 // ── JSON file updaters ──
 async function updateTreeJson(){
   try{
-    const {sha}=await apiGetFile('tree.json');
-    await apiPutFile('tree.json','chore: update tree.json',b64enc(JSON.stringify(tree,null,2)),sha);
+    await apiPutFile('tree.json','chore: update tree.json',b64enc(JSON.stringify(tree,null,2)));
+    toast('Видимость обновлена — деплой запущен');
   }catch(e){toast('Ошибка обновления tree.json: '+e.message,true);}
 }
 
 async function updateRolesJson(){
   try{
-    const {sha}=await apiGetFile('roles.json');
-    await apiPutFile('roles.json','chore: update roles visibility',b64enc(JSON.stringify(roles,null,2)),sha);
+    await apiPutFile('roles.json','chore: update roles visibility',b64enc(JSON.stringify(roles,null,2)));
+    toast('Видимость раздела сохранена — деплой запущен');
   }catch(e){toast('Ошибка сохранения ролей: '+e.message,true);}
 }
 
@@ -1415,7 +1382,7 @@ function initDragDrop(){
         const ts=Date.now();
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
-        await apiPutFile(uploadPath,`docs: upload image ${safeName}`,b64,null);
+        await apiPutFile(uploadPath,`docs: upload image ${safeName}`,b64);
         const url=rawUrl(uploadPath);
         const ta=$('editor');
         const pos=ta.selectionStart;
@@ -1520,8 +1487,7 @@ async function savePage(){
   const spin=$('save-spin');
   btn.disabled=true;spin.style.display='inline-block';
   try{
-    const saved=await apiPutFile(currentPath,`docs: update ${currentPath}`,b64enc(content),currentSha);
-    currentSha=saved.sha;
+    await apiPutFile(currentPath,`docs: update ${currentPath}`,b64enc(content));
     originalContent=content;
     editorDirty=false;
     clearDraft(currentPath);
@@ -1589,7 +1555,7 @@ async function createPage(){
   const pageRoles=getSelectedRoles();
   const pageEditors=getSelectedEditors();
   try{
-    await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content),null);
+    await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content));
     closeModal();
     const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{},roles:pageRoles,editors:pageEditors,updated_at:new Date().toISOString(),tags:[],author:''};
     tree.push(page);
@@ -1617,7 +1583,7 @@ async function doDelete(){
   try{
     const deletedPath=currentPath; // capture before state reset
     const meta=await apiGetFile(deletedPath);
-    await apiDeleteFile(deletedPath,`docs: delete ${deletedPath}`,meta.sha);
+    await apiDeleteFile(deletedPath,`docs: delete ${deletedPath}`);
     const deletedRel=deletedPath.replace('docs/','').replace(/\.md$/,'');
     currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
     $('panels').classList.remove('split');
@@ -1667,8 +1633,8 @@ async function doRename(){
   try{
     const oldData=await apiGetFile(oldPath);
     const content=b64dec(oldData.content.replace(/\n/g,''));
-    await apiPutFile(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc(content),null);
-    await apiDeleteFile(oldPath,`docs: rename ${oldPath} → ${newPath}`,oldData.sha);
+    await apiPutFile(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc(content));
+    await apiDeleteFile(oldPath,`docs: rename ${oldPath} → ${newPath}`);
     const oldRel=oldPath.replace('docs/','').replace(/\.md$/,'');
     const parts=newRel.split('/');
     const title=parts[parts.length-1].replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
@@ -1907,59 +1873,19 @@ function updateWikiActive(){
 
 // ── Settings modal ──
 function openSettings(){
-  const isOwner=canEdit();
-  const hasToken=!!(localStorage.getItem('wn_enc_token')||cfg.token);
   $('modal-title').textContent='Настройки';
   $('modal-body').innerHTML=`
-    <div style="font-size:12px;color:var(--text2);background:var(--bg2);padding:8px 10px;border-radius:6px;margin-bottom:4px">
+    <div style="font-size:12px;color:var(--text2);background:var(--bg2);padding:8px 10px;border-radius:6px;margin-bottom:12px">
       <span style="font-weight:500;color:var(--text)">${cfg.owner||'?'}/${cfg.repo||'?'}</span><br>
-      <span style="color:var(--text3);font-size:11px">Из config.json — изменить в репозитории</span>
+      <span style="color:var(--text3);font-size:11px">Репозиторий из config.json</span>
     </div>
-    <div class="field"><label>GitHub Token</label>
-      <input id="m-token" type="password" placeholder="${hasToken?'сохранён — вставьте чтобы заменить':'ghp_...'}">
-      <div class="hint">Personal Access Token с правами на contents репозитория</div>
-    </div>
-    ${isOwner?'':`<div class="field"><label>Пароль</label>
-      <input id="m-pw" type="password" placeholder="••••••••">
-      <div class="hint">Пароль для шифрования токена</div>
-    </div>`}
-    <div class="field-sep"></div>
     <div class="field">
       <label>Отображение</label>
       <label class="toggle-row"><input type="checkbox" id="pref-toc" ${displayPrefs.showToc?'checked':''} onchange="setDisplayPref('showToc',this.checked)"><span>Показывать оглавление</span></label>
       <label class="toggle-row"><input type="checkbox" id="pref-split" ${displayPrefs.splitPreview?'checked':''} onchange="setDisplayPref('splitPreview',this.checked)"><span>Разделённый редактор</span></label>
     </div>`;
-  $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">Отмена</button>
-    <button class="btn-primary" onclick="saveSettings()">Сохранить</button>`;
+  $('modal-actions').innerHTML=`<button class="btn-primary" onclick="closeModal()">Закрыть</button>`;
   $('modal-overlay').classList.add('open');
-  setTimeout(()=>$('m-token').focus(),50);
-}
-
-async function saveSettings(){
-  const token=$('m-token').value.trim();
-  const isOwner=canEdit();
-  if(!token&&!localStorage.getItem('wn_enc_token')&&!cfg.token){
-    toast('Вставьте Personal Access Token');
-    return;
-  }
-  const activeToken=token||cfg.token||'';
-  if(isOwner&&_ownerPw){
-    localStorage.setItem('wn_enc_token',encrypt(activeToken,_ownerPw));
-    cfg.token=activeToken;
-  }else{
-    const pw=$('m-pw')?.value||'';
-    if(pw){
-      localStorage.setItem('wn_enc_token',encrypt(activeToken,pw));
-      cfg.token=activeToken;
-    }else{
-      localStorage.setItem('wn_enc_token',activeToken);
-      cfg.token=activeToken;
-    }
-  }
-  localStorage.setItem('wn_cfg',JSON.stringify({lang:cfg.lang}));
-  closeModal();
-  loadTree();
 }
 
 function closeModal(){$('modal-overlay').classList.remove('open');}
@@ -2003,7 +1929,7 @@ const statusCfg={
 };
 
 async function fetchLatestRun(){
-  if(!cfg.owner||!cfg.repo||!cfg.token) return null;
+  if(!cfg.owner||!cfg.repo||!cfg.trigger_token) return null;
   try{
     if(cfg.provider==='gitlab'){
       const runs=await glFetch('pipelines?per_page=3');

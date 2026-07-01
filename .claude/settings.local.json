@@ -86,7 +86,11 @@
       "Bash(sed -i '' 's/toast\\('\\\\''Ошибка сохранения ролей: '\\\\''+e.message\\)/toast\\('\\\\''Ошибка сохранения ролей: '\\\\''+e.message,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
       "Bash(sed -i '' 's/toast\\(`Upload failed: ${err.message}`\\)/toast\\(`Upload failed: ${err.message}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
       "Bash(sed -i '' 's/toast\\(`${t\\('\\\\''error_load'\\\\''\\)}: ${escHtml\\(e.message\\)}`\\)/toast\\(`${t\\('\\\\''error_load'\\\\''\\)}: ${escHtml\\(e.message\\)}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
-      "Bash(sed -i '' 's/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`\\)/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)"
+      "Bash(sed -i '' 's/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`\\)/toast\\(`${t\\('\\\\''error_save'\\\\''\\)}: ${e.message}`,true\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/await apiPutFile\\(uploadPath,`docs: upload image ${safeName}`,b64,null\\)/await apiPutFile\\(uploadPath,`docs: upload image ${safeName}`,b64\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/await apiDeleteFile\\(deletedPath,`docs: delete ${deletedPath}`,meta.sha\\)/await apiDeleteFile\\(deletedPath,`docs: delete ${deletedPath}`\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/await apiPutFile\\(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc\\(content\\),null\\)/await apiPutFile\\(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc\\(content\\)\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)",
+      "Bash(sed -i '' 's/await apiDeleteFile\\(oldPath,`docs: rename ${oldPath} → ${newPath}`,oldData.sha\\)/await apiDeleteFile\\(oldPath,`docs: rename ${oldPath} → ${newPath}`\\)/g' /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/index.html)"
     ]
   }
 }
