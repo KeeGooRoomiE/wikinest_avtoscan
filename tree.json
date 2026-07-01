@@ -345,7 +345,7 @@
       "tp": "Документация для ТП",
       "reglamentation": "Регламенты"
     },
-    "updated_at": "2026-06-30T13:08:28+07:00",
+    "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
     "author": ""
   },
@@ -370,8 +370,8 @@
   },
   {
     "path": "tp/reglamentation/dept/sales",
-    "title": "Регламент отдела продаж",
-    "excerpt": "| Роль | Ответственный |",
+    "title": "Регламенты отдела продаж",
+    "excerpt": "| Роль                                               | Ответственный                                             |",
     "parts": [
       "tp",
       "reglamentation",
@@ -383,14 +383,14 @@
       "reglamentation": "Регламенты",
       "dept": "Dept"
     },
-    "updated_at": "2026-06-30T13:08:28+07:00",
+    "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "tp/reglamentation/dept/service",
-    "title": "Регламент отдела сервиса (СО)",
-    "excerpt": "| Роль | Ответственный |",
+    "title": "Регламенты отдела сервиса",
+    "excerpt": "| Роль                                                 | Ответственный                                                    |",
     "parts": [
       "tp",
       "reglamentation",
@@ -402,14 +402,14 @@
       "reglamentation": "Регламенты",
       "dept": "Dept"
     },
-    "updated_at": "2026-06-30T13:08:28+07:00",
+    "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
     "author": ""
   },
   {
     "path": "tp/reglamentation/dept/support",
     "title": "Регламент отдела технической поддержки",
-    "excerpt": "| Роль | Ответственный |",
+    "excerpt": "| Роль | Сотрудник | Внутр. | Телефон |",
     "parts": [
       "tp",
       "reglamentation",
@@ -421,7 +421,45 @@
       "reglamentation": "Регламенты",
       "dept": "Dept"
     },
-    "updated_at": "2026-06-30T13:08:28+07:00",
+    "updated_at": "2026-07-01T12:29:51+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-car-reglament",
+    "title": "Регламент создания и настройки учётной записи клиента",
+    "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-car-reglament"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Support"
+    },
+    "updated_at": "2026-07-01T12:29:51+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-object-axenta",
+    "title": "Регламент создания объекта в AXENTA",
+    "excerpt": "Объект можно создать двумя способами:",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-object-axenta"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Support"
+    },
+    "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
     "author": ""
   },
@@ -439,44 +477,6 @@
       "software": "Сервисы"
     },
     "updated_at": "2026-05-13T15:25:27+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/support/add-car-reglament",
-    "title": "Регламент создания и настройки учётной записи клиента",
-    "excerpt": "Создание учётной записи в 1С, настройка в системах мониторинга (AXENTA, Глонасс Soft, Wialon).",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "support",
-      "add-car-reglament"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "support": "Техническая поддержка"
-    },
-    "updated_at": "2026-07-01T00:00:00+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/support/add-object-axenta",
-    "title": "Регламент создания объекта в AXENTA",
-    "excerpt": "Объект можно создать двумя способами: через интерфейс или через 1С.",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "support",
-      "add-object-axenta"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "support": "Техническая поддержка"
-    },
-    "updated_at": "2026-07-01T00:00:00+07:00",
     "tags": [],
     "author": ""
   }
