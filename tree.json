@@ -134,14 +134,14 @@
   },
   {
     "path": "templates/markdown-reference",
-    "title": "Заголовок 1",
+    "title": "Справочник по оформлению",
     "excerpt": "Полное руководство по синтаксису Markdown для оформления документов в Wikinest.",
     "parts": [
       "templates",
       "markdown-reference"
     ],
     "folder_titles": {
-      "templates": "Templates"
+      "templates": "Шаблоны"
     },
     "updated_at": "2026-07-01T09:54:15+07:00",
     "tags": [],
@@ -159,6 +159,112 @@
       "tp": "Документация для ТП"
     },
     "updated_at": "2026-06-10T09:35:19+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/sales",
+    "title": "Регламенты ОП",
+    "excerpt": "Привлечение клиентов, ведение базы, KPI отдела продаж.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "sales"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/service",
+    "title": "Регламенты ОС",
+    "excerpt": "Монтаж оборудования, гарантийное обслуживание, управление складом.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "service"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/tp",
+    "title": "Регламенты ТП",
+    "excerpt": "Структура отдела ТП по всем филиалам, процессы, эскалация.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "tp"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/accounting",
+    "title": "Регламенты Бухгалтерии",
+    "excerpt": "Выставление счетов, зарплата, налоговая отчётность, работа с поставщиками.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "accounting"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-car-reglament",
+    "title": "Регламент создания и настройки учётной записи клиента",
+    "excerpt": "Создание учётной записи в 1С, настройка в системах мониторинга (AXENTA, Глонасс Soft, Wialon).",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-car-reglament"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Техподдержка"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
+    "tags": [],
+    "author": ""
+  },
+  {
+    "path": "tp/reglamentation/support/add-object-axenta",
+    "title": "Регламент создания объекта в AXENTA",
+    "excerpt": "Объект можно создать двумя способами: через интерфейс или через 1С.",
+    "parts": [
+      "tp",
+      "reglamentation",
+      "support",
+      "add-object-axenta"
+    ],
+    "folder_titles": {
+      "tp": "Документация для ТП",
+      "reglamentation": "Регламенты",
+      "support": "Техподдержка"
+    },
+    "updated_at": "2026-07-01T00:00:00+07:00",
     "tags": [],
     "author": ""
   },
@@ -329,120 +435,6 @@
       "examples": "Шаблоны"
     },
     "updated_at": "2026-05-14T00:24:57+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/dept/accounting",
-    "title": "Регламент бухгалтерии",
-    "excerpt": "| Роль | Ответственный |",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "accounting"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "dept": "Dept"
-    },
-    "updated_at": "2026-06-30T13:08:28+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/dept/sales",
-    "title": "Регламенты отдела продаж",
-    "excerpt": "| Роль                                               | Ответственный                                             |",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "sales"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "dept": "Dept"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/dept/service",
-    "title": "Регламенты отдела сервиса",
-    "excerpt": "| Роль                                                 | Ответственный                                                    |",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "service"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "dept": "Dept"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/dept/support",
-    "title": "Регламент отдела технической поддержки",
-    "excerpt": "| Роль | Сотрудник | Внутр. | Телефон |",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "dept",
-      "support"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "dept": "Dept"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/support/add-car-reglament",
-    "title": "Регламент создания и настройки учётной записи клиента",
-    "excerpt": "В 1С открыть карточку контрагента. Перейти в **Системы мониторинга** и нажать кнопку **«Создать»**.",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "support",
-      "add-car-reglament"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "support": "Support"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "tp/reglamentation/support/add-object-axenta",
-    "title": "Регламент создания объекта в AXENTA",
-    "excerpt": "Объект можно создать двумя способами:",
-    "parts": [
-      "tp",
-      "reglamentation",
-      "support",
-      "add-object-axenta"
-    ],
-    "folder_titles": {
-      "tp": "Документация для ТП",
-      "reglamentation": "Регламенты",
-      "support": "Support"
-    },
-    "updated_at": "2026-07-01T12:29:51+07:00",
     "tags": [],
     "author": ""
   },
