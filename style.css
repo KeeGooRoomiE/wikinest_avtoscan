@@ -348,7 +348,7 @@ body {
 }
 
 #birthday-banner {
-  margin-bottom: 24px;
+  margin: 0 8px 24px;
   background: linear-gradient(135deg, #fff8e1 0%, #fff3cd 100%);
   border: 1px solid #f0c040;
   border-radius: 10px;

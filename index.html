@@ -952,8 +952,8 @@ async function showBirthdayBannerOnDashboard(){
   const upcoming=parseBirthdays(tmp);
   if(!upcoming.length) return;
   const banner=buildBirthdayBanner(upcoming);
-  const el=$('empty');
-  if(el&&banner) el.prepend(banner);
+  const main=$('empty')?.querySelector('.dash-main');
+  if(main&&banner) main.prepend(banner);
 }
 
 function openSection(slug){
