@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # Навтелеком
 
 Ссылка на NTC Wiki https://wiki.navtelecom.ru/ru/home/devices/commands/standard_cmd

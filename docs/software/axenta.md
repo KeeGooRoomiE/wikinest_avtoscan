@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # Axenta
 
 ## Адрес и порты

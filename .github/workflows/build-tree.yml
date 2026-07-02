@@ -79,6 +79,7 @@ jobs:
               fm_meta, body = parse_frontmatter(raw_content)
               tags = fm_meta.get('tags', [])
               author = fm_meta.get('author', '')
+              is_counting = fm_meta.get('isCounting', 'false').lower() not in ('false', '0', 'no', '') if isinstance(fm_meta.get('isCounting'), str) else bool(fm_meta.get('isCounting', False))
 
               title = parts[-1].replace('-', ' ').replace('_', ' ').capitalize()
               excerpt = ''
@@ -107,7 +108,7 @@ jobs:
                 capture_output=True, text=True
               ).stdout.strip() or None
 
-              tree.append({
+              entry = {
                 'path': path,
                 'title': title,
                 'excerpt': excerpt,
@@ -115,8 +116,13 @@ jobs:
                 'folder_titles': folder_titles,
                 'updated_at': updated_at,
                 'tags': tags,
-                'author': author
-              })
+                'author': author,
+                'isCounting': is_counting,
+              }
+              if 'glossary' in parts:
+                import re as _re
+                entry['termCount'] = len(_re.findall(r'^\|\s*\*\*', body, _re.MULTILINE))
+              tree.append(entry)
 
               # Store full content in search index keyed by path (without docs/ prefix)
               search[path] = raw_content

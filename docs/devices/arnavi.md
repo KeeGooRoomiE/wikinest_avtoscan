@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # Arnavi (A4 / A4MAX)
 
 ## Важно

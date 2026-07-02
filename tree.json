@@ -12,7 +12,8 @@
     },
     "updated_at": "2026-07-01T18:09:47+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "company/contacts",
@@ -27,7 +28,8 @@
     },
     "updated_at": "2026-07-02T16:15:44+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/adm",
@@ -42,7 +44,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/arnavi",
@@ -57,7 +60,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/at-links",
@@ -72,7 +76,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/galileosky",
@@ -87,7 +92,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/navtelecom",
@@ -102,7 +108,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/omnicom",
@@ -117,7 +124,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/term-pin",
@@ -132,7 +140,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/umka",
@@ -147,7 +156,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "devices/vega",
@@ -162,7 +172,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "examples/index",
@@ -177,7 +188,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "glossary/index",
@@ -192,7 +204,9 @@
     },
     "updated_at": "2026-07-01T18:03:14+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true,
+    "termCount": 182
   },
   {
     "path": "home",
@@ -204,7 +218,8 @@
     "folder_titles": {},
     "updated_at": "2026-06-30T13:50:42+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "incidents/index",
@@ -219,7 +234,8 @@
     },
     "updated_at": "2026-06-30T13:08:28+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "processes/1c/index",
@@ -236,7 +252,8 @@
     },
     "updated_at": "2026-06-24T13:44:15+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "processes/bitrix/index",
@@ -253,7 +270,8 @@
     },
     "updated_at": "2026-06-24T13:44:15+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "reference/links",
@@ -268,7 +286,8 @@
     },
     "updated_at": "2026-06-15T12:21:03+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "reference/markdown",
@@ -283,52 +302,8 @@
     },
     "updated_at": "2026-05-14T00:13:24+07:00",
     "tags": [],
-    "author": ""
-  },
-  {
-    "path": "reglamentation/accounting",
-    "title": "Регламенты Бухгалтерии",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "accounting"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T14:17:50+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "reglamentation/sales",
-    "title": "Регламенты ОП",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "sales"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T14:17:50+07:00",
-    "tags": [],
-    "author": ""
-  },
-  {
-    "path": "reglamentation/service",
-    "title": "Регламенты ОС",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "service"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T14:17:50+07:00",
-    "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/add-car-reglament",
@@ -341,11 +316,12 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты",
-      "support": "Техподдержка"
+      "support": "Техническая поддержка"
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/add-object-axenta",
@@ -358,26 +334,12 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты",
-      "support": "Техподдержка"
+      "support": "Техническая поддержка"
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
-  },
-  {
-    "path": "reglamentation/tp",
-    "title": "Регламенты ТП",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "tp"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    },
-    "updated_at": "2026-07-01T14:17:50+07:00",
-    "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "software/axenta",
@@ -392,7 +354,8 @@
     },
     "updated_at": "2026-07-01T14:17:50+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   },
   {
     "path": "software/main",
@@ -407,6 +370,7 @@
     },
     "updated_at": "2026-07-01T17:20:43+07:00",
     "tags": [],
-    "author": ""
+    "author": "",
+    "isCounting": true
   }
 ]

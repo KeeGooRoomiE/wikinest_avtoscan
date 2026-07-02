@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # Vega MT / CAN-WAY
 
 ## Основные команды

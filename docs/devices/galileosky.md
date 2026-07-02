@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # GalileoSky 5
 
 ## Основные команды

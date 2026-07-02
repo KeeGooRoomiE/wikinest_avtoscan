@@ -726,7 +726,13 @@ function openPageVisibility(){
       Кто может видеть <strong>${escHtml(page.title)}</strong>?<br>
       <span style="color:var(--text3)">Владелец, администратор и директор всегда видят все страницы.</span>
     </p>
-    <div class="field">${rolesChecklistHtml(page.roles||[])}</div>`;
+    <div class="field">${rolesChecklistHtml(page.roles||[])}</div>
+    <div class="field" style="margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border)">
+      <label class="toggle-row">
+        <input type="checkbox" id="vis-counting" ${page.isCounting!==false?'checked':''}>
+        <span>Учитывать в счётчике документов на главной</span>
+      </label>
+    </div>`;
   $('modal-actions').innerHTML=`
     <button onclick="closeModal()">Отмена</button>
     <button class="btn-primary" onclick="savePageVisibility('${escHtml(rawPath)}')">Сохранить</button>`;
@@ -738,6 +744,8 @@ async function savePageVisibility(rawPath){
   const page=tree.find(p=>p.path===rawPath);
   if(!page) return;
   page.roles=newRoles;
+  const countingEl=$('vis-counting');
+  if(countingEl) page.isCounting=countingEl.checked;
   closeModal();
   await updateTreeJson();
 }
@@ -871,8 +879,19 @@ function showDashboard(){
   const visibleSections=SECTIONS.filter(s=>!isHiddenSection(s));
   const recent=[...tree].filter(p=>p.updated_at).sort((a,b)=>b.updated_at.localeCompare(a.updated_at)).slice(0,8);
   const cards=visibleSections.map(sec=>{
-    const count=tree.filter(p=>p.path.startsWith(sec.folder+'/')&&!isHiddenPage(p)).length;
     const c=sec.color||'var(--accent)';
+    let countLabel;
+    if(sec.slug==='glossary'){
+      const gPage=tree.find(p=>p.path==='glossary/index');
+      const n=gPage?.termCount||0;
+      countLabel=n?`${n} терминов`:'Глоссарий';
+      return`<div class="dash-card" onclick="${sec.direct?`openPage(tree.find(p=>p.path==='${sec.directPath}'))`:`openSection('${sec.slug}')`}">
+        <div class="dash-card-icon" style="color:${c};background:${c}1a">${sec.icon}</div>
+        <div class="dash-card-name">${escHtml(sec.name)}</div>
+        <div class="dash-card-count">${countLabel}</div>
+      </div>`;
+    }
+    const count=tree.filter(p=>p.path.startsWith(sec.folder+'/')&&!isHiddenPage(p)&&p.isCounting).length;
     return`<div class="dash-card" onclick="openSection('${sec.slug}')">
       <div class="dash-card-icon" style="color:${c};background:${c}1a">${sec.icon}</div>
       <div class="dash-card-name">${escHtml(sec.name)}</div>
@@ -900,6 +919,20 @@ function showDashboard(){
       ${recentHtml}
     </div>
   </div>`;
+  showBirthdayBannerOnDashboard();
+}
+
+async function showBirthdayBannerOnDashboard(){
+  await ensureSearchIndex();
+  const contactsMd=searchIndex['company/contacts']||searchIndex['company/contacts.md']||'';
+  if(!contactsMd) return;
+  const tmp=document.createElement('div');
+  tmp.innerHTML=marked.parse(contactsMd);
+  const upcoming=parseBirthdays(tmp);
+  if(!upcoming.length) return;
+  const banner=buildBirthdayBanner(upcoming);
+  const el=$('empty');
+  if(el&&banner) el.prepend(banner);
 }
 
 function openSection(slug){
@@ -1263,8 +1296,9 @@ function renderView(md){
   }
 }
 
-function injectBirthdayBanner(container){
-  const MONTHS=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+const _BDAY_MONTHS=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+
+function parseBirthdays(container){
   const now=new Date();
   const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
   const upcoming=[];
@@ -1293,15 +1327,26 @@ function injectBirthdayBanner(container){
       if(diff<=30) upcoming.push({name,role,section,day,month,diff});
     });
   });
-  if(!upcoming.length) return;
   upcoming.sort((a,b)=>a.diff-b.diff);
+  return upcoming;
+}
+
+function buildBirthdayBanner(upcoming){
+  if(!upcoming.length) return null;
   const banner=document.createElement('div');
   banner.id='birthday-banner';
   const cards=upcoming.map(p=>{
     const whenTxt=p.diff===0?'<span class="bday-today">🎉 Сегодня!</span>':p.diff===1?'завтра':'через '+p.diff+' дн.';
-    return `<div class="bday-card"><div class="bday-name">${escHtml(p.name)}</div><div class="bday-role">${escHtml(p.role)} · ${escHtml(p.section)}</div><div class="bday-when">${p.day} ${MONTHS[p.month]} · ${whenTxt}</div></div>`;
+    return `<div class="bday-card"><div class="bday-name">${escHtml(p.name)}</div><div class="bday-role">${escHtml(p.role)} · ${escHtml(p.section)}</div><div class="bday-when">${p.day} ${_BDAY_MONTHS[p.month]} · ${whenTxt}</div></div>`;
   }).join('');
   banner.innerHTML=`<div class="bday-title">🎂 Дни рождения в этом месяце</div><div class="bday-list">${cards}</div>`;
+  return banner;
+}
+
+function injectBirthdayBanner(container){
+  const upcoming=parseBirthdays(container);
+  const banner=buildBirthdayBanner(upcoming);
+  if(!banner) return;
   const meta=container.querySelector('.page-meta');
   if(meta) meta.after(banner); else container.prepend(banner);
 }
@@ -1746,7 +1791,12 @@ function runSearch(q){
   if(searchIndex){
     tree.forEach(p=>{
       if(seen.has(p.path)) return;
-      const content=searchIndex[p.path]||searchIndex[`docs/${p.path}.md`]||'';
+      const raw=searchIndex[p.path]||searchIndex[`docs/${p.path}.md`]||'';
+      let content=raw;
+      if(p.path==='glossary/index'){
+        const terms=(raw.match(/^\|\s*\*\*([^*|]+)\*\*/gm)||[]).map(t=>t.replace(/^\|\s*\*\*/,'').replace(/\*\*/,''));
+        content=terms.join('\n');
+      }
       if(content.toLowerCase().includes(q)){ftHits.push({p,ft:true});seen.add(p.path);}
     });
   }

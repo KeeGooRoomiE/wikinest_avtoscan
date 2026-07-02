@@ -1,3 +1,6 @@
+---
+isCounting: true
+---
 # Omnicom Optim
 
 ## Установка пароля
