@@ -170,21 +170,24 @@ PYEOF
 #     -F "variables[FILE_PATH]=docs/example.md" \
 #     -F "variables[CONTENT]=<base64>" \
 #     -F "variables[MESSAGE]=docs: update example"
+#   Для append_row вместо CONTENT передавать SECTION_NAME и NEW_ROW.
 api-write:
   stage: build
   rules:
     - if: '$CI_PIPELINE_SOURCE == "trigger" && $OPERATION != null'
   script:
     - python3 - <<'PYEOF'
-import os, json, urllib.request, urllib.error, urllib.parse
+import os, json, re, base64, urllib.request, urllib.error, urllib.parse
 
-op      = os.environ['OPERATION']          # put_file | delete_file
-path    = os.environ['FILE_PATH']
-content = os.environ.get('CONTENT', '')    # base64-encoded (put_file only)
-message = os.environ['MESSAGE']
-token   = os.environ['GL_PAT']
-project = os.environ['CI_PROJECT_ID']
-server  = os.environ.get('CI_SERVER_URL', 'https://gitlab.com')
+op           = os.environ['OPERATION']       # put_file | delete_file | append_row
+path         = os.environ['FILE_PATH']
+content      = os.environ.get('CONTENT', '')
+message      = os.environ['MESSAGE']
+section_name = os.environ.get('SECTION_NAME', '')
+new_row      = os.environ.get('NEW_ROW', '')
+token        = os.environ['GL_PAT']
+project      = os.environ['CI_PROJECT_ID']
+server       = os.environ.get('CI_SERVER_URL', 'https://gitlab.com')
 
 encoded_path = urllib.parse.quote(path, safe='')
 api  = f'{server}/api/v4/projects/{project}/repository/files/{encoded_path}'
@@ -220,6 +223,37 @@ elif op == 'delete_file':
             print(f'File not found, skipping: {path}')
         else:
             raise
+
+elif op == 'append_row':
+    with gl_req(f'{api}?ref=main') as r:
+        file_data = json.load(r)
+    md = base64.b64decode(file_data['content']).decode('utf-8')
+
+    lines = md.split('\n')
+    sec_idx = -1
+    for i, line in enumerate(lines):
+        m = re.match(r'^##\s+(.+)', line)
+        if m and m.group(1).strip() == section_name:
+            sec_idx = i
+            break
+    if sec_idx < 0:
+        raise ValueError(f'Section not found: {section_name!r}')
+
+    last_table = -1
+    for i in range(sec_idx + 1, len(lines)):
+        if re.match(r'^##\s', lines[i]):
+            break
+        if lines[i].startswith('|'):
+            last_table = i
+    lines.insert(last_table + 1 if last_table >= 0 else sec_idx + 1, new_row)
+
+    new_content = base64.b64encode('\n'.join(lines).encode('utf-8')).decode('ascii')
+    body = json.dumps({
+        'branch': 'main', 'commit_message': message,
+        'content': new_content, 'encoding': 'base64',
+    }).encode()
+    gl_req(api, data=body, method='PUT')
+    print(f'Appended to {section_name!r} in {path}')
 
 else:
     raise ValueError(f'Unknown operation: {op}')
