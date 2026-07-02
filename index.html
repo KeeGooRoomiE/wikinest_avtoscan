@@ -74,6 +74,10 @@
     <div id="content-bar">
       <div class="breadcrumb" id="breadcrumb"></div>
       <div id="cb-space"></div>
+      <button class="bar-btn" id="btn-append" onclick="openAppendModal()" style="display:none" title="Добавить запись">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Добавить</span>
+      </button>
       <button class="bar-btn" id="btn-delete" onclick="deletePage()" style="display:none">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
         <span id="lbl-delete">Delete</span>
@@ -960,6 +964,7 @@ function goHome(){
   $('btn-delete').style.display='none';
   $('btn-rename').style.display='none';
   $('btn-history').style.display='none';
+  $('btn-append').style.display='none';
   $('breadcrumb').innerHTML='';
   const toc=$('toc');if(toc)toc.style.display='none';
   history.replaceState(null,'',_basePath||'/');
@@ -1217,6 +1222,8 @@ async function openPage(page){
   $('btn-delete').style.display=_o;
   $('btn-rename').style.display=_o;
   $('btn-history').style.display=_e;
+  const _ap=(FULL_ACCESS_ROLES.includes(currentRole?.slug)&&['glossary/index','incidents/index'].includes(page.path))?'flex':'none';
+  $('btn-append').style.display=_ap;
   updateFavBtn();
   cancelEdit();
 
@@ -1519,6 +1526,7 @@ function _activateEditorPanel(){
   $('btn-print').style.display='none';
   $('btn-delete').style.display='none';
   $('btn-rename').style.display='none';
+  $('btn-append').style.display='none';
   $('btn-history').style.display='none';
   $('edit-btns').style.display='flex';
   $('editor').oninput=()=>{
@@ -1567,6 +1575,8 @@ function cancelEdit(){
   $('btn-delete').style.display=_ce?'flex':'none';
   $('btn-rename').style.display=_ce?'flex':'none';
   $('btn-history').style.display=_ce?'flex':'none';
+  const _curRel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
+  $('btn-append').style.display=(FULL_ACCESS_ROLES.includes(currentRole?.slug)&&_curRel&&['glossary/index','incidents/index'].includes(_curRel))?'flex':'none';
   buildToc();
 }
 
@@ -1682,6 +1692,7 @@ async function doDelete(){
     $('btn-edit').style.display='none';
     $('btn-delete').style.display='none';
     $('btn-rename').style.display='none';
+    $('btn-append').style.display='none';
     $('btn-history').style.display='none';
     $('edit-btns').style.display='none';
     $('breadcrumb').innerHTML='';
@@ -1737,6 +1748,7 @@ async function doRename(){
     $('btn-edit').style.display='none';
     $('btn-delete').style.display='none';
     $('btn-rename').style.display='none';
+    $('btn-append').style.display='none';
     $('btn-history').style.display='none';
     $('breadcrumb').innerHTML='';
     const tocRen=$('toc');if(tocRen)tocRen.style.display='none';
@@ -1747,6 +1759,116 @@ async function doRename(){
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
+
+// ── Quick Append (glossary / incidents) ──
+function sanitizeMd(s){return(s||'').replace(/\|/g,'\\|').replace(/\n/g,' ').trim();}
+
+function _parseSectionsFromMd(md){
+  const sections=[];
+  for(const line of md.split('\n')){
+    const m=line.match(/^##\s+(.+)/);
+    if(m) sections.push(m[1].trim());
+  }
+  return sections;
+}
+
+function _getIncidentCol4Label(sectionName){
+  const map={'Техническая поддержка':'ТС / Клиент','Отдел продаж':'Клиент','Отдел сервиса':'ТС / Клиент','Бухгалтерия':'Контрагент'};
+  return map[sectionName]||'Доп. инфо';
+}
+
+function updateIncidentCol4(selectEl){
+  const lbl=$('app-col4-lbl');
+  if(lbl) lbl.textContent=_getIncidentCol4Label(selectEl.value);
+}
+
+function _appendRowToSection(mdText, sectionName, newRow){
+  const lines=mdText.split('\n');
+  let secIdx=-1;
+  for(let i=0;i<lines.length;i++){
+    const m=lines[i].match(/^##\s+(.+)/);
+    if(m&&m[1].trim()===sectionName){secIdx=i;break;}
+  }
+  if(secIdx<0) return mdText;
+  let lastTableLine=-1;
+  for(let i=secIdx+1;i<lines.length;i++){
+    if(lines[i].match(/^##\s/)) break;
+    if(lines[i].startsWith('|')) lastTableLine=i;
+  }
+  if(lastTableLine<0) lines.splice(secIdx+1,0,newRow);
+  else lines.splice(lastTableLine+1,0,newRow);
+  return lines.join('\n');
+}
+
+async function openAppendModal(){
+  const isGlossary=currentPath==='docs/glossary/index.md';
+  const isIncidents=currentPath==='docs/incidents/index.md';
+  if(!isGlossary&&!isIncidents) return;
+  await ensureSearchIndex();
+  const relPath=currentPath.replace('docs/','').replace(/\.md$/,'');
+  const md=searchIndex[relPath]||'';
+  const sections=_parseSectionsFromMd(md);
+  if(!sections.length){toast('Не удалось определить разделы',true);return;}
+  $('modal-title').textContent='Добавить запись';
+  if(isGlossary){
+    $('modal-body').innerHTML=`
+      <div class="field"><label>Раздел</label>
+        <select id="app-section">${sections.map(s=>`<option value="${escHtml(s)}">${escHtml(s)}</option>`).join('')}</select></div>
+      <div class="field"><label>Термин</label><input id="app-f1" placeholder="Термин"></div>
+      <div class="field"><label>Определение</label><input id="app-f2" placeholder="Определение"></div>
+      <div class="field"><label>Пример <span style="opacity:.5">(необязательно)</span></label><input id="app-f3" placeholder="—"></div>`;
+  }else{
+    const today=new Date().toISOString().slice(0,10);
+    const col4Label=_getIncidentCol4Label(sections[0]);
+    $('modal-body').innerHTML=`
+      <div class="field"><label>Раздел</label>
+        <select id="app-section" onchange="updateIncidentCol4(this)">${sections.map(s=>`<option value="${escHtml(s)}">${escHtml(s)}</option>`).join('')}</select></div>
+      <div class="field"><label>Дата</label><input id="app-f1" value="${today}"></div>
+      <div class="field"><label>Инцидент</label><input id="app-f2" placeholder="Краткое название"></div>
+      <div class="field"><label>Описание</label><input id="app-f3" placeholder="Подробное описание"></div>
+      <div class="field"><label id="app-col4-lbl">${escHtml(col4Label)}</label><input id="app-f4" placeholder="—"></div>
+      <div class="field"><label>Решение <span style="opacity:.5">(необязательно)</span></label><input id="app-f5" placeholder="—"></div>`;
+  }
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="submitAppend()">Добавить</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>{const el=$('app-f1');if(el)el.focus();},50);
+}
+
+async function submitAppend(){
+  const isGlossary=currentPath==='docs/glossary/index.md';
+  const section=($('app-section')||{}).value;
+  if(!section) return;
+  let newRow;
+  if(isGlossary){
+    const term=sanitizeMd($('app-f1').value);
+    const def=sanitizeMd($('app-f2').value);
+    const ex=sanitizeMd($('app-f3').value)||'—';
+    if(!term||!def){toast('Заполните Термин и Определение',true);return;}
+    newRow=`| **${term}** | ${def} | ${ex} |`;
+  }else{
+    const date=sanitizeMd($('app-f1').value)||new Date().toISOString().slice(0,10);
+    const inc=sanitizeMd($('app-f2').value);
+    const desc=sanitizeMd($('app-f3').value);
+    const col4=sanitizeMd($('app-f4').value)||'—';
+    const sol=sanitizeMd($('app-f5').value)||'—';
+    if(!inc||!desc){toast('Заполните Инцидент и Описание',true);return;}
+    newRow=`| ${date} | ${inc} | ${desc} | ${col4} | ${sol} |`;
+  }
+  closeModal();
+  const relPath=currentPath.replace('docs/','').replace(/\.md$/,'');
+  try{
+    const data=await apiGetFile(currentPath);
+    const md=b64dec(data.content.replace(/\n/g,''));
+    const newMd=_appendRowToSection(md,section,newRow);
+    if(newMd===md){toast('Раздел не найден',true);return;}
+    await apiPutFile(currentPath,`docs: append entry to ${relPath} (${section})`,b64enc(newMd));
+    if(searchIndex) searchIndex[relPath]=newMd;
+    renderView(newMd);
+    toast('Запись добавлена');
+  }catch(e){toast(`Ошибка: ${escHtml(e.message)}`,true);}
+}
 
 // ── Empty state ──
 function showEmpty(){
