@@ -145,30 +145,6 @@ body {
   flex-shrink: 0;
 }
 
-#sidebar-top {
-  padding: 10px;
-  border-bottom: 0.5px solid var(--border);
-}
-
-#btn-new {
-  width: 100%;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 6px 0;
-  border: 0.5px solid var(--accent-border);
-  border-radius: 6px;
-  background: var(--accent-bg);
-  color: var(--accent);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-#btn-new:hover {
-  opacity: 0.8;
-}
 
 #tree {
   flex: 1;

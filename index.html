@@ -38,12 +38,6 @@
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <div id="layout">
   <div id="sidebar">
-    <div id="sidebar-top">
-      <button id="btn-new" onclick="openCreateModal('')">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        <span id="lbl-new-page">New page</span>
-      </button>
-    </div>
     <div id="tree"></div>
     <div id="sidebar-quick">
       <div class="sidebar-label">БЫСТРЫЙ ДОСТУП</div>
@@ -451,7 +445,6 @@ async function loadI18n(lang){
 function applyI18n(){
   const set=(id,val)=>{const el=$(id);if(el)el.textContent=val;};
   set('lbl-search',    t('search'));
-  set('lbl-new-page',  t('new_page'));
   set('lbl-edit',      t('edit'));
   set('lbl-save',      t('save'));
   set('lbl-cancel',    t('cancel'));
@@ -661,10 +654,6 @@ function applyRoleUI(){
   const badge=$('role-badge');
   if(badge&&currentRole){badge.style.display='flex';$('role-name').textContent=currentRole.name;}
   const isOwner=canEdit();
-  const sidebarTop=$('sidebar-top');
-  if(sidebarTop) sidebarTop.style.display=isOwner?'':'none';
-  const btnNew=$('btn-new');
-  if(btnNew) btnNew.style.display=isOwner?'':'none';
   // Owner-only header controls
   ['btn-settings','actions-status'].forEach(id=>{
     const el=$( id);
