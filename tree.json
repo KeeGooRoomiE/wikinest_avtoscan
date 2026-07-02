@@ -343,6 +343,34 @@
     "isCounting": true
   },
   {
+    "_folder": true,
+    "path": "reglamentation/tp",
+    "title": "Регламенты ТП",
+    "parts": ["reglamentation", "tp"],
+    "folder_titles": {"reglamentation": "Регламенты"}
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/sales",
+    "title": "Отдел продаж",
+    "parts": ["reglamentation", "sales"],
+    "folder_titles": {"reglamentation": "Регламенты"}
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/service",
+    "title": "Отдел сервиса",
+    "parts": ["reglamentation", "service"],
+    "folder_titles": {"reglamentation": "Регламенты"}
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/accounting",
+    "title": "Бухгалтерия",
+    "parts": ["reglamentation", "accounting"],
+    "folder_titles": {"reglamentation": "Регламенты"}
+  },
+  {
     "path": "software/axenta",
     "title": "Axenta",
     "excerpt": "",

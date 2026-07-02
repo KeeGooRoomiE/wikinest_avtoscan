@@ -39,7 +39,7 @@
 <div id="layout">
   <div id="sidebar">
     <div id="sidebar-top">
-      <button id="btn-new" onclick="openNewPage()">
+      <button id="btn-new" onclick="openCreateModal('')">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         <span id="lbl-new-page">New page</span>
       </button>
@@ -1101,7 +1101,8 @@ function renderTree(pages){
 
   SECTIONS.forEach(sec=>{
     if(isHiddenSection(sec)) return;
-    const secPages=pages.filter(p=>(p.path.startsWith(sec.folder+'/')||p.path===sec.folder)&&!isHiddenPage(p));
+    const secFolderMarkers=pages.filter(p=>p._folder&&p.path.startsWith(sec.folder+'/'));
+    const secPages=pages.filter(p=>!p._folder&&(p.path.startsWith(sec.folder+'/')||p.path===sec.folder)&&!isHiddenPage(p));
     const isActive=currentSection===sec.slug;
     const wrap=document.createElement('div');
     wrap.className='sec-wrap';
@@ -1136,62 +1137,70 @@ function renderTree(pages){
     if(isActive){
       const list=document.createElement('div');
       list.className='sec-pages';
-      if(secPages.length){
-        // Group pages: direct children vs pages in subfolders
-        const directPages=[];
-        const subfolderMap=new Map(); // subfolder key → {name, pages[]}
-        secPages.forEach(p=>{
-          const rel=p.path.substring(sec.folder.length+1);
-          const relParts=rel.split('/');
-          if(relParts.length===1){
-            directPages.push(p);
-          } else {
-            const subKey=relParts[0];
-            const subName=p.folder_titles[subKey]||subKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-            if(!subfolderMap.has(subKey)) subfolderMap.set(subKey,{name:subName,pages:[]});
-            subfolderMap.get(subKey).pages.push(p);
-          }
-        });
-        const makePageRow=(p,indented=false)=>{
-          const row=document.createElement('div');
-          row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
-          row.dataset.path=p.path;
-          row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
-          row.onclick=()=>openPage(p);
-          return row;
-        };
-        directPages.forEach(p=>list.appendChild(makePageRow(p)));
-        subfolderMap.forEach(({name,pages},subKey)=>{
-          const storageKey=`wn_sf_${sec.slug}_${subKey}`;
-          const isOpen=localStorage.getItem(storageKey)!=='0';
-          const hdr=document.createElement('div');
-          hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
-          hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>${escHtml(name)}</span>`;
-          const pageWrap=document.createElement('div');
-          pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
-          pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
-          hdr.onclick=()=>{
-            const opening=!hdr.classList.contains('open');
-            hdr.classList.toggle('open',opening);
-            pageWrap.classList.toggle('collapsed',!opening);
-            localStorage.setItem(storageKey,opening?'1':'0');
-          };
-          list.appendChild(hdr);
-          list.appendChild(pageWrap);
-        });
-      } else {
+      // Group real pages; also seed subfolderMap from empty-folder markers
+      const directPages=[];
+      const subfolderMap=new Map();
+      secFolderMarkers.forEach(f=>{
+        const rel=f.path.substring(sec.folder.length+1);
+        const relParts=rel.split('/');
+        if(relParts.length===1&&!subfolderMap.has(relParts[0]))
+          subfolderMap.set(relParts[0],{name:f.title,pages:[]});
+      });
+      secPages.forEach(p=>{
+        const rel=p.path.substring(sec.folder.length+1);
+        const relParts=rel.split('/');
+        if(relParts.length===1){
+          directPages.push(p);
+        } else {
+          const subKey=relParts[0];
+          const subName=p.folder_titles[subKey]||subKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+          if(!subfolderMap.has(subKey)) subfolderMap.set(subKey,{name:subName,pages:[]});
+          subfolderMap.get(subKey).pages.push(p);
+        }
+      });
+      const makePageRow=(p,indented=false)=>{
+        const row=document.createElement('div');
+        row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
+        row.dataset.path=p.path;
+        row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
+        row.onclick=()=>openPage(p);
+        return row;
+      };
+      const makeAddRow=(ctx,indented=false)=>{
+        const r=document.createElement('div');
+        r.className='tree-row sec-add-row'+(indented?' indented':'');
+        r.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="tree-label">Создать</span>`;
+        r.onclick=()=>openCreateModal(ctx);
+        return r;
+      };
+      if(directPages.length===0&&subfolderMap.size===0){
         const empty=document.createElement('div');
         empty.className='sec-empty';
         empty.textContent='Нет страниц';
         list.appendChild(empty);
       }
-      if(canEdit()){
-        const addRow=document.createElement('div');
-        addRow.className='tree-row sec-add-row';
-        addRow.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="tree-label">Новая страница</span>`;
-        addRow.onclick=()=>openNewPage(sec.folder);
-        list.appendChild(addRow);
-      }
+      directPages.forEach(p=>list.appendChild(makePageRow(p)));
+      subfolderMap.forEach(({name,pages},subKey)=>{
+        const subPath=sec.folder+'/'+subKey;
+        const storageKey=`wn_sf_${sec.slug}_${subKey}`;
+        const isOpen=localStorage.getItem(storageKey)!=='0';
+        const hdr=document.createElement('div');
+        hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
+        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>${escHtml(name)}</span>`;
+        const pageWrap=document.createElement('div');
+        pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
+        pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
+        if(canEdit()) pageWrap.appendChild(makeAddRow(subPath,true));
+        hdr.onclick=()=>{
+          const opening=!hdr.classList.contains('open');
+          hdr.classList.toggle('open',opening);
+          pageWrap.classList.toggle('collapsed',!opening);
+          localStorage.setItem(storageKey,opening?'1':'0');
+        };
+        list.appendChild(hdr);
+        list.appendChild(pageWrap);
+      });
+      if(canEdit()) list.appendChild(makeAddRow(sec.folder));
       wrap.appendChild(list);
     }
     el.appendChild(wrap);
@@ -1618,68 +1627,153 @@ async function savePage(){
 }
 
 // ── New page ──
-function openNewPage(presetFolder=''){
-  // Collect all unique folder paths from the tree
-  const folders=new Set();
-  tree.forEach(p=>{
-    for(let i=1;i<p.parts.length;i++) folders.add(p.parts.slice(0,i).join('/'));
-  });
-  const folderOpts=['',...[...folders].sort()]
-    .map(f=>`<option value="${escHtml(f)}"${f===presetFolder?' selected':''}>${escHtml(f)||t('root_folder')||'/ (root)'}</option>`)
-    .join('');
-  $('modal-title').textContent=t('new_page_title');
-  $('modal-body').innerHTML=`
-    <div class="field"><label>${t('new_page_folder')}</label>
-    <select id="m-folder">${folderOpts}</select></div>
-    <div class="field"><label>${t('new_page_name')}</label>
-    <input id="m-name" placeholder="my-page-name">
-    <div class="hint">${t('new_page_name_hint')}</div></div>
-    <div class="field" style="margin-top:2px">
-      <label style="font-size:11px;color:var(--text3)">Путь</label>
-      <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code>
-    </div>
-    <div class="field-sep"></div>
-    <div class="field"><label>Видимость</label>${rolesChecklistHtml()}</div>
-    <div class="field-sep"></div>
-    <div class="field"><label>Редакторы</label>${editorsChecklistHtml()}</div>`;
-  $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">Отмена</button>
-    <button class="btn-primary" onclick="createPage()">Создать</button>`;
-  const updatePreview=()=>{
-    const folder=$('m-folder').value;
-    const name=$('m-name').value.trim();
-    const path=folder?`${folder}/${name}`:name;
-    $('m-path-preview').textContent=name?`docs/${path}.md`:'—';
-  };
-  $('m-folder').oninput=updatePreview;
-  $('m-name').oninput=updatePreview;
-  $('modal-overlay').classList.add('open');
-  setTimeout(()=>$('m-name').focus(),50);
+// ── Transliteration helper ────────────────────────────────────────────────────
+const _CYR={'а':'a','б':'b','в':'v','г':'g','д':'d','е':'e','ё':'yo','ж':'zh','з':'z','и':'i','й':'j','к':'k','л':'l','м':'m','н':'n','о':'o','п':'p','р':'r','с':'s','т':'t','у':'u','ф':'f','х':'kh','ц':'ts','ч':'ch','ш':'sh','щ':'shch','ъ':'','ы':'y','ь':'','э':'e','ю':'yu','я':'ya'};
+function titleToSlug(s){
+  return(s||'').toLowerCase().split('').map(c=>_CYR[c]!==undefined?_CYR[c]:c).join('')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60);
 }
 
-async function createPage(){
+// ── Create modal: choice → doc or folder ─────────────────────────────────────
+function openCreateModal(contextPath){
+  $('modal-title').textContent='Создать';
+  const body=$('modal-body');
+  body.innerHTML='';
+  if(contextPath){
+    const loc=document.createElement('div');
+    loc.style.cssText='font-size:12px;color:var(--text3);margin-bottom:16px';
+    loc.textContent='Папка: docs/'+contextPath+'/';
+    body.appendChild(loc);
+  }
+  const row=document.createElement('div');
+  row.style.cssText='display:flex;gap:10px';
+  const makeTypeBtn=(label,iconPath,fn)=>{
+    const b=document.createElement('button');
+    b.className='btn-create-type';
+    b.innerHTML=`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">${iconPath}</svg><span>${label}</span>`;
+    b.onclick=fn;
+    return b;
+  };
+  row.appendChild(makeTypeBtn('Документ','<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>',()=>openNewDoc(contextPath)));
+  row.appendChild(makeTypeBtn('Папку','<path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>',()=>openNewFolder(contextPath)));
+  body.appendChild(row);
+  const actions=$('modal-actions');
+  actions.innerHTML='';
+  const cancel=document.createElement('button');
+  cancel.textContent='Отмена';
+  cancel.onclick=()=>closeModal();
+  actions.appendChild(cancel);
+  $('modal-overlay').classList.add('open');
+}
+
+function openNewDoc(contextPath){
+  $('modal-title').textContent='Новый документ';
+  $('modal-body').innerHTML=`
+    <div class="field"><label style="font-size:11px;color:var(--text3)">Папка</label>
+      <div style="font-size:12px;color:var(--text2)">docs/${contextPath?contextPath+'/':''}</div></div>
+    <div class="field"><label>Название документа</label>
+      <input id="m-doc-title" placeholder="Название документа"></div>
+    <div class="field"><label>Имя файла</label>
+      <input id="m-doc-slug" placeholder="auto">
+      <div class="hint">Строчные латиница, цифры, дефисы</div></div>
+    <div class="field"><label style="font-size:11px;color:var(--text3)">Путь</label>
+      <code id="m-path-preview" style="font-size:12px;color:var(--text2);word-break:break-all">—</code></div>
+    <div class="field-sep"></div>
+    <div class="field"><label>Видимость</label>${rolesChecklistHtml()}</div>`;
+  const updatePreview=()=>{
+    const slug=($('m-doc-slug').value.trim()||titleToSlug($('m-doc-title').value));
+    $('m-path-preview').textContent=slug?`docs/${contextPath?contextPath+'/':''}${slug}.md`:'—';
+  };
+  $('m-doc-title').oninput=()=>{$('m-doc-slug').value=titleToSlug($('m-doc-title').value);updatePreview();};
+  $('m-doc-slug').oninput=updatePreview;
+  const actions=$('modal-actions');
+  actions.innerHTML='';
+  const back=document.createElement('button');
+  back.textContent='← Назад';
+  back.onclick=()=>openCreateModal(contextPath);
+  const create=document.createElement('button');
+  create.className='btn-primary';
+  create.textContent='Создать';
+  create.onclick=()=>createDoc(contextPath);
+  actions.appendChild(back);
+  actions.appendChild(create);
+  setTimeout(()=>$('m-doc-title').focus(),50);
+}
+
+function openNewFolder(contextPath){
+  $('modal-title').textContent='Новая папка';
+  $('modal-body').innerHTML=`
+    <div class="field"><label style="font-size:11px;color:var(--text3)">Папка</label>
+      <div style="font-size:12px;color:var(--text2)">docs/${contextPath?contextPath+'/':''}</div></div>
+    <div class="field"><label>Название папки</label>
+      <input id="m-fld-title" placeholder="Название папки"></div>
+    <div class="field"><label>Имя папки</label>
+      <input id="m-fld-slug" placeholder="auto">
+      <div class="hint">Строчные латиница, цифры, дефисы</div></div>`;
+  $('m-fld-title').oninput=()=>{$('m-fld-slug').value=titleToSlug($('m-fld-title').value);};
+  const actions=$('modal-actions');
+  actions.innerHTML='';
+  const back=document.createElement('button');
+  back.textContent='← Назад';
+  back.onclick=()=>openCreateModal(contextPath);
+  const create=document.createElement('button');
+  create.className='btn-primary';
+  create.textContent='Создать';
+  create.onclick=()=>createFolder(contextPath);
+  actions.appendChild(back);
+  actions.appendChild(create);
+  setTimeout(()=>$('m-fld-title').focus(),50);
+}
+
+async function createDoc(contextPath){
   const ok=await requireUnlock();
   if(!ok) return;
-  const folder=($('m-folder')||{value:''}).value.trim();
-  const name=($('m-name')||{value:''}).value.trim().replace(/\.md$/,'');
-  if(!name){toast(t('page_name_empty')||'Enter a page name');return;}
-  if(!/^[a-zA-Z0-9_\-]+$/.test(name)){toast(t('page_name_invalid')||'Page name: letters, numbers, hyphens and underscores only');return;}
-  const path=folder?`${folder}/${name}`:name;
-  const fullPath=`docs/${path}.md`;
-  const title=path.split('/').pop().replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-  const content=`# ${title}\n\nStart writing here.\n`;
+  const title=($('m-doc-title')||{}).value?.trim();
+  const slug=($('m-doc-slug')||{}).value?.trim()||titleToSlug(title);
+  if(!title){toast('Введите название документа',true);return;}
+  if(!slug||!/^[a-z0-9][a-z0-9\-]*$/.test(slug)){toast('Имя файла: строчные латиница, цифры и дефисы',true);return;}
+  const relPath=contextPath?`${contextPath}/${slug}`:slug;
+  const fullPath=`docs/${relPath}.md`;
   const pageRoles=getSelectedRoles();
-  const pageEditors=getSelectedEditors();
+  const fmRoles=pageRoles.length?`\nroles: [${pageRoles.join(',')}]`:'';
+  const content=`---\ntitle: ${title}\nisCounting: true${fmRoles}\n---\n# ${title}\n\n`;
   try{
     await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content));
     closeModal();
-    const page={path,title,parts:path.split('/'),excerpt:'',folder_titles:{},roles:pageRoles,editors:pageEditors,updated_at:new Date().toISOString(),tags:[],author:''};
+    const parts=relPath.split('/');
+    const page={path:relPath,title,parts,excerpt:'',folder_titles:{},isCounting:true,roles:pageRoles,updated_at:new Date().toISOString(),tags:[],author:''};
     tree.push(page);
-    await updateTreeJson();
     renderTree(tree);
     openPage(page);
     watchDeploy(fullPath);
-  }catch(e){toast(`Ошибка: ${e.message}`);}
+  }catch(e){toast(`Ошибка: ${e.message}`,true);}
+}
+
+async function createFolder(contextPath){
+  const ok=await requireUnlock();
+  if(!ok) return;
+  const title=($('m-fld-title')||{}).value?.trim();
+  const slug=($('m-fld-slug')||{}).value?.trim()||titleToSlug(title);
+  if(!title){toast('Введите название папки',true);return;}
+  if(!slug||!/^[a-z0-9][a-z0-9\-]*$/.test(slug)){toast('Имя папки: строчные латиница, цифры и дефисы',true);return;}
+  const relPath=contextPath?`${contextPath}/${slug}`:slug;
+  const metaPath=`docs/${relPath}/_meta.json`;
+  try{
+    await apiPutFile(metaPath,`docs: create folder ${relPath}`,b64enc(JSON.stringify({title},null,2)));
+    closeModal();
+    const parts=relPath.split('/');
+    const ft={};
+    for(let i=0;i<parts.length-1;i++){
+      const pp=parts.slice(0,i+1).join('/');
+      const existing=tree.find(p=>p._folder&&p.path===pp)||tree.find(p=>p.path.startsWith(pp+'/'));
+      ft[parts[i]]=existing?.folder_titles?.[parts[i]]||parts[i].replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    }
+    tree.push({_folder:true,path:relPath,title,parts,folder_titles:ft});
+    const sec=SECTIONS.find(s=>s.folder===parts[0]);
+    if(sec) currentSection=sec.slug;
+    renderTree(tree);
+    toast(`Папка «${title}» создана`);
+  }catch(e){toast(`Ошибка: ${e.message}`,true);}
 }
 
 // ── Delete ──

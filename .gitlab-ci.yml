@@ -168,6 +168,27 @@ def page_sort_key(entry):
 
 tree.sort(key=page_sort_key)
 
+# Add _folder marker entries for directories that have _meta.json but no pages
+page_paths = {e['path'] for e in tree}
+for rel_dir, meta in sorted(folder_meta.items()):
+    if rel_dir == '.':
+        continue
+    parts = rel_dir.split('/')
+    has_child = any(p == rel_dir or p.startswith(rel_dir + '/') for p in page_paths)
+    if not has_child:
+        ft = {}
+        for i in range(len(parts) - 1):
+            parent = '/'.join(parts[:i+1])
+            m = folder_meta.get(parent, {})
+            ft[parts[i]] = m.get('title', parts[i].replace('-',' ').replace('_',' ').capitalize())
+        tree.append({
+            '_folder': True,
+            'path': rel_dir,
+            'title': meta.get('title', parts[-1].replace('-',' ').replace('_',' ').capitalize()),
+            'parts': parts,
+            'folder_titles': ft,
+        })
+
 with open('tree.json', 'w', encoding='utf-8') as f:
     json.dump(tree, f, ensure_ascii=False, indent=2)
 print(f'tree.json: {len(tree)} pages')
