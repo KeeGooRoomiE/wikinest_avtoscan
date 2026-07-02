@@ -1,31 +1,68 @@
+# GitLab CI — эквивалент трёх GitHub Actions:
+#   build-tree.yml  →  build-tree
+#   api-write.yml   →  api-write
+#   deploy.yml      →  pages
+#
+# Переменные CI/CD (GitLab → Settings → CI/CD → Variables):
+#   GL_PAT — project/personal access token с правами api + write_repository
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+
 default:
-  image: python:3.11-slim
+  image: python:3.12-slim
+
+variables:
+  GIT_DEPTH: 0  # нужна полная история для updated_at
 
 stages:
   - build
   - deploy
 
-variables:
-  GIT_DEPTH: 0  # full history required for updated_at timestamps
-
-# ── Build tree.json ──────────────────────────────────────────────────────────
+# ── build-tree: регенерация tree.json и search.json при изменении docs/ ──────
 build-tree:
   stage: build
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
       changes:
-        - docs/**
+        - docs/**/*
   before_script:
     - git config user.name  "gitlab-ci[bot]"
-    - git config user.email "gitlab-ci[bot]@users.noreply.gitlab.com"
-    - git remote set-url origin "https://oauth2:${GITLAB_TOKEN}@gitlab.com/${CI_PROJECT_PATH}.git"
+    - git config user.email "gitlab-ci[bot]@noreply.gitlab.com"
+    - git remote set-url origin "https://oauth2:${GL_PAT}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
   script:
     - python3 - <<'PYEOF'
-import os, json, subprocess
+import os, json, re, subprocess
 
 docs_dir = 'docs'
 tree = []
+search = {}
 folder_meta = {}
+
+def parse_frontmatter(text):
+    meta = {}
+    body = text
+    m = re.match(r'^---\r?\n([\s\S]*?)\r?\n---\r?\n?', text)
+    if m:
+        body = text[len(m.group(0)):]
+        for line in m.group(1).splitlines():
+            kv = re.match(r'^(\w[\w-]*):\s*(.*)$', line)
+            if not kv:
+                continue
+            k, v = kv.group(1), kv.group(2).strip()
+            if v.startswith('['):
+                try:
+                    meta[k] = json.loads(v.replace("'", '"'))
+                except Exception:
+                    meta[k] = [s.strip() for s in v[1:-1].split(',') if s.strip()]
+            else:
+                meta[k] = v.strip('"\'')
+        if isinstance(meta.get('tags'), str):
+            meta['tags'] = [s.strip() for s in meta['tags'].split(',') if s.strip()]
+    return meta, body
 
 for root, dirs, files in os.walk(docs_dir):
     dirs.sort()
@@ -46,51 +83,159 @@ for root, dirs, files in os.walk(docs_dir):
         rel  = os.path.relpath(full, docs_dir).replace('\\', '/')
         path = rel[:-3]
         parts = path.split('/')
+
+        with open(full, encoding='utf-8') as fh:
+            raw_content = fh.read()
+
+        fm_meta, body = parse_frontmatter(raw_content)
+        tags   = fm_meta.get('tags', [])
+        author = fm_meta.get('author', '')
+        is_counting = fm_meta.get('isCounting', 'false').lower() not in ('false', '0', 'no', '') \
+            if isinstance(fm_meta.get('isCounting'), str) \
+            else bool(fm_meta.get('isCounting', False))
+
         title = parts[-1].replace('-', ' ').replace('_', ' ').capitalize()
         excerpt = ''
-        with open(full, encoding='utf-8') as fh:
-            for line in fh:
-                line = line.strip()
-                if line.startswith('# '):
-                    title = line[2:].strip()
-                elif line and not line.startswith('#') and not excerpt:
-                    excerpt = line[:140]
+        in_code_block = False
+        for line in body.splitlines():
+            stripped = line.strip()
+            if stripped.startswith('```') or stripped.startswith('~~~'):
+                in_code_block = not in_code_block
+                continue
+            if in_code_block:
+                continue
+            if stripped.startswith('# '):
+                title = stripped[2:].strip()
+                break
+            elif stripped and not stripped.startswith('#') and not excerpt:
+                excerpt = stripped[:140]
+
         folder_titles = {}
         for i in range(len(parts) - 1):
             folder_path = '/'.join(parts[:i+1])
             meta = folder_meta.get(folder_path, {})
             folder_titles[parts[i]] = meta.get('title', parts[i].replace('-', ' ').replace('_', ' ').capitalize())
+
         updated_at = subprocess.run(
             ['git', 'log', '-1', '--format=%cI', '--', full],
             capture_output=True, text=True
         ).stdout.strip() or None
-        tree.append({
-            'path': path,
-            'title': title,
-            'excerpt': excerpt,
-            'parts': parts,
-            'folder_titles': folder_titles,
-            'updated_at': updated_at
-        })
+
+        entry = {
+            'path': path, 'title': title, 'excerpt': excerpt,
+            'parts': parts, 'folder_titles': folder_titles,
+            'updated_at': updated_at, 'tags': tags, 'author': author,
+            'isCounting': is_counting,
+        }
+        if 'glossary' in parts:
+            import re as _re
+            entry['termCount'] = len(_re.findall(r'^\|\s*\*\*', body, _re.MULTILINE))
+        tree.append(entry)
+
+        search[path] = raw_content
+
+def page_sort_key(entry):
+    parts = entry['parts']
+    key = []
+    for depth in range(len(parts)):
+        parent = '/'.join(parts[:depth]) if depth > 0 else '.'
+        part = parts[depth]
+        meta = folder_meta.get(parent, {})
+        pages_order = meta.get('pages', [])
+        if part in pages_order:
+            key.append((0, pages_order.index(part), part))
+        else:
+            key.append((1, 0, part))
+    return key
+
+tree.sort(key=page_sort_key)
 
 with open('tree.json', 'w', encoding='utf-8') as f:
     json.dump(tree, f, ensure_ascii=False, indent=2)
 print(f'tree.json: {len(tree)} pages')
-PYEOF
-    - git add tree.json
-    - git diff --staged --quiet || git commit -m "chore: update tree.json" && git push
 
-# ── Deploy to GitLab Pages ───────────────────────────────────────────────────
+with open('search.json', 'w', encoding='utf-8') as f:
+    json.dump(search, f, ensure_ascii=False)
+print(f'search.json: {len(search)} entries')
+PYEOF
+    - git add tree.json search.json
+    - git diff --staged --quiet || git commit -m "chore: update tree.json [skip ci]"
+    - git push origin HEAD:$CI_DEFAULT_BRANCH
+
+# ── api-write: запись/удаление файла через GitLab Files API ──────────────────
+# Запуск через pipeline trigger:
+#   curl -X POST https://gitlab.com/api/v4/projects/<ID>/trigger/pipeline \
+#     -F token=<TRIGGER_TOKEN> -F ref=main \
+#     -F "variables[OPERATION]=put_file" \
+#     -F "variables[FILE_PATH]=docs/example.md" \
+#     -F "variables[CONTENT]=<base64>" \
+#     -F "variables[MESSAGE]=docs: update example"
+api-write:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger" && $OPERATION != null'
+  script:
+    - python3 - <<'PYEOF'
+import os, json, urllib.request, urllib.error, urllib.parse
+
+op      = os.environ['OPERATION']          # put_file | delete_file
+path    = os.environ['FILE_PATH']
+content = os.environ.get('CONTENT', '')    # base64-encoded (put_file only)
+message = os.environ['MESSAGE']
+token   = os.environ['GL_PAT']
+project = os.environ['CI_PROJECT_ID']
+server  = os.environ.get('CI_SERVER_URL', 'https://gitlab.com')
+
+encoded_path = urllib.parse.quote(path, safe='')
+api  = f'{server}/api/v4/projects/{project}/repository/files/{encoded_path}'
+hdrs = {'PRIVATE-TOKEN': token, 'Content-Type': 'application/json'}
+
+def gl_req(url, data=None, method='GET'):
+    req = urllib.request.Request(url, data=data, headers=hdrs, method=method)
+    return urllib.request.urlopen(req)
+
+if op == 'put_file':
+    exists = True
+    try:
+        gl_req(f'{api}?ref=main')
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            exists = False
+        else:
+            raise
+    body = json.dumps({
+        'branch': 'main', 'commit_message': message,
+        'content': content, 'encoding': 'base64',
+    }).encode()
+    gl_req(api, data=body, method='PUT' if exists else 'POST')
+    print(f'Written: {path}')
+
+elif op == 'delete_file':
+    body = json.dumps({'branch': 'main', 'commit_message': message}).encode()
+    try:
+        gl_req(api, data=body, method='DELETE')
+        print(f'Deleted: {path}')
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            print(f'File not found, skipping: {path}')
+        else:
+            raise
+
+else:
+    raise ValueError(f'Unknown operation: {op}')
+PYEOF
+
+# ── pages: деплой на GitLab Pages ────────────────────────────────────────────
+# GitLab Pages требует артефакт в директории public/.
+# Срабатывает на любой пуш в main (tree.json, docs, front-end файлы).
 pages:
   stage: deploy
   rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "trigger"'
   script:
     - mkdir -p public
-    - cp index.html style.css config.json tree.json public/
-    - cp -r i18n public/
-    - cp -r docs public/
-    - "[ -f favicon.ico ] && cp favicon.ico public/ || true"
+    - cp -r . public/
+    - rm -rf public/public
   artifacts:
     paths:
       - public
