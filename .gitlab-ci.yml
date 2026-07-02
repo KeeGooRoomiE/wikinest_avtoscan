@@ -130,6 +130,24 @@ for root, dirs, files in os.walk(docs_dir):
         if 'glossary' in parts:
             import re as _re
             entry['termCount'] = len(_re.findall(r'^\|\s*\*\*', body, _re.MULTILINE))
+        if 'incidents' in parts and parts[-1] == 'index':
+            import re as _re
+            count = 0
+            expect = None  # 'header' then 'sep' then data rows
+            for line in body.splitlines():
+                if _re.match(r'^##\s', line):
+                    expect = 'header'
+                    continue
+                if not line.startswith('|'):
+                    continue
+                if expect == 'header':
+                    expect = 'sep'
+                    continue
+                if expect == 'sep':
+                    expect = None
+                    continue
+                count += 1
+            entry['incidentCount'] = count
         tree.append(entry)
 
         search[path] = raw_content

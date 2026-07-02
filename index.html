@@ -878,6 +878,12 @@ function declDoc(n){
   if(n%10>=2&&n%10<=4) return 'документа';
   return 'документов';
 }
+function declIncident(n){
+  if(n%100>=11&&n%100<=19) return 'инцидентов';
+  if(n%10===1) return 'инцидент';
+  if(n%10>=2&&n%10<=4) return 'инцидента';
+  return 'инцидентов';
+}
 
 function showDashboard(){
   const visibleSections=SECTIONS.filter(s=>!isHiddenSection(s));
@@ -893,6 +899,16 @@ function showDashboard(){
         <div class="dash-card-icon" style="color:${c};background:${c}1a">${sec.icon}</div>
         <div class="dash-card-name">${escHtml(sec.name)}</div>
         <div class="dash-card-count">${countLabel}</div>
+      </div>`;
+    }
+    if(sec.slug==='incidents'){
+      const iPage=tree.find(p=>p.path==='incidents/index');
+      const n=iPage?.incidentCount||0;
+      const onclick=sec.direct?`openPage(tree.find(p=>p.path==='${sec.directPath}'))`:`openSection('${sec.slug}')`;
+      return`<div class="dash-card" onclick="${onclick}">
+        <div class="dash-card-icon" style="color:${c};background:${c}1a">${sec.icon}</div>
+        <div class="dash-card-name">${escHtml(sec.name)}</div>
+        <div class="dash-card-count">${n} ${declIncident(n)}</div>
       </div>`;
     }
     const count=tree.filter(p=>p.path.startsWith(sec.folder+'/')&&!isHiddenPage(p)&&p.isCounting).length;
