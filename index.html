@@ -942,7 +942,10 @@ async function showBirthdayBannerOnDashboard(){
   if(!upcoming.length) return;
   const banner=buildBirthdayBanner(upcoming);
   const main=$('empty')?.querySelector('.dash-main');
-  if(main&&banner) main.prepend(banner);
+  if(main&&banner){
+    const welcome=main.querySelector('.dash-welcome');
+    if(welcome) welcome.after(banner); else main.prepend(banner);
+  }
 }
 
 function openSection(slug){
