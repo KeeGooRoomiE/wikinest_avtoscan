@@ -101,7 +101,26 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://github.com/KeeGooRoomiE/wikinest_avtoscan.git/info/refs?service=git-receive-pack)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://github.com/KeeGooRoomiE/wikinest_avtoscan.git/info/refs?service=git-receive-pack\")",
       "Bash(git config *)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Read(//Users/xandergusarov/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/f74a87ee-7c44-44a0-a7a7-1043df59fe36/1f0317fa-4322-4226-82a1-5ef1ced9a3b7/skills/docx/**)",
+      "Bash(extract-text \"/Users/xandergusarov/Downloads/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\")",
+      "Bash(pandoc \"/Users/xandergusarov/Downloads/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\" -o - -t markdown)",
+      "Bash(pandoc \"/Users/xandergusarov/Downloads/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\" -t plain)",
+      "Bash(cp \"/Users/xandergusarov/Downloads/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\" /tmp/glossary.docx)",
+      "Bash(pandoc /tmp/glossary.docx -t plain)",
+      "Bash(pandoc \"/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\" -t plain)",
+      "Bash(pandoc \"/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/Глоссарий_АвтоСкан_v3_расширенный_список_терминов.docx\" -t markdown)",
+      "Bash(extract-text \"/Users/xandergusarov/Downloads/Документ Microsoft Word \\(2\\).docx\")",
+      "Bash(pandoc \"/Users/xandergusarov/Downloads/Документ Microsoft Word \\(2\\).docx\" -o /tmp/welcome.md)",
+      "Bash(python3 -c \"import json,sys; t=json.load\\(sys.stdin\\); [print\\(json.dumps\\(e,ensure_ascii=False\\)\\) for e in t if e.get\\('path',''\\).startswith\\('company'\\)]\")",
+      "Bash(python3 -c \"import json,sys; r=json.load\\(sys.stdin\\); [print\\(x.get\\('slug'\\), x.get\\('name'\\)\\) for x in r]\")",
+      "Bash(python3 -c \"import json; r=json.load\\(open\\('/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/roles.json'\\)\\); print\\(json.dumps\\(r[0], indent=2, ensure_ascii=False\\)\\)\")",
+      "Bash(python3 -c \"import json,sys;r=json.load\\(sys.stdin\\);print\\(f'{len\\(r\\)} roles, first slug: {r[0][\\\\\"slug\\\\\"]}'\\)\")",
+      "Bash(python3 -c \"import json; t=json.load\\(open\\('/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/tree.json'\\)\\); [print\\(i, e['path']\\) for i,e in enumerate\\(t\\)]\")",
+      "Bash(python3 -c \"import json; t=json.load\\(open\\('/Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/tree.json'\\)\\); [print\\(i, e['path']\\) for i,e in enumerate\\(t\\) if 'company' in e['path'] or i<2]\")",
+      "Bash(xargs -I{} sh -c 'echo \"=== {} ===\"; cat {}')",
+      "Bash(pandoc \"/Users/xandergusarov/Downloads/Глоссарий_АвтоСкан_v3_алфавитный.docx\" -o /tmp/glossary_new.md)",
+      "Bash(grep -v '^$')"
     ]
   }
 }
