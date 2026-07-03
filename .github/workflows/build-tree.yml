@@ -162,13 +162,30 @@ jobs:
           tree.sort(key=page_sort_key)
 
           # Add _folder marker entries for directories that have _meta.json but no pages
+          def folder_marker_key(item):
+              rd = item[0]
+              parts = rd.split('/')
+              key = []
+              for i in range(len(parts)):
+                  parent = '/'.join(parts[:i]) if i > 0 else '.'
+                  part = parts[i]
+                  m = folder_meta.get(parent, {})
+                  pages_ord = m.get('pages', [])
+                  if part in pages_ord:
+                      key.append((0, pages_ord.index(part), part))
+                  else:
+                      key.append((1, 0, part))
+              return key
+
           page_paths = {e['path'] for e in tree}
-          for rel_dir, meta in sorted(folder_meta.items()):
+          for rel_dir, meta in sorted(folder_meta.items(), key=folder_marker_key):
             if rel_dir == '.':
               continue
             parts = rel_dir.split('/')
             has_child = any(p == rel_dir or p.startswith(rel_dir + '/') for p in page_paths)
-            if not has_child:
+            parent_dir = '/'.join(parts[:-1]) if len(parts) > 1 else '.'
+            in_parent_pages = parts[-1] in folder_meta.get(parent_dir, {}).get('pages', [])
+            if not has_child or in_parent_pages:
               ft = {}
               for i in range(len(parts) - 1):
                 parent = '/'.join(parts[:i+1])

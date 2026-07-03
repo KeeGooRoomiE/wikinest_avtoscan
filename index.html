@@ -2050,7 +2050,8 @@ function runSearch(q){
   hits.forEach(({p,ft,excerpt})=>{
     const div=document.createElement('div');
     div.className='sr-item';
-    div.innerHTML=`<div class="sr-title">${hl(p.title)}${ft?`<span class="sr-ft-badge">${t('full_text')}</span>`:''}</div><div class="sr-excerpt">${hl(excerpt||p.excerpt||p.path)}</div>`;
+    const ex=excerpt||p.excerpt||'';
+    div.innerHTML=`<div class="sr-title">${hl(p.title)}</div>${ex?`<div class="sr-excerpt">${hl(ex)}</div>`:''}`;
     div.onclick=()=>{closeSearch();window._searchHighlight=q;openPage(p);};
     res.appendChild(div);
   });

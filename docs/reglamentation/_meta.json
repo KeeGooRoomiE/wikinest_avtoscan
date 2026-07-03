@@ -1,1 +1,1 @@
-{ "title": "Регламенты", "order": 3 }
+{ "title": "Регламенты", "order": 3, "pages": ["sales", "service", "support", "accounting"] }
