@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>База знаний Автоскан</title>
-<link rel="icon" type="image/png" href="docs/assets/brand/autoskan-logo-transparent.png">
-<link rel="icon" type="image/x-icon" href="docs/assets/brand/autoskan-favicon-32x32.ico">
+<link rel="icon" type="image/png" href="/docs/assets/brand/autoskan-logo-transparent.png">
+<link rel="icon" type="image/x-icon" href="/docs/assets/brand/autoskan-favicon-32x32.ico">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" integrity="sha512-pmjEJQ7CveksANaAKdCJZMig7eAcCFFzE1b5XnlnxdB/vU3AOStJ5SF7w4tFuqskuU31ETnAaWTYRQOYg2WHKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 
 </head>
 <body>
 <div id="header">
   <div class="logo" onclick="goHome()">
-    <img class="logo-img" src="docs/assets/brand/autoskan-logo-transparent.png" alt="Автоскан">
+    <img class="logo-img" src="/docs/assets/brand/autoskan-logo-transparent.png" alt="Автоскан">
     <div class="logo-text">
       <span id="site-name">База знаний</span>
       <span class="logo-sub">Автоскан</span>
@@ -29,7 +29,6 @@
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <span id="lbl-search">Search...</span><span class="kbd">⌘K</span>
   </div>
-  <a id="actions-status" title="GitHub Actions status" target="_blank" style="display:none;align-items:center;gap:5px;font-size:11px;padding:4px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2);text-decoration:none;cursor:pointer"></a>
   <div id="role-badge" style="display:none;align-items:center;gap:5px;font-size:12px;padding:3px 6px 3px 8px;border:0.5px solid var(--border);border-radius:6px;background:var(--bg2);color:var(--text2)"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg><span id="role-name"></span><button onclick="logoutRole()" title="Выйти" style="background:none;border:none;cursor:pointer;padding:0;color:var(--text3);font-size:14px;line-height:1;margin-left:3px;display:flex;align-items:center">✕</button></div>
   <button id="btn-settings" onclick="openSettings()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
@@ -147,6 +146,7 @@
           <!-- Insert -->
           <button class="tb-btn" title="Link" onclick="fmt('[','](url)','link text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></button>
           <button class="tb-btn" title="Image" onclick="fmt('![','](url)','alt text')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></button>
+          <button class="tb-btn" title="Video" onclick="fmtVideo()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="15" height="16" rx="2"/><path d="M22 8l-5 4 5 4V8z"/></svg></button>
           <button class="tb-btn" title="Table" onclick="fmtTable()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg></button>
           <button class="tb-btn" title="Horizontal rule" onclick="fmt('\n---\n','','')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/></svg></button>
         </div>
@@ -197,7 +197,7 @@ let cfg={},i18n={};
 let tree=[];
 
 // ── Navigation state ──
-let currentPath=null,currentSha=null;
+let currentPath=null;
 
 // ── Editor state ──
 let editorDirty=false,originalContent=null,dragDropInit=false;
@@ -241,9 +241,6 @@ let _pendingRestoreContent=null;
 // _pendingUrlPage: page path read from ?p= on startup (set by 404.html redirect)
 // _basePath: repo root prefix in the URL, e.g. '/wikinest' or '' for custom domains
 let _pendingUrlPage=null,_basePath='';
-
-// ── Deploy watcher ──
-let pollTimer=null,watchingRunId=null,watchDeployGen=0;
 
 // ── Display preferences (persisted to localStorage) ──
 let displayPrefs={showToc:true,splitPreview:true};
@@ -355,24 +352,20 @@ function parseFrontmatter(md){
 
 async function init(){
   loadDisplayPrefs();
-  // Base path = pathname root of this page (e.g. '/wikinest' for project pages, '' for root)
-  _basePath=location.pathname.replace(/\/$/, '').replace(/\/[^/]*\.[^/]*$/, '');
-  // Handle incoming deep link from 404.html redirect (?p=some/page)
-  const _urlParam=new URLSearchParams(location.search).get('p');
-  if(_urlParam){
-    _pendingUrlPage=decodeURIComponent(_urlParam).replace(/^\/+|\.md$/g,'');
-    history.replaceState(null,'',location.pathname); // strip ?p= immediately
-  }
-  // 1. load config.json from repo — source of truth for owner/repo/site_name/password hash
+  // Served from the domain root by Caddy — no project-page subpath to strip.
+  _basePath='';
+  // Clean-URL deep link: Caddy's try_files sends any unmatched path straight
+  // to docs.html (see Caddyfile), so location.pathname IS the requested page —
+  // no 404.html redirect-with-?p= trick needed here (that was a GitHub Pages
+  // workaround for not supporting arbitrary rewrites).
+  const _fromPath=location.pathname.replace(/^\/+|\/+$/g,'');
+  if(_fromPath) _pendingUrlPage=decodeURIComponent(_fromPath).replace(/\.md$/,'');
+
+  // 1. load config.json — site_name/lang only; this path has no tokens
   try{
-    const r=await fetch('config.json',{cache:'no-cache'});
+    const r=await fetch('/config.json',{cache:'no-cache'});
     if(r.ok) cfg=await r.json();
   }catch{}
-  cfg.provider=cfg.provider||'github';
-
-  // trigger_token stored reversed in config to avoid secret scanning; restore at runtime
-  if(cfg.trigger_token_rev) cfg.trigger_token=cfg.trigger_token_rev.split('').reverse().join('');
-  cfg.trigger_token=cfg.trigger_token||'';
 
   // 2. merge user-local overrides from localStorage
   const saved=localStorage.getItem('wn_cfg');
@@ -386,22 +379,12 @@ async function init(){
   await loadI18n('ru');
   applyI18n();
 
-  await loadRoles();
-  const savedRaw=localStorage.getItem('wn_role');
-  if(savedRaw){
-    try{
-      const parsed=JSON.parse(savedRaw);
-      if(parsed&&parsed.slug) currentRole=parsed;
-      else currentRole=roles.find(r=>r.slug===savedRaw)||null;
-    }catch{currentRole=roles.find(r=>r.slug===savedRaw)||null;}
-  }
+  // Session lives server-side (HttpOnly cookie) — ask the backend who we are
+  // rather than trusting a client-stored role.
+  const restored=await restoreSession();
+  if(!restored){openRoleModal();return;}
   applyRoleUI();
-  if(!currentRole){openRoleModal();return;}
-
-  if(cfg.owner&&cfg.repo){
-    loadTree();
-    setTimeout(()=>pollActions(null),1500);
-  } else showSetupBanner();
+  loadTree();
 
   document.addEventListener('keydown',e=>{
     const inEditor=$('editor-wrap').classList.contains('edit-active');
@@ -428,16 +411,9 @@ async function init(){
   });
 }
 
-function showSetupBanner(){
-  $('empty-placeholder').innerHTML=`
-    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.25"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-    <span style="font-size:13px;color:var(--text2)">Click ⚙ to add your token and get started</span>`;
-  $('recent-wrap').style.display='none';
-}
-
 async function loadI18n(lang){
   try{
-    const r=await fetch(`i18n/${lang}.json`);
+    const r=await fetch(`/i18n/${lang}.json`);
     i18n=await r.json();
   }catch{i18n={};}
 }
@@ -476,101 +452,62 @@ function sharePage(){
   });
 }
 
-// ── API layer ──
-// ghFetch — for Actions API calls (status polling, workflow dispatch)
-// Uses cfg.trigger_token, which is a fine-grained PAT with actions:write only
-const ghFetch=async(path,method='GET',body)=>{
-  const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/${path}`,{
+// ── API layer — same-origin calls to the local backend (see backend/app.py) ──
+// No CORS, no external host: docs.html and /api/* are served from the same
+// domain by Caddy, so this is all plain same-origin fetch().
+async function apiFetch(path,method='GET',body){
+  const r=await fetch(path,{
     method,
-    headers:{Authorization:`Bearer ${cfg.trigger_token}`,'Content-Type':'application/json',Accept:'application/vnd.github.v3+json'},
-    body:body?JSON.stringify(body):undefined
+    headers:body?{'Content-Type':'application/json'}:undefined,
+    body:body?JSON.stringify(body):undefined,
+    credentials:'same-origin'
   });
-  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
-  if(r.status===204) return null;
-  return r.json();
-};
-
-function rawUrl(path){
-  return`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
+  if(!r.ok){
+    let msg=r.statusText;
+    try{const e=await r.json();msg=e.error||msg;}catch{}
+    throw new Error(msg);
+  }
+  return r.status===204?null:r.json();
 }
 
-// apiGetFile — unauthenticated read (repo is public)
-async function apiGetFile(path){
-  const r=await fetch(`https://api.github.com/repos/${cfg.owner}/${cfg.repo}/contents/${path}`,{
-    headers:{Accept:'application/vnd.github.v3+json'}
-  });
-  if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.message||msg;}catch{}throw new Error(msg);}
-  const d=await r.json();
-  return{sha:d.sha,content:d.content};
+// fetchDoc — plain static-file read (docs/*.md, same as tree.json/search.json)
+async function fetchDoc(path){
+  const r=await fetch('/'+path,{cache:'no-cache'});
+  if(!r.ok) throw new Error(r.statusText);
+  return r.text();
 }
 
-// dispatchApiWrite — triggers api-write.yml; actual commit uses secrets.GH_PAT server-side
-async function dispatchApiWrite(operation,path,message,content='',extra={}){
-  if(!cfg.trigger_token) throw new Error('trigger_token не настроен в config.json');
-  await ghFetch('actions/workflows/api-write.yml/dispatches','POST',{
-    ref:'main',
-    inputs:{operation,path,message,content,...extra}
-  });
-}
-
-async function apiPutFile(path,message,content){
-  await dispatchApiWrite('put_file',path,message,content);
-  return{sha:null};
+async function apiPutFile(path,message,content,encoding='text'){
+  await apiFetch('/api/write/put_file','POST',{path,message,content,encoding});
 }
 
 async function apiDeleteFile(path,message){
-  await dispatchApiWrite('delete_file',path,message);
+  await apiFetch('/api/write/delete_file','POST',{path,message});
 }
 
-function normalizeRun(run){
-  if(cfg.provider!=='gitlab') return run;
-  const active=['running','preparing','pending','created','waiting_for_resource','scheduled'].includes(run.status);
-  const gl2c={success:'success',failed:'failure',canceled:'cancelled',skipped:'cancelled',manual:'cancelled'};
-  return{
-    id:run.id,
-    status:active?(run.status==='running'||run.status==='preparing'?'in_progress':'queued'):'completed',
-    conclusion:active?null:(gl2c[run.status]||run.status),
-    html_url:run.web_url
-  };
+async function apiAppendRow(path,message,section_name,new_row){
+  await apiFetch('/api/write/append_row','POST',{path,message,section_name,new_row});
+}
+
+// apiUploadFile — multipart, not base64-in-JSON. Fine for a screenshot either
+// way, but a base64 string in a JSON body is a bad way to move a video file
+// through the browser: ~33% size inflation, held as one big JS string in
+// memory, no streaming. FormData avoids all of that.
+async function apiUploadFile(path,message,file){
+  const fd=new FormData();
+  fd.append('path',path);
+  fd.append('message',message);
+  fd.append('file',file);
+  const r=await fetch('/api/write/upload',{method:'POST',body:fd,credentials:'same-origin'});
+  if(!r.ok){
+    let msg=r.statusText;
+    try{const e=await r.json();msg=e.error||msg;}catch{}
+    throw new Error(msg);
+  }
+  return r.json();
 }
 
 const b64enc=s=>btoa(unescape(encodeURIComponent(s)));
-const b64dec=s=>decodeURIComponent(escape(atob(s)));
-
-// ── Password / crypto ──
-function _sha256js(s){
-  const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
-  const H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
-  const bytes=new TextEncoder().encode(s);
-  const len=bytes.length,bl=len*8;
-  const padded=new Uint8Array(Math.ceil((len+9)/64)*64);
-  padded.set(bytes);padded[len]=0x80;
-  const dv=new DataView(padded.buffer);
-  dv.setUint32(padded.length-4,bl>>>0,false);
-  dv.setUint32(padded.length-8,Math.floor(bl/2**32),false);
-  const r=(n,x)=>(x>>>n)|(x<<(32-n));
-  for(let i=0;i<padded.length;i+=64){
-    const w=new Uint32Array(64);
-    for(let j=0;j<16;j++)w[j]=dv.getUint32(i+j*4,false);
-    for(let j=16;j<64;j++){const s0=r(7,w[j-15])^r(18,w[j-15])^(w[j-15]>>>3),s1=r(17,w[j-2])^r(19,w[j-2])^(w[j-2]>>>10);w[j]=(w[j-16]+s0+w[j-7]+s1)|0;}
-    let [a,b,c,d,e,f,g,h]=[...H];
-    for(let j=0;j<64;j++){const S1=r(6,e)^r(11,e)^r(25,e),ch=(e&f)^(~e&g),t1=(h+S1+ch+K[j]+w[j])|0,S0=r(2,a)^r(13,a)^r(22,a),maj=(a&b)^(a&c)^(b&c),t2=(S0+maj)|0;h=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0;}
-    H[0]=(H[0]+a)|0;H[1]=(H[1]+b)|0;H[2]=(H[2]+c)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+f)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0;
-  }
-  return H.map(n=>(n>>>0).toString(16).padStart(8,'0')).join('');
-}
-const sha256=async s=>{
-  if(crypto?.subtle){
-    const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
-    return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-  }
-  return _sha256js(s);
-};
-
-async function checkPassword(pw){
-  const hash=await sha256(pw);
-  return hash===cfg.edit_password_hash;
-}
 
 function requireUnlock(){
   return new Promise(resolve=>{
@@ -580,13 +517,19 @@ function requireUnlock(){
   });
 }
 // ── Role functions ──
+// Password verification happens server-side (POST /api/login) — the browser
+// never sees password_hash, unlike the index.html/GitHub path where the full
+// roles.json (hashes included) is fetched and compared client-side.
 async function loadRoles(){
-  try{const r=await fetch('roles.json',{cache:'no-cache'});if(r.ok)roles=await r.json();}catch{}
+  try{roles=await apiFetch('/api/roles');}catch{roles=[];}
 }
 
-async function matchRole(pw){
-  const hash=await sha256(pw);
-  return roles.find(r=>r.password_hash&&r.password_hash===hash)||null;
+async function restoreSession(){
+  try{
+    const data=await apiFetch('/api/me');
+    if(data.role){currentRole=data.role;await loadRoles();return true;}
+  }catch{}
+  return false;
 }
 
 function canEdit(){return currentRole?.can_edit===true;}
@@ -625,24 +568,24 @@ function openRoleModal(){
 
 async function submitRoleLogin(){
   const pw=$('role-pw-input').value;
-  const role=await matchRole(pw);
-  if(role){
-    currentRole=role;
-    const {password_hash:_,...roleToStore}=role;
-    localStorage.setItem('wn_role',JSON.stringify(roleToStore));
+  try{
+    const data=await apiFetch('/api/login','POST',{password:pw});
+    currentRole=data.role;
+    await loadRoles();
     $('role-overlay').style.display='none';
     applyRoleUI();
-    if(cfg.owner&&cfg.repo){loadTree();setTimeout(()=>pollActions(null),1500);}
-    else showSetupBanner();
-  }else{
-    $('role-pw-error').textContent='Неверный пароль';
+    loadTree();
+  }catch(e){
+    $('role-pw-error').textContent=/too many attempts/.test(e.message)
+      ?'Слишком много попыток, попробуйте позже'
+      :'Неверный пароль';
     $('role-pw-error').style.display='block';
   }
 }
 
 function logoutRole(){
+  apiFetch('/api/logout','POST').catch(()=>{});
   currentRole=null;
-  localStorage.removeItem('wn_role');
   $('tree').innerHTML='';
   $('view-wrap').style.display='none';
   $('empty').style.display='none';
@@ -654,19 +597,8 @@ function applyRoleUI(){
   const badge=$('role-badge');
   if(badge&&currentRole){badge.style.display='flex';$('role-name').textContent=currentRole.name;}
   const isOwner=canEdit();
-  // Owner-only header controls
-  ['btn-settings','actions-status'].forEach(id=>{
-    const el=$( id);
-    if(el) el.style.display=isOwner?'':'none';
-  });
-}
-
-// Helper: call from browser console to generate a password hash for roles.json
-// Example: generatePasswordHash('mypassword').then(h => console.log(h))
-async function generatePasswordHash(pw){
-  const h=await sha256(pw);
-  console.log(`Password: "${pw}"\nHash: "${h}"`);
-  return h;
+  const settingsBtn=$('btn-settings');
+  if(settingsBtn) settingsBtn.style.display=isOwner?'':'none';
 }
 
 // ── Section helpers ──
@@ -797,21 +729,19 @@ function openSectionVisibility(sec){
 }
 
 async function saveSectionVisibility(folderKey){
+  const changes={};
   ['support','installer','sales'].forEach(slug=>{
     const el=$('secvis-'+slug);
-    if(!el) return;
-    const role=roles.find(r=>r.slug===slug);
-    if(!role) return;
-    const hs=role.hidden_sections||[];
-    if(el.checked){
-      role.hidden_sections=hs.filter(s=>s!==folderKey);
-    }else{
-      if(!hs.includes(folderKey)) role.hidden_sections=[...hs,folderKey];
-    }
+    if(el) changes[slug]=el.checked;
   });
   closeModal();
-  await updateRolesJson();
-  renderTree(tree);
+  try{
+    // Backend applies the toggle against its own roles.json and returns the
+    // updated (sanitized) list — the client never round-trips password_hash.
+    roles=await apiFetch('/api/roles/visibility','POST',{folder_key:folderKey,roles:changes});
+    toast('Видимость раздела сохранена');
+    renderTree(tree);
+  }catch(e){toast('Ошибка: '+e.message,true);}
 }
 
 function toggleFavorite(){
@@ -957,7 +887,7 @@ function openSection(slug){
 function goHome(){
   if(editorDirty&&!confirm('Вы не сохранили изменения. Покинуть страницу?')) return;
   currentSection=null;
-  currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
+  currentPath=null;originalContent=null;editorDirty=false;
   $('panels').classList.remove('split');
   $('view-wrap').style.display='none';
   $('editor-wrap').style.display='none';
@@ -985,16 +915,9 @@ function toggleSidebar(){const s=$("sidebar");s.classList.toggle("open");$("side
 // ── JSON file updaters ──
 async function updateTreeJson(){
   try{
-    await apiPutFile('tree.json','chore: update tree.json',b64enc(JSON.stringify(tree,null,2)));
-    toast('Видимость обновлена — деплой запущен');
+    await apiPutFile('tree.json','chore: update tree.json',JSON.stringify(tree,null,2));
+    toast('Видимость обновлена');
   }catch(e){toast('Ошибка обновления tree.json: '+e.message,true);}
-}
-
-async function updateRolesJson(){
-  try{
-    await apiPutFile('roles.json','chore: update roles visibility',b64enc(JSON.stringify(roles,null,2)));
-    toast('Видимость раздела сохранена — деплой запущен');
-  }catch(e){toast('Ошибка сохранения ролей: '+e.message,true);}
 }
 
 // Role visibility checklist HTML (shared by page & section modals)
@@ -1055,7 +978,7 @@ function getSelectedEditors(){
 async function loadTree(){
   $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
   try{
-    const r=await fetch(rawUrl('tree.json'),{cache:'no-cache'});
+    const r=await fetch('/tree.json',{cache:'no-cache'});
     if(!r.ok) throw new Error();
     tree=await r.json();
     renderTree(tree);
@@ -1248,14 +1171,11 @@ async function openPage(page){
   cancelEdit();
 
   try{
-    const r=await fetch(rawUrl(targetPath),{cache:'no-cache'});
-    if(!r.ok) throw new Error(r.statusText);
-    const md=await r.text();
+    const md=await fetchDoc(targetPath);
     if(currentPath!==targetPath) return; // user navigated away before fetch completed
     // Update the address bar so users can copy a shareable direct link.
-    // On next open the URL goes through 404.html → index.html?p= → openPage().
+    // Caddy's try_files sends this exact path straight back to docs.html.
     history.replaceState(null,'',_basePath+'/'+page.path);
-    currentSha=null;
     renderView(md);
   }catch(e){
     if(currentPath!==targetPath) return;
@@ -1271,14 +1191,14 @@ function renderView(md){
   metaHtml+=`</div>`;
   try{
     let html=marked.parse(body);
-    // Rewrite relative image src attributes to absolute raw-CDN URLs.
-    // Needed because the SPA is served from the Pages root, so the browser
+    // Rewrite relative image src attributes to site-root-relative URLs.
+    // Needed because the SPA is served from the domain root, so the browser
     // resolves relative paths against the site URL, not the .md file location.
     // Matches src="..." that are not already absolute (http/https/protocol-relative/data/fragment).
     if(currentPath){
       html=html.replace(
         /(<img\b[^>]*?\bsrc=")(?!https?:\/\/|\/\/|data:|#)([^"]+)"/gi,
-        (_,prefix,rel)=>`${prefix}${rawUrl(resolveDocRelative(rel))}"`
+        (_,prefix,rel)=>`${prefix}/${resolveDocRelative(rel)}"`
       );
     }
     $('view').innerHTML=metaHtml+html;
@@ -1469,6 +1389,12 @@ function fmtTable(){
   fmt(tmpl,'','');
 }
 
+// For referencing an already-uploaded (or external) video by URL — drag-drop
+// in initDragDrop() inserts the same <video> tag automatically on upload.
+function fmtVideo(){
+  fmt('\n<video controls src="','"></video>\n','url');
+}
+
 // ── Drag-and-drop image upload ──
 function initDragDrop(){
   if(dragDropInit) return;
@@ -1484,28 +1410,27 @@ function initDragDrop(){
   wrap.addEventListener('drop',async e=>{
     e.preventDefault();
     wrap.classList.remove('drag-over');
-    const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/'));
+    const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')||f.type.startsWith('video/'));
     if(!files.length) return;
     const ok=await requireUnlock();
     if(!ok) return;
     for(const file of files){
+      const isVideo=file.type.startsWith('video/');
       try{
-        const ab=await file.arrayBuffer();
-        const bytes=new Uint8Array(ab);
-        let bin='';
-        for(let i=0;i<bytes.length;i++) bin+=String.fromCharCode(bytes[i]);
-        const b64=btoa(bin);
         const ts=Date.now();
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
-        await apiPutFile(uploadPath,`docs: upload image ${safeName}`,b64);
-        const url=rawUrl(uploadPath);
+        await apiUploadFile(uploadPath,`docs: upload ${isVideo?'video':'image'} ${safeName}`,file);
+        const url='/'+uploadPath;
         const ta=$('editor');
         const pos=ta.selectionStart;
-        const ins=`![${safeName}](${url})`;
+        // marked.js passes raw HTML through as-is (see PROJECT_ARCHITECTURE.md
+        // — no DOMPurify, accepted for an internal wiki), so a plain <video>
+        // tag renders as a real player without any renderer changes.
+        const ins=isVideo?`\n<video controls src="${url}"></video>\n`:`![${safeName}](${url})`;
         taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
-        toast(t('image_uploaded'));
+        toast(isVideo?'Видео загружено':t('image_uploaded'));
       }catch(err){toast(`Upload failed: ${err.message}`,true);}
     }
   });
@@ -1560,12 +1485,17 @@ function _activateEditorPanel(){
 
 async function startEdit(){
   $('btn-edit').disabled=true;
+  // canEditPage (not just canEdit) — lets page-level editors[] in, matching
+  // the edit button's own visibility rule in openPage().
+  const _rel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
+  const _page=tree.find(p=>p.path===_rel);
+  if(!canEditPage(_page)){
+    toast('Нет прав на редактирование');
+    $('btn-edit').disabled=false;
+    return;
+  }
   try{
-  const ok=await requireUnlock();
-  if(!ok){$('btn-edit').disabled=false;return;}
-  const data=await apiGetFile(currentPath);
-  currentSha=data.sha;
-  const md=b64dec(data.content.replace(/\n/g,''));
+  const md=await fetchDoc(currentPath);
   originalContent=md;
   editorDirty=false;
   $('editor').value=md;
@@ -1612,20 +1542,14 @@ async function savePage(){
   const spin=$('save-spin');
   btn.disabled=true;spin.style.display='inline-block';
   try{
-    await apiPutFile(currentPath,`docs: update ${currentPath}`,b64enc(content));
+    await apiPutFile(currentPath,`docs: update ${currentPath}`,content);
     originalContent=content;
     editorDirty=false;
     clearDraft(currentPath);
     renderView(content);
     cancelEdit();
-    // The dispatched Actions write hasn't landed yet (that's what watchDeploy
-    // below is waiting on), so this local content IS the freshest known state
-    // — keep searchIndex in sync with it, or a later "Добавить" on this page
-    // rebuilds its view from whatever searchIndex held at first load, silently
-    // discarding this edit from the display (it stays committed on GitHub fine).
-    const _savedRel=currentPath.replace('docs/','').replace(/\.md$/,'');
-    if(searchIndex) searchIndex[_savedRel]=content;
-    watchDeploy(currentPath);
+    toast(t('saved')||'Сохранено');
+    loadTree();
   }catch(e){
     toast(`${t('error_save')}: ${e.message}`,true);
   }finally{
@@ -1745,14 +1669,15 @@ async function createDoc(contextPath){
   const fmRoles=pageRoles.length?`\nroles: [${pageRoles.join(',')}]`:'';
   const content=`---\ntitle: ${title}\nisCounting: true${fmRoles}\n---\n# ${title}\n\n`;
   try{
-    await apiPutFile(fullPath,`docs: create ${fullPath}`,b64enc(content));
+    await apiPutFile(fullPath,`docs: create ${fullPath}`,content);
     closeModal();
-    const parts=relPath.split('/');
-    const page={path:relPath,title,parts,excerpt:'',folder_titles:{},isCounting:true,roles:pageRoles,updated_at:new Date().toISOString(),tags:[],author:''};
-    tree.push(page);
-    renderTree(tree);
-    openPage(page);
-    watchDeploy(fullPath);
+    // Backend has already rebuilt tree.json synchronously by the time this
+    // resolves — load the real entry instead of hand-approximating one
+    // (folder_titles, title-from-H1 etc. were guessed here before and could
+    // drift from what the backend actually computes).
+    await loadTree();
+    const page=tree.find(p=>p.path===relPath);
+    if(page) openPage(page);
   }catch(e){toast(`Ошибка: ${e.message}`,true);}
 }
 
@@ -1766,19 +1691,14 @@ async function createFolder(contextPath){
   const relPath=contextPath?`${contextPath}/${slug}`:slug;
   const metaPath=`docs/${relPath}/_meta.json`;
   try{
-    await apiPutFile(metaPath,`docs: create folder ${relPath}`,b64enc(JSON.stringify({title},null,2)));
+    await apiPutFile(metaPath,`docs: create folder ${relPath}`,JSON.stringify({title},null,2));
     closeModal();
     const parts=relPath.split('/');
-    const ft={};
-    for(let i=0;i<parts.length-1;i++){
-      const pp=parts.slice(0,i+1).join('/');
-      const existing=tree.find(p=>p._folder&&p.path===pp)||tree.find(p=>p.path.startsWith(pp+'/'));
-      ft[parts[i]]=existing?.folder_titles?.[parts[i]]||parts[i].replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    }
-    tree.push({_folder:true,path:relPath,title,parts,folder_titles:ft});
     const sec=SECTIONS.find(s=>s.folder===parts[0]);
     if(sec) currentSection=sec.slug;
-    renderTree(tree);
+    // Backend already synthesizes the _folder marker entry on rebuild — load
+    // it rather than hand-building folder_titles here.
+    await loadTree();
     toast(`Папка «${title}» создана`);
   }catch(e){toast(`Ошибка: ${e.message}`,true);}
 }
@@ -1799,10 +1719,8 @@ async function doDelete(){
   if(!ok) return;
   try{
     const deletedPath=currentPath; // capture before state reset
-    const meta=await apiGetFile(deletedPath);
     await apiDeleteFile(deletedPath,`docs: delete ${deletedPath}`);
-    const deletedRel=deletedPath.replace('docs/','').replace(/\.md$/,'');
-    currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
+    currentPath=null;originalContent=null;editorDirty=false;
     $('panels').classList.remove('split');
     $('view-wrap').style.display='none';
     $('editor-wrap').style.display='none';
@@ -1815,10 +1733,11 @@ async function doDelete(){
     $('edit-btns').style.display='none';
     $('breadcrumb').innerHTML='';
     const tocDel=$('toc');if(tocDel)tocDel.style.display='none';
-    tree=tree.filter(p=>p.path!==deletedRel);
-    renderTree(tree);
-    showEmpty();
-    watchDeploy(deletedPath);
+    // loadTree() re-renders from the real (already-rebuilt) tree.json and,
+    // since currentPath is null at this point, shows the dashboard itself —
+    // no need to filter the old tree by hand or call showEmpty() separately.
+    await loadTree();
+    toast(t('saved')||'Удалено');
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
@@ -1849,18 +1768,10 @@ async function doRename(){
   if(!ok) return;
   closeModal();
   try{
-    const oldData=await apiGetFile(oldPath);
-    const content=b64dec(oldData.content.replace(/\n/g,''));
-    await apiPutFile(newPath,`docs: rename ${oldPath} → ${newPath}`,b64enc(content));
+    const content=await fetchDoc(oldPath);
+    await apiPutFile(newPath,`docs: rename ${oldPath} → ${newPath}`,content);
     await apiDeleteFile(oldPath,`docs: rename ${oldPath} → ${newPath}`);
-    const oldRel=oldPath.replace('docs/','').replace(/\.md$/,'');
-    const parts=newRel.split('/');
-    const title=parts[parts.length-1].replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    const renamedPage={path:newRel,title,parts,excerpt:'',folder_titles:{}};
-    tree=tree.filter(p=>p.path!==oldRel);
-    tree.push(renamedPage);
-    renderTree(tree);
-    currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
+    currentPath=null;originalContent=null;editorDirty=false;
     $('panels').classList.remove('split');
     $('view-wrap').style.display='none';
     $('btn-edit').style.display='none';
@@ -1870,10 +1781,13 @@ async function doRename(){
     $('btn-history').style.display='none';
     $('breadcrumb').innerHTML='';
     const tocRen=$('toc');if(tocRen)tocRen.style.display='none';
-    showEmpty();
+    // Real entry from the rebuilt tree.json — title comes from the file's
+    // actual H1/frontmatter via the backend, not a titlecased guess from the
+    // new slug (which could disagree with the real title).
+    await loadTree();
     toast(t('saved'));
-    openPage(renamedPage);
-    watchDeploy(newPath);
+    const renamedPage=tree.find(p=>p.path===newRel);
+    if(renamedPage) openPage(renamedPage);
   }catch(e){toast(`Error: ${e.message}`);}
 }
 
@@ -1977,14 +1891,11 @@ async function submitAppend(){
   closeModal();
   const relPath=currentPath.replace('docs/','').replace(/\.md$/,'');
   try{
-    // Send only the tiny row — server fetches the file and appends server-side
-    await dispatchApiWrite('append_row',currentPath,`docs: append entry to ${relPath} (${section})`,'',{section_name:section,new_row:newRow});
-    // Update local view from searchIndex (already in memory, no extra fetch)
-    if(searchIndex&&searchIndex[relPath]){
-      const newMd=_appendRowToSection(searchIndex[relPath],section,newRow);
-      searchIndex[relPath]=newMd;
-      renderView(newMd);
-    }
+    // Send only the tiny row — the backend reads the file and appends server-side
+    await apiAppendRow(currentPath,`docs: append entry to ${relPath} (${section})`,section,newRow);
+    const freshMd=await fetchDoc(currentPath);
+    if(searchIndex) searchIndex[relPath]=freshMd;
+    renderView(freshMd);
     toast('Запись добавлена');
   }catch(e){toast(`Ошибка: ${escHtml(e.message)}`,true);}
 }
@@ -1997,11 +1908,14 @@ function showEmpty(){
 
 // ── Search ──
 async function ensureSearchIndex(){
-  if(searchIndex!==null) return;
+  // Always fresh, not once-per-session — search.json is a local file the
+  // backend already keeps current, not a GitHub raw-CDN fetch worth avoiding.
+  // Caching this was the root cause of stale-content bugs (glossary title
+  // reverting after "Добавить" — the append rebuilt its view from whatever
+  // this held at first load, which could predate a later edit).
   try{
-    const r=await fetch(rawUrl('search.json'),{cache:'no-cache'});
-    if(r.ok) searchIndex=await r.json();
-    else searchIndex={};
+    const r=await fetch('/search.json',{cache:'no-cache'});
+    searchIndex=r.ok?await r.json():{};
   }catch{searchIndex={};}
 }
 
@@ -2076,14 +1990,10 @@ async function openHistory(){
 
 async function fetchHistory(){
   try{
-    let commits;
-    if(cfg.provider==='gitlab'){
-      const raw=await glFetch(`repository/commits?path=${encodeURIComponent(currentPath)}&per_page=20`);
-      commits=raw.map(c=>({sha:c.id,short:c.id.slice(0,7),message:c.message.split('\n')[0],author:c.author_name,date:c.committed_date}));
-    } else {
-      const raw=await ghFetch(`commits?path=${currentPath}&per_page=20`);
-      commits=raw.map(c=>({sha:c.sha,short:c.sha.slice(0,7),message:c.commit.message.split('\n')[0],author:c.commit.author.name,date:c.commit.author.date}));
-    }
+    // Backed by `git log` against the local checkout (backend/git_ops.py) —
+    // full per-edit history survives even though only the daily backup push
+    // to GitHub is on a slower cadence.
+    const commits=await apiFetch(`/api/history?path=${encodeURIComponent(currentPath)}`);
     renderHistoryList(commits);
   }catch(e){
     $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px">Error: ${escHtml(e.message)}</p>`;
@@ -2105,14 +2015,8 @@ async function previewCommit(sha){
   $('modal-body').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
   $('modal-actions').innerHTML='';
   try{
-    let content;
-    if(cfg.provider==='gitlab'){
-      const d=await glFetch(`repository/files/${encodeURIComponent(currentPath)}?ref=${sha}`);
-      content=b64dec(d.content.replace(/\n/g,''));
-    } else {
-      const d=await ghFetch(`contents/${currentPath}?ref=${sha}`);
-      content=b64dec(d.content.replace(/\n/g,''));
-    }
+    const data=await apiFetch(`/api/history/content?path=${encodeURIComponent(currentPath)}&sha=${encodeURIComponent(sha)}`);
+    const content=data.content;
     const{body}=parseFrontmatter(content);
     _pendingRestoreContent=content;
     $('modal-body').innerHTML=`<div style="max-height:320px;overflow-y:auto;border:0.5px solid var(--border);border-radius:6px;padding:14px;font-size:13px;line-height:1.65">${marked.parse(body)}</div>`;
@@ -2129,9 +2033,7 @@ async function restoreVersion(content){
   closeModal();
   const ok=await requireUnlock();
   if(!ok) return;
-  const data=await apiGetFile(currentPath);
-  currentSha=data.sha;
-  originalContent=b64dec(data.content.replace(/\n/g,''));
+  originalContent=await fetchDoc(currentPath);
   editorDirty=true;
   $('editor').value=content;
   hideDraftBanner();
@@ -2212,36 +2114,45 @@ function updateWikiActive(){
 function openSettings(){
   $('modal-title').textContent='Настройки';
   $('modal-body').innerHTML=`
-    <div style="font-size:12px;color:var(--text2);background:var(--bg2);padding:8px 10px;border-radius:6px;margin-bottom:12px">
-      <span style="font-weight:500;color:var(--text)">${cfg.owner||'?'}/${cfg.repo||'?'}</span><br>
-      <span style="color:var(--text3);font-size:11px">Репозиторий из config.json</span>
-    </div>
     <div class="field">
       <label>Отображение</label>
       <label class="toggle-row"><input type="checkbox" id="pref-toc" ${displayPrefs.showToc?'checked':''} onchange="setDisplayPref('showToc',this.checked)"><span>Показывать оглавление</span></label>
       <label class="toggle-row"><input type="checkbox" id="pref-split" ${displayPrefs.splitPreview?'checked':''} onchange="setDisplayPref('splitPreview',this.checked)"><span>Разделённый редактор</span></label>
+    </div>
+    <div class="field" id="sync-field" style="margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border)">
+      <label>Бэкап в GitHub</label>
+      <div id="sync-status" style="font-size:12px;color:var(--text2)">Загрузка…</div>
+      <button class="bar-btn" style="margin-top:8px" onclick="triggerSyncPush()">Запушить сейчас</button>
     </div>`;
   $('modal-actions').innerHTML=`<button class="btn-primary" onclick="closeModal()">Закрыть</button>`;
   $('modal-overlay').classList.add('open');
+  refreshSyncStatus();
+}
+
+// last_push_at/last_push_error come from the backend's background push loop
+// (see PUSH_INTERVAL_SECONDS in backend/app.py) — this is the "is the daily
+// backup actually landing" check, surfaced right where the owner would look.
+async function refreshSyncStatus(){
+  const el=$('sync-status');
+  if(!el) return;
+  try{
+    const s=await apiFetch('/api/sync/status');
+    el.textContent=s.last_push_at
+      ?`Последний пуш: ${relativeDate(new Date(s.last_push_at*1000).toISOString())}${s.last_push_error?' — ошибка: '+s.last_push_error:''}`
+      :'Пуша ещё не было';
+    el.style.color=s.last_push_error?'var(--red)':'var(--text2)';
+  }catch{el.textContent='Недоступно';}
+}
+
+async function triggerSyncPush(){
+  try{
+    await apiFetch('/api/sync/push','POST');
+    toast('Запушено в GitHub');
+    refreshSyncStatus();
+  }catch(e){toast('Ошибка пуша: '+e.message,true);}
 }
 
 function closeModal(){$('modal-overlay').classList.remove('open');}
-
-// ── Tree per-file deploy status ──
-function setTreeRowStatus(relPath,status){
-  const row=document.querySelector(`.tree-row[data-path="${CSS.escape(relPath)}"]`);
-  if(!row) return;
-  row.querySelector('.tree-status')?.remove();
-  if(!status) return;
-  const span=document.createElement('span');
-  span.className=`tree-status tree-status--${status}`;
-  span.title=status==='pending'?'Deploying…':status==='success'?'Deployed':'Deploy failed';
-  span.textContent=status==='pending'?'●':status==='success'?'✓':'✗';
-  row.appendChild(span);
-}
-function clearAllTreeStatuses(){
-  document.querySelectorAll('.tree-status').forEach(el=>el.remove());
-}
 
 // ── Toast ──
 let toastTimer;
@@ -2254,102 +2165,6 @@ function toast(msg,isError=false){
   toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},isError?6000:2500);
 }
 
-
-// ── Actions status ──
-
-const statusCfg={
-  in_progress:{dot:'🟡',label:'Deploying...',color:'#BA7517'},
-  queued:     {dot:'🟡',label:'Queued',      color:'#BA7517'},
-  success:    {dot:'🟢',label:'Deployed',    color:'#1a7f37'},
-  failure:    {dot:'🔴',label:'Failed',      color:'#cf222e'},
-  cancelled:  {dot:'⚪',label:'Cancelled',   color:'var(--text3)'},
-};
-
-async function fetchLatestRun(){
-  if(!cfg.owner||!cfg.repo||!cfg.trigger_token) return null;
-  try{
-    if(cfg.provider==='gitlab'){
-      const runs=await glFetch('pipelines?per_page=3');
-      const run=watchingRunId
-        ?(runs.find(r=>r.id===watchingRunId)||runs[0]||null)
-        :(runs[0]||null);
-      return run?normalizeRun(run):null;
-    }
-    const data=await ghFetch('actions/runs?per_page=3');
-    if(watchingRunId){
-      return data.workflow_runs?.find(r=>r.id===watchingRunId)
-          || data.workflow_runs?.[0]
-          || null;
-    }
-    return data.workflow_runs?.[0]||null;
-  }catch{return null;}
-}
-
-function renderStatus(run){
-  const el=$('actions-status');
-  if(!run){el.style.display='none';return;}
-  const conclusion=run.conclusion||run.status;
-  const s=statusCfg[conclusion]||{dot:'⚪',label:conclusion,color:'var(--text3)'};
-  el.style.display='flex';
-  el.style.color=s.color;
-  el.style.borderColor=s.color==='var(--text3)'?'var(--border)':s.color+'44';
-  el.href=run.html_url;
-  el.innerHTML=`<span>${s.dot}</span><span>${s.label}</span>`;
-}
-
-async function pollActions(onDone,onFail){
-  clearTimeout(pollTimer);
-  const run=await fetchLatestRun();
-  renderStatus(run);
-  if(!run) return;
-  const active=run.status==='in_progress'||run.status==='queued';
-  if(active){
-    pollTimer=setTimeout(()=>pollActions(onDone,onFail),5000);
-  } else {
-    watchingRunId=null;
-    if(run.conclusion==='success'){if(onDone) onDone();}
-    else{if(onFail) onFail(run.conclusion);}
-    pollTimer=setTimeout(()=>pollActions(null,null),30000);
-  }
-}
-
-async function watchDeploy(savedPath){
-  toast('Saved — waiting for Actions...');
-  const savedRel=savedPath.replace(/^docs\//,'').replace(/\.md$/,'');
-  // Cancel indicators from any previous deploy, mark this file as pending
-  clearAllTreeStatuses();
-  setTreeRowStatus(savedRel,'pending');
-  // Each call gets a unique generation; stale loops self-cancel when gen changes
-  const gen=++watchDeployGen;
-  const before=await fetchLatestRun();
-  const beforeId=before?.id||null;
-  async function waitForNewRun(attempts=0){
-    if(gen!==watchDeployGen){setTreeRowStatus(savedRel,null);return;} // superseded
-    if(attempts>20){setTreeRowStatus(savedRel,null);pollActions(null,null);return;}
-    const run=await fetchLatestRun();
-    if(run&&run.id!==beforeId){
-      watchingRunId=run.id;
-      renderStatus(run);
-      pollActions(
-        ()=>{
-          if(gen===watchDeployGen){
-            setTreeRowStatus(savedRel,'success');
-            setTimeout(()=>setTreeRowStatus(savedRel,null),3500);
-          }
-          toast('✓ Deploy complete');
-          loadTree();
-        },
-        ()=>{
-          if(gen===watchDeployGen) setTreeRowStatus(savedRel,'failure');
-          toast('✗ Deploy failed');
-        }
-      );
-    } else {
-      setTimeout(()=>waitForNewRun(attempts+1),4000);
-    }
-  }
-  setTimeout(()=>waitForNewRun(),5000);
-}
 
 // ── Editor keyboard shortcuts (Tab indent, Ctrl+B/I) ──
 function initEditorShortcuts(){
