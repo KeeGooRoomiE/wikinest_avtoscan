@@ -202,7 +202,7 @@
     "folder_titles": {
       "glossary": "Глоссарий"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-03T09:41:17+07:00",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -343,34 +343,6 @@
     "isCounting": true
   },
   {
-    "_folder": true,
-    "path": "reglamentation/sales",
-    "title": "Отдел продаж",
-    "parts": ["reglamentation", "sales"],
-    "folder_titles": {"reglamentation": "Регламенты"}
-  },
-  {
-    "_folder": true,
-    "path": "reglamentation/service",
-    "title": "Отдел сервиса",
-    "parts": ["reglamentation", "service"],
-    "folder_titles": {"reglamentation": "Регламенты"}
-  },
-  {
-    "_folder": true,
-    "path": "reglamentation/support",
-    "title": "Техническая поддержка",
-    "parts": ["reglamentation", "support"],
-    "folder_titles": {"reglamentation": "Регламенты"}
-  },
-  {
-    "_folder": true,
-    "path": "reglamentation/accounting",
-    "title": "Бухгалтерия",
-    "parts": ["reglamentation", "accounting"],
-    "folder_titles": {"reglamentation": "Регламенты"}
-  },
-  {
     "path": "software/axenta",
     "title": "Axenta",
     "excerpt": "",
@@ -401,5 +373,41 @@
     "tags": [],
     "author": "",
     "isCounting": true
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/accounting",
+    "title": "Бухгалтерия",
+    "parts": [
+      "reglamentation",
+      "accounting"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/sales",
+    "title": "Отдел продаж",
+    "parts": [
+      "reglamentation",
+      "sales"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/service",
+    "title": "Отдел сервиса",
+    "parts": [
+      "reglamentation",
+      "service"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
+    }
   }
 ]
