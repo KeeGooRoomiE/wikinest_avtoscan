@@ -1055,7 +1055,7 @@ function getSelectedEditors(){
 async function loadTree(){
   $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('loading')}</div>`;
   try{
-    const r=await fetch(rawUrl('tree.json'),{cache:'no-cache'});
+    const r=await fetch(rawUrl('tree.json')+'?_='+Math.floor(Date.now()/60000),{cache:'no-cache'});
     if(!r.ok) throw new Error();
     tree=await r.json();
     renderTree(tree);
@@ -1999,7 +1999,7 @@ function showEmpty(){
 async function ensureSearchIndex(){
   if(searchIndex!==null) return;
   try{
-    const r=await fetch(rawUrl('search.json'),{cache:'no-cache'});
+    const r=await fetch(rawUrl('search.json')+'?_='+Math.floor(Date.now()/60000),{cache:'no-cache'});
     if(r.ok) searchIndex=await r.json();
     else searchIndex={};
   }catch{searchIndex={};}
