@@ -18,6 +18,9 @@ isCounting: true
 | Teltonika | `21064` |
 | Omnicomm | `20618` |
 
+Полный список портов
+https://docs.axenta.tech/docs/supported-devices/
+
 ---
 
 ## Арифметические операции с параметрами датчиков

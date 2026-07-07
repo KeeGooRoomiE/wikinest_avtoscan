@@ -5,8 +5,7 @@ isCounting: true
 
 
 ## Внутренние ссылки
-
-
+ 
 [Таблица Контакты][contacts_gdrive] - [Контакты](contacts)
 
 [Расписание][time_gdrive]
