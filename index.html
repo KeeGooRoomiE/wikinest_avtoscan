@@ -210,14 +210,13 @@ let roles=[],currentRole=null;
 // ── Sections config ──
 const SECTIONS=[
   {slug:'company',       name:'Компания',              folder:'company',           color:'#3B82F6', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>'},
-  {slug:'reference',     name:'Памятки',               folder:'reference',         color:'#14B8A6', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="12" y1="6" x2="16" y2="6"/><line x1="12" y1="10" x2="16" y2="10"/><line x1="12" y1="14" x2="16" y2="14"/></svg>'},
+  {slug:'reference',     name:'Памятки и шаблоны',     folder:'reference',         extraFolders:['examples'], color:'#14B8A6', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><line x1="12" y1="6" x2="16" y2="6"/><line x1="12" y1="10" x2="16" y2="10"/><line x1="12" y1="14" x2="16" y2="14"/></svg>'},
   {slug:'products',      name:'Продукты',              folder:'products',          color:'#8B5CF6', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>'},
   {slug:'devices',       name:'Оборудование',          folder:'devices',           color:'#F59E0B', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'},
   {slug:'processes',     name:'Процессы',              folder:'processes',         color:'#10B981', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>'},
   {slug:'reglamentation',name:'Регламенты',            folder:'reglamentation',    color:'#EF4444', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>'},
   {slug:'incidents',     name:'Инциденты и решения',   folder:'incidents',         color:'#F97316', direct:true, directPath:'incidents/index', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>'},
   {slug:'software',      name:'Сервисы и инструменты', folder:'software',          color:'#06B6D4', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>'},
-  {slug:'examples',      name:'Шаблоны',               folder:'examples',          color:'#6366F1', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>'},
   {slug:'glossary',      name:'Глоссарий',             folder:'glossary',          color:'#EC4899', direct:true, directPath:'glossary/index', icon:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>'},
 ];
 
@@ -676,7 +675,7 @@ function isHiddenSection(sec){
 }
 
 function findSectionForPage(page){
-  return SECTIONS.find(s=>page.path.startsWith(s.folder+'/')||page.path===s.folder)||null;
+  return SECTIONS.find(s=>[s.folder,...(s.extraFolders||[])].some(f=>page.path.startsWith(f+'/')||page.path===f))||null;
 }
 
 function trackRecentPage(page){
@@ -900,7 +899,8 @@ function showDashboard(){
         <div class="dash-card-count">${n} ${declIncident(n)}</div>
       </div>`;
     }
-    const count=tree.filter(p=>p.path.startsWith(sec.folder+'/')&&!isHiddenPage(p)&&p.isCounting).length;
+    const _df=[sec.folder,...(sec.extraFolders||[])];
+    const count=tree.filter(p=>_df.some(f=>p.path.startsWith(f+'/'))&&!isHiddenPage(p)&&p.isCounting).length;
     const onclick=sec.direct?`openPage(tree.find(p=>p.path==='${sec.directPath}'))`:`openSection('${sec.slug}')`;
     return`<div class="dash-card" onclick="${onclick}">
       <div class="dash-card-icon" style="color:${c};background:${c}1a">${sec.icon}</div>
@@ -1092,8 +1092,9 @@ function renderTree(pages){
 
   SECTIONS.forEach(sec=>{
     if(isHiddenSection(sec)) return;
-    const secFolderMarkers=pages.filter(p=>p._folder&&p.path.startsWith(sec.folder+'/'));
-    const secPages=pages.filter(p=>!p._folder&&(p.path.startsWith(sec.folder+'/')||p.path===sec.folder)&&!isHiddenPage(p));
+    const _secFolders=[sec.folder,...(sec.extraFolders||[])];
+    const secFolderMarkers=pages.filter(p=>p._folder&&_secFolders.some(f=>p.path.startsWith(f+'/')));
+    const secPages=pages.filter(p=>!p._folder&&_secFolders.some(f=>p.path.startsWith(f+'/')||p.path===f)&&!isHiddenPage(p));
     const isActive=currentSection===sec.slug;
     const wrap=document.createElement('div');
     wrap.className='sec-wrap';
@@ -1132,20 +1133,22 @@ function renderTree(pages){
       const directPages=[];
       const subfolderMap=new Map();
       secFolderMarkers.forEach(f=>{
-        const rel=f.path.substring(sec.folder.length+1);
+        const bf=_secFolders.find(sf=>f.path.startsWith(sf+'/'));
+        const rel=f.path.substring((bf||sec.folder).length+1);
         const relParts=rel.split('/');
         if(relParts.length===1&&!subfolderMap.has(relParts[0]))
-          subfolderMap.set(relParts[0],{name:f.title,pages:[]});
+          subfolderMap.set(relParts[0],{name:f.title,baseFolder:bf||sec.folder,pages:[]});
       });
       secPages.forEach(p=>{
-        const rel=p.path.substring(sec.folder.length+1);
+        const bf=_secFolders.find(sf=>p.path.startsWith(sf+'/')||p.path===sf)||sec.folder;
+        const rel=p.path.substring(bf.length+1);
         const relParts=rel.split('/');
         if(relParts.length===1){
           directPages.push(p);
         } else {
           const subKey=relParts[0];
           const subName=p.folder_titles[subKey]||subKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-          if(!subfolderMap.has(subKey)) subfolderMap.set(subKey,{name:subName,pages:[]});
+          if(!subfolderMap.has(subKey)) subfolderMap.set(subKey,{name:subName,baseFolder:bf,pages:[]});
           subfolderMap.get(subKey).pages.push(p);
         }
       });
@@ -1153,7 +1156,7 @@ function renderTree(pages){
         const row=document.createElement('div');
         row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
         row.dataset.path=p.path;
-        row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
+        row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label" title="${escHtml(p.title)}">${escHtml(p.title)}</span>`;
         row.onclick=()=>openPage(p);
         return row;
       };
@@ -1171,13 +1174,13 @@ function renderTree(pages){
         list.appendChild(empty);
       }
       directPages.forEach(p=>list.appendChild(makePageRow(p)));
-      subfolderMap.forEach(({name,pages},subKey)=>{
-        const subPath=sec.folder+'/'+subKey;
+      subfolderMap.forEach(({name,baseFolder:sfBase,pages},subKey)=>{
+        const subPath=(sfBase||sec.folder)+'/'+subKey;
         const storageKey=`wn_sf_${sec.slug}_${subKey}`;
         const isOpen=localStorage.getItem(storageKey)!=='0';
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
-        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>${escHtml(name)}</span>`;
+        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span title="${escHtml(name)}">${escHtml(name)}</span>`;
         const pageWrap=document.createElement('div');
         pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
         pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
@@ -1317,7 +1320,8 @@ function renderView(md){
   buildToc();
   if(window._searchHighlight){
     const _q=window._searchHighlight;window._searchHighlight=null;
-    highlightInView(_q);
+    const _sc=window._searchHighlightScope;window._searchHighlightScope=null;
+    highlightInView(_q,_sc);
     const firstMark=$('view').querySelector('mark');
     if(firstMark) setTimeout(()=>firstMark.scrollIntoView({behavior:'smooth',block:'center'}),80);
   }
@@ -1378,25 +1382,32 @@ function injectBirthdayBanner(container){
   if(meta) meta.after(banner); else container.prepend(banner);
 }
 
-function highlightInView(q){
+function highlightInView(q,scope){
   if(!q) return;
   const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
-  const walker=document.createTreeWalker($('view'),NodeFilter.SHOW_TEXT);
-  const nodes=[];let n;
-  while((n=walker.nextNode())) nodes.push(n);
-  nodes.forEach(node=>{
-    if(!re.test(node.nodeValue)) return;
-    re.lastIndex=0;
-    const frag=document.createDocumentFragment();
-    let last=0,m;
-    while((m=re.exec(node.nodeValue))!==null){
-      frag.appendChild(document.createTextNode(node.nodeValue.slice(last,m.index)));
-      const mark=document.createElement('mark');mark.textContent=m[0];frag.appendChild(mark);
-      last=m.index+m[0].length;
-    }
-    frag.appendChild(document.createTextNode(node.nodeValue.slice(last)));
-    node.parentNode.replaceChild(frag,node);
-  });
+  const highlightNodes=(root)=>{
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];let n;
+    while((n=walker.nextNode())) nodes.push(n);
+    nodes.forEach(node=>{
+      if(!re.test(node.nodeValue)) return;
+      re.lastIndex=0;
+      const frag=document.createDocumentFragment();
+      let last=0,m;
+      while((m=re.exec(node.nodeValue))!==null){
+        frag.appendChild(document.createTextNode(node.nodeValue.slice(last,m.index)));
+        const mark=document.createElement('mark');mark.textContent=m[0];frag.appendChild(mark);
+        last=m.index+m[0].length;
+      }
+      frag.appendChild(document.createTextNode(node.nodeValue.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  };
+  if(scope==='glossary'){
+    $('view').querySelectorAll('table td:first-child').forEach(highlightNodes);
+  } else {
+    highlightNodes($('view'));
+  }
 }
 
 function buildToc(){
@@ -2052,7 +2063,7 @@ function runSearch(q){
     div.className='sr-item';
     const ex=excerpt||p.excerpt||'';
     div.innerHTML=`<div class="sr-title">${hl(p.title)}</div>${ex?`<div class="sr-excerpt">${hl(ex)}</div>`:''}`;
-    div.onclick=()=>{closeSearch();window._searchHighlight=q;openPage(p);};
+    div.onclick=()=>{closeSearch();window._searchHighlight=q;if(p.path==='glossary/index')window._searchHighlightScope='glossary';openPage(p);};
     res.appendChild(div);
   });
 }
