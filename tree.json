@@ -307,6 +307,24 @@
     "isCounting": true
   },
   {
+    "path": "reglamentation/support/123",
+    "title": "123",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "123"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-08T16:04:07+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "",
