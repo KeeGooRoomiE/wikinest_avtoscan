@@ -491,7 +491,7 @@ const ghFetch=async(path,method='GET',body)=>{
 };
 
 function rawUrl(path){
-  return`https://raw.githubusercontent.com/${cfg.owner}/${cfg.repo}/HEAD/${path}`;
+  return'/'+path;
 }
 
 // apiGetFile — unauthenticated read (repo is public)
@@ -1277,7 +1277,7 @@ function renderView(md){
     // Matches src="..." that are not already absolute (http/https/protocol-relative/data/fragment).
     if(currentPath){
       html=html.replace(
-        /(<img\b[^>]*?\bsrc=")(?!https?:\/\/|\/\/|data:|#)([^"]+)"/gi,
+        /(<img\b[^>]*?\bsrc=")(?!https?:\/\/|\/\/|\/|data:|#)([^"]+)"/gi,
         (_,prefix,rel)=>`${prefix}${rawUrl(resolveDocRelative(rel))}"`
       );
     }
