@@ -32,6 +32,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/nkm",
+    "title": "Блок НКМ (СКЗИ)",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "nkm"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    },
+    "updated_at": "2026-07-13T08:51:06.102381+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": false
+  },
+  {
     "path": "devices/tachographs/nrd/drive-base",
     "title": "Тахограф Drive Base",
     "excerpt": "",
