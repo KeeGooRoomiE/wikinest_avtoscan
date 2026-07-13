@@ -42,7 +42,7 @@
       "drive-base"
     ],
     "folder_titles": {
-      "devices": "Терминалы",
+      "devices": "Оборудование",
       "tachographs": "Тахографы",
       "drive": "Drive"
     },
@@ -436,16 +436,14 @@
   },
   {
     "_folder": true,
-    "path": "devices/tachographs/mercury",
-    "title": "Меркурий",
+    "path": "devices/tachographs",
+    "title": "Тахографы",
     "parts": [
       "devices",
-      "tachographs",
-      "mercury"
+      "tachographs"
     ],
     "folder_titles": {
-      "devices": "Терминалы",
-      "tachographs": "Тахографы"
+      "devices": "Оборудование"
     }
   },
   {
@@ -458,7 +456,7 @@
       "nrd"
     ],
     "folder_titles": {
-      "devices": "Терминалы",
+      "devices": "Оборудование",
       "tachographs": "Тахографы"
     }
   },
@@ -472,7 +470,21 @@
       "shtrikh"
     ],
     "folder_titles": {
-      "devices": "Терминалы",
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/tachographs/mercury",
+    "title": "Меркурий",
+    "parts": [
+      "devices",
+      "tachographs",
+      "mercury"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
       "tachographs": "Тахографы"
     }
   },
@@ -486,17 +498,83 @@
       "vdo"
     ],
     "folder_titles": {
-      "devices": "Терминалы",
+      "devices": "Оборудование",
       "tachographs": "Тахографы"
     }
   },
   {
     "_folder": true,
-    "path": "processes/common",
-    "title": "Общие",
+    "path": "devices/tachographs/drive",
+    "title": "Drive",
+    "parts": [
+      "devices",
+      "tachographs",
+      "drive"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/sales",
+    "title": "Отдел продаж",
     "parts": [
       "processes",
-      "common"
+      "sales"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support",
+    "title": "Техническая поддержка",
+    "parts": [
+      "processes",
+      "support"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "support",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/software",
+    "title": "Процессы ПО",
+    "parts": [
+      "processes",
+      "support",
+      "software"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service",
+    "title": "Отдел сервиса",
+    "parts": [
+      "processes",
+      "service"
     ],
     "folder_titles": {
       "processes": "Процессы"
@@ -546,11 +624,11 @@
   },
   {
     "_folder": true,
-    "path": "processes/support",
-    "title": "Техническая поддержка",
+    "path": "processes/common",
+    "title": "Общие",
     "parts": [
       "processes",
-      "support"
+      "common"
     ],
     "folder_titles": {
       "processes": "Процессы"
@@ -558,78 +636,23 @@
   },
   {
     "_folder": true,
-    "path": "processes/support/1c",
-    "title": "Процессы 1С",
+    "path": "products",
+    "title": "Продукты",
     "parts": [
-      "processes",
-      "support",
-      "1c"
+      "products"
     ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "support": "Техническая поддержка"
-    }
+    "folder_titles": {}
   },
   {
     "_folder": true,
-    "path": "processes/support/software",
-    "title": "Процессы ПО",
-    "parts": [
-      "processes",
-      "support",
-      "software"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "support": "Техническая поддержка"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "products/additional",
-    "title": "Дополнительное оборудование",
+    "path": "products/tachographs",
+    "title": "Тахографы",
     "parts": [
       "products",
-      "additional"
+      "tachographs"
     ],
     "folder_titles": {
-      "products": "Products"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "products/axle-load",
-    "title": "Датчики нагрузки на ось",
-    "parts": [
-      "products",
-      "axle-load"
-    ],
-    "folder_titles": {
-      "products": "Products"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "products/fuel-control",
-    "title": "Контроль топлива",
-    "parts": [
-      "products",
-      "fuel-control"
-    ],
-    "folder_titles": {
-      "products": "Products"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "products/locomotives",
-    "title": "Кейс: оснащение тепловозов",
-    "parts": [
-      "products",
-      "locomotives"
-    ],
-    "folder_titles": {
-      "products": "Products"
+      "products": "Продукты"
     }
   },
   {
@@ -641,31 +664,19 @@
       "monitoring"
     ],
     "folder_titles": {
-      "products": "Products"
+      "products": "Продукты"
     }
   },
   {
     "_folder": true,
-    "path": "products/radios",
-    "title": "Рации",
+    "path": "products/fuel-control",
+    "title": "Контроль топлива",
     "parts": [
       "products",
-      "radios"
+      "fuel-control"
     ],
     "folder_titles": {
-      "products": "Products"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "products/tachographs",
-    "title": "Тахографы",
-    "parts": [
-      "products",
-      "tachographs"
-    ],
-    "folder_titles": {
-      "products": "Products"
+      "products": "Продукты"
     }
   },
   {
@@ -677,7 +688,55 @@
       "video"
     ],
     "folder_titles": {
-      "products": "Products"
+      "products": "Продукты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/axle-load",
+    "title": "Датчики нагрузки на ось",
+    "parts": [
+      "products",
+      "axle-load"
+    ],
+    "folder_titles": {
+      "products": "Продукты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/locomotives",
+    "title": "Кейс: оснащение тепловозов",
+    "parts": [
+      "products",
+      "locomotives"
+    ],
+    "folder_titles": {
+      "products": "Продукты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/additional",
+    "title": "Дополнительное оборудование",
+    "parts": [
+      "products",
+      "additional"
+    ],
+    "folder_titles": {
+      "products": "Продукты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/radios",
+    "title": "Рации",
+    "parts": [
+      "products",
+      "radios"
+    ],
+    "folder_titles": {
+      "products": "Продукты"
     }
   },
   {
