@@ -42,7 +42,6 @@ isCounting: true
 
 📥 [Руководство по установке и настройке](/docs/assets/devices/nrd/drive-base-installation.pdf)
 
----
+📥 [Руководство по эксплуатации](/docs/assets/devices/nrd/drive-base-manual.pdf)
 
-- 📥 [Руководство по эксплуатации](/docs/assets/devices/nrd/drive-base-manual.pdf)
-- 📥 [Руководство по эксплуатации для водителя](/docs/assets/devices/nrd/drive-base-driver-manual.pdf)
+📥 [Руководство по эксплуатации для водителя](/docs/assets/devices/nrd/drive-base-driver-manual.pdf)
