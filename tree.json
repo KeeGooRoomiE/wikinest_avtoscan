@@ -32,21 +32,21 @@
     "isCounting": true
   },
   {
-    "path": "devices/tachographs/drive/drive-base",
+    "path": "devices/tachographs/nrd/drive-base",
     "title": "Drive Base",
     "excerpt": "",
     "parts": [
       "devices",
       "tachographs",
-      "drive",
+      "nrd",
       "drive-base"
     ],
     "folder_titles": {
       "devices": "Оборудование",
       "tachographs": "Тахографы",
-      "drive": "Drive"
+      "nrd": "Линейка НРД"
     },
-    "updated_at": "2026-07-13T12:27:08+07:00",
+    "updated_at": "2026-07-13T15:01:22+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -504,16 +504,214 @@
   },
   {
     "_folder": true,
-    "path": "devices/tachographs/drive",
-    "title": "Drive",
+    "path": "devices/nav-terminals",
+    "title": "Навигационные терминалы",
     "parts": [
       "devices",
-      "tachographs",
-      "drive"
+      "nav-terminals"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/nav-terminals/navtelecom",
+    "title": "Линейка Навтелеком",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom"
     ],
     "folder_titles": {
       "devices": "Оборудование",
-      "tachographs": "Тахографы"
+      "nav-terminals": "Навигационные терминалы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/nav-terminals/galileo",
+    "title": "Линейка Галилео",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/nav-terminals/others",
+    "title": "Остальные",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "others"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/fuel-sensors",
+    "title": "Датчики уровня топлива",
+    "parts": [
+      "devices",
+      "fuel-sensors"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/fuel-sensors/escort",
+    "title": "Линейка ДУТ Эскорт",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "escort"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Датчики уровня топлива"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/fuel-sensors/omnicom",
+    "title": "Линейка ДУТ Омником",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "omnicom"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Датчики уровня топлива"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/video",
+    "title": "Видеонаблюдение",
+    "parts": [
+      "devices",
+      "video"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/video/registrators",
+    "title": "Видеорегистраторы",
+    "parts": [
+      "devices",
+      "video",
+      "registrators"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/video/cameras",
+    "title": "Видеокамеры",
+    "parts": [
+      "devices",
+      "video",
+      "cameras"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/video/accessories",
+    "title": "Сопутствующее оборудование",
+    "parts": [
+      "devices",
+      "video",
+      "accessories"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/axle-load",
+    "title": "Датчики нагрузки на ось",
+    "parts": [
+      "devices",
+      "axle-load"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/radios",
+    "title": "Рации",
+    "parts": [
+      "devices",
+      "radios"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/additional",
+    "title": "Дополнительное оборудование",
+    "parts": [
+      "devices",
+      "additional"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/additional/tachography",
+    "title": "Тахография",
+    "parts": [
+      "devices",
+      "additional",
+      "tachography"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/additional/monitoring",
+    "title": "Система мониторинга",
+    "parts": [
+      "devices",
+      "additional",
+      "monitoring"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование"
     }
   },
   {
