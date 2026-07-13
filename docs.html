@@ -1081,7 +1081,7 @@ function renderTree(pages){
         const row=document.createElement('div');
         row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
         row.dataset.path=p.path;
-        row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label">${escHtml(p.title)}</span>`;
+        row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label" title="${escHtml(p.title)}">${escHtml(p.title)}</span>`;
         row.onclick=()=>openPage(p);
         return row;
       };
@@ -1106,7 +1106,7 @@ function renderTree(pages){
         const isOpen=localStorage.getItem(storageKey)!=='0';
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
-        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span>${escHtml(name)}</span>`;
+        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span title="${escHtml(name)}">${escHtml(name)}</span>`;
         const pageWrap=document.createElement('div');
         pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
         pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
@@ -1243,7 +1243,8 @@ function renderView(md){
   buildToc();
   if(window._searchHighlight){
     const _q=window._searchHighlight;window._searchHighlight=null;
-    highlightInView(_q);
+    const _sc=window._searchHighlightScope;window._searchHighlightScope=null;
+    highlightInView(_q,_sc);
     const firstMark=$('view').querySelector('mark');
     if(firstMark) setTimeout(()=>firstMark.scrollIntoView({behavior:'smooth',block:'center'}),80);
   }
@@ -1304,25 +1305,32 @@ function injectBirthdayBanner(container){
   if(meta) meta.after(banner); else container.prepend(banner);
 }
 
-function highlightInView(q){
+function highlightInView(q,scope){
   if(!q) return;
   const re=new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi');
-  const walker=document.createTreeWalker($('view'),NodeFilter.SHOW_TEXT);
-  const nodes=[];let n;
-  while((n=walker.nextNode())) nodes.push(n);
-  nodes.forEach(node=>{
-    if(!re.test(node.nodeValue)) return;
-    re.lastIndex=0;
-    const frag=document.createDocumentFragment();
-    let last=0,m;
-    while((m=re.exec(node.nodeValue))!==null){
-      frag.appendChild(document.createTextNode(node.nodeValue.slice(last,m.index)));
-      const mark=document.createElement('mark');mark.textContent=m[0];frag.appendChild(mark);
-      last=m.index+m[0].length;
-    }
-    frag.appendChild(document.createTextNode(node.nodeValue.slice(last)));
-    node.parentNode.replaceChild(frag,node);
-  });
+  const highlightNodes=(root)=>{
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];let n;
+    while((n=walker.nextNode())) nodes.push(n);
+    nodes.forEach(node=>{
+      if(!re.test(node.nodeValue)) return;
+      re.lastIndex=0;
+      const frag=document.createDocumentFragment();
+      let last=0,m;
+      while((m=re.exec(node.nodeValue))!==null){
+        frag.appendChild(document.createTextNode(node.nodeValue.slice(last,m.index)));
+        const mark=document.createElement('mark');mark.textContent=m[0];frag.appendChild(mark);
+        last=m.index+m[0].length;
+      }
+      frag.appendChild(document.createTextNode(node.nodeValue.slice(last)));
+      node.parentNode.replaceChild(frag,node);
+    });
+  };
+  if(scope==='glossary'){
+    $('view').querySelectorAll('table td:first-child').forEach(highlightNodes);
+  } else {
+    highlightNodes($('view'));
+  }
 }
 
 function buildToc(){
@@ -2045,7 +2053,7 @@ function runSearch(q){
     div.className='sr-item';
     const ex=excerpt||p.excerpt||'';
     div.innerHTML=`<div class="sr-title">${hl(p.title)}</div>${ex?`<div class="sr-excerpt">${hl(ex)}</div>`:''}`;
-    div.onclick=()=>{closeSearch();window._searchHighlight=q;openPage(p);};
+    div.onclick=()=>{closeSearch();window._searchHighlight=q;if(p.path==='glossary/index')window._searchHighlightScope='glossary';openPage(p);};
     res.appendChild(div);
   });
 }
