@@ -32,150 +32,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/adm",
-    "title": "ADM",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "adm"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/arnavi",
-    "title": "Arnavi (A4 / A4MAX)",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "arnavi"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/at-links",
-    "title": "Адреса",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "at-links"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/galileosky",
-    "title": "GalileoSky 5",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "galileosky"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/navtelecom",
-    "title": "Навтелеком",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "navtelecom"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/omnicom",
-    "title": "Omnicom Optim",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "omnicom"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/term-pin",
-    "title": "Пароли от АТ",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "term-pin"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/umka",
-    "title": "УМКа",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "umka"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/vega",
-    "title": "Vega MT / CAN-WAY",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "vega"
-    ],
-    "folder_titles": {
-      "devices": "Терминалы"
-    },
-    "updated_at": "2026-07-02T19:33:51+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
@@ -307,6 +163,168 @@
     "isCounting": true
   },
   {
+    "path": "reference/support/adm",
+    "title": "ADM",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "adm"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/arnavi",
+    "title": "Arnavi (A4 / A4MAX)",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "arnavi"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/at-links",
+    "title": "Адреса",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "at-links"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/galileosky",
+    "title": "GalileoSky 5",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "galileosky"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/navtelecom",
+    "title": "Навтелеком",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "navtelecom"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/omnicom",
+    "title": "Omnicom Optim",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "omnicom"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/term-pin",
+    "title": "Пароли от АТ",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "term-pin"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/umka",
+    "title": "УМКа",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "umka"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reference/support/vega",
+    "title": "Vega MT / CAN-WAY",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "vega"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "",
@@ -373,6 +391,15 @@
     "tags": [],
     "author": "",
     "isCounting": true
+  },
+  {
+    "_folder": true,
+    "path": "devices",
+    "title": "Терминалы",
+    "parts": [
+      "devices"
+    ],
+    "folder_titles": {}
   },
   {
     "_folder": true,
