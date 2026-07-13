@@ -1278,6 +1278,7 @@ function parseBirthdays(container){
       if(month!==today.getMonth()) return;
       const bday=new Date(today.getFullYear(),month,day);
       const diff=Math.round((bday-today)/86400000);
+      if(diff<0) return;
       upcoming.push({name,role,section,day,month,diff});
     });
   });
