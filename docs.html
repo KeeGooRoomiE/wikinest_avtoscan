@@ -1261,7 +1261,7 @@ function renderView(md){
     $('view').querySelectorAll('a:not(.wiki-link)').forEach(a=>{
       const href=a.getAttribute('href');
       if(!href||href.startsWith('#')) return;
-      if(/^https?:\/\/|^\/\//.test(href)){
+      if(/^https?:\/\/|^\/\//.test(href)||/\.(pdf|docx?|xlsx?|pptx?|zip|rar|7z|csv|jpe?g|png|gif|webp|svg|mp4|mp3)$/i.test(href)){
         a.target='_blank';a.rel='noopener noreferrer';
       } else {
         a.onclick=e=>{
