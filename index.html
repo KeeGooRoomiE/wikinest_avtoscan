@@ -1209,7 +1209,7 @@ function renderTree(pages){
         const subKey=mapKey.split('/').pop();
         const subPath=(sfBase||sec.folder)+'/'+subKey;
         const storageKey=`wn_sf_${sec.slug}_${mapKey.replace('/','_')}`;
-        const isOpen=localStorage.getItem(storageKey)!=='0';
+        const isOpen=localStorage.getItem(storageKey)==='1';
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
         hdr.innerHTML=`${arrowSvg}<span title="${escHtml(name)}">${escHtml(name)}</span>`;
@@ -1219,7 +1219,7 @@ function renderTree(pages){
         // Level-2 subfolders
         subfolders.forEach(({name:sfName,path:sfPath,pages:sfPages},sfKey)=>{
           const sfStorageKey=`wn_sf_${sec.slug}_${sfKey.replace(/\//g,'_')}`;
-          const sfIsOpen=localStorage.getItem(sfStorageKey)!=='0';
+          const sfIsOpen=localStorage.getItem(sfStorageKey)==='1';
           const sfHdr=document.createElement('div');
           sfHdr.className='sec-subfolder-hdr sec-subfolder-hdr-2'+(sfIsOpen?' open':'');
           sfHdr.innerHTML=`${arrowSvg}<span title="${escHtml(sfName)}">${escHtml(sfName)}</span>`;
