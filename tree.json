@@ -470,6 +470,102 @@
   },
   {
     "_folder": true,
+    "path": "products/additional",
+    "title": "Дополнительное оборудование",
+    "parts": [
+      "products",
+      "additional"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/axle-load",
+    "title": "Датчики нагрузки на ось",
+    "parts": [
+      "products",
+      "axle-load"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/fuel-control",
+    "title": "Контроль топлива",
+    "parts": [
+      "products",
+      "fuel-control"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/locomotives",
+    "title": "Кейс: оснащение тепловозов",
+    "parts": [
+      "products",
+      "locomotives"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/monitoring",
+    "title": "Мониторинг транспорта и спутниковая навигация",
+    "parts": [
+      "products",
+      "monitoring"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/radios",
+    "title": "Рации",
+    "parts": [
+      "products",
+      "radios"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/tachographs",
+    "title": "Тахографы",
+    "parts": [
+      "products",
+      "tachographs"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "products/video",
+    "title": "Видеонаблюдение",
+    "parts": [
+      "products",
+      "video"
+    ],
+    "folder_titles": {
+      "products": "Products"
+    }
+  },
+  {
+    "_folder": true,
     "path": "reglamentation/sales",
     "title": "Отдел продаж",
     "parts": [
