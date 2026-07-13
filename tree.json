@@ -44,7 +44,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-13T08:51:06.102381+00:00",
+    "updated_at": "2026-07-13T15:51:26+07:00",
     "tags": [],
     "author": "",
     "isCounting": false
@@ -742,6 +742,20 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/sales/obshchie",
+    "title": "Общие",
+    "parts": [
+      "processes",
+      "sales",
+      "obshchie"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
     }
   },
   {
