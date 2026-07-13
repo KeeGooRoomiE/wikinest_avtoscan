@@ -8,6 +8,10 @@ on:
       - 'style.css'
       - 'config.json'
       - 'i18n/**'
+      - 'tree.json'
+      - 'search.json'
+      - 'docs/**'
+      - 'roles.json'
   workflow_dispatch:
 
 permissions:
