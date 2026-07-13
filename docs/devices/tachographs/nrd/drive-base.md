@@ -16,5 +16,4 @@ isCounting: true
 
 ---
 
-- 📥 [Руководство по эксплуатации](/docs/assets/devices/nrd/drive-base-manual.pdf)
-- 📥 [Паспорт тахографа](/docs/assets/devices/nrd/drive-base-passport.pdf)
+📥 [Руководство по эксплуатации](/docs/assets/devices/nrd/drive-base-manual.pdf) | 📥 [Паспорт тахографа](/docs/assets/devices/nrd/drive-base-passport.pdf)
