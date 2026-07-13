@@ -6,6 +6,12 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-p", "8082", "."],
       "port": 8082
+    },
+    {
+      "name": "wikinest-vm-backend",
+      "runtimeExecutable": "docker",
+      "runtimeArgs": ["compose", "up"],
+      "port": 80
     }
   ]
 }
