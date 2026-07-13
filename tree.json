@@ -32,6 +32,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/drive/drive-base",
+    "title": "Drive Base",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "drive",
+      "drive-base"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы",
+      "tachographs": "Тахографы",
+      "drive": "Drive"
+    },
+    "updated_at": "2026-07-13T12:27:08+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
@@ -394,12 +414,59 @@
   },
   {
     "_folder": true,
-    "path": "devices",
-    "title": "Терминалы",
+    "path": "devices/tachographs/mercury",
+    "title": "Меркурий",
     "parts": [
-      "devices"
+      "devices",
+      "tachographs",
+      "mercury"
     ],
-    "folder_titles": {}
+    "folder_titles": {
+      "devices": "Терминалы",
+      "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/tachographs/nrd",
+    "title": "Линейка НРД",
+    "parts": [
+      "devices",
+      "tachographs",
+      "nrd"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы",
+      "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/tachographs/shtrikh",
+    "title": "Штрих",
+    "parts": [
+      "devices",
+      "tachographs",
+      "shtrikh"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы",
+      "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/tachographs/vdo",
+    "title": "VDO",
+    "parts": [
+      "devices",
+      "tachographs",
+      "vdo"
+    ],
+    "folder_titles": {
+      "devices": "Терминалы",
+      "tachographs": "Тахографы"
+    }
   },
   {
     "_folder": true,
