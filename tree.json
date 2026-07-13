@@ -927,18 +927,6 @@
   },
   {
     "_folder": true,
-    "path": "products/radios",
-    "title": "Рации",
-    "parts": [
-      "products",
-      "radios"
-    ],
-    "folder_titles": {
-      "products": "Продукты"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/sales",
     "title": "Отдел продаж",
     "parts": [
