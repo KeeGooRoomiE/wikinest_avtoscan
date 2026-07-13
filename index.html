@@ -1129,17 +1129,30 @@ function renderTree(pages){
     if(isActive){
       const list=document.createElement('div');
       list.className='sec-pages';
-      // Group real pages; also seed subfolderMap from empty-folder markers
       const directPages=[];
+      // subfolderMap: mapKey → {name, baseFolder, pages[], subfolders: Map<sfKey,{name,path,pages[]}>}
       const subfolderMap=new Map();
+      const arrowSvg=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>`;
+
+      // Seed from _folder markers (depth 1 and 2)
       secFolderMarkers.forEach(f=>{
         const bf=_secFolders.find(sf=>f.path.startsWith(sf+'/'))||sec.folder;
         const rel=f.path.substring(bf.length+1);
         const relParts=rel.split('/');
         const mapKey=bf+'/'+relParts[0];
-        if(relParts.length===1&&!subfolderMap.has(mapKey))
-          subfolderMap.set(mapKey,{name:f.title,baseFolder:bf,pages:[]});
+        if(!subfolderMap.has(mapKey))
+          subfolderMap.set(mapKey,{name:f.folder_titles?.[relParts[0]]||relParts[0],baseFolder:bf,pages:[],subfolders:new Map()});
+        if(relParts.length===1){
+          subfolderMap.get(mapKey).name=f.title;
+        } else if(relParts.length===2){
+          const sf1=subfolderMap.get(mapKey);
+          const sfKey=mapKey+'/'+relParts[1];
+          if(!sf1.subfolders.has(sfKey))
+            sf1.subfolders.set(sfKey,{name:f.title,path:bf+'/'+relParts.slice(0,2).join('/'),pages:[]});
+        }
       });
+
+      // Fill with pages (depth 1 → direct, depth 2 → level-1 pages, depth 3+ → level-2 pages)
       secPages.forEach(p=>{
         const bf=_secFolders.find(sf=>p.path.startsWith(sf+'/')||p.path===sf)||sec.folder;
         const rel=p.path.substring(bf.length+1);
@@ -1150,25 +1163,40 @@ function renderTree(pages){
           const subKey=relParts[0];
           const mapKey=bf+'/'+subKey;
           const subName=p.folder_titles[subKey]||subKey.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-          if(!subfolderMap.has(mapKey)) subfolderMap.set(mapKey,{name:subName,baseFolder:bf,pages:[]});
-          subfolderMap.get(mapKey).pages.push(p);
+          if(!subfolderMap.has(mapKey))
+            subfolderMap.set(mapKey,{name:subName,baseFolder:bf,pages:[],subfolders:new Map()});
+          const sf1=subfolderMap.get(mapKey);
+          if(relParts.length===2){
+            sf1.pages.push(p);
+          } else {
+            const sub2Key=relParts[1];
+            const sfKey=mapKey+'/'+sub2Key;
+            const sub2Name=p.folder_titles[sub2Key]||sub2Key.replace(/[-_]/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+            if(!sf1.subfolders.has(sfKey))
+              sf1.subfolders.set(sfKey,{name:sub2Name,path:(sf1.baseFolder||sec.folder)+'/'+subKey+'/'+sub2Key,pages:[]});
+            sf1.subfolders.get(sfKey).pages.push(p);
+          }
         }
       });
-      const makePageRow=(p,indented=false)=>{
+
+      const makePageRow=(p,level=0)=>{
         const row=document.createElement('div');
-        row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+(indented?' indented':'');
+        const cls=level===1?' indented':level>=2?' indented-2':'';
+        row.className='tree-row'+(currentPath===`docs/${p.path}.md`?' active':'')+cls;
         row.dataset.path=p.path;
         row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label" title="${escHtml(p.title)}">${escHtml(p.title)}</span>`;
         row.onclick=()=>openPage(p);
         return row;
       };
-      const makeAddRow=(ctx,indented=false)=>{
+      const makeAddRow=(ctx,level=0)=>{
         const r=document.createElement('div');
-        r.className='tree-row sec-add-row'+(indented?' indented':'');
+        const cls=level===1?' indented':level>=2?' indented-2':'';
+        r.className='tree-row sec-add-row'+cls;
         r.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="tree-label">Создать</span>`;
         r.onclick=()=>openCreateModal(ctx);
         return r;
       };
+
       if(directPages.length===0&&subfolderMap.size===0){
         const empty=document.createElement('div');
         empty.className='sec-empty';
@@ -1176,18 +1204,39 @@ function renderTree(pages){
         list.appendChild(empty);
       }
       directPages.forEach(p=>list.appendChild(makePageRow(p)));
-      subfolderMap.forEach(({name,baseFolder:sfBase,pages},mapKey)=>{
+
+      subfolderMap.forEach(({name,baseFolder:sfBase,pages,subfolders},mapKey)=>{
         const subKey=mapKey.split('/').pop();
         const subPath=(sfBase||sec.folder)+'/'+subKey;
         const storageKey=`wn_sf_${sec.slug}_${mapKey.replace('/','_')}`;
         const isOpen=localStorage.getItem(storageKey)!=='0';
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
-        hdr.innerHTML=`<svg class="sec-subfolder-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg><span title="${escHtml(name)}">${escHtml(name)}</span>`;
+        hdr.innerHTML=`${arrowSvg}<span title="${escHtml(name)}">${escHtml(name)}</span>`;
         const pageWrap=document.createElement('div');
         pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
-        pages.forEach(p=>pageWrap.appendChild(makePageRow(p,true)));
-        if(canEdit()) pageWrap.appendChild(makeAddRow(subPath,true));
+        pages.forEach(p=>pageWrap.appendChild(makePageRow(p,1)));
+        // Level-2 subfolders
+        subfolders.forEach(({name:sfName,path:sfPath,pages:sfPages},sfKey)=>{
+          const sfStorageKey=`wn_sf_${sec.slug}_${sfKey.replace(/\//g,'_')}`;
+          const sfIsOpen=localStorage.getItem(sfStorageKey)!=='0';
+          const sfHdr=document.createElement('div');
+          sfHdr.className='sec-subfolder-hdr sec-subfolder-hdr-2'+(sfIsOpen?' open':'');
+          sfHdr.innerHTML=`${arrowSvg}<span title="${escHtml(sfName)}">${escHtml(sfName)}</span>`;
+          const sfPageWrap=document.createElement('div');
+          sfPageWrap.className='sec-subfolder-pages'+(sfIsOpen?'':' collapsed');
+          sfPages.forEach(p=>sfPageWrap.appendChild(makePageRow(p,2)));
+          if(canEdit()) sfPageWrap.appendChild(makeAddRow(sfPath,2));
+          sfHdr.onclick=()=>{
+            const opening=!sfHdr.classList.contains('open');
+            sfHdr.classList.toggle('open',opening);
+            sfPageWrap.classList.toggle('collapsed',!opening);
+            localStorage.setItem(sfStorageKey,opening?'1':'0');
+          };
+          pageWrap.appendChild(sfHdr);
+          pageWrap.appendChild(sfPageWrap);
+        });
+        if(canEdit()) pageWrap.appendChild(makeAddRow(subPath,1));
         hdr.onclick=()=>{
           const opening=!hdr.classList.contains('open');
           hdr.classList.toggle('open',opening);

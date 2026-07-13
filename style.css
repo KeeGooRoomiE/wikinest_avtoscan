@@ -1345,6 +1345,8 @@ button.btn-primary:hover,
 .sec-subfolder-pages { overflow: hidden; }
 .sec-subfolder-pages.collapsed { display: none; }
 .sec-pages .tree-row.indented { padding-left: 28px; }
+.sec-subfolder-hdr.sec-subfolder-hdr-2 { padding-left: 24px; font-size: 10px; }
+.sec-pages .tree-row.indented-2 { padding-left: 40px; }
 
 /* ── Sidebar: quick access ── */
 #sidebar-quick {
