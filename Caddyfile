@@ -1,0 +1,23 @@
+# Reverse proxy + static file server for the VM-hosted wiki.
+# {$DOMAIN} comes from the .env file consumed by docker-compose.yml.
+{$DOMAIN} {
+	encode gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	handle /api/* {
+		reverse_proxy backend:8000
+	}
+
+	handle {
+		root * /srv/static
+		# SPA routing: any path with no matching static file falls back to
+		# docs.html, which reads location.pathname itself (see docs.html init()).
+		try_files {path} /docs.html
+		file_server
+	}
+}

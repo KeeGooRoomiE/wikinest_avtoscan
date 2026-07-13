@@ -1,0 +1,52 @@
+# Deploy on any VM: clone this repo, create .env (see DEPLOYMENT.md), then
+# `docker compose up -d --build`. Both services read/write the very checkout
+# this file lives in — backend gets the whole repo as its git working tree,
+# Caddy gets an explicit allow-list of only the paths that should be public
+# (roles.json, .git/, backend/ and this file itself are deliberately never
+# mounted into caddy — see BACKEND_ARCHITECTURE.md "Что не отдаётся наружу").
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      DATA_DIR: /data
+      SECRET_KEY: ${SECRET_KEY:?SECRET_KEY is required — see DEPLOYMENT.md}
+      GIT_PUSH_TOKEN: ${GIT_PUSH_TOKEN:-}
+      GIT_PUSH_REPO: ${GIT_PUSH_REPO:-}
+      PUSH_INTERVAL_SECONDS: ${PUSH_INTERVAL_SECONDS:-86400}
+      SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-1}
+    volumes:
+      - .:/data
+    expose:
+      - "8000"
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN is required — see DEPLOYMENT.md}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./docs.html:/srv/static/docs.html:ro
+      - ./style.css:/srv/static/style.css:ro
+      - ./config.json:/srv/static/config.json:ro
+      - ./i18n:/srv/static/i18n:ro
+      - ./docs:/srv/static/docs:ro
+      - ./tree.json:/srv/static/tree.json:ro
+      - ./search.json:/srv/static/search.json:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
