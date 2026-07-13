@@ -115,37 +115,59 @@
     "incidentCount": 1
   },
   {
-    "path": "processes/1c/index",
+    "path": "processes/sales/1c/index",
     "title": "1С — Процессы",
     "excerpt": "",
     "parts": [
       "processes",
+      "sales",
       "1c",
       "index"
     ],
     "folder_titles": {
       "processes": "Процессы",
-      "1c": "1С"
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
   },
   {
-    "path": "processes/bitrix/index",
+    "path": "processes/sales/bitrix/index",
     "title": "Битрикс — Процессы",
     "excerpt": "",
     "parts": [
       "processes",
+      "sales",
       "bitrix",
       "index"
     ],
     "folder_titles": {
       "processes": "Процессы",
-      "bitrix": "Битрикс"
+      "sales": "Отдел продаж",
+      "bitrix": "Процессы Битрикс24"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/kv-manufacturing",
+    "title": "Процесс изготовления КВ",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "kv-manufacturing"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -466,6 +488,100 @@
     "folder_titles": {
       "devices": "Терминалы",
       "tachographs": "Тахографы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/common",
+    "title": "Общие",
+    "parts": [
+      "processes",
+      "common"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "service",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/activation",
+    "title": "Процессы активизации",
+    "parts": [
+      "processes",
+      "service",
+      "activation"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/service-ops",
+    "title": "Сервисные операции",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support",
+    "title": "Техническая поддержка",
+    "parts": [
+      "processes",
+      "support"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "support",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/software",
+    "title": "Процессы ПО",
+    "parts": [
+      "processes",
+      "support",
+      "software"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
     }
   },
   {
