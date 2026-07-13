@@ -183,7 +183,18 @@
       "Bash(cp \"/tmp/drivebase_assets/image_2026-07-13_11-56-49.jpeg\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base.jpeg)",
       "Bash(cp \"/tmp/drivebase_assets/Руководство по установке и настройке.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-installation.pdf)",
       "Bash(cp \"/tmp/drivebase_assets/Руководство по эксплуатации.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-manual.pdf)",
-      "Bash(cp \"/tmp/drivebase_assets/Паспорт Escort TD-BLE.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-passport.pdf)"
+      "Bash(cp \"/tmp/drivebase_assets/Паспорт Escort TD-BLE.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-passport.pdf)",
+      "Bash(unzip -o \"/Users/xandergusarov/Downloads/1C-Connect/Паспорт Escort TD-BLE.pdf.zip\" -d /tmp/passport_extract/)",
+      "Bash(pdftotext \"/tmp/passport_extract//Паспорт Escort TD-BLE.pdf\" -)",
+      "Bash(unzip -o \"/Users/xandergusarov/Downloads/1C-Connect/Руководство по установке и настройке.pdf.zip\" -d /tmp/drivebase_docs/install/)",
+      "Bash(unzip -o \"/Users/xandergusarov/Downloads/1C-Connect/Руководство по эксплуатации.pdf.zip\" -d /tmp/drivebase_docs/manual/)",
+      "Bash(unzip -o \"/Users/xandergusarov/Downloads/1C-Connect/Руководство по эксплуатации для водителя.pdf.zip\" -d /tmp/drivebase_docs/driver/)",
+      "Bash(pdftotext \"/tmp/drivebase_docs/install/Руководство по установке и настройке.pdf\" -)",
+      "Bash(pdftotext \"/tmp/drivebase_docs/manual/Руководство по эксплуатации.pdf\" -)",
+      "Bash(pdftotext \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" -)",
+      "Bash(cp \"/tmp/drivebase_docs/install/Руководство по установке и настройке.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-installation.pdf)",
+      "Bash(cp \"/tmp/drivebase_docs/manual/Руководство по эксплуатации.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-manual.pdf)",
+      "Bash(cp \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-driver-manual.pdf)"
     ]
   }
 }
