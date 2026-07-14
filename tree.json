@@ -168,6 +168,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/fuel-sensors/escort/dut-eskort-td-ble",
+    "title": "ДУТ Эскорт TD-BLE",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "escort",
+      "dut-eskort-td-ble"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Датчики уровня топлива",
+      "escort": "Линейка ДУТ Эскорт"
+    },
+    "updated_at": "2026-07-14T16:42:16+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
