@@ -70,6 +70,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/nrd/drive-smart",
+    "title": "Drive Smart",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "nrd",
+      "drive-smart"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы",
+      "nrd": "Линейка НРД (Атол)"
+    },
+    "updated_at": "2026-07-14T09:20:33+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
