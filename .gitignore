@@ -1,3 +1,4 @@
 .claude/settings.local.json
 CREDENTIALS.md
 .env
+VM_SETUP.md
