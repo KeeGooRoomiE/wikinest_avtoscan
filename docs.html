@@ -1250,10 +1250,15 @@ function renderView(md){
     // Needed because the SPA is served from the domain root, so the browser
     // resolves relative paths against the site URL, not the .md file location.
     // Matches src="..." that are not already absolute (http/https/protocol-relative/data/fragment).
+    // A leading "/" (e.g. /docs/assets/foo.png, written by the upload flow)
+    // is *already* site-root-relative — running it through resolveDocRelative
+    // anyway treated it as relative-to-the-current-doc and mangled it into a
+    // nested, nonexistent path. Same fix already applied to link rewriting
+    // below (`resolved=/^\//.test(rel)?...`) — this just brings images in line.
     if(currentPath){
       html=html.replace(
         /(<img\b[^>]*?\bsrc=")(?!https?:\/\/|\/\/|data:|#)([^"]+)"/gi,
-        (_,prefix,rel)=>`${prefix}/${resolveDocRelative(rel)}"`
+        (_,prefix,rel)=>`${prefix}${/^\//.test(rel)?rel:'/'+resolveDocRelative(rel)}"`
       );
     }
     $('view').innerHTML=metaHtml+html;
