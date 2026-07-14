@@ -90,6 +90,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/nrd/drive-x",
+    "title": "Drive X",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "nrd",
+      "drive-x"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы",
+      "nrd": "Линейка НРД (Атол)"
+    },
+    "updated_at": "2026-07-14T09:52:11+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
