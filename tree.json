@@ -10,7 +10,7 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-14T04:29:14.526183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -26,7 +26,7 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-14T04:29:14.526183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -44,7 +44,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-14T04:29:14.527183+00:00",
+    "updated_at": "2026-07-14T10:21:32+07:00",
     "tags": [],
     "author": "",
     "isCounting": false
@@ -64,7 +64,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-14T04:29:14.527183+00:00",
+    "updated_at": "2026-07-14T09:50:37+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -84,7 +84,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-14T04:29:14.527183+00:00",
+    "updated_at": "2026-07-14T09:25:21+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -104,7 +104,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-14T04:29:14.527183+00:00",
+    "updated_at": "2026-07-14T09:52:11+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -142,7 +142,7 @@
       "tachographs": "Тахографы",
       "vdo": "VDO"
     },
-    "updated_at": "2026-07-14T04:29:14.528183+00:00",
+    "updated_at": "2026-07-14T09:53:28+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -162,7 +162,7 @@
       "tachographs": "Тахографы",
       "vdo": "VDO"
     },
-    "updated_at": "2026-07-14T04:29:14.528183+00:00",
+    "updated_at": "2026-07-14T09:53:13+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -178,7 +178,7 @@
     "folder_titles": {
       "examples": "Шаблоны"
     },
-    "updated_at": "2026-07-14T04:29:14.528183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -194,7 +194,7 @@
     "folder_titles": {
       "glossary": "Глоссарий"
     },
-    "updated_at": "2026-07-14T04:29:14.529183+00:00",
+    "updated_at": "2026-07-07T15:34:38+07:00",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -208,7 +208,7 @@
       "home"
     ],
     "folder_titles": {},
-    "updated_at": "2026-07-14T04:29:14.529183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -224,7 +224,7 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-14T05:35:58.781819+00:00",
+    "updated_at": "2026-07-14T05:35:58Z",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -245,7 +245,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-14T04:29:14.529183+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -265,7 +265,7 @@
       "sales": "Отдел продаж",
       "bitrix": "Процессы Битрикс24"
     },
-    "updated_at": "2026-07-14T04:29:14.529183+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -283,7 +283,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-14T04:29:14.530183+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -299,7 +299,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-14T04:29:14.530183+00:00",
+    "updated_at": "2026-07-06T16:24:30+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -315,7 +315,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -333,7 +333,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -351,7 +351,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -369,7 +369,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -387,7 +387,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -405,7 +405,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -423,7 +423,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -441,7 +441,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -459,7 +459,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -477,7 +477,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -495,7 +495,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.531183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -513,7 +513,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-14T04:29:14.532183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -529,7 +529,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-14T04:29:14.532183+00:00",
+    "updated_at": "2026-07-07T13:46:58+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -545,7 +545,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-14T04:29:14.532183+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true

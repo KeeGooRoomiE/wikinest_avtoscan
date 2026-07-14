@@ -186,6 +186,9 @@
   </div>
 </div>
 <div id="toast"></div>
+<button id="back-to-top" onclick="scrollViewToTop()" title="Наверх" aria-label="Наверх">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
 
 <script>
 const $=id=>document.getElementById(id);
@@ -384,6 +387,7 @@ async function init(){
   if(!restored){openRoleModal();return;}
   applyRoleUI();
   loadTree();
+  initBackToTop();
 
   document.addEventListener('keydown',e=>{
     const inEditor=$('editor-wrap').classList.contains('edit-active');
@@ -1187,6 +1191,8 @@ async function openPage(page){
   trackRecentPage(page);
   const targetPath=`docs/${page.path}.md`;
   currentPath=targetPath;
+  $('view-wrap').scrollTop=0;
+  $('back-to-top')?.classList.remove('show');
   // Auto-expand the section this page belongs to, then always re-render —
   // renderTree() computes .active for both regular tree-rows and direct-link
   // section headers (Глоссарий/Инциденты) from currentPath. Rendering before
@@ -1412,6 +1418,23 @@ function buildToc(){
 function tocClick(id){
   const el=document.getElementById(id);
   if(el){el.scrollIntoView({behavior:'smooth'});history.replaceState(null,'','#'+id);}
+}
+
+// ── Back-to-top button ──
+// #view-wrap is the actual scroll container (overflow-y:auto), not
+// window/document — a plain window scroll listener would never fire.
+// Shown once scrolled far enough down that it's only ever visible on long
+// pages (glossary etc.) — short pages never scroll past the threshold.
+function initBackToTop(){
+  const btn=$('back-to-top'),wrap=$('view-wrap');
+  if(!btn||!wrap||wrap.dataset.backToTopInit) return;
+  wrap.dataset.backToTopInit='1';
+  wrap.addEventListener('scroll',()=>{
+    btn.classList.toggle('show',wrap.scrollTop>400);
+  });
+}
+function scrollViewToTop(){
+  $('view-wrap').scrollTo({top:0,behavior:'smooth'});
 }
 
 // ── Markdown toolbar formatting ──
