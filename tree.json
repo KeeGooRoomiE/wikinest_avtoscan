@@ -465,22 +465,6 @@
     "isCounting": true
   },
   {
-    "path": "reference/testovyj",
-    "title": "Тестовый",
-    "excerpt": "",
-    "parts": [
-      "reference",
-      "testovyj"
-    ],
-    "folder_titles": {
-      "reference": "Памятки"
-    },
-    "updated_at": "2026-07-14T05:31:10.440371+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Регламент создания и настройки учётной записи клиента",
     "excerpt": "",
