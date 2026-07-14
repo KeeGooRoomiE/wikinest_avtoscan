@@ -51,7 +51,7 @@
   },
   {
     "path": "devices/tachographs/nrd/drive-base",
-    "title": "Тахограф Drive Base",
+    "title": "Drive Base",
     "excerpt": "",
     "parts": [
       "devices",
@@ -62,9 +62,9 @@
     "folder_titles": {
       "devices": "Оборудование",
       "tachographs": "Тахографы",
-      "nrd": "Линейка НРД"
+      "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-14T09:09:54+07:00",
+    "updated_at": "2026-07-14T09:17:43+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -467,7 +467,7 @@
   {
     "_folder": true,
     "path": "devices/tachographs/nrd",
-    "title": "Линейка НРД",
+    "title": "Линейка НРД (Атол)",
     "parts": [
       "devices",
       "tachographs",
@@ -481,7 +481,7 @@
   {
     "_folder": true,
     "path": "devices/tachographs/shtrikh",
-    "title": "Штрих",
+    "title": "ШТРИХ-ТахоRUS",
     "parts": [
       "devices",
       "tachographs",
@@ -495,7 +495,7 @@
   {
     "_folder": true,
     "path": "devices/tachographs/mercury",
-    "title": "Меркурий",
+    "title": "Меркурий ТА-001",
     "parts": [
       "devices",
       "tachographs",
