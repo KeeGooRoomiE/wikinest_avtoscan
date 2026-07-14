@@ -31,10 +31,9 @@ services:
     depends_on:
       - backend
     ports:
-      - "80:80"
+      # Only 443 — see Caddyfile for why (no real port 80 on this shared IP,
+      # so no ACME and deliberately no plain-HTTP fallback either).
       - "443:443"
-    environment:
-      DOMAIN: ${DOMAIN:?DOMAIN is required — see DEPLOYMENT.md}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./docs.html:/srv/static/docs.html:ro

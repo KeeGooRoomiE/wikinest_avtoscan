@@ -1,6 +1,19 @@
 # Reverse proxy + static file server for the VM-hosted wiki.
-# {$DOMAIN} comes from the .env file consumed by docker-compose.yml.
-{$DOMAIN} {
+#
+# INTERIM STATE (see DEPLOYMENT.md "Порт вместо домена"): this VM sits behind
+# the provider's shared IP — standard external 80/443 belong to someone else
+# on that IP (their own nginx answers there), we only get the NAT-forwarded
+# high ports (26500->80, 26502->443 internally). That means Caddy can't do
+# ACME/Let's Encrypt here (HTTP-01 needs real port 80 reachable at the domain)
+# — hence `tls internal` (self-signed, browser will warn once) instead of
+# `{$DOMAIN}` with automatic HTTPS. Revisit if a dedicated IP or a tunnel
+# (Cloudflare Tunnel etc.) ever replaces this. Plain :80 deliberately isn't
+# served at all — a Secure-flagged session cookie won't attach over it, so
+# leaving it up just means login silently fails there instead of prompting
+# people to the working https:// port.
+:443 {
+	tls internal
+
 	encode gzip
 
 	header {
