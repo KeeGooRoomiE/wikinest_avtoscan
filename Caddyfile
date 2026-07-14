@@ -12,7 +12,15 @@
 # leaving it up just means login silently fails there instead of prompting
 # people to the working https:// port.
 :443 {
-	tls internal
+	# `:443` has no hostname to key off of, so tls internal alone won't issue
+	# anything — Caddy looks for a cert matching the ClientHello's SNI, finds
+	# none, and refuses ("no certificate matching TLS ClientHello", verified
+	# via `debug` global option + tls.handshake logs). on_demand tells it to
+	# self-sign one for whatever SNI shows up instead of requiring the
+	# hostname be known up front.
+	tls internal {
+		on_demand
+	}
 
 	encode gzip
 
