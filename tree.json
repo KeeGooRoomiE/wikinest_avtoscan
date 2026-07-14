@@ -110,6 +110,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/mercury",
+    "title": "Меркурий ТА-001",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "mercury"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    },
+    "updated_at": "2026-07-14T07:05:45.602924+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/tachographs/vdo/vdo-1381",
     "title": "VDO 1381",
     "excerpt": "",
@@ -566,20 +584,6 @@
       "devices",
       "tachographs",
       "shtrikh"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "devices/tachographs/mercury",
-    "title": "Меркурий ТА-001",
-    "parts": [
-      "devices",
-      "tachographs",
-      "mercury"
     ],
     "folder_titles": {
       "devices": "Оборудование",
