@@ -194,7 +194,10 @@
       "Bash(pdftotext \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" -)",
       "Bash(cp \"/tmp/drivebase_docs/install/Руководство по установке и настройке.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-installation.pdf)",
       "Bash(cp \"/tmp/drivebase_docs/manual/Руководство по эксплуатации.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-manual.pdf)",
-      "Bash(cp \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-driver-manual.pdf)"
+      "Bash(cp \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-driver-manual.pdf)",
+      "Bash(mkdir -p /tmp/nkm_assets)",
+      "Bash(unzip -o \"/Users/xandergusarov/Downloads/image_2026-07-13_15-59-43.jpeg.zip\")",
+      "Bash(cp \"/tmp/nkm_assets/image_2026-07-13_15-59-43.jpeg\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/nkm.jpeg)"
     ]
   }
 }
