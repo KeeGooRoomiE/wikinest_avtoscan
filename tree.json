@@ -110,24 +110,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/tachographs/vdo-3283",
-    "title": "VDO 3283",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "tachographs",
-      "vdo-3283"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы"
-    },
-    "updated_at": "2026-07-14T09:52:24+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
