@@ -23,6 +23,17 @@ def _run(data_dir, args, check=True, timeout=30):
     return result.stdout
 
 
+def mark_safe(data_dir):
+    """git refuses to operate on a repo owned by a different UID than the
+    running process ("detected dubious ownership") unless the directory is
+    explicitly trusted. The container runs as root; /data is a bind mount of
+    the host checkout, owned by whatever user cloned it there — always a UID
+    mismatch by construction, not a one-off deployment quirk. Must run before
+    any other git command against data_dir.
+    """
+    _run(data_dir, ['config', '--global', '--add', 'safe.directory', data_dir])
+
+
 def ensure_identity(data_dir, name, email):
     _run(data_dir, ['config', 'user.name', name])
     _run(data_dir, ['config', 'user.email', email])

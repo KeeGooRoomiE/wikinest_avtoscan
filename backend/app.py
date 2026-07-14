@@ -479,6 +479,7 @@ def _configure_git_remote():
 
 def _startup():
     logging.basicConfig(level=logging.INFO)
+    git_ops.mark_safe(DATA_DIR)
     git_ops.ensure_identity(DATA_DIR, COMMIT_NAME, COMMIT_EMAIL)
     if _configure_git_remote():
         threading.Thread(target=_push_loop, daemon=True).start()
