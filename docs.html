@@ -1465,6 +1465,29 @@ function fmtVideo(){
 }
 
 // ── Drag-and-drop image upload ──
+// Small size-choice prompt shown right after an image drop, before anything
+// is inserted — asked up front (not after upload) so declining doesn't leave
+// an uploaded-but-unreferenced file behind. "Маленькое" caps width, doesn't
+// upscale a smaller image — hence max-width, not a fixed width attribute.
+function chooseImageSize(fileName){
+  return new Promise(resolve=>{
+    $('modal-title').textContent='Размер изображения';
+    $('modal-body').innerHTML=`<p style="font-size:12px;color:var(--text2)">${escHtml(fileName)}</p>`;
+    const actions=$('modal-actions');
+    actions.innerHTML='';
+    const small=document.createElement('button');
+    small.textContent='Маленькое (до 400px)';
+    small.onclick=()=>{closeModal();resolve('small');};
+    const full=document.createElement('button');
+    full.className='btn-primary';
+    full.textContent='1:1 (оригинал)';
+    full.onclick=()=>{closeModal();resolve('full');};
+    actions.appendChild(small);
+    actions.appendChild(full);
+    $('modal-overlay').classList.add('open');
+  });
+}
+
 function initDragDrop(){
   if(dragDropInit) return;
   dragDropInit=true;
@@ -1479,27 +1502,37 @@ function initDragDrop(){
   wrap.addEventListener('drop',async e=>{
     e.preventDefault();
     wrap.classList.remove('drag-over');
-    const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/')||f.type.startsWith('video/'));
+    const files=[...e.dataTransfer.files].filter(f=>
+      f.type.startsWith('image/')||f.type.startsWith('video/')||f.type==='application/pdf');
     if(!files.length) return;
     const ok=await requireUnlock();
     if(!ok) return;
     for(const file of files){
       const isVideo=file.type.startsWith('video/');
+      const isPdf=file.type==='application/pdf';
+      const kind=isVideo?'video':isPdf?'pdf':'image';
       try{
+        let size=null;
+        if(kind==='image') size=await chooseImageSize(file.name);
         const ts=Date.now();
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
-        await apiUploadFile(uploadPath,`docs: upload ${isVideo?'video':'image'} ${safeName}`,file);
+        await apiUploadFile(uploadPath,`docs: upload ${kind} ${safeName}`,file);
         const url='/'+uploadPath;
         const ta=$('editor');
         const pos=ta.selectionStart;
         // marked.js passes raw HTML through as-is (see PROJECT_ARCHITECTURE.md
-        // — no DOMPurify, accepted for an internal wiki), so a plain <video>
-        // tag renders as a real player without any renderer changes.
-        const ins=isVideo?`\n<video controls src="${url}"></video>\n`:`![${safeName}](${url})`;
+        // — no DOMPurify, accepted for an internal wiki), so <video>/<img
+        // style=...> render as-is without any renderer changes. Markdown
+        // image syntax has no attribute syntax, hence raw <img> for "small".
+        let ins;
+        if(isVideo) ins=`\n<video controls src="${url}"></video>\n`;
+        else if(isPdf) ins=`[${safeName}](${url})`;
+        else if(size==='small') ins=`<img src="${url}" alt="${safeName}" style="max-width:400px;height:auto">`;
+        else ins=`![${safeName}](${url})`;
         taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
-        toast(isVideo?'Видео загружено':t('image_uploaded'));
+        toast(isVideo?'Видео загружено':isPdf?'Файл загружен':t('image_uploaded'));
       }catch(err){toast(`Upload failed: ${err.message}`,true);}
     }
   });
