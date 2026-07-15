@@ -226,6 +226,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/axle-load/ressornaya-podveska",
+    "title": "Рессорная подвеска",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "axle-load",
+      "ressornaya-podveska"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "axle-load": "Датчики нагрузки на ось"
+    },
+    "updated_at": "2026-07-15T10:19:24+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
