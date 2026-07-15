@@ -208,6 +208,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/axle-load/pnevmopodveska",
+    "title": "Пневмоподвеска",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "axle-load",
+      "pnevmopodveska"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "axle-load": "Датчики нагрузки на ось"
+    },
+    "updated_at": "2026-07-15T10:19:12+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "examples/index",
     "title": "Примеры шаблонов для ТС в сервисах",
     "excerpt": "",
