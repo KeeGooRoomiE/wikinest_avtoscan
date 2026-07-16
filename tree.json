@@ -148,26 +148,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/tachographs/vdo/vdo-1381",
-    "title": "VDO 1381",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "tachographs",
-      "vdo",
-      "vdo-1381"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы",
-      "vdo": "VDO"
-    },
-    "updated_at": "2026-07-14T09:53:28+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "devices/tachographs/vdo/vdo-3283",
     "title": "VDO 3283",
     "excerpt": "",
