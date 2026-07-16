@@ -1098,6 +1098,18 @@
   },
   {
     "_folder": true,
+    "path": "reference/support",
+    "title": "Техническая поддержка",
+    "parts": [
+      "reference",
+      "support"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
     "path": "reglamentation/sales",
     "title": "Отдел продаж",
     "parts": [
