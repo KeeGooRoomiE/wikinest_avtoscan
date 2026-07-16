@@ -70,26 +70,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/tachographs/nrd/drive-smart",
-    "title": "Drive Smart",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "tachographs",
-      "nrd",
-      "drive-smart"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы",
-      "nrd": "Линейка НРД (Атол)"
-    },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "devices/tachographs/nrd/drive-x",
     "title": "Drive X",
     "excerpt": "",
