@@ -1,1 +1,7 @@
-{ "title": "Компания", "pages": ["welcome", "contacts"] }
+{
+  "title": "Компания",
+  "pages": [
+    "welcome",
+    "contacts"
+  ]
+}
