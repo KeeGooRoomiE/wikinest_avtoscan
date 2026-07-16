@@ -110,28 +110,46 @@
     "isCounting": true
   },
   {
-    "path": "devices/tachographs/vdo/vdo-1381",
-    "title": "VDO 1381",
+    "path": "devices/tachographs/shtrikh/shtrikh-takhorus",
+    "title": "ШТРИХ-ТахоRUS",
     "excerpt": "",
     "parts": [
       "devices",
       "tachographs",
-      "vdo",
-      "vdo-1381"
+      "shtrikh",
+      "shtrikh-takhorus"
     ],
     "folder_titles": {
       "devices": "Оборудование",
       "tachographs": "Тахографы",
-      "vdo": "VDO"
+      "shtrikh": "ШТРИХ-ТахоRUS"
     },
-    "updated_at": "2026-07-14T09:53:28+07:00",
+    "updated_at": "2026-07-16T10:58:58+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/tachographs/mercury",
+    "title": "Меркурий ТА-001",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "mercury"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    },
+    "updated_at": "2026-07-14T07:05:45Z",
     "tags": [],
     "author": "",
     "isCounting": true
   },
   {
     "path": "devices/tachographs/vdo/vdo-3283",
-    "title": "VDO 3283",
+    "title": "VDO 3283/1381",
     "excerpt": "",
     "parts": [
       "devices",
@@ -144,7 +162,83 @@
       "tachographs": "Тахографы",
       "vdo": "VDO"
     },
-    "updated_at": "2026-07-14T09:53:13+07:00",
+    "updated_at": "2026-07-16T10:59:58+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
+    "title": "ДУТ Эскорт TD-150",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "escort",
+      "dut-eskort-td-150"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Датчики уровня топлива",
+      "escort": "Линейка ДУТ Эскорт"
+    },
+    "updated_at": "2026-07-14T16:42:34+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/fuel-sensors/escort/dut-eskort-td-ble",
+    "title": "ДУТ Эскорт TD-BLE",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "escort",
+      "dut-eskort-td-ble"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Датчики уровня топлива",
+      "escort": "Линейка ДУТ Эскорт"
+    },
+    "updated_at": "2026-07-14T16:42:16+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/axle-load/pnevmopodveska",
+    "title": "Пневмоподвеска",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "axle-load",
+      "pnevmopodveska"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "axle-load": "Датчики нагрузки на ось"
+    },
+    "updated_at": "2026-07-15T10:19:12+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/axle-load/ressornaya-podveska",
+    "title": "Рессорная подвеска",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "axle-load",
+      "ressornaya-podveska"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "axle-load": "Датчики нагрузки на ось"
+    },
+    "updated_at": "2026-07-15T10:19:24+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -466,7 +560,7 @@
   },
   {
     "path": "reglamentation/support/add-car-reglament",
-    "title": "Регламент создания и настройки учётной записи клиента",
+    "title": "Ссоздание и настройка учётной записи клиента в Axenta",
     "excerpt": "",
     "parts": [
       "reglamentation",
@@ -477,14 +571,14 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-16T11:54:15+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
   },
   {
     "path": "reglamentation/support/add-object-axenta",
-    "title": "Регламент создания объекта в AXENTA",
+    "title": "Cоздание объекта в AXENTA",
     "excerpt": "",
     "parts": [
       "reglamentation",
@@ -495,7 +589,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-16T11:55:16+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -566,20 +660,6 @@
       "devices",
       "tachographs",
       "shtrikh"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "devices/tachographs/mercury",
-    "title": "Меркурий ТА-001",
-    "parts": [
-      "devices",
-      "tachographs",
-      "mercury"
     ],
     "folder_titles": {
       "devices": "Оборудование",
@@ -822,20 +902,6 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "processes/sales/obshchie",
-    "title": "Общие",
-    "parts": [
-      "processes",
-      "sales",
-      "obshchie"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж"
     }
   },
   {
