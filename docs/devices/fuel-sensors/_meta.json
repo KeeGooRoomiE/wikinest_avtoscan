@@ -1,1 +1,7 @@
-{"title": "Датчики уровня топлива", "pages": ["escort", "omnicom"]}
+{
+  "title": "Контроль топлива",
+  "pages": [
+    "escort",
+    "omnicom"
+  ]
+}

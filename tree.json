@@ -179,7 +179,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование",
-      "fuel-sensors": "Датчики уровня топлива",
+      "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
     "updated_at": "2026-07-16T05:12:30.229951+00:00",
@@ -199,7 +199,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование",
-      "fuel-sensors": "Датчики уровня топлива",
+      "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
     "updated_at": "2026-07-16T05:12:30.229951+00:00",
@@ -721,7 +721,7 @@
   {
     "_folder": true,
     "path": "devices/fuel-sensors",
-    "title": "Датчики уровня топлива",
+    "title": "Контроль топлива",
     "parts": [
       "devices",
       "fuel-sensors"
@@ -741,7 +741,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование",
-      "fuel-sensors": "Датчики уровня топлива"
+      "fuel-sensors": "Контроль топлива"
     }
   },
   {
@@ -755,7 +755,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование",
-      "fuel-sensors": "Датчики уровня топлива"
+      "fuel-sensors": "Контроль топлива"
     }
   },
   {
