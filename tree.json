@@ -448,6 +448,66 @@
     "isCounting": true
   },
   {
+    "path": "devices/video/registrators/carvis-registrators",
+    "title": "Видеорегистраторы CARVIS",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "video",
+      "registrators",
+      "carvis-registrators"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение",
+      "registrators": "Видеорегистраторы"
+    },
+    "updated_at": "2026-07-16T17:11:48.604782+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/video/cameras/carvis-cameras",
+    "title": "Видеокамеры CARVIS",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "video",
+      "cameras",
+      "carvis-cameras"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение",
+      "cameras": "Видеокамеры"
+    },
+    "updated_at": "2026-07-16T17:11:48.603782+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/video/accessories/carvis-accessories",
+    "title": "Сопутствующее оборудование CARVIS",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "video",
+      "accessories",
+      "carvis-accessories"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "video": "Видеонаблюдение",
+      "accessories": "Сопутствующее оборудование"
+    },
+    "updated_at": "2026-07-16T17:11:48.605783+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/axle-load/pnevmopodveska",
     "title": "Пневмоподвеска",
     "excerpt": "",
