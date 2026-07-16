@@ -149,7 +149,7 @@
   },
   {
     "path": "devices/tachographs/vdo/vdo-3283",
-    "title": "VDO 3283",
+    "title": "VDO 3283/1381",
     "excerpt": "",
     "parts": [
       "devices",
@@ -162,7 +162,7 @@
       "tachographs": "Тахографы",
       "vdo": "VDO"
     },
-    "updated_at": "2026-07-14T09:53:13+07:00",
+    "updated_at": "2026-07-16T10:59:58+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
