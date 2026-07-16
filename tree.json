@@ -64,7 +64,27 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-16T17:30:30.136753+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/tachographs/nrd/drive-smart",
+    "title": "Drive Smart",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "nrd",
+      "drive-smart"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы",
+      "nrd": "Линейка НРД (Атол)"
+    },
+    "updated_at": "2026-07-16T17:30:30.137753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -84,7 +104,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-16T17:30:30.138753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -122,14 +142,14 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-16T17:30:30.142753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
   },
   {
     "path": "devices/tachographs/vdo/vdo-3283",
-    "title": "VDO 3283/1381",
+    "title": "VDO DTCO 3283 / 1381",
     "excerpt": "",
     "parts": [
       "devices",
@@ -142,7 +162,7 @@
       "tachographs": "Тахографы",
       "vdo": "VDO"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-16T17:30:30.139753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -509,7 +529,7 @@
   },
   {
     "path": "devices/axle-load/pnevmopodveska",
-    "title": "Пневмоподвеска",
+    "title": "eCargosens Air / DS — датчики нагрузки на ось (пневмоподвеска)",
     "excerpt": "",
     "parts": [
       "devices",
@@ -520,14 +540,14 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-16T17:30:30.140753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
   },
   {
     "path": "devices/axle-load/ressornaya-podveska",
-    "title": "Рессорная подвеска",
+    "title": "VESA SYSTEM — датчики нагрузки на ось (рессорная подвеска)",
     "excerpt": "",
     "parts": [
       "devices",
@@ -538,7 +558,7 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-16T17:30:30.141753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
