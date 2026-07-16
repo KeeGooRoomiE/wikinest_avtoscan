@@ -578,7 +578,7 @@
   },
   {
     "path": "reglamentation/support/add-object-axenta",
-    "title": "Регламент создания объекта в AXENTA",
+    "title": "Cоздание объекта в AXENTA",
     "excerpt": "",
     "parts": [
       "reglamentation",
@@ -589,7 +589,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-16T11:55:16+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
