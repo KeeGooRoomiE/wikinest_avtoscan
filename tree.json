@@ -244,22 +244,6 @@
     "isCounting": true
   },
   {
-    "path": "examples/index",
-    "title": "Примеры шаблонов для ТС в сервисах",
-    "excerpt": "",
-    "parts": [
-      "examples",
-      "index"
-    ],
-    "folder_titles": {
-      "examples": "Шаблоны"
-    },
-    "updated_at": "2026-07-16T05:12:30.233950+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "glossary/index",
     "title": "Глоссарий",
     "excerpt": "",
@@ -891,6 +875,15 @@
       "devices": "Оборудование",
       "additional": "Дополнительное оборудование"
     }
+  },
+  {
+    "_folder": true,
+    "path": "examples",
+    "title": "Шаблоны",
+    "parts": [
+      "examples"
+    ],
+    "folder_titles": {}
   },
   {
     "_folder": true,
