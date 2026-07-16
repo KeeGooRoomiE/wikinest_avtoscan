@@ -949,6 +949,96 @@
     "isCounting": true
   },
   {
+    "path": "processes/support/forma-zayavki-tp",
+    "title": "Форма заявки в техподдержку (сверка показаний)",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "forma-zayavki-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/support/opisanie-dolzhnosti-tp",
+    "title": "Описание должности: специалист технической поддержки",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "opisanie-dolzhnosti-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/support/reglament-zayavok-tp",
+    "title": "Регламент работы отдела технической поддержки",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "reglament-zayavok-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/support/retranslyaciya-dannyh",
+    "title": "Ретрансляция данных мониторинга",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "retranslyaciya-dannyh"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/support/tahograf-princip-raboty",
+    "title": "Тахограф: принцип работы и настройка",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "tahograf-princip-raboty"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/avariyniy-zapas-ustanovshchika",
     "title": "Перечень аварийного запаса установщика",
     "excerpt": "",
