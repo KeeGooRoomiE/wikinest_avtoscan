@@ -110,6 +110,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/tachographs/shtrikh/shtrikh-takhorus",
+    "title": "ШТРИХ-ТахоRUS",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "shtrikh",
+      "shtrikh-takhorus"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы",
+      "shtrikh": "ШТРИХ-ТахоRUS"
+    },
+    "updated_at": "2026-07-16T10:58:58+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/tachographs/mercury",
     "title": "Меркурий ТА-001",
     "excerpt": "",
