@@ -749,6 +749,42 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/aktivizaciya-skzi",
+    "title": "Активизация блоков СКЗИ",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "aktivizaciya-skzi"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/attestaciya-mop",
+    "title": "Аттестация для МОП (тахография, навигация)",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "attestaciya-mop"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/bitrix/index",
     "title": "Битрикс — Процессы",
     "excerpt": "",
@@ -764,6 +800,150 @@
       "bitrix": "Процессы Битрикс24"
     },
     "updated_at": "2026-07-16T05:12:30.235950+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/kriterii-veduschiy-mop",
+    "title": "Критерии присвоения должности ведущего МОП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kriterii-veduschiy-mop"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/nuzhen-li-tahograf",
+    "title": "Как понять, нужен ли тахограф на ТС",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "nuzhen-li-tahograf"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/opisanie-dolzhnosti-mop",
+    "title": "Описание должности: менеджер отдела продаж (фермер)",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "opisanie-dolzhnosti-mop"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/perenapravlenie-obrashcheniy-v-tp",
+    "title": "Перенаправление обращений в техподдержку",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "perenapravlenie-obrashcheniy-v-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/pravila-zaklyucheniya-dogovorov",
+    "title": "Правила заключения и перезаключения договоров с клиентами",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "pravila-zaklyucheniya-dogovorov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/rabota-s-dz",
+    "title": "Регламент по работе с дебиторской задолженностью",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "rabota-s-dz"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/sroki-blokirovki",
+    "title": "Сроки блокировки клиентов при неуплате АП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "sroki-blokirovki"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/zakrytie-zakaz-naryadov",
+    "title": "Закрытие заказ-нарядов менеджером ОП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "zakrytie-zakaz-naryadov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-16T17:48:38.034469+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
