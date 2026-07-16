@@ -148,6 +148,26 @@
     "isCounting": true
   },
   {
+    "path": "devices/nav-terminals/galileo/galileosky-10",
+    "title": "Galileosky 10",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo",
+      "galileosky-10"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "galileo": "Линейка Галилео"
+    },
+    "updated_at": "2026-07-16T11:04:38.023239+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
     "title": "ДУТ Эскорт TD-150",
     "excerpt": "",
