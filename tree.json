@@ -148,6 +148,146 @@
     "isCounting": true
   },
   {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2423",
+    "title": "СМАРТ S-2423",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2423"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2425",
+    "title": "СМАРТ S-2425",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2425"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2435",
+    "title": "СМАРТ S-2435",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2435"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2613",
+    "title": "СИГНАЛ S-2613",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2613"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2651",
+    "title": "СИГНАЛ S-2651",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2651"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-2653",
+    "title": "СИГНАЛ S-2653",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-2653"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/navtelecom/navtelecom-s-4752",
+    "title": "СИГНАЛ S-4752",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "navtelecom",
+      "navtelecom-s-4752"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "navtelecom": "Линейка Навтелеком"
+    },
+    "updated_at": "2026-07-16T17:01:11.439324+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/nav-terminals/galileo/galileosky-10",
     "title": "Galileosky 10",
     "excerpt": "",
