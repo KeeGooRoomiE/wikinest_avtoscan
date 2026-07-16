@@ -484,6 +484,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/radios/optim-270",
+    "title": "OPTIM-270 — автомобильная Си-Би радиостанция",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "radios",
+      "optim-270"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "radios": "Рации"
+    },
+    "updated_at": "2026-07-16T17:05:19.578710+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "glossary/index",
     "title": "Глоссарий",
     "excerpt": "",
