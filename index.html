@@ -228,6 +228,15 @@ let currentSection=null;
 let sessionRecent=[];
 let sessionFavorites=[];
 
+// ── Edit-tree mode (rename/delete buttons only — no drag-and-drop here.
+// See CLAUDE.md "Два пути": reorder is VM-only (docs.html); this path's
+// writes are fire-and-forget workflow_dispatch calls with no queuing, so a
+// drag session's rapid intermediate writes would spam Action runs. This
+// toggle still exists so rename/delete buttons appear/disappear the same
+// way as docs.html, per the original UI spec — its second click just
+// closes edit mode, no network call, since there's nothing to batch-apply.
+let editTreeMode=false;
+
 // ── Search ──
 let searchIndex=null;
 
@@ -1081,6 +1090,7 @@ async function loadTree(){
 function renderTree(pages){
   const el=$('tree');
   el.innerHTML='';
+  el.classList.toggle('tree-editing',editTreeMode);
 
   // Home link
   const homeDiv=document.createElement('div');
@@ -1091,7 +1101,17 @@ function renderTree(pages){
 
   const lbl=document.createElement('div');
   lbl.className='sidebar-label';
-  lbl.textContent='РАЗДЕЛЫ';
+  lbl.innerHTML=`<span>РАЗДЕЛЫ</span>`;
+  if(canEdit()){
+    const editBtn=document.createElement('button');
+    editBtn.className='tree-edit-toggle'+(editTreeMode?' active':'');
+    editBtn.title=t('edit_tree');
+    editBtn.innerHTML=editTreeMode
+      ?'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
+      :'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg>';
+    editBtn.onclick=e=>{e.stopPropagation();editTreeMode=!editTreeMode;renderTree(tree);};
+    lbl.appendChild(editBtn);
+  }
   el.appendChild(lbl);
 
   SECTIONS.forEach(sec=>{
@@ -1200,6 +1220,26 @@ function renderTree(pages){
         r.onclick=()=>openCreateModal(ctx);
         return r;
       };
+      // Rename/delete buttons on a subfolder header row — only while
+      // editTreeMode is on (see the tree-edit-toggle button above), same as
+      // docs.html; stopPropagation so they don't also trigger the header's
+      // own expand/collapse onclick (same pattern as the section-visibility
+      // gearBtn above).
+      const addFolderActions=(hdrEl,folderPath,folderTitle)=>{
+        if(!canEdit()||!editTreeMode) return;
+        const renameBtn=document.createElement('button');
+        renameBtn.className='tree-inline-btn';
+        renameBtn.title=t('rename_folder');
+        renameBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg>';
+        renameBtn.onclick=e=>{e.stopPropagation();openRenameFolder(folderPath,folderTitle);};
+        hdrEl.appendChild(renameBtn);
+        const deleteBtn=document.createElement('button');
+        deleteBtn.className='tree-inline-btn tree-inline-btn-danger';
+        deleteBtn.title=t('delete_folder');
+        deleteBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>';
+        deleteBtn.onclick=e=>{e.stopPropagation();deleteFolderConfirm(folderPath,folderTitle);};
+        hdrEl.appendChild(deleteBtn);
+      };
 
       if(directPages.length===0&&subfolderMap.size===0){
         const empty=document.createElement('div');
@@ -1217,6 +1257,7 @@ function renderTree(pages){
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
         hdr.innerHTML=`${arrowSvg}<span title="${escHtml(name)}">${escHtml(name)}</span>`;
+        addFolderActions(hdr,subPath,name);
         const pageWrap=document.createElement('div');
         pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
         pages.forEach(p=>pageWrap.appendChild(makePageRow(p,1)));
@@ -1227,6 +1268,7 @@ function renderTree(pages){
           const sfHdr=document.createElement('div');
           sfHdr.className='sec-subfolder-hdr sec-subfolder-hdr-2'+(sfIsOpen?' open':'');
           sfHdr.innerHTML=`${arrowSvg}<span title="${escHtml(sfName)}">${escHtml(sfName)}</span>`;
+          addFolderActions(sfHdr,sfPath,sfName);
           const sfPageWrap=document.createElement('div');
           sfPageWrap.className='sec-subfolder-pages'+(sfIsOpen?'':' collapsed');
           sfPages.forEach(p=>sfPageWrap.appendChild(makePageRow(p,2)));
@@ -1907,6 +1949,99 @@ async function doDelete(){
     showEmpty();
     watchDeploy(deletedPath);
   }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Folder delete ──
+function deleteFolderConfirm(folderPath,folderTitle){
+  $('modal-title').textContent=t('delete_folder');
+  $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px;line-height:1.6">${t('delete_folder_confirm').replace('{title}',escHtml(folderTitle))}</p>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-danger" onclick="closeModal();doDeleteFolder('${folderPath}')">${t('delete_folder')}</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+// GitHub's Contents API has no directory-delete, and api-write.yml's
+// delete_file op only removes one file per dispatch — so a folder delete on
+// this path is N sequential dispatches (deepest concern isn't ordering,
+// each file delete is independent; it's not firing them concurrently and
+// racing writes to the same underlying ref). tree already carries a
+// _folder marker entry for the folder itself alongside its descendants
+// (see tree_builder's folder_meta), so one filter covers _meta.json + every
+// nested page.
+async function doDeleteFolder(folderPath){
+  const ok=await requireUnlock();
+  if(!ok) return;
+  try{
+    const prefix=folderPath+'/';
+    const toDelete=tree.filter(p=>p.path===folderPath||p.path.startsWith(prefix));
+    for(const p of toDelete){
+      const relPath=p._folder?`docs/${p.path}/_meta.json`:`docs/${p.path}.md`;
+      await apiDeleteFile(relPath,`docs: delete ${relPath}`);
+    }
+    if(currentPath && (currentPath===`docs/${folderPath}.md`||currentPath.startsWith(`docs/${folderPath}/`))){
+      currentPath=null;currentSha=null;originalContent=null;editorDirty=false;
+      $('panels').classList.remove('split');
+      $('view-wrap').style.display='none';
+      $('editor-wrap').style.display='none';
+      $('editor-wrap').classList.remove('edit-active');
+      $('btn-edit').style.display='none';
+      $('btn-delete').style.display='none';
+      $('btn-rename').style.display='none';
+      $('btn-append').style.display='none';
+      $('btn-history').style.display='none';
+      $('edit-btns').style.display='none';
+      $('breadcrumb').innerHTML='';
+      const tocDel=$('toc');if(tocDel)tocDel.style.display='none';
+    }
+    tree=tree.filter(p=>p.path!==folderPath&&!p.path.startsWith(prefix));
+    renderTree(tree);
+    showEmpty();
+    toast(t('folder_deleted')+' — Actions ('+toDelete.length+')');
+  }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Folder rename (title only — the folder's real path/slug never changes,
+// so links into it never break; see _meta.json.title) ──
+function openRenameFolder(folderPath,currentTitle){
+  $('modal-title').textContent=t('rename_folder');
+  $('modal-body').innerHTML=`
+    <div class="field"><label>${t('folder_display_name')}</label>
+    <input id="m-fld-rename" value="${escHtml(currentTitle)}">
+    <div class="hint">${t('folder_display_name_hint')}</div></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="doRenameFolder('${folderPath}')">${t('rename_folder')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>{const el=$('m-fld-rename');el.focus();el.select();},50);
+}
+
+async function doRenameFolder(folderPath){
+  const newTitle=$('m-fld-rename').value.trim();
+  if(!newTitle) return;
+  const ok=await requireUnlock();
+  if(!ok) return;
+  closeModal();
+  const metaPath=`docs/${folderPath}/_meta.json`;
+  try{
+    let meta={};
+    try{
+      const data=await apiGetFile(metaPath);
+      meta=JSON.parse(b64dec(data.content.replace(/\n/g,'')));
+    }catch{} // may not exist yet
+    meta.title=newTitle;
+    await apiPutFile(metaPath,`docs: rename folder ${folderPath}`,b64enc(JSON.stringify(meta,null,2)));
+    // renderTree reads a level-1/2 subfolder's displayed name straight off
+    // its _folder marker entry's own .title (see renderTree's
+    // subfolderMap.get(mapKey).name=f.title) — patch that directly rather
+    // than tree.json's folder_titles (which is only a fallback used when a
+    // folder has no _meta.json of its own, not this case).
+    const marker=tree.find(p=>p._folder&&p.path===folderPath);
+    if(marker) marker.title=newTitle;
+    renderTree(tree);
+    toast(t('folder_renamed'));
+    watchDeploy(metaPath);
+  }catch(e){toast(`Error: ${e.message}`,true);}
 }
 
 // ── Rename ──

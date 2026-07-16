@@ -228,6 +228,15 @@ let currentSection=null;
 let sessionRecent=[];
 let sessionFavorites=[];
 
+// ── Edit-tree mode (rename/delete buttons + drag-and-drop reorder) ──
+// pendingReorders accumulates client-side only while dragging — nothing
+// hits the network until the toggle's second click batches it all into one
+// apiReorder call/commit. See CLAUDE.md "Два пути": reorder is VM-only,
+// index.html's toggle shows the same rename/delete buttons but has no
+// drag handles or apply step (see its renderTree for why).
+let editTreeMode=false;
+let pendingReorders=new Map();
+
 // ── Search ──
 let searchIndex=null;
 
@@ -486,6 +495,14 @@ async function apiPutFile(path,message,content,encoding='text'){
 
 async function apiDeleteFile(path,message){
   await apiFetch('/api/write/delete_file','POST',{path,message});
+}
+
+async function apiDeleteFolder(path,message){
+  await apiFetch('/api/write/delete_folder','POST',{path,message});
+}
+
+async function apiReorder(folders,message){
+  await apiFetch('/api/write/reorder','POST',{folders,message});
 }
 
 async function apiAppendRow(path,message,section_name,new_row){
@@ -1004,6 +1021,7 @@ async function loadTree(){
 function renderTree(pages){
   const el=$('tree');
   el.innerHTML='';
+  el.classList.toggle('tree-editing',editTreeMode);
 
   // Home link
   const homeDiv=document.createElement('div');
@@ -1014,7 +1032,17 @@ function renderTree(pages){
 
   const lbl=document.createElement('div');
   lbl.className='sidebar-label';
-  lbl.textContent='РАЗДЕЛЫ';
+  lbl.innerHTML=`<span>РАЗДЕЛЫ</span>`;
+  if(canEdit()){
+    const editBtn=document.createElement('button');
+    editBtn.className='tree-edit-toggle'+(editTreeMode?' active':'');
+    editBtn.title=editTreeMode?t('edit_tree_apply'):t('edit_tree');
+    editBtn.innerHTML=editTreeMode
+      ?'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>'
+      :'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg>';
+    editBtn.onclick=e=>{e.stopPropagation();toggleEditTreeMode();};
+    lbl.appendChild(editBtn);
+  }
   el.appendChild(lbl);
 
   SECTIONS.forEach(sec=>{
@@ -1113,6 +1141,7 @@ function renderTree(pages){
         row.dataset.path=p.path;
         row.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span class="tree-label" title="${escHtml(p.title)}">${escHtml(p.title)}</span>`;
         row.onclick=()=>openPage(p);
+        if(editTreeMode) row.prepend(makeDragHandle());
         return row;
       };
       const makeAddRow=(ctx,level=0)=>{
@@ -1123,6 +1152,35 @@ function renderTree(pages){
         r.onclick=()=>openCreateModal(ctx);
         return r;
       };
+      const makeDragHandle=()=>{
+        const h=document.createElement('span');
+        h.className='tree-drag-handle';
+        h.draggable=true;
+        h.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="8" cy="6" r="1.5"/><circle cx="8" cy="12" r="1.5"/><circle cx="8" cy="18" r="1.5"/><circle cx="16" cy="6" r="1.5"/><circle cx="16" cy="12" r="1.5"/><circle cx="16" cy="18" r="1.5"/></svg>';
+        h.onclick=e=>e.stopPropagation();
+        return h;
+      };
+      // Rename/delete buttons on a subfolder header row — only while
+      // editTreeMode is on (see the tree-edit-toggle button above), per
+      // spec: buttons appear/disappear with the toggle, not on hover alone.
+      // stopPropagation so they don't also trigger the header's own
+      // expand/collapse onclick (same pattern as the section-visibility
+      // gearBtn above).
+      const addFolderActions=(hdrEl,folderPath,folderTitle)=>{
+        if(!canEdit()||!editTreeMode) return;
+        const renameBtn=document.createElement('button');
+        renameBtn.className='tree-inline-btn';
+        renameBtn.title=t('rename_folder');
+        renameBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg>';
+        renameBtn.onclick=e=>{e.stopPropagation();openRenameFolder(folderPath,folderTitle);};
+        hdrEl.appendChild(renameBtn);
+        const deleteBtn=document.createElement('button');
+        deleteBtn.className='tree-inline-btn tree-inline-btn-danger';
+        deleteBtn.title=t('delete_folder');
+        deleteBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>';
+        deleteBtn.onclick=e=>{e.stopPropagation();deleteFolderConfirm(folderPath,folderTitle);};
+        hdrEl.appendChild(deleteBtn);
+      };
 
       if(directPages.length===0&&subfolderMap.size===0){
         const empty=document.createElement('div');
@@ -1130,29 +1188,55 @@ function renderTree(pages){
         empty.textContent='Нет страниц';
         list.appendChild(empty);
       }
-      directPages.forEach(p=>list.appendChild(makePageRow(p)));
 
+      // Two separately-sortable groups per level (pages, then folders) —
+      // renderTree always shows direct pages before subfolders regardless
+      // of _meta.json's pages[] order, so reorder only ever needs to
+      // rearrange within one group or the other, never interleave them.
+      const pagesWrap=document.createElement('div');
+      directPages.forEach(p=>pagesWrap.appendChild(makePageRow(p)));
+      list.appendChild(pagesWrap);
+
+      const subfoldersWrap=document.createElement('div');
       subfolderMap.forEach(({name,baseFolder:sfBase,pages,subfolders},mapKey)=>{
         const subKey=mapKey.split('/').pop();
         const subPath=(sfBase||sec.folder)+'/'+subKey;
         const storageKey=`wn_sf_${sec.slug}_${mapKey.replace('/','_')}`;
         const isOpen=localStorage.getItem(storageKey)==='1';
+        const itemWrap=document.createElement('div');
+        itemWrap.className='tree-folder-item';
+        itemWrap.dataset.folderKey=subKey;
         const hdr=document.createElement('div');
         hdr.className='sec-subfolder-hdr'+(isOpen?' open':'');
         hdr.innerHTML=`${arrowSvg}<span title="${escHtml(name)}">${escHtml(name)}</span>`;
+        if(editTreeMode) hdr.insertBefore(makeDragHandle(),hdr.firstChild);
+        addFolderActions(hdr,subPath,name);
         const pageWrap=document.createElement('div');
         pageWrap.className='sec-subfolder-pages'+(isOpen?'':' collapsed');
-        pages.forEach(p=>pageWrap.appendChild(makePageRow(p,1)));
-        // Level-2 subfolders
+
+        const sfPagesWrap=document.createElement('div');
+        pages.forEach(p=>sfPagesWrap.appendChild(makePageRow(p,1)));
+        pageWrap.appendChild(sfPagesWrap);
+
+        // Level-2 subfolders (no further nesting in this data model, so
+        // just one pages group each — no separate folders-wrap needed).
+        const sfFoldersWrap=document.createElement('div');
         subfolders.forEach(({name:sfName,path:sfPath,pages:sfPages},sfKey)=>{
           const sfStorageKey=`wn_sf_${sec.slug}_${sfKey.replace(/\//g,'_')}`;
           const sfIsOpen=localStorage.getItem(sfStorageKey)==='1';
+          const sfItemWrap=document.createElement('div');
+          sfItemWrap.className='tree-folder-item';
+          sfItemWrap.dataset.folderKey=sfKey.split('/').pop();
           const sfHdr=document.createElement('div');
           sfHdr.className='sec-subfolder-hdr sec-subfolder-hdr-2'+(sfIsOpen?' open':'');
           sfHdr.innerHTML=`${arrowSvg}<span title="${escHtml(sfName)}">${escHtml(sfName)}</span>`;
+          if(editTreeMode) sfHdr.insertBefore(makeDragHandle(),sfHdr.firstChild);
+          addFolderActions(sfHdr,sfPath,sfName);
           const sfPageWrap=document.createElement('div');
           sfPageWrap.className='sec-subfolder-pages'+(sfIsOpen?'':' collapsed');
-          sfPages.forEach(p=>sfPageWrap.appendChild(makePageRow(p,2)));
+          const sfPagesOnlyWrap=document.createElement('div');
+          sfPages.forEach(p=>sfPagesOnlyWrap.appendChild(makePageRow(p,2)));
+          sfPageWrap.appendChild(sfPagesOnlyWrap);
           if(canEdit()) sfPageWrap.appendChild(makeAddRow(sfPath,2));
           sfHdr.onclick=()=>{
             const opening=!sfHdr.classList.contains('open');
@@ -1160,9 +1244,15 @@ function renderTree(pages){
             sfPageWrap.classList.toggle('collapsed',!opening);
             localStorage.setItem(sfStorageKey,opening?'1':'0');
           };
-          pageWrap.appendChild(sfHdr);
-          pageWrap.appendChild(sfPageWrap);
+          sfItemWrap.appendChild(sfHdr);
+          sfItemWrap.appendChild(sfPageWrap);
+          sfFoldersWrap.appendChild(sfItemWrap);
+          if(editTreeMode) makeSortable(sfPagesOnlyWrap,()=>{
+            pendingReorders.set(sfPath,[...sfPagesOnlyWrap.children].map(row=>row.dataset.path.split('/').pop()));
+          });
         });
+        pageWrap.appendChild(sfFoldersWrap);
+
         if(canEdit()) pageWrap.appendChild(makeAddRow(subPath,1));
         hdr.onclick=()=>{
           const opening=!hdr.classList.contains('open');
@@ -1170,10 +1260,32 @@ function renderTree(pages){
           pageWrap.classList.toggle('collapsed',!opening);
           localStorage.setItem(storageKey,opening?'1':'0');
         };
-        list.appendChild(hdr);
-        list.appendChild(pageWrap);
+        itemWrap.appendChild(hdr);
+        itemWrap.appendChild(pageWrap);
+        subfoldersWrap.appendChild(itemWrap);
+
+        if(editTreeMode){
+          const recomputeSub=()=>{
+            const pageOrder=[...sfPagesWrap.children].map(row=>row.dataset.path.split('/').pop());
+            const folderOrder=[...sfFoldersWrap.children].map(iw=>iw.dataset.folderKey);
+            pendingReorders.set(subPath,[...pageOrder,...folderOrder]);
+          };
+          makeSortable(sfPagesWrap,recomputeSub);
+          makeSortable(sfFoldersWrap,recomputeSub);
+        }
       });
+      list.appendChild(subfoldersWrap);
       if(canEdit()) list.appendChild(makeAddRow(sec.folder));
+
+      if(editTreeMode){
+        const recomputeTop=()=>{
+          const pageOrder=[...pagesWrap.children].map(row=>row.dataset.path.split('/').pop());
+          const folderOrder=[...subfoldersWrap.children].map(iw=>iw.dataset.folderKey);
+          pendingReorders.set(sec.folder,[...pageOrder,...folderOrder]);
+        };
+        makeSortable(pagesWrap,recomputeTop);
+        makeSortable(subfoldersWrap,recomputeTop);
+      }
       wrap.appendChild(list);
     }
     el.appendChild(wrap);
@@ -1937,6 +2049,156 @@ async function doDelete(){
     await loadTree();
     toast(t('saved')||'Удалено');
   }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── Folder delete ──
+function deleteFolderConfirm(folderPath,folderTitle){
+  $('modal-title').textContent=t('delete_folder');
+  $('modal-body').innerHTML=`<p style="color:var(--text2);font-size:13px;line-height:1.6">${t('delete_folder_confirm').replace('{title}',escHtml(folderTitle))}</p>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-danger" onclick="closeModal();doDeleteFolder('${folderPath}')">${t('delete_folder')}</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function doDeleteFolder(folderPath){
+  const ok=await requireUnlock();
+  if(!ok) return;
+  try{
+    await apiDeleteFolder(`docs/${folderPath}`,`docs: delete folder ${folderPath}`);
+    // The open page, if any, may have lived inside the deleted folder —
+    // same teardown as doDelete() so the view doesn't keep pointing at a
+    // path that no longer exists.
+    if(currentPath && (currentPath===`docs/${folderPath}.md`||currentPath.startsWith(`docs/${folderPath}/`))){
+      currentPath=null;originalContent=null;editorDirty=false;
+      $('panels').classList.remove('split');
+      $('view-wrap').style.display='none';
+      $('editor-wrap').style.display='none';
+      $('editor-wrap').classList.remove('edit-active');
+      $('btn-edit').style.display='none';
+      $('btn-delete').style.display='none';
+      $('btn-rename').style.display='none';
+      $('btn-append').style.display='none';
+      $('btn-history').style.display='none';
+      $('edit-btns').style.display='none';
+      $('breadcrumb').innerHTML='';
+      const tocDel=$('toc');if(tocDel)tocDel.style.display='none';
+    }
+    await loadTree();
+    toast(t('folder_deleted'));
+  }catch(e){toast(`Error: ${e.message}`,true);}
+}
+
+// ── Folder rename (title only — the folder's real path/slug never changes,
+// so links into it never break; see _meta.json.title) ──
+function openRenameFolder(folderPath,currentTitle){
+  $('modal-title').textContent=t('rename_folder');
+  $('modal-body').innerHTML=`
+    <div class="field"><label>${t('folder_display_name')}</label>
+    <input id="m-fld-rename" value="${escHtml(currentTitle)}">
+    <div class="hint">${t('folder_display_name_hint')}</div></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" onclick="doRenameFolder('${folderPath}')">${t('rename_folder')}</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>{const el=$('m-fld-rename');el.focus();el.select();},50);
+}
+
+async function doRenameFolder(folderPath){
+  const newTitle=$('m-fld-rename').value.trim();
+  if(!newTitle) return;
+  const ok=await requireUnlock();
+  if(!ok) return;
+  closeModal();
+  const metaPath=`docs/${folderPath}/_meta.json`;
+  try{
+    let meta={};
+    try{meta=JSON.parse(await fetchDoc(metaPath));}catch{} // may not exist yet
+    meta.title=newTitle;
+    await apiPutFile(metaPath,`docs: rename folder ${folderPath}`,JSON.stringify(meta,null,2));
+    await loadTree();
+    toast(t('folder_renamed'));
+  }catch(e){toast(`Error: ${e.message}`,true);}
+}
+
+// ── Edit-tree mode: toggle, apply/cancel, drag-and-drop reorder ──
+// First click enters edit mode (rename/delete buttons + drag handles show
+// on every folder/page row). Second click applies every accumulated drag
+// as ONE batched /api/write/reorder call/commit — nothing hits the network
+// while dragging, only pendingReorders (client-side Map) changes.
+async function toggleEditTreeMode(){
+  if(!editTreeMode){
+    editTreeMode=true;
+    pendingReorders=new Map();
+    renderTree(tree);
+    return;
+  }
+  editTreeMode=false;
+  if(pendingReorders.size===0){renderTree(tree);return;}
+  const folders=[...pendingReorders.entries()].map(([path,pages])=>({path,pages}));
+  try{
+    await apiReorder(folders,'docs: reorder tree');
+    await loadTree();
+    toast(t('saved'));
+  }catch(e){
+    toast(`Error: ${e.message}`,true);
+    renderTree(tree);
+  }
+}
+
+function cancelEditTreeMode(){
+  editTreeMode=false;
+  pendingReorders=new Map();
+  renderTree(tree);
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&editTreeMode)cancelEditTreeMode();
+});
+
+// makeSortable — native HTML5 drag-and-drop (draggable/dragstart/dragover/
+// drop), no library, consistent with the rest of this codebase. container's
+// direct children must all be homogeneous drag items (either all .tree-row
+// or all .tree-folder-item — see renderTree's pagesWrap/subfoldersWrap
+// split). onDrop is called once the DOM order settles, to recompute and
+// stash the new order in pendingReorders — never called during dragover,
+// only on an actual drop.
+function makeSortable(container,onDrop){
+  let dragEl=null;
+  // Bind per direct-child item, not a blind querySelectorAll(container) —
+  // a .tree-folder-item's handle sits inside its own header, but that same
+  // item also contains a NESTED sortable group (its own pages/subfolders)
+  // with its own handles further down; item.querySelector (single match,
+  // document order) always lands on the item's own header handle first,
+  // since the header precedes its nested content — never the nested ones.
+  [...container.children].forEach(item=>{
+    const handle=item.querySelector('[draggable="true"]');
+    if(!handle) return;
+    handle.addEventListener('dragstart',e=>{
+      dragEl=item;
+      e.dataTransfer.effectAllowed='move';
+      item.classList.add('dragging');
+    });
+    handle.addEventListener('dragend',()=>{
+      item.classList.remove('dragging');
+      dragEl=null;
+    });
+  });
+  container.addEventListener('dragover',e=>{
+    if(!dragEl||dragEl.parentElement!==container)return;
+    e.preventDefault();
+    const siblings=[...container.children].filter(c=>c!==dragEl);
+    const after=siblings.find(c=>{
+      const r=c.getBoundingClientRect();
+      return e.clientY<r.top+r.height/2;
+    });
+    container.insertBefore(dragEl,after||null);
+  });
+  container.addEventListener('drop',e=>{
+    if(!dragEl||dragEl.parentElement!==container)return;
+    e.preventDefault();
+    onDrop();
+  });
 }
 
 // ── Rename ──

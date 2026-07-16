@@ -254,6 +254,91 @@ def delete_file():
     return jsonify({'ok': True})
 
 
+@app.post('/api/write/delete_folder')
+def delete_folder():
+    """Recursive delete — unlike delete_file's single os.remove(), this has a
+    much bigger blast radius, so it's scoped strictly to docs/ (put_file/
+    delete_file aren't, since a single file is inherently bounded)."""
+    _require_can_edit()
+    body = request.get_json(silent=True) or {}
+    rel_path = body.get('path', '')
+    message = body.get('message', 'docs: delete folder')
+
+    if not rel_path.startswith('docs/') or rel_path.rstrip('/') == 'docs':
+        raise ApiError('invalid path')
+
+    full = _safe_full_path(rel_path)
+    if not os.path.isdir(full):
+        raise ApiError('not a folder', 404)
+
+    with write_lock:
+        shutil.rmtree(full)
+        tree_builder.rebuild(DATA_DIR)
+        git_ops.commit_paths(DATA_DIR, [rel_path, 'tree.json', 'search.json'], message)
+
+    return jsonify({'ok': True})
+
+
+_SLUG_RE = re.compile(r'^[a-zA-Z0-9_\-]+$')
+
+
+@app.post('/api/write/reorder')
+def reorder():
+    """Batched tree reorder — every folder touched during one edit-tree
+    session lands in a single commit (see tree_builder.page_sort_key: order
+    comes from each folder's own _meta.json "pages" array; entries omitted
+    from it just sort alphabetically after listed ones, so this is
+    deliberately lenient — filtering to real children rather than rejecting
+    on mismatch — instead of requiring a strict permutation)."""
+    _require_can_edit()
+    body = request.get_json(silent=True) or {}
+    folders = body.get('folders') or []
+    message = body.get('message', 'docs: reorder')
+    if not isinstance(folders, list) or not folders:
+        raise ApiError('folders is required')
+
+    import json
+
+    touched = []
+    with write_lock:
+        for entry in folders:
+            folder_path = (entry.get('path') or '').strip('/')
+            pages = entry.get('pages')
+            if not isinstance(pages, list) or not all(
+                isinstance(s, str) and _SLUG_RE.match(s) for s in pages
+            ):
+                raise ApiError('invalid pages entry')
+
+            rel_dir = f'docs/{folder_path}' if folder_path else 'docs'
+            full_dir = _safe_full_path(rel_dir)
+            if not os.path.isdir(full_dir):
+                raise ApiError(f'not a folder: {folder_path}')
+
+            real_children = set()
+            for name in os.listdir(full_dir):
+                fp = os.path.join(full_dir, name)
+                if os.path.isdir(fp):
+                    real_children.add(name)
+                elif name.endswith('.md') and not name.startswith('_'):
+                    real_children.add(name[:-3])
+            clean_pages = [s for s in pages if s in real_children]
+
+            meta_full = os.path.join(full_dir, '_meta.json')
+            meta = {}
+            if os.path.exists(meta_full):
+                with open(meta_full, encoding='utf-8') as fh:
+                    meta = json.load(fh)
+            meta['pages'] = clean_pages
+            with open(meta_full, 'w', encoding='utf-8') as fh:
+                json.dump(meta, fh, ensure_ascii=False, indent=2)
+            touched.append(f'{rel_dir}/_meta.json')
+
+        tree_builder.rebuild(DATA_DIR)
+        git_ops.commit_paths(DATA_DIR, touched + ['tree.json', 'search.json'], message)
+
+    return jsonify({'ok': True})
+
+
 @app.post('/api/write/upload')
 def upload_file():
     """Binary uploads (images, video) — multipart, not base64-in-JSON like

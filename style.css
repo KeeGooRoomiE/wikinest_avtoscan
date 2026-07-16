@@ -1264,6 +1264,9 @@ button.btn-primary:hover,
 
 /* ── Sidebar: section label ── */
 .sidebar-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 10px 14px 4px;
   font-size: 10px;
   font-weight: 600;
@@ -1271,6 +1274,36 @@ button.btn-primary:hover,
   text-transform: uppercase;
   color: var(--text3);
 }
+
+.tree-edit-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+.tree-edit-toggle:hover { background: var(--bg3); color: var(--text); }
+.tree-edit-toggle.active { color: var(--accent); background: var(--accent-border); }
+
+.tree-drag-handle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--text3);
+  cursor: grab;
+  margin-right: 2px;
+}
+.tree-row.dragging, .tree-folder-item.dragging { opacity: .4; }
 
 /* ── Sidebar: section item ── */
 .sec-wrap { }
@@ -1378,6 +1411,27 @@ button.btn-primary:hover,
 .sec-pages .tree-row.indented { padding-left: 28px; }
 .sec-subfolder-hdr.sec-subfolder-hdr-2 { padding-left: 24px; font-size: 10px; }
 .sec-pages .tree-row.indented-2 { padding-left: 40px; }
+
+.tree-inline-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: transparent;
+  color: var(--text3);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: auto;
+}
+.sec-subfolder-hdr:hover .tree-inline-btn,
+#tree.tree-editing .tree-inline-btn { display: flex; }
+.tree-inline-btn:hover { background: var(--bg4,var(--bg3)); color: var(--text); }
+.tree-inline-btn.tree-inline-btn-danger:hover { background: var(--danger-bg,#fee2e2); color: var(--danger,#dc2626); }
+.tree-inline-btn + .tree-inline-btn { margin-left: 2px; }
 
 /* ── Sidebar: quick access ── */
 #sidebar-quick {
