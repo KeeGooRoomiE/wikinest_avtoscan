@@ -408,6 +408,46 @@
     "isCounting": true
   },
   {
+    "path": "devices/fuel-sensors/omnicom/omnicomm-lls4",
+    "title": "OMNICOMM LLS 4",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "omnicom",
+      "omnicomm-lls4"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Контроль топлива",
+      "omnicom": "Линейка ДУТ Омником"
+    },
+    "updated_at": "2026-07-16T17:03:53.205225+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/fuel-sensors/omnicom/omnicomm-lls5",
+    "title": "OMNICOMM LLS 5",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "omnicom",
+      "omnicomm-lls5"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Контроль топлива",
+      "omnicom": "Линейка ДУТ Омником"
+    },
+    "updated_at": "2026-07-16T17:03:53.205225+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/axle-load/pnevmopodveska",
     "title": "Пневмоподвеска",
     "excerpt": "",
