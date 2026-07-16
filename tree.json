@@ -560,7 +560,7 @@
   },
   {
     "path": "reglamentation/support/add-car-reglament",
-    "title": "Ссоздание и настройка учётной записи клиента",
+    "title": "Ссоздание и настройка учётной записи клиента в Axenta",
     "excerpt": "",
     "parts": [
       "reglamentation",
@@ -571,7 +571,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T11:52:35+07:00",
+    "updated_at": "2026-07-16T11:54:15+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
