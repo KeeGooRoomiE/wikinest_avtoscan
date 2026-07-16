@@ -949,6 +949,78 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/avariyniy-zapas-ustanovshchika",
+    "title": "Перечень аварийного запаса установщика",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "avariyniy-zapas-ustanovshchika"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/fotofiksaciya-rabot",
+    "title": "Фотофиксация работ по установке оборудования",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "fotofiksaciya-rabot"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/kategorii-ustanovshchikov",
+    "title": "Присвоение категорий установщикам",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "kategorii-ustanovshchikov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/kompensacii-montazhnikov",
+    "title": "Выплаты компенсаций для монтажников",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "kompensacii-montazhnikov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/kv-manufacturing",
     "title": "Процесс изготовления КВ",
     "excerpt": "",
@@ -962,6 +1034,204 @@
       "service": "Отдел сервиса"
     },
     "updated_at": "2026-07-16T05:12:30.236950+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/nadbavka-montazhnye-raboty",
+    "title": "Надбавка за монтажные работы",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "nadbavka-montazhnye-raboty"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/nastroyka-navtelecom-dut",
+    "title": "Настройка терминалов Навтелеком — ДУТ BLE и проводной",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "nastroyka-navtelecom-dut"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/nastroyka-videonablyudeniya",
+    "title": "Настройка видеорегистраторов CARVIS",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "nastroyka-videonablyudeniya"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/opisanie-dolzhnosti-armp",
+    "title": "Описание должности: оператор АРМП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "opisanie-dolzhnosti-armp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/opisanie-dolzhnosti-logist",
+    "title": "Описание должности: логист",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "opisanie-dolzhnosti-logist"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/opisanie-dolzhnosti-montazhnika",
+    "title": "Описание должности: техник-установщик",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "opisanie-dolzhnosti-montazhnika"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/opisanie-dolzhnosti-ro4",
+    "title": "Описание должности: руководитель технического отделения",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "opisanie-dolzhnosti-ro4"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/opisanie-dolzhnosti-servisniy-inzhener",
+    "title": "Описание должности: сервисный инженер / кладовщик",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "opisanie-dolzhnosti-servisniy-inzhener"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/stavki-oplaty-montazhnikov",
+    "title": "Определение ставок оплаты для монтажников",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "stavki-oplaty-montazhnikov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/vedenie-raspisaniya",
+    "title": "Ведение расписания монтажных работ",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "vedenie-raspisaniya"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/zapolnenie-zakaz-naryadov",
+    "title": "Технология заполнения заказ-нарядов",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "zapolnenie-zakaz-naryadov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-16T18:05:31.433524+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
