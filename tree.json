@@ -168,6 +168,66 @@
     "isCounting": true
   },
   {
+    "path": "devices/nav-terminals/galileo/galileosky-10-asn",
+    "title": "Galileosky 10 АСН",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo",
+      "galileosky-10-asn"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "galileo": "Линейка Галилео"
+    },
+    "updated_at": "2026-07-16T16:53:58.825004+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/galileo/galileosky-7x",
+    "title": "Galileosky 7x",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo",
+      "galileosky-7x"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "galileo": "Линейка Галилео"
+    },
+    "updated_at": "2026-07-16T16:53:58.835004+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/galileo/galileosky-base-block-lite",
+    "title": "Galileosky Base Block Lite",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo",
+      "galileosky-base-block-lite"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "galileo": "Линейка Галилео"
+    },
+    "updated_at": "2026-07-16T16:53:58.840004+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
     "title": "ДУТ Эскорт TD-150",
     "excerpt": "",
