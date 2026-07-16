@@ -1090,6 +1090,18 @@
   },
   {
     "_folder": true,
+    "path": "reference/obshchie",
+    "title": "Общие",
+    "parts": [
+      "reference",
+      "obshchie"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
     "path": "reglamentation/sales",
     "title": "Отдел продаж",
     "parts": [
