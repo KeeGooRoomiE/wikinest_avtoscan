@@ -787,6 +787,78 @@
     "isCounting": true
   },
   {
+    "path": "processes/common/celi-i-zamysly",
+    "title": "Цели и замыслы компании",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "common",
+      "celi-i-zamysly"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/common/perenos-zayavok",
+    "title": "Регламент переноса заявок под срочных клиентов",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "common",
+      "perenos-zayavok"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/common/politika-ckp",
+    "title": "ЦКП компании «Автоскан»",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "common",
+      "politika-ckp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/common/premirovanie-k-prazdnikam",
+    "title": "Положение о премировании сотрудников компании «Автоскан» к праздничным датам",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "common",
+      "premirovanie-k-prazdnikam"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
     "excerpt": "",
