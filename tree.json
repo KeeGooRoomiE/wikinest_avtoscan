@@ -562,6 +562,106 @@
     "isCounting": true
   },
   {
+    "path": "devices/additional/tachography/dop-obor-tahograf",
+    "title": "Дополнительное оборудование для тахографов",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "tachography",
+      "dop-obor-tahograf"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "tachography": "Тахография"
+    },
+    "updated_at": "2026-07-16T17:21:29.173554+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/additional/tachography/uos-bars",
+    "title": "УОС «БАРС» — устройство ограничения скорости",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "tachography",
+      "uos-bars"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "tachography": "Тахография"
+    },
+    "updated_at": "2026-07-16T17:21:29.174554+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/additional/tachography/uos-nk80",
+    "title": "УОС «Надёжный контроль 80» — устройство ограничения скорости",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "tachography",
+      "uos-nk80"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "tachography": "Тахография"
+    },
+    "updated_at": "2026-07-16T17:21:29.175554+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/additional/monitoring/dop-obor-monitoring",
+    "title": "Дополнительное оборудование для систем мониторинга транспорта",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "monitoring",
+      "dop-obor-monitoring"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "monitoring": "Система мониторинга"
+    },
+    "updated_at": "2026-07-16T17:21:29.171554+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/additional/monitoring/uss",
+    "title": "Устройство съёма сигналов УСС — преобразователь для счётчиков жидкости",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "monitoring",
+      "uss"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "monitoring": "Система мониторинга"
+    },
+    "updated_at": "2026-07-16T17:21:29.172554+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "glossary/index",
     "title": "Глоссарий",
     "excerpt": "",
