@@ -407,7 +407,7 @@
   },
   {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-ble",
-    "title": "ДУТ Эскорт TD-BLE",
+    "title": "ЭСКОРТ TD-BLE",
     "excerpt": "",
     "parts": [
       "devices",
@@ -420,7 +420,7 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-17T02:23:01.290209+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
