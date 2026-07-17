@@ -197,7 +197,16 @@
       "Bash(cp \"/tmp/drivebase_docs/driver/Руководство по эксплуатации для водителя.pdf\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/drive-base-driver-manual.pdf)",
       "Bash(mkdir -p /tmp/nkm_assets)",
       "Bash(unzip -o \"/Users/xandergusarov/Downloads/image_2026-07-13_15-59-43.jpeg.zip\")",
-      "Bash(cp \"/tmp/nkm_assets/image_2026-07-13_15-59-43.jpeg\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/nkm.jpeg)"
+      "Bash(cp \"/tmp/nkm_assets/image_2026-07-13_15-59-43.jpeg\" /Users/xandergusarov/Documents/GitHub/wikinest_avtoscan/docs/assets/devices/nrd/nkm.jpeg)",
+      "Bash(ssh wikinest-vm 'echo '\\\\''=== DOCKER VERSION ==='\\\\'' *)",
+      "Bash(gh repo *)",
+      "Bash(git check-ignore *)",
+      "Bash(ssh wikinest-vm 'cd /srv/wikinest && docker compose exec backend git config --global --get-all safe.directory 2>&1 *)",
+      "Bash(ssh wikinest-vm 'cd /srv/wikinest && docker compose run --rm --no-deps --entrypoint sh backend -c '\\\\'' *)",
+      "Bash(python3 -m py_compile backend/git_ops.py backend/app.py)",
+      "Bash(curl -sk --max-time 8 https://95.190.201.194:26502/)",
+      "Bash(ssh wikinest-vm *)",
+      "Bash(node --check /tmp/docs_check6.js)"
     ]
   }
 }
