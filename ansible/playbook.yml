@@ -1,0 +1,460 @@
+---
+# Bare-Ubuntu -> running wikinest VM, in one pass. Mirrors the manual setup
+# documented in DEPLOYMENT.md + BACKEND_ARCHITECTURE.md; this is the "spare
+# tire" for redeploying on a fresh VM if the current one is ever lost, not a
+# thing that runs routinely — routine code updates still go through the
+# DEPLOYMENT.md "Обновление кода" flow (git pull + restart), not this
+# playbook.
+#
+# Usage:
+#   cp inventory.example.ini inventory.ini        # fill in real host/port
+#   cp group_vars/all.yml.example group_vars/all.yml
+#   ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
+#
+# Tags, for partial runs (e.g. DNS + firewall/SSH only, no Docker/app):
+#   network  — DNS/resolved
+#   security — UFW, TCPMSS clamp, SSH hardening, fail2ban
+#   docker   — Docker Engine + Compose plugin
+#   app      — pull latest code (git fetch+ff, never clobbers unpushed local
+#              commits), .env (first run only), docker compose up --build,
+#              restart caddy. This IS the update flow — after pushing new
+#              code just run --tags app; needs 'docker' already done once.
+#   vnc      — TigerVNC + XFCE, loopback-only (reachable via SSH tunnel only,
+#              never opened in UFW — see the vnc block below for why)
+#   always   — apt update/upgrade/base tooling (runs regardless of --tags)
+# ansible-playbook -i inventory.ini playbook.yml --tags network,security
+#
+# Safe to re-run: every task is idempotent, and the one secret-bearing step
+# (.env creation) only fires the first time (copy's force:false skips an
+# existing file) so a second run never regenerates SECRET_KEY and logs
+# everyone out.
+#
+# Requires the community.general collection: ansible-galaxy collection
+# install -r requirements.yml
+
+- name: Provision wikinest VM
+  hosts: wikinest
+  become: true
+  # secret_key / git_push_token: set them in the gitignored group_vars/all.yml
+  # (see all.yml.example) to run non-interactively, or leave undefined and
+  # the play falls back to blank/auto-generate below — either way nothing
+  # secret lives in this file.
+
+  tasks:
+    # ---- persistent network / DNS -------------------------------------
+    # Must run before any apt task — a bare VM here has come up with no
+    # working outbound DNS before (see project history), and apt silently
+    # times out against unresolvable archive.ubuntu.com otherwise. Static
+    # IPs below need no DNS themselves to apply.
+    # Best-effort defaults — a bare provider VM's actual interface name and
+    # addressing scheme vary. Verify against `ip a` / `cat /etc/netplan/*`
+    # on the real box before trusting this on a from-scratch reinstall;
+    # set configure_network: false in group_vars to skip entirely.
+    - name: Ensure /etc/systemd/resolved.conf.d exists
+      when: configure_network | default(true)
+      tags: [network]
+      ansible.builtin.file:
+        path: /etc/systemd/resolved.conf.d
+        state: directory
+        mode: "0755"
+
+    - name: Point systemd-resolved at stable DNS servers
+      when: configure_network | default(true)
+      tags: [network]
+      ansible.builtin.copy:
+        dest: /etc/systemd/resolved.conf.d/wikinest-dns.conf
+        mode: "0644"
+        content: |
+          [Resolve]
+          DNS={{ dns_nameservers | join(' ') }}
+          FallbackDNS=9.9.9.9
+      notify: restart systemd-resolved
+
+    - name: Apply DNS change now (handlers run at end of play — too late for apt below)
+      tags: [network, always]
+      ansible.builtin.meta: flush_handlers
+
+    # ---- base packages -----------------------------------------------
+    # Tagged 'always' — needed as a dependency whenever 'security' (ufw
+    # package) or 'docker' run, so it's not gated behind either tag alone.
+    - name: Update apt cache
+      tags: [always]
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Upgrade all packages
+      tags: [always]
+      ansible.builtin.apt:
+        upgrade: safe
+
+    - name: Install base tooling
+      tags: [always]
+      ansible.builtin.apt:
+        name:
+          - git
+          - curl
+          - ufw
+          - ca-certificates
+          - gnupg
+        state: present
+
+    # ---- firewall -------------------------------------------------------
+    - name: Allow SSH through UFW (NAT-external port is separate — see inventory)
+      tags: [security]
+      community.general.ufw:
+        rule: allow
+        port: "22"
+        proto: tcp
+
+    - name: Allow app ports through UFW
+      tags: [security]
+      community.general.ufw:
+        rule: allow
+        port: "{{ item }}"
+        proto: tcp
+      loop: "{{ allowed_tcp_ports }}"
+
+    - name: Set UFW default policy (deny incoming, allow outgoing)
+      tags: [security]
+      community.general.ufw:
+        direction: "{{ item.direction }}"
+        policy: "{{ item.policy }}"
+      loop:
+        - { direction: incoming, policy: deny }
+        - { direction: outgoing, policy: allow }
+
+    - name: Enable UFW
+      tags: [security]
+      community.general.ufw:
+        state: enabled
+
+    # TCPMSS clamp — without this, Docker containers on this VM can complete
+    # a TCP handshake to outside hosts (e.g. github.com) but the TLS
+    # handshake hangs forever: a PMTUD blackhole between the container's
+    # NAT'd traffic and the provider's network silently drops the larger
+    # ServerHello/certificate packets. Host-direct traffic isn't affected
+    # (no extra NAT hop), which is what makes this easy to miss. Diagnosed
+    # 2026-07 against the live VM — see git_ops push failures in
+    # BACKEND_ARCHITECTURE.md history.
+    #
+    # Ubuntu's default /etc/ufw/before.rules is a single *filter table with
+    # one COMMIT at EOF — there is no pre-existing *mangle section to insert
+    # into, and POSTROUTING doesn't exist as a chain in *filter (that's what
+    # broke the first version of this task: it spliced a *mangle-only rule
+    # into the middle of the *filter block, which iptables-restore rejected
+    # with "No chain/target/match by that name"). Appending a whole separate
+    # *mangle ... COMMIT block after the file's existing content is valid
+    # iptables-restore syntax (multiple table blocks in one stream) and is
+    # what persists this through `ufw reload`/reboot without a separate
+    # iptables-persistent mechanism.
+    - name: Remove any previous (broken) TCPMSS block before re-adding correctly
+      tags: [network, security]
+      ansible.builtin.blockinfile:
+        path: /etc/ufw/before.rules
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - tcpmss clamp (docker PMTUD fix)"
+        state: absent
+
+    - name: Persist TCPMSS clamp in UFW before.rules (own mangle table block, appended at EOF)
+      tags: [network, security]
+      ansible.builtin.blockinfile:
+        path: /etc/ufw/before.rules
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - tcpmss clamp (docker PMTUD fix)"
+        block: |
+          *mangle
+          :POSTROUTING ACCEPT [0:0]
+          -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+          COMMIT
+      notify: reload ufw
+
+    # ---- ssh hardening ----------------------------------------------
+    - name: Harden sshd (key-only, no root login)
+      tags: [security]
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "{{ item.regexp }}"
+        line: "{{ item.line }}"
+        validate: /usr/sbin/sshd -t -f %s
+      loop:
+        - { regexp: "^#?PermitRootLogin", line: "PermitRootLogin no" }
+        - { regexp: "^#?PasswordAuthentication", line: "PasswordAuthentication no" }
+      notify: restart sshd
+
+    # ---- fail2ban ---------------------------------------------------
+    - name: Install fail2ban
+      tags: [security]
+      ansible.builtin.apt:
+        name: fail2ban
+        state: present
+
+    - name: Configure fail2ban sshd jail
+      tags: [security]
+      ansible.builtin.copy:
+        dest: /etc/fail2ban/jail.d/sshd.local
+        mode: "0644"
+        content: |
+          [sshd]
+          enabled = true
+          port = ssh
+          backend = systemd
+          maxretry = 5
+          findtime = 10m
+          bantime = 1h
+      notify: restart fail2ban
+
+    - name: Ensure fail2ban is running and enabled
+      tags: [security]
+      ansible.builtin.systemd:
+        name: fail2ban
+        state: started
+        enabled: true
+
+    # ---- vnc ------------------------------------------------------------
+    # Deliberately never opened in UFW and Xvnc itself is told -localhost
+    # yes (refuses non-loopback connections even if a firewall hole existed
+    # later by mistake) — reach it only via an SSH tunnel
+    # (`ssh -L 5050:localhost:5050 wikinest-vm`, port from vnc_port below),
+    # then point a VNC client at localhost:5050. Classic VNC auth is weak on
+    # its own; the SSH tunnel is what actually secures this.
+    - name: Install VNC server + lightweight desktop
+      tags: [vnc]
+      ansible.builtin.apt:
+        name:
+          - tigervnc-standalone-server
+          - tigervnc-common
+          - xfce4
+          - dbus-x11
+        state: present
+        update_cache: true
+
+    - name: Generate VNC password if not supplied
+      tags: [vnc]
+      ansible.builtin.set_fact:
+        vnc_password: "{{ lookup('ansible.builtin.password', '/dev/null length=16 chars=ascii_letters,digits') }}"
+      when: (vnc_password | default('')) | length == 0
+
+    - name: Ensure ~/.vnc directory exists
+      tags: [vnc]
+      ansible.builtin.file:
+        path: "/home/{{ ansible_user }}/.vnc"
+        state: directory
+        owner: "{{ ansible_user }}"
+        mode: "0700"
+
+    - name: Set VNC password (first run only — never overwrites a live one)
+      tags: [vnc]
+      no_log: true
+      ansible.builtin.shell: |
+        echo "{{ vnc_password }}" | vncpasswd -f > /home/{{ ansible_user }}/.vnc/passwd
+      args:
+        creates: "/home/{{ ansible_user }}/.vnc/passwd"
+      become_user: "{{ ansible_user }}"
+
+    - name: Fix VNC password file permissions
+      tags: [vnc]
+      ansible.builtin.file:
+        path: "/home/{{ ansible_user }}/.vnc/passwd"
+        owner: "{{ ansible_user }}"
+        mode: "0600"
+
+    - name: Write VNC xstartup (launches an XFCE session)
+      tags: [vnc]
+      ansible.builtin.copy:
+        dest: "/home/{{ ansible_user }}/.vnc/xstartup"
+        owner: "{{ ansible_user }}"
+        mode: "0755"
+        content: |
+          #!/bin/sh
+          unset SESSION_MANAGER
+          unset DBUS_SESSION_BUS_ADDRESS
+          exec startxfce4
+
+    - name: Install VNC systemd service
+      tags: [vnc]
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/wikinest-vnc.service
+        mode: "0644"
+        content: |
+          [Unit]
+          Description=TigerVNC server for {{ ansible_user }} (SSH-tunnel only, never exposed in UFW)
+          After=network.target
+
+          [Service]
+          Type=forking
+          User={{ ansible_user }}
+          WorkingDirectory=/home/{{ ansible_user }}
+          PIDFile=/home/{{ ansible_user }}/.vnc/%H:50.pid
+          ExecStartPre=-/usr/bin/vncserver -kill :50
+          ExecStart=/usr/bin/vncserver :50 -rfbport {{ vnc_port }} -localhost yes -geometry 1280x800 -depth 24
+          ExecStop=/usr/bin/vncserver -kill :50
+          Restart=on-failure
+
+          [Install]
+          WantedBy=multi-user.target
+      notify:
+        - reload systemd
+        - restart vnc service
+
+    - name: Enable VNC service
+      tags: [vnc]
+      ansible.builtin.systemd:
+        name: wikinest-vnc
+        enabled: true
+
+    - name: Show VNC password (only place it's ever printed — save it now)
+      tags: [vnc]
+      ansible.builtin.debug:
+        msg: >-
+          VNC password: {{ vnc_password }} — connect via
+          `ssh -L {{ vnc_port }}:localhost:{{ vnc_port }} wikinest-vm`
+          then point a VNC client at localhost:{{ vnc_port }}.
+
+    # ---- docker -------------------------------------------------------
+    - name: Add Docker's official GPG key
+      tags: [docker]
+      ansible.builtin.get_url:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        dest: /etc/apt/keyrings/docker.asc
+        mode: "0644"
+
+    - name: Map architecture to Docker's naming
+      tags: [docker]
+      ansible.builtin.set_fact:
+        docker_apt_arch: "{{ (ansible_architecture == 'x86_64') | ternary('amd64', 'arm64') }}"
+
+    - name: Add Docker apt repository
+      tags: [docker]
+      ansible.builtin.apt_repository:
+        repo: >-
+          deb [arch={{ docker_apt_arch }}
+          signed-by=/etc/apt/keyrings/docker.asc]
+          https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+        state: present
+        filename: docker
+
+    - name: Install Docker Engine + Compose plugin
+      tags: [docker]
+      ansible.builtin.apt:
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: present
+
+    - name: Add deploy user to docker group
+      tags: [docker]
+      ansible.builtin.user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: true
+
+    - name: Ensure Docker is running and enabled
+      tags: [docker]
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: true
+
+    # ---- app checkout ---------------------------------------------------
+    # Requires 'docker' to have run at some point (this or a prior pass) —
+    # `docker compose up` below will fail on a box that never got Docker.
+    - name: Ensure deploy_path exists and is owned by the deploy user
+      tags: [app]
+      ansible.builtin.file:
+        path: "{{ deploy_path }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0755"
+
+    - name: Clone/update wikinest repo
+      tags: [app]
+      ansible.builtin.git:
+        repo: "{{ repo_url }}"
+        dest: "{{ deploy_path }}"
+        version: main
+        force: false # never clobber local commits not yet pushed
+      become_user: "{{ ansible_user }}"
+
+    - name: Generate SECRET_KEY if not supplied
+      tags: [app]
+      ansible.builtin.set_fact:
+        secret_key: "{{ lookup('ansible.builtin.password', '/dev/null length=64 chars=hexdigits') }}"
+      when: (secret_key | default('')) | length == 0
+
+    - name: Write .env (first run only — never overwrites a live one)
+      tags: [app]
+      ansible.builtin.copy:
+        dest: "{{ deploy_path }}/.env"
+        owner: "{{ ansible_user }}"
+        mode: "0600"
+        force: false
+        content: |
+          SECRET_KEY={{ secret_key }}
+          GIT_PUSH_REPO={{ git_push_repo }}
+          GIT_PUSH_TOKEN={{ git_push_token | default('') }}
+          PUSH_INTERVAL_SECONDS={{ push_interval_seconds }}
+          SESSION_COOKIE_SECURE=1
+
+    - name: Warn if GIT_PUSH_TOKEN left empty
+      tags: [app]
+      ansible.builtin.debug:
+        msg: >-
+          GIT_PUSH_TOKEN not set — backend will run fine but the daily
+          backup push to GitHub is disabled. Add it to
+          {{ deploy_path }}/.env and restart the backend container later.
+      when: (git_push_token | default('')) | length == 0
+
+    # ---- bring it up ----------------------------------------------------
+    - name: docker compose up
+      tags: [app]
+      ansible.builtin.command:
+        cmd: docker compose up -d --build
+        chdir: "{{ deploy_path }}"
+      become_user: "{{ ansible_user }}"
+      changed_when: true
+
+    # Required even when only content/static files changed (docs.html,
+    # style.css, Caddyfile) — they're bind-mounted as individual files, not
+    # a directory, so `git pull`'s new inode never reaches the container
+    # without this. `docker compose up --build` above doesn't trigger it
+    # either — compose sees no service-config change, only a file on disk.
+    # See DEPLOYMENT.md "Обновление кода" for the full explanation.
+    - name: Restart caddy to pick up docs.html/style.css/Caddyfile changes
+      tags: [app]
+      ansible.builtin.command:
+        cmd: docker compose restart caddy
+        chdir: "{{ deploy_path }}"
+      become_user: "{{ ansible_user }}"
+      changed_when: true
+
+  handlers:
+    - name: restart systemd-resolved
+      ansible.builtin.systemd:
+        name: systemd-resolved
+        state: restarted
+
+    - name: reload ufw
+      community.general.ufw:
+        state: reloaded
+
+    - name: restart sshd
+      ansible.builtin.systemd:
+        name: ssh
+        state: restarted
+
+    - name: restart fail2ban
+      ansible.builtin.systemd:
+        name: fail2ban
+        state: restarted
+
+    - name: reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+
+    - name: restart vnc service
+      ansible.builtin.systemd:
+        name: wikinest-vnc
+        state: restarted

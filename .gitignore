@@ -2,3 +2,7 @@
 CREDENTIALS.md
 .env
 VM_SETUP.md
+VM_SETUP_root_ca.crt
+graphify-out/
+ansible/inventory.ini
+ansible/group_vars/all.yml
