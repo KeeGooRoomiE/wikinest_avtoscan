@@ -2192,11 +2192,11 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/accounting",
-    "title": "Бухгалтерия",
+    "path": "reglamentation/hr-menedzher",
+    "title": "HR-менеджер",
     "parts": [
       "reglamentation",
-      "accounting"
+      "hr-menedzher"
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
