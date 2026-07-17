@@ -1,0 +1,35 @@
+# Copy to group_vars/all.yml (gitignored) and adjust.
+# This file itself is gitignored once copied, so it's a fine place for the
+# two secrets below — just never remove it from .gitignore.
+
+# secret_key: ""            # blank/omitted = playbook auto-generates one
+# git_push_token: ""        # blank/omitted = daily backup push stays disabled
+# vnc_password: ""          # blank/omitted = playbook auto-generates one and
+#                            # prints it once at the end of the vnc-tagged run
+
+deploy_path: /srv/wikinest
+repo_url: https://github.com/KeeGooRoomiE/wikinest_avtoscan.git
+git_push_repo: KeeGooRoomiE/wikinest_avtoscan
+push_interval_seconds: 86400
+
+# NAT-forwarded port for VNC (26505 -> 5050, see VM_SETUP.md). Xvnc binds
+# -localhost yes regardless, so this is only meaningful for the SSH tunnel
+# command (`ssh -L 5050:localhost:5050 wikinest-vm`) — it's never opened in
+# UFW and deliberately isn't in allowed_tcp_ports below. Don't add it there.
+vnc_port: 5050
+
+# Caddy is the only exposed service (see Caddyfile — no real port 80 on
+# this shared IP, so plain HTTP is deliberately not served at all). VNC is
+# reachable only via SSH tunnel (see vnc_port above) — do not add its port
+# here, that would defeat the whole point of keeping it loopback-only.
+allowed_tcp_ports:
+  - 443
+
+dns_nameservers:
+  - 1.1.1.1
+  - 8.8.8.8
+
+# Set false to skip the netplan/DNS block entirely if the VM's network
+# is already handled by the provider (cloud-init, etc.) and you don't
+# want Ansible touching it.
+configure_network: true
