@@ -387,7 +387,7 @@
   },
   {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
-    "title": "ДУТ Эскорт TD-150",
+    "title": "ЭСКОРТ ТД-150",
     "excerpt": "",
     "parts": [
       "devices",
@@ -400,7 +400,7 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-17T02:21:05.872180+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
