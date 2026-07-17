@@ -720,11 +720,11 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-17T10:50:14+07:00",
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 1
+    "incidentCount": 2
   },
   {
     "path": "processes/sales/1c/index",
