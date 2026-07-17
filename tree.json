@@ -50,6 +50,24 @@
     "isCounting": false
   },
   {
+    "path": "devices/tachographs/vdo-3283",
+    "title": "VDO DTCO 3283 / 1381",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "tachographs",
+      "vdo-3283"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "tachographs": "Тахографы"
+    },
+    "updated_at": "2026-07-17T02:10:05.007061+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/tachographs/nrd/drive-base",
     "title": "Drive Base",
     "excerpt": "",
@@ -143,26 +161,6 @@
       "tachographs": "Тахографы"
     },
     "updated_at": "2026-07-16T17:30:30.142753+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/tachographs/vdo/vdo-3283",
-    "title": "VDO DTCO 3283 / 1381",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "tachographs",
-      "vdo",
-      "vdo-3283"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы",
-      "vdo": "VDO"
-    },
-    "updated_at": "2026-07-16T17:30:30.139753+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1694,20 +1692,6 @@
       "devices",
       "tachographs",
       "shtrikh"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "devices/tachographs/vdo",
-    "title": "VDO",
-    "parts": [
-      "devices",
-      "tachographs",
-      "vdo"
     ],
     "folder_titles": {
       "devices": "Оборудование",
