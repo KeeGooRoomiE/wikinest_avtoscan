@@ -1141,18 +1141,6 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/accounting",
-    "title": "Бухгалтерия",
-    "parts": [
-      "reglamentation",
-      "accounting"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/hr-menedzher",
     "title": "HR-менеджер",
     "parts": [
