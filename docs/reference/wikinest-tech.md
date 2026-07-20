@@ -22,9 +22,11 @@ roles: [support]
 
 🌳 **[REAMDE][readme_fork] | [Fork][wikinest]** - ридми форк проекта и оригинальный проект, из которого выросла база знаний(знание корневой архитектуры может помочь с добавлением нового функционала.
 
-🖥️ **[Инструкция по деплою][vm_deploy]** - описание работы деплоя на сервер. Удобство настройки происходит через Ansible. В целях безопасности был исключен из репозитория и напрямую залит на ВМ. ПО необходимости или утере можно создать аналогичный по текущей инструкции.
+🖥️ **[Инструкция по деплою][vm_deploy] | [CNAME][cname]** - описание работы деплоя на сервер. Удобство настройки происходит через Ansible. В целях безопасности был исключен из репозитория и напрямую залит на ВМ. ПО необходимости или утере можно создать аналогичный по текущей инструкции.
 
 🤖 **[LLM_CONTENT_GUIDE][llm_guide_content]** - документация по мержу\конвертации документов в Markdown тип, совместимый с базой знаний.
+
+🤖 **[CLAUDE][claude_llm] | [AGENTS][agents_llm]** - правила и инструкции для нейросетей по работе с репозиторием базы знаний.
 
 
 ---
@@ -46,7 +48,7 @@ _20.07.2026_
 
 **VM** > https://95.190.201.194:26502/
 
-Оба стараются резолвится до https://base.avtoscan42.ru по возможности, но приоритет отдается серверной, а не Git версии
+Оба стараются резолвится до https://base.avtoscan42.ru по возможности, но приоритет отдается серверной, а не Git версии. 
 
 
 
@@ -66,5 +68,7 @@ _20.07.2026_
 [llm_guide_content]:https://github.com/KeeGooRoomiE/wikinest_avtoscan/blob/main/CONTENT_GUIDE.md
 [readme_fork]:https://github.com/KeeGooRoomiE/wikinest_avtoscan/blob/main/README.md
 [wikinest]:https://github.com/KeeGooRoomiE/wikinest
-
+[claude_llm]:https://github.com/KeeGooRoomiE/wikinest_avtoscan/blob/main/CLAUDE.md
+[agents_llm]:https://github.com/KeeGooRoomiE/wikinest_avtoscan/blob/main/AGENTS.md
+[cname]:https://github.com/KeeGooRoomiE/wikinest_avtoscan/blob/main/CNAME
 [author]:https://github.com/KeeGooRoomiE
