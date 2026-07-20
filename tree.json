@@ -2400,20 +2400,6 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/service/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "reglamentation",
-      "service",
-      "1c"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "service": "Отдел сервиса"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/service/activation",
     "title": "Процессы активизации",
     "parts": [
