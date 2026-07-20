@@ -25,7 +25,7 @@ from email.header import Header
 from email.mime.text import MIMEText
 from email.utils import formataddr
 
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, send_from_directory, session
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 import auth
@@ -688,6 +688,23 @@ def sync_pull():
 @app.get('/healthz')
 def healthz():
     return jsonify({'ok': True})
+
+
+# tree.json/search.json are served by the backend (Caddy reverse-proxies
+# these two paths here, see Caddyfile) instead of being single-file
+# bind-mounted into the Caddy container like docs.html/style.css. Those two
+# change on nearly every write and every `git pull`/merge (which recreates
+# the file — a new inode) — a single-file bind mount would go stale until
+# Caddy is restarted (see DEPLOYMENT.md). Serving from this process avoids
+# that entirely: it's the same /data mount this process uses to write them.
+@app.get('/tree.json')
+def serve_tree_json():
+    return send_from_directory(DATA_DIR, 'tree.json')
+
+
+@app.get('/search.json')
+def serve_search_json():
+    return send_from_directory(DATA_DIR, 'search.json')
 
 
 # ── Background push loop ─────────────────────────────────────────────────

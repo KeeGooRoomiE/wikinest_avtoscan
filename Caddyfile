@@ -34,6 +34,18 @@
 		reverse_proxy backend:8000
 	}
 
+	# tree.json/search.json change on nearly every write and on every git
+	# pull/merge (which recreates the file — new inode each time). Serving
+	# them from the backend instead of a single-file bind mount sidesteps
+	# the stale-inode problem entirely (see DEPLOYMENT.md, app.py's
+	# serve_tree_json/serve_search_json) — no restart needed when they change.
+	handle /tree.json {
+		reverse_proxy backend:8000
+	}
+	handle /search.json {
+		reverse_proxy backend:8000
+	}
+
 	handle {
 		root * /srv/static
 		# SPA routing: any path with no matching static file falls back to
