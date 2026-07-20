@@ -57,3 +57,5 @@ isCounting: true
 📥 [Руководство по эксплуатации для водителя](/docs/assets/devices/nrd/drive-smart-driver-manual.pdf)
 
 📥 [Лист несовместимости тахографов НРД](/docs/assets/1784533913030-incompatibility_list_drive.pdf)
+
+📥 [Методика проверки тахографов в рамках проведения тех. осмотра](/docs/assets/1784534056138-tax_metodology_TO_setup.pdf)
