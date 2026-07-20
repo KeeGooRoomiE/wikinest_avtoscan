@@ -2454,20 +2454,6 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/support/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "reglamentation",
-      "support",
-      "1c"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "support": "Техническая поддержка"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/support/software",
     "title": "Процессы ПО",
     "parts": [
