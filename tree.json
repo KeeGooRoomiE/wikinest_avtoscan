@@ -722,7 +722,10 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 12
+    "incidentCount": 12,
+    "editors": [
+      "head"
+    ]
   },
   {
     "path": "processes/sales/1c/index",
