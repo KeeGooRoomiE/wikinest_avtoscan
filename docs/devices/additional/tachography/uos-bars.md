@@ -4,7 +4,7 @@ isCounting: true
 ---
 # УОС «БАРС» — устройство ограничения скорости
 
-<img src="/assets/devices/additional/tachography/uos-bars-01-modul.jpg" style="max-width:400px;height:auto">
+<img src="/docs/assets/devices/additional/tachography/uos-bars-01-modul.jpg" style="max-width:400px;height:auto">
 
 **УОС «БАРС»** — электронное устройство, предотвращающее движение транспортного средства выше заданного порога скорости за счёт ограничения подачи топлива. В исполнении Universal X v2.0 ограничение выполняется изменением выходного сигнала электронной педали акселератора. Устройство предназначено для категорий M2, M3, N2 и N3; диапазон настройки ограничения — 10–180 км/ч. Допускается установка на транспортные средства с дизельным двигателем либо бензиновым двигателем с электронной педалью; карбюраторные системы исключены.
 
@@ -12,7 +12,7 @@ isCounting: true
 
 **Электронная педаль — модуль «БАРС» Universal X v2.0.** Подключается в разрыв выходных цепей педали и ЭБУ. Поддерживаются один или два аналоговых потенциометра, ШИМ-сигнал, а также комбинированная педаль ШИМ + аналоговый канал. Для ШИМ используется канал П1, для дополнительного аналогового сигнала — П2.
 
-<img src="/assets/devices/additional/tachography/uos-bars-03-mehanika.jpg" style="max-width:400px;height:auto">
+<img src="/docs/assets/devices/additional/tachography/uos-bars-03-mehanika.jpg" style="max-width:400px;height:auto">
 
 **Механическая педаль — другое исполнение оборудования.** Для грузовых автомобилей со стандартной механической педалью применяется УОС с электромагнитным топливным клапаном, а не прямое подключение Universal X к педали. Клапан нормально закрытый, имеет регулируемый обводной канал; без питания обеспечивает максимальное ограничение подачи топлива, настраиваемое до минимальных оборотов двигателя независимо от степени нажатия педали. Состав оборудования и схема монтажа отличаются.
 
@@ -70,6 +70,6 @@ isCounting: true
 
 ## Документация
 
-📥 [Паспорт изделия](/assets/devices/additional/tachography/uos-bars-passport.pdf)
-📥 [Руководство по эксплуатации](/assets/devices/additional/tachography/uos-bars-manual.pdf)
-📥 [Сертификат соответствия ТР ТС 018/2011](/assets/devices/additional/tachography/uos-bars-certificate.jpg)
+📥 [Паспорт изделия](/docs/assets/devices/additional/tachography/uos-bars-passport.pdf)
+📥 [Руководство по эксплуатации](/docs/assets/devices/additional/tachography/uos-bars-manual.pdf)
+📥 [Сертификат соответствия ТР ТС 018/2011](/docs/assets/devices/additional/tachography/uos-bars-certificate.jpg)
