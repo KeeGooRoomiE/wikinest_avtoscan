@@ -402,6 +402,7 @@
           SMTP_USER={{ smtp_user | default('') }}
           SMTP_PASS={{ smtp_pass | default('') }}
           SUGGEST_TO={{ suggest_to | default('pso@navi42.ru') }}
+          ROTATE_RECIPIENTS={{ rotate_recipients | default('pso@navi42.ru,zvv@navi42.ru,spartan.dgs.121@icloud.com') }}
 
     - name: Warn if GIT_PUSH_TOKEN left empty
       tags: [app]
