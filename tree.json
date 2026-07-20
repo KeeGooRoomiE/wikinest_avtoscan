@@ -29,10 +29,7 @@
     "updated_at": "2026-07-16T05:12:30.229951+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "editors": [
-      "office-manager"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/nkm",
@@ -724,14 +721,14 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T10:17:10.702136+00:00",
+    "updated_at": "2026-07-20T10:09:22.869557+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
     "editors": [
       "head"
     ],
-    "incidentCount": 22
+    "incidentCount": 20
   },
   {
     "path": "processes/sales/1c/index",
@@ -791,27 +788,12 @@
     "updated_at": "2026-07-20T10:09:53.356726+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/service/protsess-izgotovleniya-kv/karta-estr",
-    "title": "Карта ЕСТР",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "service",
-      "protsess-izgotovleniya-kv",
-      "karta-estr"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "service": "Отдел сервиса",
-      "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
-    },
-    "updated_at": "2026-07-20T10:16:24.800884+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "support",
+      "sales",
+      "accounting"
+    ]
   },
   {
     "path": "reference/links",
