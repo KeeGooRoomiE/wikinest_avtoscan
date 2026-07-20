@@ -47,8 +47,6 @@ services:
       - ./config.json:/srv/static/config.json:ro
       - ./i18n:/srv/static/i18n:ro
       - ./docs:/srv/static/docs:ro
-      - ./tree.json:/srv/static/tree.json:ro
-      - ./search.json:/srv/static/search.json:ro
       - caddy_data:/data
       - caddy_config:/config
 
