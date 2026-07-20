@@ -2183,18 +2183,6 @@
   },
   {
     "_folder": true,
-    "path": "processes/common",
-    "title": "Общие",
-    "parts": [
-      "processes",
-      "common"
-    ],
-    "folder_titles": {
-      "processes": "Процессы"
-    }
-  },
-  {
-    "_folder": true,
     "path": "products",
     "title": "Продукты",
     "parts": [
