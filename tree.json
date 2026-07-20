@@ -2348,20 +2348,6 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/sales/bitrix",
-    "title": "Процессы Битрикс24",
-    "parts": [
-      "reglamentation",
-      "sales",
-      "bitrix"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "sales": "Отдел продаж"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/service",
     "title": "Отдел сервиса",
     "parts": [
