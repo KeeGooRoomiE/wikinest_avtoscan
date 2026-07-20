@@ -34,7 +34,9 @@
     "can_edit": false,
     "hidden_sections": [
       "processes/sales",
-      "processes/service"
+      "processes/service",
+      "reglamentation/sales",
+      "reglamentation/service"
     ]
   },
   {
@@ -44,7 +46,9 @@
     "can_edit": false,
     "hidden_sections": [
       "processes/service",
-      "processes/support"
+      "processes/support",
+      "reglamentation/service",
+      "reglamentation/support"
     ]
   },
   {
@@ -53,12 +57,14 @@
     "password_hash": "c25dbe05bdc40ea08520220dfbebff5544f849c81225eb5f4c4c225d3dfc104c",
     "can_edit": false,
     "hidden_sections": [
-      "reglamentation",
       "software",
       "examples",
       "processes/sales",
       "processes/service",
-      "processes/support"
+      "processes/support",
+      "reglamentation/sales",
+      "reglamentation/service",
+      "reglamentation/support"
     ]
   },
   {
@@ -67,14 +73,16 @@
     "password_hash": "91a67745a30125f7fbd40aaaad6e1717ea76da489a488f15f941811e45c7540a",
     "can_edit": false,
     "hidden_sections": [
-      "reglamentation",
       "incidents",
       "software",
       "examples",
       "glossary",
       "processes/sales",
       "processes/service",
-      "processes/support"
+      "processes/support",
+      "reglamentation/sales",
+      "reglamentation/service",
+      "reglamentation/support"
     ]
   },
   {
@@ -84,13 +92,14 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "reglamentation",
       "incidents",
       "software",
       "examples",
       "glossary",
       "processes/sales",
-      "processes/support"
+      "processes/support",
+      "reglamentation/sales",
+      "reglamentation/support"
     ]
   },
   {
@@ -100,13 +109,14 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "reglamentation",
       "incidents",
       "software",
       "examples",
       "glossary",
       "processes/sales",
-      "processes/support"
+      "processes/support",
+      "reglamentation/sales",
+      "reglamentation/support"
     ]
   },
   {
@@ -116,13 +126,14 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "reglamentation",
       "incidents",
       "software",
       "examples",
       "glossary",
       "processes/sales",
-      "processes/support"
+      "processes/support",
+      "reglamentation/sales",
+      "reglamentation/support"
     ]
   }
 ]
