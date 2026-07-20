@@ -785,6 +785,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/protsess-izgotovleniya-kv/karta-estr",
+    "title": "Карта ЕСТР",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "protsess-izgotovleniya-kv",
+      "karta-estr"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
+    },
+    "updated_at": "2026-07-20T10:10:18.249864+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
     "excerpt": "",
