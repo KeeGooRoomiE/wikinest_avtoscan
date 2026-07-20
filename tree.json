@@ -771,6 +771,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/protsess-izgotovleniya-kv/dashjghkjkhgfdsadafghjhjgfds",
+    "title": "dashjghkjkhgfdsadafghjhjgfds",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "protsess-izgotovleniya-kv",
+      "dashjghkjkhgfdsadafghjhjgfds"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
+    },
+    "updated_at": "2026-07-20T10:21:15.790477+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/protsess-izgotovleniya-kv/karta-dlya-takhografov-s-skzi",
     "title": "Карта СКЗИ",
     "excerpt": "",
