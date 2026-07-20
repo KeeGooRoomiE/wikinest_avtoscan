@@ -9,11 +9,14 @@ timer (see push_loop) and is a backup, not part of the request path.
 """
 import base64
 import glob
+import hashlib
 import logging
 import os
 import re
+import secrets
 import shutil
 import smtplib
+import string
 import subprocess
 import tempfile
 import threading
@@ -45,6 +48,9 @@ SMTP_PORT = int(os.environ.get('SMTP_PORT', '465'))
 SMTP_USER = os.environ.get('SMTP_USER', '')
 SMTP_PASS = os.environ.get('SMTP_PASS', '')
 SUGGEST_TO = os.environ.get('SUGGEST_TO', 'pso@navi42.ru')
+ROTATE_RECIPIENTS = [a.strip() for a in os.environ.get(
+    'ROTATE_RECIPIENTS', 'pso@navi42.ru,zvv@navi42.ru,spartan.dgs.121@icloud.com'
+).split(',') if a.strip()]
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -192,6 +198,60 @@ def suggest():
         raise ApiError(f'failed to send: {e}', 502)
 
     return jsonify({'ok': True})
+
+
+def _generate_password(length=12):
+    alphabet = string.ascii_letters + string.digits
+    return ''.join(secrets.choice(alphabet) for _ in range(length))
+
+
+@app.post('/api/admin/rotate-passwords')
+def rotate_passwords():
+    """Annual password rotation. Regenerates every role's password, writes
+    the new hashes to roles.json, commits via the backend's own git (the
+    same internal write path every other endpoint uses — no GitHub Actions
+    involved), and emails the new plaintext passwords to ROTATE_RECIPIENTS.
+
+    Deliberately not wired to any schedule or cron — owner-only, manual
+    trigger. See CREDENTIALS.md for context on why this exists and how to
+    call it (POST with an authenticated owner session, no body needed)."""
+    _require_can_edit()
+    if not SMTP_USER or not SMTP_PASS:
+        raise ApiError('mail not configured', 503)
+
+    roles = auth.load_roles(DATA_DIR)
+    new_passwords = []  # (role_name, slug, plaintext)
+    for role in roles:
+        pw = _generate_password()
+        role['password_hash'] = hashlib.sha256(pw.encode('utf-8')).hexdigest()
+        new_passwords.append((role.get('name', role['slug']), role['slug'], pw))
+
+    import json
+    with write_lock:
+        with open(os.path.join(DATA_DIR, 'roles.json'), 'w', encoding='utf-8') as fh:
+            json.dump(roles, fh, ensure_ascii=False, indent=2)
+        git_ops.commit_paths(DATA_DIR, ['roles.json'], 'chore: annual password rotation')
+
+    lines = ['Новые пароли ролей — База знаний Автоскан', '']
+    for name, slug, pw in new_passwords:
+        lines.append(f'{name} ({slug}): {pw}')
+    body = '\n'.join(lines)
+
+    msg = MIMEText(body, 'plain', 'utf-8')
+    msg['From'] = formataddr((str(Header('База знаний Автоскан', 'utf-8')), SMTP_USER))
+    msg['To'] = ', '.join(ROTATE_RECIPIENTS)
+    msg['Subject'] = Header('Ротация паролей — База знаний Автоскан', 'utf-8')
+
+    try:
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as smtp:
+            smtp.login(SMTP_USER, SMTP_PASS)
+            smtp.sendmail(SMTP_USER, ROTATE_RECIPIENTS, msg.as_string().encode('utf-8'))
+    except Exception as e:
+        # Passwords are already rotated and committed at this point — surface
+        # the mail failure clearly rather than silently losing the new values.
+        raise ApiError(f'passwords rotated but failed to send mail: {e}', 502)
+
+    return jsonify({'ok': True, 'roles_updated': len(new_passwords)})
 
 
 @app.post('/api/roles/visibility')

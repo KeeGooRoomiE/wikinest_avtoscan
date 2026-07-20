@@ -20,6 +20,7 @@ services:
       SMTP_USER: ${SMTP_USER:-}
       SMTP_PASS: ${SMTP_PASS:-}
       SUGGEST_TO: ${SUGGEST_TO:-pso@navi42.ru}
+      ROTATE_RECIPIENTS: ${ROTATE_RECIPIENTS:-pso@navi42.ru,zvv@navi42.ru,spartan.dgs.121@icloud.com}
     volumes:
       - .:/data
     expose:
