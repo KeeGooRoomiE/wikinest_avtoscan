@@ -724,14 +724,14 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T10:09:22.869557+00:00",
+    "updated_at": "2026-07-20T10:14:08.025133+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
     "editors": [
       "head"
     ],
-    "incidentCount": 20
+    "incidentCount": 21
   },
   {
     "path": "processes/sales/1c/index",
@@ -789,6 +789,26 @@
       "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
     },
     "updated_at": "2026-07-20T10:09:53.356726+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/service/protsess-izgotovleniya-kv/karta-estr",
+    "title": "Карта ЕСТР",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "protsess-izgotovleniya-kv",
+      "karta-estr"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
+    },
+    "updated_at": "2026-07-20T10:16:24.800884+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
