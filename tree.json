@@ -1031,26 +1031,6 @@
     "isCounting": true
   },
   {
-    "path": "reglamentation/sales/1c/index",
-    "title": "1С — Процессы",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "sales",
-      "1c",
-      "index"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-20T04:30:46.224917+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/sales/aktivizaciya-skzi",
     "title": "Активизация блоков СКЗИ",
     "excerpt": "",
@@ -2384,6 +2364,20 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/sales/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "1c"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
     }
   },
   {
