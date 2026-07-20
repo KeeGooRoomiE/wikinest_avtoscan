@@ -10,7 +10,7 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -26,7 +26,7 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-16T05:12:30.229951+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -44,7 +44,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-14T10:21:32+07:00",
     "tags": [],
     "author": "",
     "isCounting": false
@@ -62,7 +62,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-17T02:10:05.007061+00:00",
+    "updated_at": "2026-07-17T02:10:05Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -82,7 +82,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-16T17:30:30.136753+00:00",
+    "updated_at": "2026-07-16T17:30:30Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -102,7 +102,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-16T17:30:30.137753+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -122,7 +122,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-16T17:30:30.138753+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -142,7 +142,7 @@
       "tachographs": "Тахографы",
       "shtrikh": "ШТРИХ-ТахоRUS"
     },
-    "updated_at": "2026-07-17T02:14:15.897983+00:00",
+    "updated_at": "2026-07-17T02:14:16Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -160,7 +160,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-16T17:30:30.142753+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -180,7 +180,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:10.214916+00:00",
+    "updated_at": "2026-07-17T02:14:10Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -200,7 +200,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:25.429093+00:00",
+    "updated_at": "2026-07-17T02:14:25Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -220,7 +220,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:39.558256+00:00",
+    "updated_at": "2026-07-17T02:14:39Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -240,7 +240,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:54.693429+00:00",
+    "updated_at": "2026-07-17T02:14:54Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -260,7 +260,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:15:08.721587+00:00",
+    "updated_at": "2026-07-17T02:15:08Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -280,7 +280,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:15:23.147748+00:00",
+    "updated_at": "2026-07-17T02:15:23Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -300,7 +300,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:13:54.371729+00:00",
+    "updated_at": "2026-07-17T02:13:54Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -320,7 +320,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-17T02:15:48.118023+00:00",
+    "updated_at": "2026-07-17T02:15:48Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -340,7 +340,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-17T02:16:02.444179+00:00",
+    "updated_at": "2026-07-17T02:16:02Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -360,7 +360,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-17T02:16:17.048336+00:00",
+    "updated_at": "2026-07-17T02:16:17Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -380,7 +380,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-17T02:16:33.484511+00:00",
+    "updated_at": "2026-07-17T02:16:33Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -400,7 +400,7 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-17T02:21:05.872180+00:00",
+    "updated_at": "2026-07-17T02:21:06Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -420,7 +420,7 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-17T02:29:38.886476+00:00",
+    "updated_at": "2026-07-17T02:29:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -440,7 +440,7 @@
       "fuel-sensors": "Контроль топлива",
       "omnicom": "Линейка ДУТ Омником"
     },
-    "updated_at": "2026-07-17T02:19:41.914397+00:00",
+    "updated_at": "2026-07-17T02:19:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -460,7 +460,7 @@
       "fuel-sensors": "Контроль топлива",
       "omnicom": "Линейка ДУТ Омником"
     },
-    "updated_at": "2026-07-17T02:20:01.644584+00:00",
+    "updated_at": "2026-07-17T02:20:01Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -478,7 +478,7 @@
       "devices": "Оборудование",
       "fuel-sensors": "Контроль топлива"
     },
-    "updated_at": "2026-07-20T03:47:50.361888+00:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -498,7 +498,7 @@
       "video": "Видеонаблюдение",
       "registrators": "Видеорегистраторы"
     },
-    "updated_at": "2026-07-17T02:30:18.319784+00:00",
+    "updated_at": "2026-07-17T02:30:18Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -518,7 +518,7 @@
       "video": "Видеонаблюдение",
       "cameras": "Видеокамеры"
     },
-    "updated_at": "2026-07-17T03:18:11.011212+00:00",
+    "updated_at": "2026-07-17T03:18:11Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -538,7 +538,7 @@
       "video": "Видеонаблюдение",
       "accessories": "Сопутствующее оборудование"
     },
-    "updated_at": "2026-07-17T03:18:11.015213+00:00",
+    "updated_at": "2026-07-17T03:18:11Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -556,7 +556,7 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-16T17:30:30.140753+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -574,7 +574,7 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-16T17:30:30.141753+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -592,7 +592,7 @@
       "devices": "Оборудование",
       "radios": "Рации"
     },
-    "updated_at": "2026-07-16T17:05:19.578710+00:00",
+    "updated_at": "2026-07-16T17:05:19Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -612,7 +612,7 @@
       "additional": "Дополнительное оборудование",
       "tachography": "Тахография"
     },
-    "updated_at": "2026-07-20T02:50:23.237967+00:00",
+    "updated_at": "2026-07-20T09:50:13+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -632,7 +632,7 @@
       "additional": "Дополнительное оборудование",
       "monitoring": "Система мониторинга"
     },
-    "updated_at": "2026-07-20T02:50:23.236968+00:00",
+    "updated_at": "2026-07-20T09:50:13+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -652,7 +652,7 @@
       "additional": "Дополнительное оборудование",
       "uos": "УОС"
     },
-    "updated_at": "2026-07-20T03:47:50.361888+00:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -672,7 +672,7 @@
       "additional": "Дополнительное оборудование",
       "uos": "УОС"
     },
-    "updated_at": "2026-07-20T03:47:50.361888+00:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -688,7 +688,7 @@
     "folder_titles": {
       "glossary": "Глоссарий"
     },
-    "updated_at": "2026-07-20T02:16:21.067361+00:00",
+    "updated_at": "2026-07-20T02:16:21Z",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -702,7 +702,7 @@
       "home"
     ],
     "folder_titles": {},
-    "updated_at": "2026-07-16T05:12:30.235950+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -718,7 +718,7 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T02:09:37.098881+00:00",
+    "updated_at": "2026-07-17T10:50:14+07:00",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -739,7 +739,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-16T05:12:30.235950+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -757,7 +757,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -775,7 +775,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -795,7 +795,7 @@
       "sales": "Отдел продаж",
       "bitrix": "Процессы Битрикс24"
     },
-    "updated_at": "2026-07-16T05:12:30.235950+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -813,7 +813,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -831,7 +831,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -849,7 +849,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -867,7 +867,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -885,25 +885,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/sales/rabota-s-dz",
-    "title": "Регламент по работе с дебиторской задолженностью",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "rabota-s-dz"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж"
-    },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -921,7 +903,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -939,7 +921,7 @@
       "processes": "Процессы",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
+    "updated_at": "2026-07-16T17:48:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -957,7 +939,7 @@
       "processes": "Процессы",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "updated_at": "2026-07-16T18:18:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -975,25 +957,7 @@
       "processes": "Процессы",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/support/reglament-zayavok-tp",
-    "title": "Регламент работы отдела технической поддержки",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "support",
-      "reglament-zayavok-tp"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "support": "Техническая поддержка"
-    },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "updated_at": "2026-07-16T18:18:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1011,7 +975,7 @@
       "processes": "Процессы",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "updated_at": "2026-07-16T18:18:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1029,7 +993,7 @@
       "processes": "Процессы",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
+    "updated_at": "2026-07-16T18:18:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1047,7 +1011,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1065,7 +1029,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1083,7 +1047,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1101,7 +1065,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1119,7 +1083,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T05:12:30.236950+00:00",
+    "updated_at": "2026-07-13T12:35:25+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1137,7 +1101,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1155,7 +1119,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1173,7 +1137,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1191,7 +1155,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1209,7 +1173,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1227,7 +1191,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1245,7 +1209,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1263,7 +1227,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1281,7 +1245,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1299,7 +1263,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:31Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1317,7 +1281,7 @@
       "processes": "Процессы",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-16T18:05:31.433524+00:00",
+    "updated_at": "2026-07-16T18:05:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1335,25 +1299,7 @@
       "processes": "Процессы",
       "common": "Общие"
     },
-    "updated_at": "2026-07-16T17:36:32.840333+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/common/perenos-zayavok",
-    "title": "Регламент переноса заявок под срочных клиентов",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "common",
-      "perenos-zayavok"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "common": "Общие"
-    },
-    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "updated_at": "2026-07-16T17:36:33Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1371,7 +1317,7 @@
       "processes": "Процессы",
       "common": "Общие"
     },
-    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "updated_at": "2026-07-16T17:36:32Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1389,7 +1335,7 @@
       "processes": "Процессы",
       "common": "Общие"
     },
-    "updated_at": "2026-07-16T17:36:32.840333+00:00",
+    "updated_at": "2026-07-16T17:36:33Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1405,7 +1351,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-06T16:24:30+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1421,7 +1367,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1439,7 +1385,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1457,7 +1403,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1475,7 +1421,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1493,7 +1439,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1511,7 +1457,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1529,7 +1475,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.237950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1547,7 +1493,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1565,7 +1511,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1583,7 +1529,43 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/common/perenos-zayavok",
+    "title": "Регламент переноса заявок под срочных клиентов",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "common",
+      "perenos-zayavok"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-20T10:58:00+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/rabota-s-dz",
+    "title": "Регламент по работе с дебиторской задолженностью",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "rabota-s-dz"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T10:58:00+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1601,7 +1583,7 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-16T11:54:15+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1619,7 +1601,25 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-16T11:55:16+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/reglament-zayavok-tp",
+    "title": "Регламент работы отдела технической поддержки",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "reglament-zayavok-tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T10:58:00+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1635,7 +1635,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-07T13:46:58+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1651,13 +1651,10 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "_folder": true,
@@ -2167,6 +2164,18 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/common",
+    "title": "Общие",
+    "parts": [
+      "reglamentation",
+      "common"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
     }
   },
   {
