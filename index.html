@@ -1639,11 +1639,32 @@ function initDragDrop(){
   wrap.addEventListener('drop',async e=>{
     e.preventDefault();
     wrap.classList.remove('drag-over');
-    const files=[...e.dataTransfer.files].filter(f=>f.type.startsWith('image/'));
-    if(!files.length) return;
+    // No video here (unlike docs.html): this path base64-encodes the whole
+    // file into a single GitHub Contents API PUT — fine for images/pdf/docx,
+    // not for video. file.type can be empty/wrong for some files, so fall
+    // back to extension.
+    const DOCX_MIME='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    const detectKind=f=>{
+      if(f.type.startsWith('image/')) return 'image';
+      if(f.type==='application/pdf') return 'pdf';
+      if(f.type===DOCX_MIME) return 'doc';
+      if(!f.type){
+        if(/\.pdf$/i.test(f.name)) return 'pdf';
+        if(/\.docx$/i.test(f.name)) return 'doc';
+      }
+      return null;
+    };
+    const all=[...e.dataTransfer.files];
+    const files=all.filter(f=>detectKind(f));
+    if(!files.length){
+      if(all.length) toast('Неподдерживаемый тип файла',true);
+      return;
+    }
     const ok=await requireUnlock();
     if(!ok) return;
     for(const file of files){
+      const kind=detectKind(file);
+      const isDoc=kind==='pdf'||kind==='doc';
       try{
         const ab=await file.arrayBuffer();
         const bytes=new Uint8Array(ab);
@@ -1653,14 +1674,14 @@ function initDragDrop(){
         const ts=Date.now();
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
-        await apiPutFile(uploadPath,`docs: upload image ${safeName}`,b64);
+        await apiPutFile(uploadPath,`docs: upload ${kind} ${safeName}`,b64);
         const url=rawUrl(uploadPath);
         const ta=$('editor');
         const pos=ta.selectionStart;
-        const ins=`![${safeName}](${url})`;
+        const ins=isDoc?`[${safeName}](${url})`:`![${safeName}](${url})`;
         taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
-        toast(t('image_uploaded'));
+        toast(isDoc?'Файл загружен':t('image_uploaded'));
       }catch(err){toast(`Upload failed: ${err.message}`,true);}
     }
   });
