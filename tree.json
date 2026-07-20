@@ -772,7 +772,7 @@
   },
   {
     "path": "processes/service/protsess-izgotovleniya-kv/karta-dlya-takhografov-s-skzi",
-    "title": "Карта для тахографов с СКЗИ",
+    "title": "Карта СКЗИ",
     "excerpt": "",
     "parts": [
       "processes",
@@ -785,7 +785,7 @@
       "service": "Отдел сервиса",
       "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
     },
-    "updated_at": "2026-07-20T10:09:36.380632+00:00",
+    "updated_at": "2026-07-20T10:09:53.356726+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
