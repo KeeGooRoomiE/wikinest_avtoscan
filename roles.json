@@ -8,9 +8,9 @@
   },
   {
     "slug": "admin",
-    "name": "Администратор",
+    "name": "Редактор",
     "password_hash": "0b97d9e9713257148de2aeb25ffe78ae0c81756008468d6f580ad5483981034a",
-    "can_edit": false,
+    "can_edit": true,
     "hidden_sections": []
   },
   {
@@ -54,8 +54,6 @@
     "password_hash": "c25dbe05bdc40ea08520220dfbebff5544f849c81225eb5f4c4c225d3dfc104c",
     "can_edit": false,
     "hidden_sections": [
-      "software",
-      "examples",
       "reglamentation/sales",
       "reglamentation/service",
       "reglamentation/support",
@@ -68,10 +66,6 @@
     "password_hash": "91a67745a30125f7fbd40aaaad6e1717ea76da489a488f15f941811e45c7540a",
     "can_edit": false,
     "hidden_sections": [
-      "incidents",
-      "software",
-      "examples",
-      "glossary",
       "reglamentation/sales",
       "reglamentation/service",
       "reglamentation/support",
@@ -84,11 +78,6 @@
     "password_hash": "cbc2b1fcbee319a9f50724c4ef8d20a62ca113600b9005bf0bee93538d1e234a",
     "can_edit": false,
     "hidden_sections": [
-      "company",
-      "incidents",
-      "software",
-      "examples",
-      "glossary",
       "reglamentation/sales",
       "reglamentation/support",
       "reglamentation/hr"
@@ -100,11 +89,6 @@
     "password_hash": "038886897b04aba39011f33cd8dd1a971f4636e75fcdc8d716ee710d2853fa87",
     "can_edit": false,
     "hidden_sections": [
-      "company",
-      "incidents",
-      "software",
-      "examples",
-      "glossary",
       "reglamentation/sales",
       "reglamentation/support",
       "reglamentation/hr"
@@ -116,11 +100,6 @@
     "password_hash": "6538023883effae66c92d51f798ab972473536e321642255cbc1099cc9f08864",
     "can_edit": false,
     "hidden_sections": [
-      "company",
-      "incidents",
-      "software",
-      "examples",
-      "glossary",
       "reglamentation/sales",
       "reglamentation/support",
       "reglamentation/hr"
