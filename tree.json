@@ -692,10 +692,10 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "termCount": 187,
     "editors": [
       "head"
-    ]
+    ],
+    "termCount": 187
   },
   {
     "path": "home",
@@ -721,14 +721,14 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T09:16:17.037517+00:00",
+    "updated_at": "2026-07-20T09:16:28.366543+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
     "editors": [
       "head"
     ],
-    "incidentCount": 13
+    "incidentCount": 12
   },
   {
     "path": "processes/sales/1c/index",
