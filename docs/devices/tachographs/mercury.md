@@ -60,3 +60,5 @@ isCounting: true
 📥 [Руководство по эксплуатации для водителя](/docs/assets/devices/tachographs/mercury-driver-manual.pdf)
 
 📥 [Коды ошибок](/docs/assets/devices/tachographs/mercury-error-codes.pdf)
+
+📥 [Методика проверки тахографов в рамках проведения тех. осмотра](/docs/assets/1784534056138-tax_metodology_TO_setup.pdf)
