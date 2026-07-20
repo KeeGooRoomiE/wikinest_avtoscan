@@ -437,6 +437,9 @@ def reorder():
     return jsonify({'ok': True})
 
 
+_VIDEO_EXTS = {'.mp4', '.mov', '.webm', '.avi', '.mkv', '.m4v', '.3gp'}
+
+
 @app.post('/api/write/upload')
 def upload_file():
     """Binary uploads (images, video) — multipart, not base64-in-JSON like
@@ -445,6 +448,11 @@ def upload_file():
     this never holds the whole upload in memory as a Python string the way
     base64-encoding it for put_file would. Images or short clips for docs —
     not a page's tree.json rebuild concern, so no tree_builder.rebuild() here.
+
+    Video files are written to disk but never committed: they're gitignored
+    (too large for git history/GitHub backup — hosted on the server outside
+    git instead), and `git add` on a gitignored path fails, so committing
+    would break every video upload.
     """
     _require_can_edit()
     rel_path = request.form.get('path', '')
@@ -454,10 +462,12 @@ def upload_file():
 
     full = _safe_full_path(rel_path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
+    is_video = os.path.splitext(rel_path)[1].lower() in _VIDEO_EXTS
 
     with write_lock:
         request.files['file'].save(full)
-        git_ops.commit_paths(DATA_DIR, [rel_path], message)
+        if not is_video:
+            git_ops.commit_paths(DATA_DIR, [rel_path], message)
 
     return jsonify({'ok': True})
 
