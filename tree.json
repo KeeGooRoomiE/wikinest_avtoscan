@@ -692,6 +692,9 @@
     "tags": [],
     "author": "",
     "isCounting": true,
+    "editors": [
+      "head"
+    ],
     "termCount": 187
   },
   {
@@ -718,11 +721,14 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T09:30:13.083703+00:00",
+    "updated_at": "2026-07-20T09:24:55.135279+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 14
+    "editors": [
+      "head"
+    ],
+    "incidentCount": 15
   },
   {
     "path": "processes/sales/1c/index",
@@ -1023,7 +1029,7 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-20T09:30:24.954759+00:00",
+    "updated_at": "2026-07-20T04:30:46.224917+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1077,7 +1083,7 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-20T09:30:43.735848+00:00",
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1134,7 +1140,8 @@
     "updated_at": "2026-07-20T04:30:46.227917+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": []
   },
   {
     "path": "reglamentation/sales/otchet-vp-rop",
