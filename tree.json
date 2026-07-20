@@ -718,11 +718,11 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T05:40:56.096815+00:00",
+    "updated_at": "2026-07-20T05:43:03.503519+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 5
+    "incidentCount": 6
   },
   {
     "path": "processes/sales/1c/index",
