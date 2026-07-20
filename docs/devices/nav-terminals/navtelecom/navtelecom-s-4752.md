@@ -67,3 +67,5 @@ isCounting: true
 📥 [Паспорт СИГНАЛ S-4752](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-4752-passport.pdf)
 
 📥 [Руководство по эксплуатации СИГНАЛ S-4752](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-4752-manual.pdf)
+
+📥 [Сравнительные характеристики терминалов](https://navtelecom.ru/ru/oborudovanie/comparison?ysclid=mrsvqhkjo4525808218)

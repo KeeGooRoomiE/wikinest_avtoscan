@@ -66,3 +66,5 @@ isCounting: true
 📥 [Паспорт СИГНАЛ S-2651, S-2651M, S-2653, S-2653M и S-2654](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-26xx-passport.pdf)
 
 📥 [Руководство по эксплуатации СИГНАЛ S-2651](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-2651-manual.pdf)
+
+📥 [Сравнительные характеристики терминалов](https://navtelecom.ru/ru/oborudovanie/comparison?ysclid=mrsvqhkjo4525808218)
