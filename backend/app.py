@@ -616,7 +616,8 @@ def sync_status():
 @app.post('/api/sync/push')
 def sync_push():
     _require_can_edit()
-    ok, err = _do_push()
+    with write_lock:
+        ok, err = _do_push()
     if not ok:
         raise ApiError(err or 'push failed', 502)
     return jsonify(sync_state)
@@ -631,6 +632,10 @@ def healthz():
 
 def _do_push():
     try:
+        merged = git_ops.sync_before_push(DATA_DIR, GIT_REMOTE, GIT_BRANCH)
+        if merged:
+            tree_builder.rebuild(DATA_DIR)
+            git_ops.commit_paths(DATA_DIR, ['tree.json', 'search.json'], 'chore: rebuild tree.json after sync')
         git_ops.push(DATA_DIR, GIT_REMOTE, GIT_BRANCH)
         sync_state['last_push_at'] = time.time()
         sync_state['last_push_error'] = None

@@ -1658,13 +1658,16 @@ function initDragDrop(){
     // from macOS Finder can report an empty or non-standard MIME type), so
     // fall back to the file extension when the MIME type doesn't match.
     const VIDEO_EXT=/\.(mp4|mov|webm|avi|mkv|m4v|3gp)$/i;
+    const DOCX_MIME='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
     const detectKind=f=>{
       if(f.type.startsWith('image/')) return 'image';
       if(f.type.startsWith('video/')) return 'video';
       if(f.type==='application/pdf') return 'pdf';
+      if(f.type===DOCX_MIME) return 'doc';
       if(!f.type){
         if(VIDEO_EXT.test(f.name)) return 'video';
         if(/\.pdf$/i.test(f.name)) return 'pdf';
+        if(/\.docx$/i.test(f.name)) return 'doc';
       }
       return null;
     };
@@ -1680,6 +1683,7 @@ function initDragDrop(){
       const kind=detectKind(file);
       const isVideo=kind==='video';
       const isPdf=kind==='pdf';
+      const isDoc=kind==='doc';
       try{
         let size=null;
         if(kind==='image') size=await chooseImageSize(file.name);
@@ -1696,12 +1700,12 @@ function initDragDrop(){
         // image syntax has no attribute syntax, hence raw <img> for "small".
         let ins;
         if(isVideo) ins=`\n<video controls src="${url}"></video>\n`;
-        else if(isPdf) ins=`[${safeName}](${url})`;
+        else if(isPdf||isDoc) ins=`[${safeName}](${url})`;
         else if(size==='small') ins=`<img src="${url}" alt="${safeName}" style="max-width:400px;height:auto">`;
         else ins=`![${safeName}](${url})`;
         taInsert(ta,ins,pos,pos);
         ta.dispatchEvent(new Event('input'));
-        toast(isVideo?'Видео загружено':isPdf?'Файл загружен':t('image_uploaded'));
+        toast(isVideo?'Видео загружено':(isPdf||isDoc)?'Файл загружен':t('image_uploaded'));
       }catch(err){toast(`Upload failed: ${err.message}`,true);}
     }
   });
