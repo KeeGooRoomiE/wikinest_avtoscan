@@ -2129,23 +2129,6 @@
   },
   {
     "_folder": true,
-    "path": "processes/sales/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "processes",
-      "sales",
-      "1c"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж"
-    },
-    "roles": [
-      "support"
-    ]
-  },
-  {
-    "_folder": true,
     "path": "processes/support",
     "title": "Техническая поддержка",
     "parts": [
