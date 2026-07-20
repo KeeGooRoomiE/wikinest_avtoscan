@@ -692,9 +692,6 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "editors": [
-      "head"
-    ],
     "termCount": 187
   },
   {
@@ -721,14 +718,11 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T10:09:22.869557+00:00",
+    "updated_at": "2026-07-20T10:10:09.778817+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
-    "editors": [
-      "head"
-    ],
-    "incidentCount": 20
+    "incidentCount": 21
   },
   {
     "path": "processes/sales/1c/index",
@@ -838,12 +832,7 @@
     "updated_at": "2026-07-16T05:12:30.237950+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "support",
-      "logistics",
-      "installer"
-    ]
+    "isCounting": true
   },
   {
     "path": "reference/support/arnavi",
