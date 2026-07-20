@@ -44,10 +44,10 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-16T05:12:30.231951+00:00",
+    "updated_at": "2026-07-20T04:00:42.146719+00:00",
     "tags": [],
     "author": "",
-    "isCounting": false
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/vdo-3283",
