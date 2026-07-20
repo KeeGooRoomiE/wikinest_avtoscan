@@ -2160,6 +2160,20 @@
   },
   {
     "_folder": true,
+    "path": "processes/service/protsess-izgotovleniya-kv",
+    "title": "Процесс изготовления КВ",
+    "parts": [
+      "processes",
+      "service",
+      "protsess-izgotovleniya-kv"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
     "path": "processes/service/service-ops",
     "title": "Сервисные операции",
     "parts": [
