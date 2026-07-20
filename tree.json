@@ -959,6 +959,22 @@
     "isCounting": true
   },
   {
+    "path": "reference/wikinest-tech",
+    "title": "Техническая информация по базе знаний",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "wikinest-tech"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    },
+    "updated_at": "2026-07-20T05:03:58.565624+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/common/celi-i-zamysly",
     "title": "Цели и замыслы компании",
     "excerpt": "",
