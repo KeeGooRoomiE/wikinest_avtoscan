@@ -623,6 +623,29 @@ function canEditPage(page){
 
 const FULL_ACCESS_ROLES=['owner','admin','director','head'];
 
+// Finds the most specific folder (exact match or ancestor of `path`) that
+// has a roles[] whitelist set — sourced from _folder marker entries in
+// tree.json, which the folder-visibility modal writes via each folder's
+// own _meta.json (see openFolderVisibility/saveFolderVisibility).
+function folderRolesFor(path){
+  let best=null;
+  for(const f of tree){
+    if(!f._folder||!f.roles||!f.roles.length) continue;
+    if(path===f.path||path.startsWith(f.path+'/')){
+      if(!best||f.path.length>best.path.length) best=f;
+    }
+  }
+  return best?best.roles:null;
+}
+
+function isHiddenByFolderRoles(path){
+  if(FULL_ACCESS_ROLES.includes(currentRole?.slug)) return false;
+  const allowed=folderRolesFor(path);
+  if(!allowed) return false;
+  const slug=currentRole?.slug||null;
+  return !slug||!allowed.includes(slug);
+}
+
 function isHiddenPage(page){
   // Check folder-level hiding from role config
   const hs=currentRole?.hidden_sections||[];
@@ -635,6 +658,8 @@ function isHiddenPage(page){
     const slug=currentRole?.slug||null;
     if(!slug||!allowed.includes(slug)) return true;
   }
+  // Check ancestor folder's visibility restriction, if any
+  if(isHiddenByFolderRoles(page.path)) return true;
   return false;
 }
 
@@ -1040,10 +1065,22 @@ const EDITOR_OPTS=[
 
 function rolesChecklistHtml(selected=[]){
   const all=selected.length===0;
+  // Full-access roles (owner/admin/director/head) always bypass this
+  // whitelist (see isHiddenPage/isHiddenByFolderRoles) — shown checked and
+  // disabled so the list reads as "who can see this", not as a toggle that
+  // would silently do nothing if unchecked.
+  const fullAccessHtml=FULL_ACCESS_ROLES.map(slug=>{
+    const label=roles.find(r=>r.slug===slug)?.name||slug;
+    return `<label class="toggle-row" style="padding-left:16px;opacity:.65">
+      <input type="checkbox" checked disabled>
+      <span>${escHtml(label)}</span>
+    </label>`;
+  }).join('');
   return `<label class="toggle-row" style="margin-bottom:6px">
     <input type="checkbox" id="vis-all" ${all?'checked':''} onchange="handleVisAll(this)">
     <span style="font-weight:500">Все роли</span>
   </label>
+  ${fullAccessHtml}
   ${ROLE_OPTS.map(o=>`<label class="toggle-row" style="padding-left:16px">
     <input type="checkbox" id="vis-${o.slug}" ${!all&&selected.includes(o.slug)?'checked':''} ${all?'disabled':''}>
     <span>${o.label}</span>
@@ -1143,7 +1180,7 @@ function renderTree(pages){
   SECTIONS.forEach(sec=>{
     if(isHiddenSection(sec)) return;
     const _secFolders=[sec.folder,...(sec.extraFolders||[])];
-    const secFolderMarkers=pages.filter(p=>p._folder&&_secFolders.some(f=>p.path.startsWith(f+'/')));
+    const secFolderMarkers=pages.filter(p=>p._folder&&_secFolders.some(f=>p.path.startsWith(f+'/'))&&!isHiddenByFolderRoles(p.path));
     const secPages=pages.filter(p=>!p._folder&&_secFolders.some(f=>p.path.startsWith(f+'/')||p.path===f)&&!isHiddenPage(p));
     const isActive=currentSection===sec.slug;
     const wrap=document.createElement('div');
@@ -1253,6 +1290,12 @@ function renderTree(pages){
       // gearBtn above).
       const addFolderActions=(hdrEl,folderPath,folderTitle)=>{
         if(!canEdit()||!editTreeMode) return;
+        const visBtn=document.createElement('button');
+        visBtn.className='tree-inline-btn';
+        visBtn.title='Видимость папки';
+        visBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+        visBtn.onclick=e=>{e.stopPropagation();openFolderVisibility(folderPath,folderTitle);};
+        hdrEl.appendChild(visBtn);
         const renameBtn=document.createElement('button');
         renameBtn.className='tree-inline-btn';
         renameBtn.title=t('rename_folder');
@@ -2078,6 +2121,53 @@ async function doSuggest(){
 
 // ── Folder rename (title only — the folder's real path/slug never changes,
 // so links into it never break; see _meta.json.title) ──
+function openFolderVisibility(folderPath,folderTitle){
+  const marker=tree.find(p=>p._folder&&p.path===folderPath);
+  $('modal-title').textContent='Видимость папки';
+  $('modal-body').innerHTML=`
+    <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
+      Кто может видеть папку <strong>${escHtml(folderTitle)}</strong>?<br>
+      <span style="color:var(--text3)">Ограничение действует на саму папку и всё её содержимое.</span>
+    </p>
+    <div class="field">${rolesChecklistHtml(marker?.roles||[])}</div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">Отмена</button>
+    <button class="btn-primary" onclick="saveFolderVisibility('${escHtml(folderPath)}')">Сохранить</button>`;
+  $('modal-overlay').classList.add('open');
+}
+
+async function saveFolderVisibility(folderPath){
+  const newRoles=getSelectedRoles();
+  closeModal();
+  const ok=await requireUnlock();
+  if(!ok) return;
+  const metaPath=`docs/${folderPath}/_meta.json`;
+  try{
+    let meta={};
+    try{
+      const data=await apiGetFile(metaPath);
+      meta=JSON.parse(b64dec(data.content.replace(/\n/g,'')));
+    }catch{} // may not exist yet
+    if(newRoles.length>0) meta.roles=newRoles;
+    else delete meta.roles;
+    await apiPutFile(metaPath,`docs: update folder visibility ${folderPath}`,b64enc(JSON.stringify(meta,null,2)));
+    // Optimistic local reflection, same reasoning as doRenameFolder below —
+    // the bot's real tree.json rebuild lags behind (see watchDeploy). If no
+    // marker exists yet (folder had no roles restriction before), synthesize
+    // one so isHiddenPage/secFolderMarkers see it immediately.
+    let marker=tree.find(p=>p._folder&&p.path===folderPath);
+    if(!marker){
+      marker={_folder:true,path:folderPath,title:meta.title||folderPath.split('/').pop(),parts:folderPath.split('/'),folder_titles:{}};
+      tree.push(marker);
+    }
+    if(newRoles.length>0) marker.roles=newRoles;
+    else delete marker.roles;
+    renderTree(tree);
+    toast('Видимость папки обновлена');
+    watchDeploy(metaPath);
+  }catch(e){toast(`Error: ${e.message}`,true);}
+}
+
 function openRenameFolder(folderPath,currentTitle){
   $('modal-title').textContent=t('rename_folder');
   $('modal-body').innerHTML=`

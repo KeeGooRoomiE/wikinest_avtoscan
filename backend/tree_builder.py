@@ -201,19 +201,26 @@ def rebuild(data_dir):
         has_child = any(p == rel_dir or p.startswith(rel_dir + '/') for p in page_paths)
         parent_dir = '/'.join(parts[:-1]) if len(parts) > 1 else '.'
         in_parent_pages = parts[-1] in folder_meta.get(parent_dir, {}).get('pages', [])
-        if not has_child or in_parent_pages:
+        # A folder also needs a marker entry (even with real children) when
+        # it has a roles[] restriction set — that's the only place the
+        # frontend can read it from to hide the folder/its pages for roles
+        # not in the list (see docs.html isHiddenPage/folderRolesFor).
+        if not has_child or in_parent_pages or meta.get('roles'):
             ft = {}
             for i in range(len(parts) - 1):
                 parent = '/'.join(parts[:i + 1])
                 m = folder_meta.get(parent, {})
                 ft[parts[i]] = m.get('title', _titlecase(parts[i]))
-            tree.append({
+            entry = {
                 '_folder': True,
                 'path': rel_dir,
                 'title': meta.get('title', _titlecase(parts[-1])),
                 'parts': parts,
                 'folder_titles': ft,
-            })
+            }
+            if meta.get('roles'):
+                entry['roles'] = meta['roles']
+            tree.append(entry)
 
     with open(tree_path, 'w', encoding='utf-8') as f:
         json.dump(tree, f, ensure_ascii=False, indent=2)
