@@ -36,7 +36,8 @@
       "processes/sales",
       "processes/service",
       "reglamentation/sales",
-      "reglamentation/service"
+      "reglamentation/service",
+      "processes/hr"
     ]
   },
   {
@@ -64,7 +65,8 @@
       "processes/support",
       "reglamentation/sales",
       "reglamentation/service",
-      "reglamentation/support"
+      "reglamentation/support",
+      "processes/hr"
     ]
   },
   {
@@ -82,7 +84,8 @@
       "processes/support",
       "reglamentation/sales",
       "reglamentation/service",
-      "reglamentation/support"
+      "reglamentation/support",
+      "processes/hr"
     ]
   },
   {
@@ -99,7 +102,8 @@
       "processes/sales",
       "processes/support",
       "reglamentation/sales",
-      "reglamentation/support"
+      "reglamentation/support",
+      "processes/hr"
     ]
   },
   {
@@ -116,7 +120,8 @@
       "processes/sales",
       "processes/support",
       "reglamentation/sales",
-      "reglamentation/support"
+      "reglamentation/support",
+      "processes/hr"
     ]
   },
   {
@@ -133,7 +138,8 @@
       "processes/sales",
       "processes/support",
       "reglamentation/sales",
-      "reglamentation/support"
+      "reglamentation/support",
+      "processes/hr"
     ]
   }
 ]
