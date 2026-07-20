@@ -60,3 +60,5 @@ isCounting: true
 📥 [Паспорт устройств СМАРТ S-2433, S-2435 и S-2437](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-243x-passport.pdf)
 
 📥 [Руководство по эксплуатации СМАРТ S-2435](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-2435-manual.pdf)
+
+📥 [Сравнительные характеристики терминалов](https://navtelecom.ru/ru/oborudovanie/comparison?ysclid=mrsvqhkjo4525808218)
