@@ -66,3 +66,5 @@ isCounting: true
 📥 [Паспорт СИГНАЛ S-2613](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-2613-passport.pdf)
 
 📥 [Схема подключения дополнительного оборудования к устройству СИГНАЛ S-2613](/docs/assets/devices/nav-terminals/navtelecom/navtelecom-s-2613-connection.pdf)
+
+📥 [Сравнительные характеристики терминалов](https://navtelecom.ru/ru/oborudovanie/comparison?ysclid=mrsvqhkjo4525808218)
