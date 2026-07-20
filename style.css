@@ -476,6 +476,12 @@ body {
   border-radius: 6px;
 }
 
+#view video {
+  max-width: 920px;
+  width: 100%;
+  border-radius: 6px;
+}
+
 #view hr {
   border: none;
   border-top: 0.5px solid var(--border);
