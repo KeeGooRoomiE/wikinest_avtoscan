@@ -412,6 +412,7 @@ async function init(){
   if(cfg.owner&&cfg.repo){
     loadTree();
     setTimeout(()=>pollActions(null),1500);
+    setInterval(pollTree,20000);
   } else showSetupBanner();
   initBackToTop();
 
@@ -1085,6 +1086,22 @@ async function loadTree(){
   }catch{
     $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
   }
+}
+
+// Silent background refresh so a folder/page created by one editor shows up
+// for everyone else without a manual reload — no loading flash, no re-render
+// unless the tree actually changed. Skipped during editTreeMode (this file
+// has no drag/apply step, but the toggle still exists — see its renderTree).
+async function pollTree(){
+  if(editTreeMode) return;
+  try{
+    const r=await fetch(rawUrl('tree.json')+'?_='+Math.floor(Date.now()/60000),{cache:'no-cache'});
+    if(!r.ok) return;
+    const fresh=await r.json();
+    if(JSON.stringify(fresh)===JSON.stringify(tree)) return;
+    tree=fresh;
+    renderTree(tree);
+  }catch{}
 }
 
 function renderTree(pages){
