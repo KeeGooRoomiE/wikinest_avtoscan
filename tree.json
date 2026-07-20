@@ -1017,24 +1017,6 @@
     "isCounting": true
   },
   {
-    "path": "reglamentation/common/premirovanie-k-prazdnikam",
-    "title": "Положение о премировании сотрудников компании «Автоскан» к праздничным датам",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "common",
-      "premirovanie-k-prazdnikam"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "common": "Общие"
-    },
-    "updated_at": "2026-07-20T04:30:46.223917+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/sales/aktivizaciya-skzi",
     "title": "Активизация блоков СКЗИ",
     "excerpt": "",
