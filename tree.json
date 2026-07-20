@@ -975,24 +975,6 @@
     "isCounting": true
   },
   {
-    "path": "reglamentation/common/celi-i-zamysly",
-    "title": "Цели и замыслы компании",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "common",
-      "celi-i-zamysly"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "common": "Общие"
-    },
-    "updated_at": "2026-07-20T04:30:46.223917+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/common/perenos-zayavok",
     "title": "Регламент переноса заявок под срочных клиентов",
     "excerpt": "",
