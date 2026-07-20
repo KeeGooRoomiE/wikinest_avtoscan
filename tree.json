@@ -47,10 +47,7 @@
     "updated_at": "2026-07-20T07:55:30.869469+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/vdo-3283",
