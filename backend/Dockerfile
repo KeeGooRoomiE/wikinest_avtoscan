@@ -1,7 +1,8 @@
 FROM python:3.12-slim
 
-# git — commits/push/log; pandoc — docx→markdown conversion
-RUN apt-get update && apt-get install -y --no-install-recommends git pandoc \
+# git — commits/push/log; pandoc — docx→markdown conversion; ffmpeg —
+# transcode uploaded video to browser-playable mp4 (see upload_file)
+RUN apt-get update && apt-get install -y --no-install-recommends git pandoc ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -16,4 +17,7 @@ EXPOSE 8000
 # the daily-push background thread must not run more than once — both
 # assumptions break under multiple worker processes. Traffic here is a
 # handful of internal users, so one worker is not a throughput concern.
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "1", "--threads", "4", "app:app"]
+# --timeout 300: default 30s is well under how long an ffmpeg video
+# transcode can take on upload (see upload_file) — a killed worker mid-
+# transcode would 502 the client and leave a half-written file.
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "1", "--threads", "4", "--timeout", "300", "app:app"]

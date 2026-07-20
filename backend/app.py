@@ -438,6 +438,11 @@ def reorder():
 
 
 _VIDEO_EXTS = {'.mp4', '.mov', '.webm', '.avi', '.mkv', '.m4v', '.3gp'}
+# Containers browsers' native <video> essentially never plays even when the
+# server serves them correctly (no built-in demuxer) — re-encode to mp4 on
+# upload so playback works everywhere. mp4/webm are left as-is: already
+# broadly playable, and re-encoding every upload would be needlessly slow.
+_VIDEO_TRANSCODE_EXTS = {'.mov', '.mkv', '.avi', '.m4v', '.3gp'}
 
 
 @app.post('/api/write/upload')
@@ -453,6 +458,10 @@ def upload_file():
     (too large for git history/GitHub backup — hosted on the server outside
     git instead), and `git add` on a gitignored path fails, so committing
     would break every video upload.
+
+    Response includes `path`, which may differ from the request's `path` if
+    the video was transcoded (extension changes to .mp4) — callers must use
+    it, not assume the path they sent.
     """
     _require_can_edit()
     rel_path = request.form.get('path', '')
@@ -462,14 +471,34 @@ def upload_file():
 
     full = _safe_full_path(rel_path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
-    is_video = os.path.splitext(rel_path)[1].lower() in _VIDEO_EXTS
+    ext = os.path.splitext(rel_path)[1].lower()
+    is_video = ext in _VIDEO_EXTS
+    final_rel_path = rel_path
 
     with write_lock:
         request.files['file'].save(full)
+
+        if ext in _VIDEO_TRANSCODE_EXTS:
+            mp4_rel_path = rel_path[:-len(ext)] + '.mp4'
+            mp4_full = _safe_full_path(mp4_rel_path)
+            result = subprocess.run(
+                ['ffmpeg', '-y', '-i', full,
+                 '-c:v', 'libx264', '-preset', 'fast', '-crf', '23',
+                 '-c:a', 'aac', '-movflags', '+faststart', mp4_full],
+                capture_output=True, text=True, timeout=280,
+            )
+            if result.returncode == 0:
+                os.remove(full)
+                final_rel_path = mp4_rel_path
+            else:
+                app.logger.error('ffmpeg transcode failed for %s: %s', rel_path, result.stderr[-500:])
+                # keep the original file — still playable by downloading and
+                # opening locally, better than losing the upload entirely
+
         if not is_video:
             git_ops.commit_paths(DATA_DIR, [rel_path], message)
 
-    return jsonify({'ok': True})
+    return jsonify({'ok': True, 'path': final_rel_path})
 
 
 @app.post('/api/write/convert_docx')

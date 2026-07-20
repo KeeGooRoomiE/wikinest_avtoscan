@@ -1696,12 +1696,15 @@ function initDragDrop(){
         const ts=Date.now();
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
-        await apiUploadFile(uploadPath,`docs: upload ${kind} ${safeName}`,file);
+        // Backend may transcode video to .mp4 for playback (see upload_file)
+        // — use the path it reports back, not the one we sent.
+        const uploadRes=await apiUploadFile(uploadPath,`docs: upload ${kind} ${safeName}`,file);
+        const finalPath=uploadRes.path||uploadPath;
         // Video is gitignored (never reaches GitHub) — a relative URL would
         // 404 when the same markdown renders on index.html/GitHub Pages, so
         // point straight at the VM instead. Other kinds stay relative: they
         // ARE in git, so both origins already have the file.
-        const url=isVideo?`${VM_PUBLIC_ORIGIN}/${uploadPath}`:'/'+uploadPath;
+        const url=isVideo?`${VM_PUBLIC_ORIGIN}/${finalPath}`:'/'+finalPath;
         const ta=$('editor');
         const pos=ta.selectionStart;
         // marked.js passes raw HTML through as-is (see PROJECT_ARCHITECTURE.md
