@@ -60,7 +60,7 @@
     </div>
     <div id="sidebar-suggest">
       <div class="suggest-text">Не нашли нужное?</div>
-      <button class="suggest-btn" onclick="toast('Функция обращения появится в следующем обновлении')">Предложить статью</button>
+      <button class="suggest-btn" onclick="openSuggestModal()">Предложить статью</button>
     </div>
   </div>
   <div id="content">
@@ -2104,6 +2104,35 @@ async function doDeleteFolder(folderPath){
     await loadTree();
     toast(t('folder_deleted'));
   }catch(e){toast(`Error: ${e.message}`,true);}
+}
+
+// ── "Предложить статью" — plain-text mail, no auth beyond having a role ──
+function openSuggestModal(){
+  $('modal-title').textContent='Предложить статью';
+  $('modal-body').innerHTML=`
+    <div class="field"><label>Что добавить или исправить?</label>
+    <textarea id="m-suggest-text" rows="6" placeholder="Опишите, чего не хватает или что нужно поправить в базе знаний..."></textarea></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" id="m-suggest-send" onclick="doSuggest()">Отправить</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('m-suggest-text').focus(),50);
+}
+
+async function doSuggest(){
+  const text=$('m-suggest-text').value.trim();
+  if(!text) return;
+  const btn=$('m-suggest-send');
+  btn.disabled=true;btn.textContent='Отправка...';
+  try{
+    const r=await fetch('/api/suggest',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+    if(!r.ok){let msg=r.statusText;try{const e=await r.json();msg=e.error||msg;}catch{}throw new Error(msg);}
+    closeModal();
+    toast('Отправлено, спасибо!');
+  }catch(e){
+    btn.disabled=false;btn.textContent='Отправить';
+    toast('Не удалось отправить: '+e.message);
+  }
 }
 
 // ── Folder rename (title only — the folder's real path/slug never changes,

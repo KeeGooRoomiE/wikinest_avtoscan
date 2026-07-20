@@ -397,6 +397,11 @@
           GIT_PUSH_TOKEN={{ git_push_token | default('') }}
           PUSH_INTERVAL_SECONDS={{ push_interval_seconds }}
           SESSION_COOKIE_SECURE=1
+          SMTP_HOST={{ smtp_host | default('smtp.mail.ru') }}
+          SMTP_PORT={{ smtp_port | default('465') }}
+          SMTP_USER={{ smtp_user | default('') }}
+          SMTP_PASS={{ smtp_pass | default('') }}
+          SUGGEST_TO={{ suggest_to | default('pso@navi42.ru') }}
 
     - name: Warn if GIT_PUSH_TOKEN left empty
       tags: [app]

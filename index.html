@@ -61,7 +61,7 @@
     </div>
     <div id="sidebar-suggest">
       <div class="suggest-text">Не нашли нужное?</div>
-      <button class="suggest-btn" onclick="toast('Функция обращения появится в следующем обновлении')">Предложить статью</button>
+      <button class="suggest-btn" onclick="openSuggestModal()">Предложить статью</button>
     </div>
   </div>
   <div id="content">
@@ -529,6 +529,15 @@ async function dispatchApiWrite(operation,path,message,content='',extra={}){
 async function apiPutFile(path,message,content){
   await dispatchApiWrite('put_file',path,message,content);
   return{sha:null};
+}
+
+// dispatchSendMail — triggers send-mail.yml; actual SMTP send uses secrets.SMTP_USER/SMTP_PASS server-side
+async function dispatchSendMail(subject,body,to){
+  if(!cfg.trigger_token) throw new Error('trigger_token не настроен в config.json');
+  await ghFetch('actions/workflows/send-mail.yml/dispatches','POST',{
+    ref:'main',
+    inputs:{subject,body,to}
+  });
 }
 
 async function apiDeleteFile(path,message){
@@ -2016,6 +2025,34 @@ async function doDeleteFolder(folderPath){
     showEmpty();
     toast(t('folder_deleted')+' — Actions ('+toDelete.length+')');
   }catch(e){toast(`Error: ${e.message}`);}
+}
+
+// ── "Предложить статью" — plain-text mail via send-mail.yml workflow_dispatch ──
+function openSuggestModal(){
+  $('modal-title').textContent='Предложить статью';
+  $('modal-body').innerHTML=`
+    <div class="field"><label>Что добавить или исправить?</label>
+    <textarea id="m-suggest-text" rows="6" placeholder="Опишите, чего не хватает или что нужно поправить в базе знаний..."></textarea></div>`;
+  $('modal-actions').innerHTML=`
+    <button onclick="closeModal()">${t('cancel')}</button>
+    <button class="btn-primary" id="m-suggest-send" onclick="doSuggest()">Отправить</button>`;
+  $('modal-overlay').classList.add('open');
+  setTimeout(()=>$('m-suggest-text').focus(),50);
+}
+
+async function doSuggest(){
+  const text=$('m-suggest-text').value.trim();
+  if(!text) return;
+  const btn=$('m-suggest-send');
+  btn.disabled=true;btn.textContent='Отправка...';
+  try{
+    await dispatchSendMail('Предложение правок по базе данных',text,'pso@navi42.ru');
+    closeModal();
+    toast('Отправлено, спасибо!');
+  }catch(e){
+    btn.disabled=false;btn.textContent='Отправить';
+    toast('Не удалось отправить: '+e.message);
+  }
 }
 
 // ── Folder rename (title only — the folder's real path/slug never changes,

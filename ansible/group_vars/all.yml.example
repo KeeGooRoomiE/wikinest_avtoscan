@@ -3,14 +3,19 @@
 # two secrets below — just never remove it from .gitignore.
 
 # secret_key: ""            # blank/omitted = playbook auto-generates one
-# git_push_token: ""        # blank/omitted = daily backup push stays disabled
+# git_push_token: ""        # blank/omitted = backup push to GitHub stays disabled
 # vnc_password: ""          # blank/omitted = playbook auto-generates one and
 #                            # prints it once at the end of the vnc-tagged run
+# smtp_user: ""              # blank/omitted = "Предложить статью" / password
+# smtp_pass: ""              # rotation mail sending stays disabled (503 from /api/suggest)
 
 deploy_path: /srv/wikinest
 repo_url: https://github.com/KeeGooRoomiE/wikinest_avtoscan.git
 git_push_repo: KeeGooRoomiE/wikinest_avtoscan
-push_interval_seconds: 86400
+push_interval_seconds: 3600
+smtp_host: smtp.mail.ru
+smtp_port: 465
+suggest_to: pso@navi42.ru
 
 # NAT-forwarded port for VNC (26505 -> 5050, see VM_SETUP.md). Xvnc binds
 # -localhost yes regardless, so this is only meaningful for the SSH tunnel

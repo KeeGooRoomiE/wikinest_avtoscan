@@ -15,6 +15,11 @@ services:
       GIT_PUSH_REPO: ${GIT_PUSH_REPO:-}
       PUSH_INTERVAL_SECONDS: ${PUSH_INTERVAL_SECONDS:-3600}
       SESSION_COOKIE_SECURE: ${SESSION_COOKIE_SECURE:-1}
+      SMTP_HOST: ${SMTP_HOST:-smtp.mail.ru}
+      SMTP_PORT: ${SMTP_PORT:-465}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      SUGGEST_TO: ${SUGGEST_TO:-pso@navi42.ru}
     volumes:
       - .:/data
     expose:

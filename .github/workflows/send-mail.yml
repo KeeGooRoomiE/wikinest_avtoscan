@@ -1,0 +1,59 @@
+name: Send Mail
+
+# Generic plain-text mail sender, triggered by workflow_dispatch from index.html
+# (see dispatchApiWrite-style calls in index.html). Reused by any feature that
+# needs to email something from the index.html/GitHub-Pages path — currently
+# the "Предложить статью" button; the VM path (docs.html) has its own
+# equivalent in backend/app.py using the same SMTP account.
+
+on:
+  workflow_dispatch:
+    inputs:
+      subject:
+        description: 'Email subject'
+        required: true
+        type: string
+      body:
+        description: 'Plain-text email body'
+        required: true
+        type: string
+      to:
+        description: 'Comma-separated recipient list'
+        required: true
+        type: string
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        env:
+          SUBJECT:   ${{ inputs.subject }}
+          BODY:      ${{ inputs.body }}
+          TO:        ${{ inputs.to }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, smtplib
+          from email.mime.text import MIMEText
+          from email.header import Header
+          from email.utils import formataddr
+
+          subject   = os.environ['SUBJECT']
+          body      = os.environ['BODY']
+          to_list   = [a.strip() for a in os.environ['TO'].split(',') if a.strip()]
+          sender    = os.environ['SMTP_USER']
+          sender_pw = os.environ['SMTP_PASS']
+
+          msg = MIMEText(body, 'plain', 'utf-8')
+          msg['From'] = formataddr((str(Header('База знаний Автоскан', 'utf-8')), sender))
+          msg['To'] = ', '.join(to_list)
+          msg['Subject'] = Header(subject, 'utf-8')
+
+          print(f'Sending to {to_list} ...')
+          with smtplib.SMTP_SSL('smtp.mail.ru', 465) as smtp:
+              smtp.login(sender, sender_pw)
+              smtp.sendmail(sender, to_list, msg.as_string().encode('utf-8'))
+          print('Done.')
+          PYEOF

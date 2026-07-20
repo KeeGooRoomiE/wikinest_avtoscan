@@ -13,10 +13,14 @@ import logging
 import os
 import re
 import shutil
+import smtplib
 import subprocess
 import tempfile
 import threading
 import time
+from email.header import Header
+from email.mime.text import MIMEText
+from email.utils import formataddr
 
 from flask import Flask, jsonify, request, session
 from werkzeug.middleware.proxy_fix import ProxyFix
@@ -36,6 +40,11 @@ GIT_PUSH_TOKEN = os.environ.get('GIT_PUSH_TOKEN', '')
 GIT_PUSH_REPO = os.environ.get('GIT_PUSH_REPO', '')  # "owner/repo", required if GIT_PUSH_TOKEN set
 PUSH_INTERVAL_SECONDS = int(os.environ.get('PUSH_INTERVAL_SECONDS', str(24 * 3600)))
 COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', '1') != '0'
+SMTP_HOST = os.environ.get('SMTP_HOST', 'smtp.mail.ru')
+SMTP_PORT = int(os.environ.get('SMTP_PORT', '465'))
+SMTP_USER = os.environ.get('SMTP_USER', '')
+SMTP_PASS = os.environ.get('SMTP_PASS', '')
+SUGGEST_TO = os.environ.get('SUGGEST_TO', 'pso@navi42.ru')
 
 app = Flask(__name__)
 app.secret_key = SECRET_KEY
@@ -154,6 +163,35 @@ def me():
 def list_roles():
     _require_role()
     return jsonify(auth.sanitize_roles(auth.load_roles(DATA_DIR)))
+
+
+@app.post('/api/suggest')
+def suggest():
+    """"Предложить статью" — plain-text feedback mail. Any authenticated
+    role may use it; this isn't a content-editing action."""
+    _require_role()
+    body = request.get_json(silent=True) or {}
+    text = (body.get('text') or '').strip()
+    if not text:
+        raise ApiError('text is required')
+    if len(text) > 5000:
+        raise ApiError('text too long (max 5000 chars)')
+    if not SMTP_USER or not SMTP_PASS:
+        raise ApiError('mail not configured', 503)
+
+    msg = MIMEText(text, 'plain', 'utf-8')
+    msg['From'] = formataddr((str(Header('База знаний Автоскан', 'utf-8')), SMTP_USER))
+    msg['To'] = SUGGEST_TO
+    msg['Subject'] = Header('Предложение правок по базе данных', 'utf-8')
+
+    try:
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT) as smtp:
+            smtp.login(SMTP_USER, SMTP_PASS)
+            smtp.sendmail(SMTP_USER, [SUGGEST_TO], msg.as_string().encode('utf-8'))
+    except Exception as e:
+        raise ApiError(f'failed to send: {e}', 502)
+
+    return jsonify({'ok': True})
 
 
 @app.post('/api/roles/visibility')
