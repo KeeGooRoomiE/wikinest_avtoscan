@@ -855,6 +855,42 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/otchet-ap-rop",
+    "title": "Инструкция по формированию ежемесячного отчёта по Абонентской плате",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "otchet-ap-rop"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/otchet-vp-rop",
+    "title": "Инструкция по формированию ежемесячного отчёта по валовой прибыли",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "otchet-vp-rop"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/perenapravlenie-obrashcheniy-v-tp",
     "title": "Перенаправление обращений в техподдержку",
     "excerpt": "",
@@ -1341,6 +1377,96 @@
     "isCounting": true
   },
   {
+    "path": "processes/hr/forma-zayavki-personal",
+    "title": "Заявка на поиск и подбор персонала",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "hr",
+      "forma-zayavki-personal"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T04:19:45.809501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/hr/formy-shablony-hr",
+    "title": "Формы и шаблоны HR",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "hr",
+      "formy-shablony-hr"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/hr/opisanie-dolzhnosti-hr",
+    "title": "Описание должности: HR-менеджер",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "hr",
+      "opisanie-dolzhnosti-hr"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/hr/pravila-sobesedovaniy",
+    "title": "Правила проведения собеседований",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "hr",
+      "pravila-sobesedovaniy"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/hr/voprosy-kandidatu-po-telefonu",
+    "title": "Вопросы для оценки кандидата по телефону",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "hr",
+      "voprosy-kandidatu-po-telefonu"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
     "excerpt": "",
@@ -1548,6 +1674,24 @@
       "common": "Общие"
     },
     "updated_at": "2026-07-20T03:58:09.840935+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/numeraciya-dogovorov",
+    "title": "Регламент подготовки, заключения, учёта, хранения и контроля за исполнением договоров",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "numeraciya-dogovorov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T04:19:45.810501+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2047,6 +2191,18 @@
     "parts": [
       "processes",
       "common"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/hr",
+    "title": "HR-менеджер",
+    "parts": [
+      "processes",
+      "hr"
     ],
     "folder_titles": {
       "processes": "Процессы"
