@@ -466,6 +466,24 @@
     "isCounting": true
   },
   {
+    "path": "devices/fuel-sensors/uss",
+    "title": "Устройство съёма сигналов УСС — преобразователь для счётчиков жидкости",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "fuel-sensors",
+      "uss"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "fuel-sensors": "Контроль топлива"
+    },
+    "updated_at": "2026-07-20T10:47:39+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "devices/video/registrators/carvis-registrators",
     "title": "Видеорегистраторы CARVIS",
     "excerpt": "",
@@ -600,46 +618,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/additional/tachography/uos-bars",
-    "title": "УОС «БАРС» — устройство ограничения скорости",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "additional",
-      "tachography",
-      "uos-bars"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "additional": "Дополнительное оборудование",
-      "tachography": "Тахография"
-    },
-    "updated_at": "2026-07-20T09:50:13+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "devices/additional/tachography/uos-nk80",
-    "title": "УОС «Надёжный контроль 80» — устройство ограничения скорости",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "additional",
-      "tachography",
-      "uos-nk80"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "additional": "Дополнительное оборудование",
-      "tachography": "Тахография"
-    },
-    "updated_at": "2026-07-20T09:50:13+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "devices/additional/monitoring/dop-obor-monitoring",
     "title": "Дополнительное оборудование для систем мониторинга транспорта",
     "excerpt": "",
@@ -660,21 +638,41 @@
     "isCounting": true
   },
   {
-    "path": "devices/additional/monitoring/uss",
-    "title": "Устройство съёма сигналов УСС — преобразователь для счётчиков жидкости",
+    "path": "devices/additional/uos/uos-bars",
+    "title": "УОС «БАРС» — устройство ограничения скорости",
     "excerpt": "",
     "parts": [
       "devices",
       "additional",
-      "monitoring",
-      "uss"
+      "uos",
+      "uos-bars"
     ],
     "folder_titles": {
       "devices": "Оборудование",
       "additional": "Дополнительное оборудование",
-      "monitoring": "Система мониторинга"
+      "uos": "УОС"
     },
-    "updated_at": "2026-07-20T09:50:13+07:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/additional/uos/uos-nk80",
+    "title": "УОС «Надёжный контроль 80» — устройство ограничения скорости",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "additional",
+      "uos",
+      "uos-nk80"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование",
+      "uos": "УОС"
+    },
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1904,6 +1902,20 @@
       "devices",
       "additional",
       "monitoring"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "additional": "Дополнительное оборудование"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "devices/additional/uos",
+    "title": "УОС",
+    "parts": [
+      "devices",
+      "additional",
+      "uos"
     ],
     "folder_titles": {
       "devices": "Оборудование",
