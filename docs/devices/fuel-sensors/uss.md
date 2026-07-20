@@ -73,4 +73,4 @@ isCounting: true
 
 📥 [Паспорт изделия](/docs/assets/devices/fuel-sensors/uss-passport.pdf)
 📥 [Руководство по эксплуатации](/docs/assets/devices/fuel-sensors/uss-manual.pdf)
-📥 [Счётчики жидкости с овальными шестернями](/docs/assets/devices/fuel-sensors/uss-liquid-counters.pdf)
+📥 [Счётчики жидкости с овальными шестернями (ППО)](/docs/assets/devices/fuel-sensors/uss-liquid-counters.pdf)
