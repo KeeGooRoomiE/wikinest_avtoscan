@@ -937,6 +937,24 @@
     "isCounting": true
   },
   {
+    "path": "reglamentation/common/celi-i-zamysly",
+    "title": "Цели и замыслы компании",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "common",
+      "celi-i-zamysly"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/common/perenos-zayavok",
     "title": "Регламент переноса заявок под срочных клиентов",
     "excerpt": "",
@@ -1085,6 +1103,136 @@
     "isCounting": true
   },
   {
+    "path": "reglamentation/common/politika-ckp",
+    "title": "ЦКП компании «Автоскан»",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "common",
+      "politika-ckp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/common/premirovanie-k-prazdnikam",
+    "title": "Положение о премировании сотрудников компании «Автоскан» к праздничным датам",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "common",
+      "premirovanie-k-prazdnikam"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/1c/index",
+    "title": "1С — Процессы",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "1c",
+      "index"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/aktivizaciya-skzi",
+    "title": "Активизация блоков СКЗИ",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "aktivizaciya-skzi"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/attestaciya-mop",
+    "title": "Аттестация для МОП (тахография, навигация)",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "attestaciya-mop"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/bitrix/index",
+    "title": "Битрикс — Процессы",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "bitrix",
+      "index"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж",
+      "bitrix": "Процессы Битрикс24"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/kriterii-veduschiy-mop",
+    "title": "Критерии присвоения должности ведущего МОП",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "kriterii-veduschiy-mop"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/sales/numeraciya-dogovorov",
     "title": "Регламент подготовки, заключения, учёта, хранения и контроля за исполнением договоров",
     "excerpt": "",
@@ -1206,6 +1354,114 @@
       "sales": "Отдел продаж"
     },
     "updated_at": "2026-07-20T04:30:46.227917+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/nuzhen-li-tahograf",
+    "title": "Как понять, нужен ли тахограф на ТС",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "nuzhen-li-tahograf"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/opisanie-dolzhnosti-mop",
+    "title": "Описание должности: менеджер отдела продаж (фермер)",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "opisanie-dolzhnosti-mop"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/otchet-ap-rop",
+    "title": "Инструкция по формированию ежемесячного отчёта по Абонентской плате",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "otchet-ap-rop"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/otchet-vp-rop",
+    "title": "Инструкция по формированию ежемесячного отчёта по валовой прибыли",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "otchet-vp-rop"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/perenapravlenie-obrashcheniy-v-tp",
+    "title": "Перенаправление обращений в техподдержку",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "perenapravlenie-obrashcheniy-v-tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/pravila-zaklyucheniya-dogovorov",
+    "title": "Правила заключения и перезаключения договоров с клиентами",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "pravila-zaklyucheniya-dogovorov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1553,6 +1809,330 @@
     "isCounting": true
   },
   {
+    "path": "reglamentation/sales/sroki-blokirovki",
+    "title": "Сроки блокировки клиентов при неуплате АП",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "sroki-blokirovki"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/zakrytie-zakaz-naryadov",
+    "title": "Закрытие заказ-нарядов менеджером ОП",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "zakrytie-zakaz-naryadov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/avariyniy-zapas-ustanovshchika",
+    "title": "Перечень аварийного запаса установщика",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "avariyniy-zapas-ustanovshchika"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/fotofiksaciya-rabot",
+    "title": "Фотофиксация работ по установке оборудования",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "fotofiksaciya-rabot"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/kategorii-ustanovshchikov",
+    "title": "Присвоение категорий установщикам",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "kategorii-ustanovshchikov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/kompensacii-montazhnikov",
+    "title": "Выплаты компенсаций для монтажников",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "kompensacii-montazhnikov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/kv-manufacturing",
+    "title": "Процесс изготовления КВ",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "kv-manufacturing"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/nadbavka-montazhnye-raboty",
+    "title": "Надбавка за монтажные работы",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "nadbavka-montazhnye-raboty"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/nastroyka-navtelecom-dut",
+    "title": "Настройка терминалов Навтелеком — ДУТ BLE и проводной",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "nastroyka-navtelecom-dut"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/nastroyka-videonablyudeniya",
+    "title": "Настройка видеорегистраторов CARVIS",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "nastroyka-videonablyudeniya"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/opisanie-dolzhnosti-armp",
+    "title": "Описание должности: оператор АРМП",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "opisanie-dolzhnosti-armp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/opisanie-dolzhnosti-logist",
+    "title": "Описание должности: логист",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "opisanie-dolzhnosti-logist"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/opisanie-dolzhnosti-montazhnika",
+    "title": "Описание должности: техник-установщик",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "opisanie-dolzhnosti-montazhnika"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/opisanie-dolzhnosti-ro4",
+    "title": "Описание должности: руководитель технического отделения",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "opisanie-dolzhnosti-ro4"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/opisanie-dolzhnosti-servisniy-inzhener",
+    "title": "Описание должности: сервисный инженер / кладовщик",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "opisanie-dolzhnosti-servisniy-inzhener"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/stavki-oplaty-montazhnikov",
+    "title": "Определение ставок оплаты для монтажников",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "stavki-oplaty-montazhnikov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/vedenie-raspisaniya",
+    "title": "Ведение расписания монтажных работ",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "vedenie-raspisaniya"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/service/zapolnenie-zakaz-naryadov",
+    "title": "Технология заполнения заказ-нарядов",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "service",
+      "zapolnenie-zakaz-naryadov"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Ссоздание и настройка учётной записи клиента в Axenta",
     "excerpt": "",
@@ -1620,6 +2200,42 @@
       "support": "Техническая поддержка"
     },
     "updated_at": "2026-07-20T04:30:46.229917+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/forma-zayavki-tp",
+    "title": "Форма заявки в техподдержку (сверка показаний)",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "forma-zayavki-tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/opisanie-dolzhnosti-tp",
+    "title": "Описание должности: специалист технической поддержки",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "opisanie-dolzhnosti-tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1764,6 +2380,132 @@
       "hr": "HR-менеджер"
     },
     "updated_at": "2026-07-20T04:30:46.224917+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/retranslyaciya-dannyh",
+    "title": "Ретрансляция данных мониторинга",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "retranslyaciya-dannyh"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/tahograf-princip-raboty",
+    "title": "Тахограф: принцип работы и настройка",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "tahograf-princip-raboty"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/hr/forma-zayavki-personal",
+    "title": "Заявка на поиск и подбор персонала",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "hr",
+      "forma-zayavki-personal"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/hr/formy-shablony-hr",
+    "title": "Формы и шаблоны HR",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "hr",
+      "formy-shablony-hr"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/hr/opisanie-dolzhnosti-hr",
+    "title": "Описание должности: HR-менеджер",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "hr",
+      "opisanie-dolzhnosti-hr"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/hr/pravila-sobesedovaniy",
+    "title": "Правила проведения собеседований",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "hr",
+      "pravila-sobesedovaniy"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/hr/voprosy-kandidatu-po-telefonu",
+    "title": "Вопросы для оценки кандидата по телефону",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "hr",
+      "voprosy-kandidatu-po-telefonu"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "hr": "HR-менеджер"
+    },
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
