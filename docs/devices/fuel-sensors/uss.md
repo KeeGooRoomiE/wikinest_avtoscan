@@ -4,7 +4,7 @@ isCounting: true
 ---
 # Устройство съёма сигналов УСС — преобразователь для счётчиков жидкости
 
-<img src="/docs/assets/devices/additional/monitoring/uss-01-konstrukciya.png" style="max-width:400px;height:auto">
+<img src="/docs/assets/devices/fuel-sensors/uss-01-konstrukciya.png" style="max-width:400px;height:auto">
 
 **Назначение.** УСС преобразует угол поворота выходного вала измерителя объёма счётчика жидкости в электрические импульсы постоянного тока по двум каналам. Преобразование фотоэлектрическое: импульсы формируются дисковым обтюратором и щелевыми оптронами. Количество импульсов пропорционально углу поворота вала и числу зубьев ротора.
 
@@ -71,6 +71,6 @@ isCounting: true
 
 ## Документация
 
-📥 [Паспорт изделия](/docs/assets/devices/additional/monitoring/uss-passport.pdf)
-📥 [Руководство по эксплуатации](/docs/assets/devices/additional/monitoring/uss-manual.pdf)
-📥 [Счётчики жидкости с овальными шестернями](/docs/assets/devices/additional/monitoring/uss-liquid-counters.pdf)
+📥 [Паспорт изделия](/docs/assets/devices/fuel-sensors/uss-passport.pdf)
+📥 [Руководство по эксплуатации](/docs/assets/devices/fuel-sensors/uss-manual.pdf)
+📥 [Счётчики жидкости с овальными шестернями](/docs/assets/devices/fuel-sensors/uss-liquid-counters.pdf)
