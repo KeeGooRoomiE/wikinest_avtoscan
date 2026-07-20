@@ -524,7 +524,7 @@ isCounting: true
 - *GSM означает «Глобальная система мобильной связи». При помощи GSM
   терминал передает данные на сервер, где находится ПО.*
 
-<img src="/docs/assets/processes/sales/gps-gsm-schema.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/sales/gps-gsm-schema.png" style="max-width:500px;height:auto">
 
 10. **Для чего используются усиленные антенны?**
 

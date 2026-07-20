@@ -33,11 +33,9 @@
     "password_hash": "060096af5b19c705d31ab45ddfe0e28ecb6c66151954c0c48af76be92867480e",
     "can_edit": false,
     "hidden_sections": [
-      "processes/sales",
-      "processes/service",
       "reglamentation/sales",
       "reglamentation/service",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   },
   {
@@ -46,8 +44,6 @@
     "password_hash": "08ea1ee0ee22007df922b95553a26c4995386b393122a5d40ec48b27ec9abb2c",
     "can_edit": false,
     "hidden_sections": [
-      "processes/service",
-      "processes/support",
       "reglamentation/service",
       "reglamentation/support"
     ]
@@ -60,13 +56,10 @@
     "hidden_sections": [
       "software",
       "examples",
-      "processes/sales",
-      "processes/service",
-      "processes/support",
       "reglamentation/sales",
       "reglamentation/service",
       "reglamentation/support",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   },
   {
@@ -79,13 +72,10 @@
       "software",
       "examples",
       "glossary",
-      "processes/sales",
-      "processes/service",
-      "processes/support",
       "reglamentation/sales",
       "reglamentation/service",
       "reglamentation/support",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   },
   {
@@ -99,11 +89,9 @@
       "software",
       "examples",
       "glossary",
-      "processes/sales",
-      "processes/support",
       "reglamentation/sales",
       "reglamentation/support",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   },
   {
@@ -117,11 +105,9 @@
       "software",
       "examples",
       "glossary",
-      "processes/sales",
-      "processes/support",
       "reglamentation/sales",
       "reglamentation/support",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   },
   {
@@ -135,11 +121,9 @@
       "software",
       "examples",
       "glossary",
-      "processes/sales",
-      "processes/support",
       "reglamentation/sales",
       "reglamentation/support",
-      "processes/hr"
+      "reglamentation/hr"
     ]
   }
 ]

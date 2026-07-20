@@ -12,12 +12,12 @@ isCounting: true
 
 Столбцы: пробег по Wialon / пробег по путевому листу.
 
-📥 [Скачать шаблон (xlsx)](/docs/assets/processes/support/forma-zayavki-tp.xlsx)
+📥 [Скачать шаблон (xlsx)](/docs/assets/reglamentation/support/forma-zayavki-tp.xlsx)
 
 ## Форма по топливу
 
 Столбцы: заправка по Wialon / заправка по чеку.
 
-📥 [Скачать шаблон (xlsx)](/docs/assets/processes/support/forma-zayavki-tp.xlsx)
+📥 [Скачать шаблон (xlsx)](/docs/assets/reglamentation/support/forma-zayavki-tp.xlsx)
 
 *Обе формы находятся в одном файле на разных листах: «Заявка по пробегу» и «Заявка по топливу».*

@@ -19,15 +19,15 @@ isCounting: true
 Для входа в основное меню настроек нажать правую кнопку мыши и выбрать
 «меню»
 
-<img src="/docs/assets/processes/service/carvis-setup-1.png" style="max-width:500px;height:auto"><img src="/docs/assets/processes/service/carvis-setup-2.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/carvis-setup-1.png" style="max-width:500px;height:auto"><img src="/docs/assets/reglamentation/service/carvis-setup-2.png" style="max-width:500px;height:auto">
 
 Данное меню является основным для настроек и управления системой
 
-<img src="/docs/assets/processes/service/carvis-setup-3.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/carvis-setup-3.png" style="max-width:500px;height:auto">
 
 2.  **Структура меню**
 
-<img src="/docs/assets/processes/service/carvis-setup-4.jpeg" style="max-width:500px;height:auto">Структура меню, названия
+<img src="/docs/assets/reglamentation/service/carvis-setup-4.jpeg" style="max-width:500px;height:auto">Структура меню, названия
 иконок или параметров настроек могут не совпадать или быть созвучными с
 приведёнными в инструкции в зависимости от модели и установленной
 прошивки видеорегистратора CARVIS
@@ -39,7 +39,7 @@ isCounting: true
 
 Настройка даты и времени на регистраторе
 
-<img src="/docs/assets/processes/service/carvis-setup-5.jpeg" style="max-width:500px;height:auto">Если регистратор оборудован
+<img src="/docs/assets/reglamentation/service/carvis-setup-5.jpeg" style="max-width:500px;height:auto">Если регистратор оборудован
 GPS-антенной, **ОБЯЗАТЕЛЬНО** выставить синхронизацию по **GPS**.
 
 4.  **Меню Основные.Информ. ТС**
@@ -48,13 +48,13 @@ GPS-антенной, **ОБЯЗАТЕЛЬНО** выставить синхро
 устройства на соответствие номеру, указанному на регистраторе рядом со
 штрихкодом.
 
-<img src="/docs/assets/processes/service/carvis-setup-6.jpeg" style="max-width:500px;height:auto">Данный номер на ОНЛАЙН
+<img src="/docs/assets/reglamentation/service/carvis-setup-6.jpeg" style="max-width:500px;height:auto">Данный номер на ОНЛАЙН
 видеорегистраторе является идентификатором для заведения регистратора на
 сервер.
 
 **5. Меню Сеть.Сервер (только для ОНЛАЙН видеорегистраторов)**
 
-<img src="/docs/assets/processes/service/carvis-setup-7.jpeg" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/carvis-setup-7.jpeg" style="max-width:500px;height:auto">
 
 Домен.Буквенный адрес сервера.
 
@@ -64,7 +64,7 @@ GPS-антенной, **ОБЯЗАТЕЛЬНО** выставить синхро
 
 Порт сервера. По умолчанию – **6608**.
 
-<img src="/docs/assets/processes/service/carvis-setup-8.jpeg" style="max-width:500px;height:auto">**6.Меню Сеть.3G/4G (только для
+<img src="/docs/assets/reglamentation/service/carvis-setup-8.jpeg" style="max-width:500px;height:auto">**6.Меню Сеть.3G/4G (только для
 ОНЛАЙН видеорегистраторов)**
 
 **Телефон**
@@ -94,7 +94,7 @@ GPS-антенной, **ОБЯЗАТЕЛЬНО** выставить синхро
 | Теле2        | internet.tele2.ru   | \<пусто\>         | \<пусто\>         |
 | Ростелеком   | internet.rtk.ru     | \<пусто\>         | \<пусто\>         |
 
-<img src="/docs/assets/processes/service/carvis-setup-9.png" style="max-width:500px;height:auto">**7.Меню Сеть. Состояние сети
+<img src="/docs/assets/reglamentation/service/carvis-setup-9.png" style="max-width:500px;height:auto">**7.Меню Сеть. Состояние сети
 (только для ОНЛАЙН видеорегистраторов)**
 
 Проверка состояния сетевого подключения устройства. Просмотр типов
@@ -105,7 +105,7 @@ GPS-антенной, **ОБЯЗАТЕЛЬНО** выставить синхро
 
 CARVIS мониторинг.
 
-<img src="/docs/assets/processes/service/carvis-setup-10.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/carvis-setup-10.png" style="max-width:500px;height:auto">
 
 **8.Меню ЗАПИСЬ.РЕЖИМЫ**
 
@@ -130,13 +130,13 @@ CARVIS мониторинг.
 не показывает, возможно, видеостандарт камеры и регистратора не
 совпадают (тогда его необходимо поменять в регистраторе).*
 
-<img src="/docs/assets/processes/service/carvis-setup-11.png" style="max-width:500px;height:auto">**9.Меню ЗАПИСЬ. Осн. поток**
+<img src="/docs/assets/reglamentation/service/carvis-setup-11.png" style="max-width:500px;height:auto">**9.Меню ЗАПИСЬ. Осн. поток**
 
 Основной поток записывается на диск (HDD). Текущие настройки основного
 потока и соответствующий размер памяти. Для настройки выбирается
 подходящий канал.
 
-<img src="/docs/assets/processes/service/carvis-setup-12.png" style="max-width:500px;height:auto">Нажав правой кнопки мыши на
+<img src="/docs/assets/reglamentation/service/carvis-setup-12.png" style="max-width:500px;height:auto">Нажав правой кнопки мыши на
 строку канала, открывается окно настройки параметров записи
 
 Изменяя настройки можно изменять качества записи, запись
@@ -153,7 +153,7 @@ CARVIS мониторинг.
 Включать сжатие **H264+ нежелательно**, т.к. не все видеоплееры на
 стационарных ПК его поддерживают.
 
-<img src="/docs/assets/processes/service/carvis-setup-13.jpeg" style="max-width:500px;height:auto">**10.Меню ЗАПИСЬ.ХРАНЕНИЕ**
+<img src="/docs/assets/reglamentation/service/carvis-setup-13.jpeg" style="max-width:500px;height:auto">**10.Меню ЗАПИСЬ.ХРАНЕНИЕ**
 
 Устройство поддерживает два вида хранения: основной и дополнительный
 поток. В них видео может сохраняться в локальном диске, но каждый диск
@@ -179,7 +179,7 @@ CARVIS мониторинг.
 установить галочки как на рисунке выше (HDD-Основной поток и
 Перезапись-Основной поток).**
 
-<img src="/docs/assets/processes/service/carvis-setup-14.png" style="max-width:500px;height:auto">**11.Меню ИНСТРУМЕНТЫ.ДИСК**
+<img src="/docs/assets/reglamentation/service/carvis-setup-14.png" style="max-width:500px;height:auto">**11.Меню ИНСТРУМЕНТЫ.ДИСК**
 
 Проверка текущего состояния, ёмкости и оставшегося на дисках свободного
 места, а также форматирование носителя (HDD или SD)

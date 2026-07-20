@@ -45,7 +45,7 @@ isCounting: true
 
 ***Принцип работы тахографа*.**
 
-<img src="/docs/assets/processes/support/tahograf-shema.jpg" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/support/tahograf-shema.jpg" style="max-width:500px;height:auto">
 Говоря
 понятным языком о данных, они делятся на входящие и исходящие сигналы и
 данные.
@@ -146,7 +146,7 @@ isCounting: true
 Вот пример наклейки, которая является одним из результатов проведенной
 настройки и клеится на стойку кабины ТС:
 
-<img src="/docs/assets/processes/support/tahograf-nakleyka.jpg" style="max-width:400px;height:auto">
+<img src="/docs/assets/reglamentation/support/tahograf-nakleyka.jpg" style="max-width:400px;height:auto">
 
 Также мастерская распечатывает калибровочный акт на бумаге, при
 необходимости. Он содержит ту же самую информацию, что и наклейка.
@@ -154,7 +154,7 @@ isCounting: true
 Вместе с этим, после проведения очередной процедуры настройки, в отчете
 технических данных появляется запись:
 
-<img src="/docs/assets/processes/support/tahograf-otchet.jpg" style="max-width:300px;height:auto">
+<img src="/docs/assets/reglamentation/support/tahograf-otchet.jpg" style="max-width:300px;height:auto">
 
 Вот, пожалуй и все самое важное, что надо знать про «Настройку
 (КАЛИБРОВКУ)» ТАХОГРАФА, которую пользователи транспортных средств

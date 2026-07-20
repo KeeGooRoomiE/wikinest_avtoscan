@@ -10,22 +10,22 @@ isCounting: true
 
 Используется во время собеседования (см. [Правила проведения собеседований](pravila-sobesedovaniy)) — фиксирует ответы кандидата о предыдущем месте работы, задачах, результатах и понимании продукта должности.
 
-📥 [Скачать бланк (PDF)](/docs/assets/processes/hr/blank-intervyu-produktivnost.pdf)
+📥 [Скачать бланк (PDF)](/docs/assets/reglamentation/hr/blank-intervyu-produktivnost.pdf)
 
 ## Форма для наведения справок
 
 Используется для сбора обратной связи о кандидате с предыдущих мест работы.
 
-📥 [Скачать форму (PDF)](/docs/assets/processes/hr/forma-navedenie-spravok.pdf)
+📥 [Скачать форму (PDF)](/docs/assets/reglamentation/hr/forma-navedenie-spravok.pdf)
 
 ## Бюджет на продвижение вакансий
 
 Таблица учёта расходов на продвижение вакансий по площадкам (HH.ru — публикация, «Топ поиска», Klickme; Авито; Зарплата.ру) в разрезе городов и вакансий, по неделям.
 
-📥 [Скачать таблицу (xlsx)](/docs/assets/processes/hr/byudzhet-prodvizhenie-vakansiy.xlsx)
+📥 [Скачать таблицу (xlsx)](/docs/assets/reglamentation/hr/byudzhet-prodvizhenie-vakansiy.xlsx)
 
 ## Еженедельный отчёт HR
 
 Таблица для еженедельного отчёта директорам филиалов и учредителю: открытые вакансии, результативные исходящие звонки, назначенные и проведённые собеседования, вышедшие на стажировку и её результаты — по каждому филиалу.
 
-📥 [Скачать таблицу (xlsx)](/docs/assets/processes/hr/ezhenedelniy-otchet-hr.xlsx)
+📥 [Скачать таблицу (xlsx)](/docs/assets/reglamentation/hr/ezhenedelniy-otchet-hr.xlsx)

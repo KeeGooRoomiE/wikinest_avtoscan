@@ -4,7 +4,7 @@ isCounting: true
 ---
 # Как понять, нужен ли тахограф на ТС
 
-<img src="/docs/assets/processes/sales/klassifikaciya-ts-gost.jpg" style="max-width:600px;height:auto">
+<img src="/docs/assets/reglamentation/sales/klassifikaciya-ts-gost.jpg" style="max-width:600px;height:auto">
 
 *Краткая инструкция, позволяющая понять, нужен ли
 тахограф на выбранную машину:*

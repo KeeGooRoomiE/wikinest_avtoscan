@@ -6,19 +6,19 @@ isCounting: true
 
 1.  Запустите программу NTC Configurator:
 
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-3.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-3.png" style="max-width:500px;height:auto">
 
 2.  Подключите устройство к конфигуратору, подождите пока устройство
     свяжется с конфигуратором. Когда это произойдет, Вы увидите
     информацию об устройстве.
 
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-4.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-4.png" style="max-width:500px;height:auto">
 
 3.  Настройте конфигурацию, нажав на кнопку "Чтение конфигурации
     устройства". Программа загрузит настройки из подключенного
     устройства.
 
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-5.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-5.png" style="max-width:500px;height:auto">
 
 4.  На вкладке Передача данных в полях APN, Логин и Пароль укажите
     настройки для подключения к Internet. В примере использованы
@@ -27,7 +27,7 @@ isCounting: true
     Логин = mts\
     Пароль = mts
 
-<img src="/docs/assets/processes/service/navtelecom-dut-setup-6.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-6.png" style="max-width:500px;height:auto">
 
 5.  На вкладке "Передача данных" укажите IP/DNS и Порт сервера
     мониторинга.
@@ -38,7 +38,7 @@ isCounting: true
 > Значения Порта обычно индивидуальны для каждого типа оборудования.
 > Значения этих параметров Вы можете узнать в службе технической
 > поддержки или на сайте
-> Gurtam.<img src="/docs/assets/processes/service/navtelecom-dut-setup-7.png" style="max-width:500px;height:auto">
+> Gurtam.<img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-7.png" style="max-width:500px;height:auto">
 
 Пример для сервера Wialon:
 
@@ -85,11 +85,11 @@ isCounting: true
 
 - откройте окно логов
 
-<img src="/docs/assets/processes/service/navtelecom-dut-setup-8.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-8.png" style="max-width:500px;height:auto">
 
 - выберите **пользовательский** лог GSM и нажмите кнопку запуска лога
 
-<img src="/docs/assets/processes/service/navtelecom-dut-setup-9.png" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-9.png" style="max-width:500px;height:auto">
 
 - когда устройство попытается установить связь с сервером Вы увидите
 
@@ -112,16 +112,16 @@ isCounting: true
 > Ставим галочку «использовать Bluetooth модуль», выбираем устройство
 > «датчики»
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-10.jpg" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-10.jpg" style="max-width:500px;height:auto">
 >
 > Выбираем тип датчика «ДУТ» , прописываем MAC адрес датчика, тип дут и
 > адрес в качестве которого передавать. Имя датчика не обязательно.
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-11.jpg" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-11.jpg" style="max-width:500px;height:auto">
 >
 > **Настройка интерфейса**
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-12.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-12.png" style="max-width:500px;height:auto">
 >
 > **Проверка**
 >
@@ -134,12 +134,12 @@ isCounting: true
 > После подключения конфигуратором к устройству, необходимо открыть окно
 > "Телеметрия"
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-13.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-13.png" style="max-width:500px;height:auto">
 >
 > Далее нужно включить автоматическое обновление параметров и посмотреть
 > показания
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-14.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-14.png" style="max-width:500px;height:auto">
 >
 > Подключение ДУТ (проводной)
 >
@@ -149,11 +149,11 @@ isCounting: true
 >
 > **Устройства СИГНАЛ**
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-15.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-15.png" style="max-width:500px;height:auto">
 >
 > **Устройства СМАРТ**
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-16.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-16.png" style="max-width:500px;height:auto">
 >
 > **Настройка**
 >
@@ -179,11 +179,11 @@ isCounting: true
 > Настройки скорости интерфейса и адреса в устройствах должны совпадать
 > с настройками в датчиках
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-17.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-17.png" style="max-width:500px;height:auto">
 >
 > **Настройка интерфейса**
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-12.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-12.png" style="max-width:500px;height:auto">
 >
 > Если выбран протокол передачи данных FLEX 1.0, то на сервер передается
 > только **Уровень**.\
@@ -201,12 +201,12 @@ isCounting: true
 > После подключения конфигуратором к устройству, необходимо открыть окно
 > "Телеметрия"
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-13.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-13.png" style="max-width:500px;height:auto">
 >
 > Далее нужно включить автоматическое обновление параметров и посмотреть
 > показания
 >
-> <img src="/docs/assets/processes/service/navtelecom-dut-setup-14.png" style="max-width:500px;height:auto">
+> <img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-14.png" style="max-width:500px;height:auto">
 >
 > Ниже представлены рекомендации по выбору уровня фильтрации в
 > зависимости от типа транспортного средства (на примере датчиков фирмы
@@ -246,4 +246,4 @@ isCounting: true
 > После того как был установлен пароль его **ОБЯЗАТЕЛЬНО** нужно
 > записать в заказ-наряд в указанном месте:
 
-<img src="/docs/assets/processes/service/navtelecom-dut-setup-18.jpg" style="max-width:500px;height:auto">
+<img src="/docs/assets/reglamentation/service/navtelecom-dut-setup-18.jpg" style="max-width:500px;height:auto">
