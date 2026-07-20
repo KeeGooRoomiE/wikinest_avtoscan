@@ -7,3 +7,14 @@ VM_SETUP_root_ca.crt
 graphify-out/
 ansible/inventory.ini
 ansible/group_vars/all.yml
+
+# Video attachments — too large for git history, hosted on the server
+# outside git instead (see backend/app.py upload_file, which skips the
+# commit step for these extensions since git add would fail anyway).
+*.mp4
+*.mov
+*.webm
+*.avi
+*.mkv
+*.m4v
+*.3gp
