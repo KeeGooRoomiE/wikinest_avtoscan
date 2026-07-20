@@ -84,10 +84,12 @@ def has_remote_changes(data_dir, remote='origin', branch='main'):
     return ahead != '0'
 
 
-def sync_before_push(data_dir, remote='origin', branch='main'):
-    """Fetch + merge remote into local before pushing, so push never needs
-    --force. Returns True if a merge happened (caller should rebuild
-    tree.json/search.json and commit), False if already up to date.
+def fetch_merge(data_dir, remote='origin', branch='main'):
+    """Fetch + merge remote into local — used both as the pull step before
+    the backup push (so push never needs --force) and standalone via the
+    owner's manual "Git Pull" button. Returns True if a merge happened
+    (caller should rebuild tree.json/search.json and commit), False if
+    already up to date.
 
     The VM is the source of truth while it's alive — index.html's
     direct-to-GitHub path exists only as the outage fallback for when the

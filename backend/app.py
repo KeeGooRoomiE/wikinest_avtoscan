@@ -69,7 +69,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
 
 write_lock = threading.Lock()
 login_limiter = auth.LoginRateLimiter()
-sync_state = {'last_push_at': None, 'last_push_error': None}
+sync_state = {'last_push_at': None, 'last_push_error': None, 'last_pull_at': None, 'last_pull_error': None}
 
 _PATH_RE = re.compile(r'^[a-zA-Z0-9_\-][a-zA-Z0-9_\-./]*$')
 
@@ -662,6 +662,29 @@ def sync_push():
     return jsonify(sync_state)
 
 
+@app.post('/api/sync/pull')
+def sync_pull():
+    """Manual pull, for the owner's "Git Pull" button — same fetch+merge
+    used before the backup push, just triggerable on demand instead of
+    waiting for the next scheduled push. Needed now that push auto-syncs
+    (VM wins conflicts): pulling explicitly is the way to bring in changes
+    made only on GitHub (e.g. via index.html) without waiting.
+    """
+    _require_can_edit()
+    with write_lock:
+        try:
+            merged = git_ops.fetch_merge(DATA_DIR, GIT_REMOTE, GIT_BRANCH)
+            if merged:
+                tree_builder.rebuild(DATA_DIR)
+                git_ops.commit_paths(DATA_DIR, ['tree.json', 'search.json'], 'chore: rebuild tree.json after manual pull')
+            sync_state['last_pull_at'] = time.time()
+            sync_state['last_pull_error'] = None
+        except git_ops.GitError as e:
+            sync_state['last_pull_error'] = str(e)
+            raise ApiError(str(e), 502)
+    return jsonify({**sync_state, 'merged': merged})
+
+
 @app.get('/healthz')
 def healthz():
     return jsonify({'ok': True})
@@ -671,7 +694,7 @@ def healthz():
 
 def _do_push():
     try:
-        merged = git_ops.sync_before_push(DATA_DIR, GIT_REMOTE, GIT_BRANCH)
+        merged = git_ops.fetch_merge(DATA_DIR, GIT_REMOTE, GIT_BRANCH)
         if merged:
             tree_builder.rebuild(DATA_DIR)
             git_ops.commit_paths(DATA_DIR, ['tree.json', 'search.json'], 'chore: rebuild tree.json after sync')
