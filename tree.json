@@ -2195,18 +2195,6 @@
   },
   {
     "_folder": true,
-    "path": "processes/hr",
-    "title": "HR-менеджер",
-    "parts": [
-      "processes",
-      "hr"
-    ],
-    "folder_titles": {
-      "processes": "Процессы"
-    }
-  },
-  {
-    "_folder": true,
     "path": "products",
     "title": "Продукты",
     "parts": [
