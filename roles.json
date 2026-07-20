@@ -32,7 +32,10 @@
     "name": "Техническая поддержка",
     "password_hash": "060096af5b19c705d31ab45ddfe0e28ecb6c66151954c0c48af76be92867480e",
     "can_edit": false,
-    "hidden_sections": []
+    "hidden_sections": [
+      "processes/sales",
+      "processes/service"
+    ]
   },
   {
     "slug": "sales",
@@ -40,7 +43,8 @@
     "password_hash": "08ea1ee0ee22007df922b95553a26c4995386b393122a5d40ec48b27ec9abb2c",
     "can_edit": false,
     "hidden_sections": [
-      "devices"
+      "processes/service",
+      "processes/support"
     ]
   },
   {
@@ -49,10 +53,12 @@
     "password_hash": "c25dbe05bdc40ea08520220dfbebff5544f849c81225eb5f4c4c225d3dfc104c",
     "can_edit": false,
     "hidden_sections": [
-      "devices",
       "reglamentation",
       "software",
-      "examples"
+      "examples",
+      "processes/sales",
+      "processes/service",
+      "processes/support"
     ]
   },
   {
@@ -61,12 +67,14 @@
     "password_hash": "91a67745a30125f7fbd40aaaad6e1717ea76da489a488f15f941811e45c7540a",
     "can_edit": false,
     "hidden_sections": [
-      "products",
       "reglamentation",
       "incidents",
       "software",
       "examples",
-      "glossary"
+      "glossary",
+      "processes/sales",
+      "processes/service",
+      "processes/support"
     ]
   },
   {
@@ -76,12 +84,13 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "products",
       "reglamentation",
       "incidents",
       "software",
       "examples",
-      "glossary"
+      "glossary",
+      "processes/sales",
+      "processes/support"
     ]
   },
   {
@@ -91,12 +100,13 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "products",
       "reglamentation",
       "incidents",
       "software",
       "examples",
-      "glossary"
+      "glossary",
+      "processes/sales",
+      "processes/support"
     ]
   },
   {
@@ -106,12 +116,13 @@
     "can_edit": false,
     "hidden_sections": [
       "company",
-      "products",
       "reglamentation",
       "incidents",
       "software",
       "examples",
-      "glossary"
+      "glossary",
+      "processes/sales",
+      "processes/support"
     ]
   }
 ]
