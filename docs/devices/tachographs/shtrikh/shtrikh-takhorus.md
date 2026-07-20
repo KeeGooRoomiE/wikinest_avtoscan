@@ -52,3 +52,5 @@ isCounting: true
 📥 [Паспорт изделия](/docs/assets/devices/shtrikh/shtrikh-takhorus-passport.pdf)
 
 📥 [Инструкция для водителя](/docs/assets/devices/shtrikh/shtrikh-takhorus-driver-manual.pdf)
+
+📥 [Методика проверки тахографов в рамках проведения тех. осмотра](/docs/assets/1784534056138-tax_metodology_TO_setup.pdf)

@@ -56,3 +56,7 @@ isCounting: true
 📥 [Руководство по эксплуатации для водителя](/docs/assets/devices/nrd/drive-x-driver-manual.pdf)
 
 📥 [Инструкция по сервисному обслуживанию и ремонту](/docs/assets/devices/nrd/drive-x-service.pdf)
+
+📥 [Лист несовместимости тахографов НРД](/docs/assets/1784533913030-incompatibility_list_drive.pdf)
+
+📥 [Методика проверки тахографов в рамках проведения тех. осмотра](/docs/assets/1784534056138-tax_metodology_TO_setup.pdf)
