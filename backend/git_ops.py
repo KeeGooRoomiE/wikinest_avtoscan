@@ -84,42 +84,23 @@ def has_remote_changes(data_dir, remote='origin', branch='main'):
     return ahead != '0'
 
 
-# Files tree_builder regenerates deterministically from docs/** on every
-# write — safe to auto-resolve conflicts in these by keeping our side and
-# rebuilding, unlike real content where we cannot guess which side to keep.
-_GENERATED_FILES = {'tree.json', 'search.json'}
-
-
 def sync_before_push(data_dir, remote='origin', branch='main'):
     """Fetch + merge remote into local before pushing, so push never needs
     --force. Returns True if a merge happened (caller should rebuild
     tree.json/search.json and commit), False if already up to date.
 
-    Conflicts limited to tree.json/search.json are auto-resolved (keep
-    ours, caller rebuilds after). Any conflict touching real content aborts
-    the merge and raises — this repo has two independent write paths
-    (this VM, and index.html's direct-to-GitHub path), so a conflict there
-    means both sides have real, different edits and picking one
-    automatically would silently discard someone's work.
+    The VM is the source of truth while it's alive — index.html's
+    direct-to-GitHub path exists only as the outage fallback for when the
+    VM is down, and is never meant to out-rank a live VM. So any conflict
+    (not just tree.json/search.json) resolves in favor of the local (VM)
+    side: `-X ours` still merges in every non-conflicting remote change
+    normally, it only picks our side for hunks/files that actually
+    conflict — same pattern as the documented manual resolution
+    (`git merge --strategy-option=ours`, see CLAUDE.md).
     """
     _run(data_dir, ['fetch', remote, branch], timeout=60)
     ahead = _run(data_dir, ['rev-list', '--count', f'HEAD..{remote}/{branch}']).strip()
     if ahead == '0':
         return False
-    result = subprocess.run(
-        ['git', '-C', data_dir, 'merge', f'{remote}/{branch}', '--no-edit'],
-        capture_output=True, text=True, timeout=60,
-    )
-    if result.returncode == 0:
-        return True
-    status = _run(data_dir, ['diff', '--name-only', '--diff-filter=U'], check=False)
-    conflicted = [l for l in status.splitlines() if l.strip()]
-    other = [f for f in conflicted if f not in _GENERATED_FILES]
-    if other:
-        _run(data_dir, ['merge', '--abort'], check=False)
-        raise GitError(f'merge conflict outside generated files: {", ".join(other)} — needs manual resolution')
-    for f in conflicted:
-        _run(data_dir, ['checkout', '--ours', '--', f])
-        _run(data_dir, ['add', '--', f])
-    _run(data_dir, ['commit', '--no-edit'])
+    _run(data_dir, ['merge', f'{remote}/{branch}', '--no-edit', '--strategy-option=ours'])
     return True
