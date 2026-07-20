@@ -44,7 +44,7 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-20T04:00:42Z",
+    "updated_at": "2026-07-20T07:08:57Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -180,7 +180,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:10Z",
+    "updated_at": "2026-07-20T07:07:04Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -200,7 +200,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:25Z",
+    "updated_at": "2026-07-20T07:07:42Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -220,7 +220,7 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-17T02:14:39Z",
+    "updated_at": "2026-07-20T07:07:47Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -718,15 +718,15 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-20T12:35:37+07:00",
+    "updated_at": "2026-07-20T06:20:11Z",
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 3
+    "incidentCount": 8
   },
   {
     "path": "processes/sales/1c/index",
-    "title": "1С — Процессы",
+    "title": "Как создать клиента",
     "excerpt": "",
     "parts": [
       "processes",
@@ -739,7 +739,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-20T11:45:50+07:00",
+    "updated_at": "2026-07-20T06:58:50Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -775,7 +775,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-06T16:24:30+07:00",
+    "updated_at": "2026-07-20T04:57:04Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -791,7 +791,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-20T05:01:44Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -959,6 +959,22 @@
     "isCounting": true
   },
   {
+    "path": "reference/wikinest-tech",
+    "title": "Техническая информация по базе знаний",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "wikinest-tech"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    },
+    "updated_at": "2026-07-20T06:50:38Z",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/common/celi-i-zamysly",
     "title": "Цели и замыслы компании",
     "excerpt": "",
@@ -1031,26 +1047,6 @@
     "isCounting": true
   },
   {
-    "path": "reglamentation/sales/1c/index",
-    "title": "1С — Процессы",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "sales",
-      "1c",
-      "index"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-20T11:30:35+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/sales/aktivizaciya-skzi",
     "title": "Активизация блоков СКЗИ",
     "excerpt": "",
@@ -1080,26 +1076,6 @@
     "folder_titles": {
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
-    },
-    "updated_at": "2026-07-20T11:30:35+07:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "reglamentation/sales/bitrix/index",
-    "title": "Битрикс — Процессы",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "sales",
-      "bitrix",
-      "index"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "sales": "Отдел продаж",
-      "bitrix": "Процессы Битрикс24"
     },
     "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
@@ -1155,7 +1131,7 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-20T11:30:35+07:00",
+    "updated_at": "2026-07-20T06:56:50Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2223,30 +2199,6 @@
   },
   {
     "_folder": true,
-    "path": "processes/common",
-    "title": "Общие",
-    "parts": [
-      "processes",
-      "common"
-    ],
-    "folder_titles": {
-      "processes": "Процессы"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "processes/hr",
-    "title": "HR-менеджер",
-    "parts": [
-      "processes",
-      "hr"
-    ],
-    "folder_titles": {
-      "processes": "Процессы"
-    }
-  },
-  {
-    "_folder": true,
     "path": "products",
     "title": "Продукты",
     "parts": [
@@ -2400,20 +2352,6 @@
   },
   {
     "_folder": true,
-    "path": "reglamentation/service/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "reglamentation",
-      "service",
-      "1c"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "service": "Отдел сервиса"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reglamentation/service/activation",
     "title": "Процессы активизации",
     "parts": [
@@ -2450,34 +2388,6 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "reglamentation/support/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "reglamentation",
-      "support",
-      "1c"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "support": "Техническая поддержка"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "reglamentation/support/software",
-    "title": "Процессы ПО",
-    "parts": [
-      "reglamentation",
-      "support",
-      "software"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "support": "Техническая поддержка"
     }
   },
   {

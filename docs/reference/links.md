@@ -14,6 +14,8 @@ isCounting: true
 
 [Памятка пользователям][accounts_git]
 
+**База знаний:** [Основная ссылка][wikinest_cname] | [Резервная ссылка][wikinest_git_link] | [Репозиторий][wikinest_git] 
+
 [Waddle][waddle_monitoring] - мониторинг сервисов
 
 ---
@@ -56,6 +58,9 @@ isCounting: true
 
 [accounts_git]:https://account.avtoscan42.ru
 [waddle_monitoring]: https://avtoscan.github.io/waddle/
+[wikinest_git]:https://github.com/KeeGooRoomiE/wikinest_avtoscan
+[wikinest_git_link]:https://keegooroomie.github.io/wikinest_avtoscan/
+[wikinest_cname]:http://base.avtoscan42.ru
 
 [sim_mts]:https://lk-b2b.mts.ru/mts_business_auth/
 [sim_t2]:https://newlk.t2.ru/lk?utm_referrer=https%3A%2F%2Fkuzbass.t2.ru%2F
