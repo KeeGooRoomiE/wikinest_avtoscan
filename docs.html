@@ -1654,15 +1654,32 @@ function initDragDrop(){
   wrap.addEventListener('drop',async e=>{
     e.preventDefault();
     wrap.classList.remove('drag-over');
-    const files=[...e.dataTransfer.files].filter(f=>
-      f.type.startsWith('image/')||f.type.startsWith('video/')||f.type==='application/pdf');
-    if(!files.length) return;
+    // file.type is unreliable for some containers (e.g. .mov/.mkv dragged
+    // from macOS Finder can report an empty or non-standard MIME type), so
+    // fall back to the file extension when the MIME type doesn't match.
+    const VIDEO_EXT=/\.(mp4|mov|webm|avi|mkv|m4v|3gp)$/i;
+    const detectKind=f=>{
+      if(f.type.startsWith('image/')) return 'image';
+      if(f.type.startsWith('video/')) return 'video';
+      if(f.type==='application/pdf') return 'pdf';
+      if(!f.type){
+        if(VIDEO_EXT.test(f.name)) return 'video';
+        if(/\.pdf$/i.test(f.name)) return 'pdf';
+      }
+      return null;
+    };
+    const all=[...e.dataTransfer.files];
+    const files=all.filter(f=>detectKind(f));
+    if(!files.length){
+      if(all.length) toast('Неподдерживаемый тип файла',true);
+      return;
+    }
     const ok=await requireUnlock();
     if(!ok) return;
     for(const file of files){
-      const isVideo=file.type.startsWith('video/');
-      const isPdf=file.type==='application/pdf';
-      const kind=isVideo?'video':isPdf?'pdf':'image';
+      const kind=detectKind(file);
+      const isVideo=kind==='video';
+      const isPdf=kind==='pdf';
       try{
         let size=null;
         if(kind==='image') size=await chooseImageSize(file.name);
