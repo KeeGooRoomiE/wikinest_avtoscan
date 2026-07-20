@@ -818,7 +818,12 @@
     "updated_at": "2026-07-16T05:12:30.237950+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "support",
+      "logistics",
+      "installer"
+    ]
   },
   {
     "path": "reference/support/arnavi",
