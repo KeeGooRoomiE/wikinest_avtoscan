@@ -725,6 +725,46 @@
     "incidentCount": 2
   },
   {
+    "path": "processes/sales/1c/index",
+    "title": "1С — Процессы",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "index"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-20T04:46:02.381066+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/bitrix/index",
+    "title": "Битрикс — Процессы",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "bitrix",
+      "index"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "bitrix": "Процессы Битрикс24"
+    },
+    "updated_at": "2026-07-20T04:46:02.381066+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/links",
     "title": "Ссылки на ресурсы",
     "excerpt": "",
@@ -2074,6 +2114,136 @@
       "examples"
     ],
     "folder_titles": {}
+  },
+  {
+    "_folder": true,
+    "path": "processes/sales",
+    "title": "Отдел продаж",
+    "parts": [
+      "processes",
+      "sales"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support",
+    "title": "Техническая поддержка",
+    "parts": [
+      "processes",
+      "support"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "support",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/support/software",
+    "title": "Процессы ПО",
+    "parts": [
+      "processes",
+      "support",
+      "software"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service",
+    "title": "Отдел сервиса",
+    "parts": [
+      "processes",
+      "service"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "service",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/activation",
+    "title": "Процессы активизации",
+    "parts": [
+      "processes",
+      "service",
+      "activation"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/service/service-ops",
+    "title": "Сервисные операции",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/common",
+    "title": "Общие",
+    "parts": [
+      "processes",
+      "common"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/hr",
+    "title": "HR-менеджер",
+    "parts": [
+      "processes",
+      "hr"
+    ],
+    "folder_titles": {
+      "processes": "Процессы"
+    }
   },
   {
     "_folder": true,
