@@ -397,6 +397,7 @@ async function init(){
   applyRoleUI();
   loadTree();
   initBackToTop();
+  setInterval(pollTree,20000);
 
   document.addEventListener('keydown',e=>{
     const inEditor=$('editor-wrap').classList.contains('edit-active');
@@ -1016,6 +1017,22 @@ async function loadTree(){
   }catch{
     $('tree').innerHTML=`<div style="padding:12px;font-size:12px;color:var(--text2)">${t('error_load')}</div>`;
   }
+}
+
+// Silent background refresh so a folder/page created by one editor shows up
+// for everyone else without a manual reload — no loading flash, no re-render
+// unless the tree actually changed. Skipped during editTreeMode: a mid-drag
+// re-render would wipe pendingReorders and the in-progress drag state.
+async function pollTree(){
+  if(editTreeMode) return;
+  try{
+    const r=await fetch('/tree.json',{cache:'no-cache'});
+    if(!r.ok) return;
+    const fresh=await r.json();
+    if(JSON.stringify(fresh)===JSON.stringify(tree)) return;
+    tree=fresh;
+    renderTree(tree);
+  }catch{}
 }
 
 function renderTree(pages){
