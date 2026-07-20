@@ -891,24 +891,6 @@
     "isCounting": true
   },
   {
-    "path": "processes/sales/rabota-s-dz",
-    "title": "Регламент по работе с дебиторской задолженностью",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "rabota-s-dz"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж"
-    },
-    "updated_at": "2026-07-16T17:48:38.034469+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "processes/sales/sroki-blokirovki",
     "title": "Сроки блокировки клиентов при неуплате АП",
     "excerpt": "",
@@ -970,24 +952,6 @@
       "processes",
       "support",
       "opisanie-dolzhnosti-tp"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "support": "Техническая поддержка"
-    },
-    "updated_at": "2026-07-16T18:18:40.950320+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/support/reglament-zayavok-tp",
-    "title": "Регламент работы отдела технической поддержки",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "support",
-      "reglament-zayavok-tp"
     ],
     "folder_titles": {
       "processes": "Процессы",
@@ -1341,24 +1305,6 @@
     "isCounting": true
   },
   {
-    "path": "processes/common/perenos-zayavok",
-    "title": "Регламент переноса заявок под срочных клиентов",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "common",
-      "perenos-zayavok"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "common": "Общие"
-    },
-    "updated_at": "2026-07-16T17:36:32.840333+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "processes/common/politika-ckp",
     "title": "ЦКП компании «Автоскан»",
     "excerpt": "",
@@ -1589,6 +1535,42 @@
     "isCounting": true
   },
   {
+    "path": "reglamentation/common/perenos-zayavok",
+    "title": "Регламент переноса заявок под срочных клиентов",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "common",
+      "perenos-zayavok"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "common": "Общие"
+    },
+    "updated_at": "2026-07-20T03:58:09.840935+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/sales/rabota-s-dz",
+    "title": "Регламент по работе с дебиторской задолженностью",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "rabota-s-dz"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
+    },
+    "updated_at": "2026-07-20T03:58:09.840935+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reglamentation/support/add-car-reglament",
     "title": "Ссоздание и настройка учётной записи клиента в Axenta",
     "excerpt": "",
@@ -1620,6 +1602,24 @@
       "support": "Техническая поддержка"
     },
     "updated_at": "2026-07-16T05:12:30.238950+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "reglamentation/support/reglament-zayavok-tp",
+    "title": "Регламент работы отдела технической поддержки",
+    "excerpt": "",
+    "parts": [
+      "reglamentation",
+      "support",
+      "reglament-zayavok-tp"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-20T03:58:09.841934+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2167,6 +2167,18 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/common",
+    "title": "Общие",
+    "parts": [
+      "reglamentation",
+      "common"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты"
     }
   },
   {
