@@ -193,6 +193,12 @@
 <script>
 const $=id=>document.getElementById(id);
 
+// Canonical VM address — used only for gitignored assets (video) that need
+// an absolute URL so they still resolve when the same markdown renders on
+// index.html/GitHub Pages, which has no copy of the file. See
+// docs/reference/wikinest-tech.md for the two-origin routing this refers to.
+const VM_PUBLIC_ORIGIN='https://95.190.201.194:26502';
+
 // ── Config & i18n ──
 let cfg={},i18n={};
 
@@ -1691,7 +1697,11 @@ function initDragDrop(){
         const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
         const uploadPath=`docs/assets/${ts}-${safeName}`;
         await apiUploadFile(uploadPath,`docs: upload ${kind} ${safeName}`,file);
-        const url='/'+uploadPath;
+        // Video is gitignored (never reaches GitHub) — a relative URL would
+        // 404 when the same markdown renders on index.html/GitHub Pages, so
+        // point straight at the VM instead. Other kinds stay relative: they
+        // ARE in git, so both origins already have the file.
+        const url=isVideo?`${VM_PUBLIC_ORIGIN}/${uploadPath}`:'/'+uploadPath;
         const ta=$('editor');
         const pos=ta.selectionStart;
         // marked.js passes raw HTML through as-is (see PROJECT_ARCHITECTURE.md
