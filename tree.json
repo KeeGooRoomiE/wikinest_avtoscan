@@ -1067,26 +1067,6 @@
     "isCounting": true
   },
   {
-    "path": "reglamentation/sales/bitrix/index",
-    "title": "Битрикс — Процессы",
-    "excerpt": "",
-    "parts": [
-      "reglamentation",
-      "sales",
-      "bitrix",
-      "index"
-    ],
-    "folder_titles": {
-      "reglamentation": "Регламенты",
-      "sales": "Отдел продаж",
-      "bitrix": "Процессы Битрикс24"
-    },
-    "updated_at": "2026-07-20T04:30:46.225917+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reglamentation/sales/kriterii-veduschiy-mop",
     "title": "Критерии присвоения должности ведущего МОП",
     "excerpt": "",
@@ -2364,6 +2344,20 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reglamentation/sales/bitrix",
+    "title": "Процессы Битрикс24",
+    "parts": [
+      "reglamentation",
+      "sales",
+      "bitrix"
+    ],
+    "folder_titles": {
+      "reglamentation": "Регламенты",
+      "sales": "Отдел продаж"
     }
   },
   {
