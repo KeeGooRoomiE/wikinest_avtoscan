@@ -40,6 +40,8 @@ isCounting: true
 
 [Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
+[Реестр договоров Екатеринбург](https://docs.google.com/spreadsheets/d/1TsLUIi2zeX1u61VcDKznuEmx7HQvI9mLHmkLMaOiTLs/edit?gid=0#gid=0)
+
 [Памятка пользователям][accounts_git]
 
 **База знаний:** [Основная ссылка][wikinest_cname] | [Резервная ссылка][wikinest_git_link] | [Репозиторий][wikinest_git] 
