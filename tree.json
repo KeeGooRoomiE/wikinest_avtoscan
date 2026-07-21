@@ -1005,6 +1005,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-atol",
+    "title": "Обновление ПО на тахографе Атол",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops",
+      "obnovlenie-po-na-takhografe-atol"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "service-ops": "Сервисные операции"
+    },
+    "updated_at": "2026-07-21T08:24:05.981312+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/service-ops/ustanovka-datchika-urovnya-topliva-omnicomm-lls",
     "title": "Установка датчика уровня топлива Omnicomm LLS.",
     "excerpt": "",
