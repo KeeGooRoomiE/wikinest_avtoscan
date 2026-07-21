@@ -845,6 +845,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/1c/kak-sozdat-zto",
+    "title": "Как создать ЗТО",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zto"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:14:11.931052+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/bitrix/index",
     "title": "Битрикс — Процессы",
     "excerpt": "",
