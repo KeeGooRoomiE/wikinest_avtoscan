@@ -47,7 +47,7 @@ isCounting: true
 
 [Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
-[График отпусков Кемерово](https://docs.google.com/spreadsheets/d/1_IzkEteolgGTVh_qWGlXlFrR3hwNM_q7z9dvoUBHy7s/edit?gid=1428172384#gid=1428172384)
+[График отпусков Кемерово][kem_vacations]
 
 [Памятка пользователям][accounts_git]
 
@@ -71,16 +71,14 @@ isCounting: true
 
 [Torgbox](https://torgbox.ru/contragents/search)
 
-[Krasterisk*](https://pbx.krasterisk.ru/?module=queues&view=list) - сервис обслуживания IP-телефонии
+[Krasterisk*][krasterisk] - сервис обслуживания IP-телефонии
 
 
 ---
 
 ## Кабинеты СИМ
 
-[Личный кабинет МТС][sim_mts]
-
-[М2М МТС](https://m2m-manager.mts.ru/login#/sims/list)
+[Личный кабинет МТС][sim_mts] | [М2М МТС](https://m2m-manager.mts.ru/login#/sims/list)
 
 [Личный кабинет Теле2][sim_t2]
 
@@ -88,9 +86,7 @@ isCounting: true
 
 [Личный кабинет Мегафон][sim_mgf]
 
-[Личный кабинет Билайн][sim_beeline]
-
-[Билайн телефония](https://my.beeline.ru/login.xhtml?expired=true)
+[Личный кабинет Билайн][sim_beeline] | [Билайн телефония](https://my.beeline.ru/login.xhtml?expired=true)
 
 [Личный кабинет Ростелеком][sim_rtk]
 
@@ -118,4 +114,7 @@ isCounting: true
 [sim_mgf]:https://b2blk.megafon.ru/soho/subscribers
 [sim_beeline]:https://iot.beeline.ru/login#/sims/list
 [sim_rtk]:https://m2m.rt.ru/iot_cmp_gui/simcards/edit-card.jsf
+
+[krasterisk]:https://pbx.krasterisk.ru/?module=queues&view=list
+[kem_vacations]:https://docs.google.com/spreadsheets/d/1_IzkEteolgGTVh_qWGlXlFrR3hwNM_q7z9dvoUBHy7s/edit?gid=1428172384#gid=1428172384
 
