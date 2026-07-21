@@ -16,7 +16,7 @@ import os
 import threading
 import time
 
-FULL_ACCESS_ROLES = {'owner', 'admin', 'director', 'head'}
+FULL_ACCESS_ROLES = {'owner', 'admin'}
 APPEND_ALLOWED_PATHS = {'glossary/index', 'incidents/index'}
 
 

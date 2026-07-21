@@ -569,7 +569,14 @@ function canEditPage(page){
   return Array.isArray(page.editors)&&page.editors.includes(slug);
 }
 
-const FULL_ACCESS_ROLES=['owner','admin','director','head'];
+// owner + admin unconditionally bypass every page/folder roles[] whitelist —
+// same rights, but owner never appears in any visibility/editors checklist
+// ("не виден ни в одном списке") while admin always does, forced on and
+// undisableable (see rolesChecklistHtml/editorsChecklistHtml FORCED_ROLE).
+// No other role gets this treatment — director/head are ordinary,
+// restrictable roles now, same as everyone else.
+const FULL_ACCESS_ROLES=['owner','admin'];
+const FORCED_ROLE='admin';
 
 // Finds the most specific folder (exact match or ancestor of `path`) that
 // has a roles[] whitelist set — sourced from _folder marker entries in
@@ -600,6 +607,8 @@ function isHiddenPage(page){
   if(hs.some(s=>page.path===s||page.path.startsWith(s+'/'))) return true;
   // Full-access roles bypass per-document restrictions
   if(FULL_ACCESS_ROLES.includes(currentRole?.slug)) return false;
+  // Anyone who can edit a page can also see it, regardless of roles[]
+  if(Array.isArray(page.editors)&&page.editors.includes(currentRole?.slug)) return false;
   // Check per-document role whitelist (empty/absent = visible to all)
   const allowed=page.roles;
   if(allowed&&allowed.length>0){
@@ -670,7 +679,7 @@ function trackRecentPage(page){
 }
 
 function openLinksPage(){
-  const page=tree.find(p=>p.path==='reference/links');
+  const page=tree.find(p=>p.path==='docs/software/ssylki-na-resursy');
   if(page) openPage(page);
   else toast('Страница ссылок не найдена');
 }
@@ -701,7 +710,7 @@ function openPageVisibility(){
   $('modal-body').innerHTML=`
     <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
       Кто может видеть <strong>${escHtml(page.title)}</strong>?<br>
-      <span style="color:var(--text3)">Владелец, администратор и директор всегда видят все страницы.</span>
+      <span style="color:var(--text3)">Владелец и администратор всегда видят все страницы. Роли, которым разрешено редактирование, видят страницу автоматически.</span>
     </p>
     <div class="field">${rolesChecklistHtml(page.roles||[])}</div>
     <div class="field" style="margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border)">
@@ -720,11 +729,15 @@ async function savePageVisibility(rawPath){
   const newRoles=getSelectedRoles();
   const page=tree.find(p=>p.path===rawPath);
   if(!page) return;
-  page.roles=newRoles;
   const countingEl=$('vis-counting');
-  if(countingEl) page.isCounting=countingEl.checked;
+  const isCounting=countingEl?countingEl.checked:page.isCounting!==false;
   closeModal();
-  await updateTreeJson();
+  try{
+    await apiFetch('/api/write/page_visibility','POST',{path:`docs/${rawPath}.md`,roles:newRoles,isCounting});
+    page.roles=newRoles;
+    page.isCounting=isCounting;
+    toast('Видимость обновлена');
+  }catch(e){toast('Ошибка: '+e.message,true);}
 }
 
 function openPageEditors(){
@@ -747,52 +760,14 @@ function openPageEditors(){
 async function savePageEditors(rawPath){
   const page=tree.find(p=>p.path===rawPath);
   if(!page) return;
-  page.editors=getSelectedEditors();
-  closeModal();
-  await updateTreeJson();
-  const _e=canEditPage(page)?'flex':'none';
-  $('btn-edit').style.display=_e;
-}
-
-function openSectionVisibility(sec){
-  const opts=[
-    {slug:'support',label:'Техническая поддержка'},
-    {slug:'installer',label:'Установщик'},
-    {slug:'sales',label:'Менеджер продаж'}
-  ];
-  const folderKey=sec.folder||sec.slug;
-  $('modal-title').textContent='Видимость раздела';
-  $('modal-body').innerHTML=`
-    <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
-      Кто может видеть раздел <strong>${escHtml(sec.name)}</strong>?<br>
-      <span style="color:var(--text3)">Владелец, администратор и директор всегда видят все разделы.</span>
-    </p>
-    <div class="field">
-      ${opts.map(o=>{
-        const role=roles.find(r=>r.slug===o.slug);
-        const sees=!role?.hidden_sections?.includes(folderKey);
-        return `<label class="toggle-row"><input type="checkbox" id="secvis-${o.slug}" ${sees?'checked':''}><span>${o.label}</span></label>`;
-      }).join('')}
-    </div>`;
-  $('modal-actions').innerHTML=`
-    <button onclick="closeModal()">Отмена</button>
-    <button class="btn-primary" onclick="saveSectionVisibility('${escHtml(folderKey)}')">Сохранить</button>`;
-  $('modal-overlay').classList.add('open');
-}
-
-async function saveSectionVisibility(folderKey){
-  const changes={};
-  ['support','installer','sales'].forEach(slug=>{
-    const el=$('secvis-'+slug);
-    if(el) changes[slug]=el.checked;
-  });
+  const newEditors=getSelectedEditors();
   closeModal();
   try{
-    // Backend applies the toggle against its own roles.json and returns the
-    // updated (sanitized) list — the client never round-trips password_hash.
-    roles=await apiFetch('/api/roles/visibility','POST',{folder_key:folderKey,roles:changes});
-    toast('Видимость раздела сохранена');
-    renderTree(tree);
+    await apiFetch('/api/write/page_visibility','POST',{path:`docs/${rawPath}.md`,editors:newEditors});
+    page.editors=newEditors;
+    toast('Редакторы обновлены');
+    const _e=canEditPage(page)?'flex':'none';
+    $('btn-edit').style.display=_e;
   }catch(e){toast('Ошибка: '+e.message,true);}
 }
 
@@ -965,50 +940,38 @@ function goHome(){
 
 function toggleSidebar(){const s=$("sidebar");s.classList.toggle("open");$("sidebar-overlay").style.display=s.classList.contains("open")?"block":"none";}
 
-// ── JSON file updaters ──
-async function updateTreeJson(){
-  try{
-    await apiPutFile('tree.json','chore: update tree.json',JSON.stringify(tree,null,2));
-    toast('Видимость обновлена');
-  }catch(e){toast('Ошибка обновления tree.json: '+e.message,true);}
-}
 
 // Role visibility checklist HTML (shared by page & section modals)
+// Every role except owner (never listed, implicit) and admin (forced on,
+// see FORCED_ROLE) is an ordinary, independently restrictable role now —
+// no role is hardcoded as "sees/edits everything" besides those two.
 const ROLE_OPTS=[
+  {slug:'director',    label:'Директор'},
+  {slug:'head',        label:'Руководитель отдела'},
   {slug:'support',     label:'Техническая поддержка'},
-  {slug:'sales',       label:'Менеджер продаж'},
+  {slug:'sales',       label:'Отдел продаж'},
   {slug:'accounting',  label:'Бухгалтерия'},
   {slug:'office-manager',label:'Офис-менеджер'},
-  {slug:'warehouse',   label:'Кладовщик'},
-  {slug:'logistics',   label:'Логист'},
-  {slug:'installer',   label:'Установщик'},
+  {slug:'service',     label:'Отдел сервиса'},
 ];
 
-const EDITOR_OPTS=[
-  {slug:'head',          label:'Руководитель отдела'},
-  {slug:'support',       label:'Техническая поддержка'},
-  {slug:'office-manager',label:'Офис-менеджер'},
-  {slug:'sales',         label:'Менеджер продаж'},
-];
+const EDITOR_OPTS=ROLE_OPTS;
+
+function forcedRoleRowHtml(){
+  const label=roles.find(r=>r.slug===FORCED_ROLE)?.name||FORCED_ROLE;
+  return `<label class="toggle-row" style="padding-left:16px;opacity:.65">
+    <input type="checkbox" checked disabled>
+    <span>${escHtml(label)}</span>
+  </label>`;
+}
 
 function rolesChecklistHtml(selected=[]){
   const all=selected.length===0;
-  // Full-access roles (owner/admin/director/head) always bypass this
-  // whitelist (see isHiddenPage/isHiddenByFolderRoles) — shown checked and
-  // disabled so the list reads as "who can see this", not as a toggle that
-  // would silently do nothing if unchecked.
-  const fullAccessHtml=FULL_ACCESS_ROLES.map(slug=>{
-    const label=roles.find(r=>r.slug===slug)?.name||slug;
-    return `<label class="toggle-row" style="padding-left:16px;opacity:.65">
-      <input type="checkbox" checked disabled>
-      <span>${escHtml(label)}</span>
-    </label>`;
-  }).join('');
   return `<label class="toggle-row" style="margin-bottom:6px">
     <input type="checkbox" id="vis-all" ${all?'checked':''} onchange="handleVisAll(this)">
     <span style="font-weight:500">Все роли</span>
   </label>
-  ${fullAccessHtml}
+  ${forcedRoleRowHtml()}
   ${ROLE_OPTS.map(o=>`<label class="toggle-row" style="padding-left:16px">
     <input type="checkbox" id="vis-${o.slug}" ${!all&&selected.includes(o.slug)?'checked':''} ${all?'disabled':''}>
     <span>${o.label}</span>
@@ -1017,6 +980,7 @@ function rolesChecklistHtml(selected=[]){
 
 function editorsChecklistHtml(selected=[]){
   return `<p style="font-size:11px;color:var(--text3);margin:0 0 8px">Владелец всегда может редактировать. Укажите дополнительные роли:</p>
+  ${forcedRoleRowHtml()}
   ${EDITOR_OPTS.map(o=>`<label class="toggle-row">
     <input type="checkbox" id="edt-${o.slug}" ${selected.includes(o.slug)?'checked':''}>
     <span>${o.label}</span>
@@ -1130,15 +1094,7 @@ function renderTree(pages){
     const hdr=document.createElement('div');
     hdr.className='sec-hdr'+(isActive?' active':'');
     hdr.innerHTML=`<span class="sec-icon">${sec.icon}</span><span class="sec-name">${escHtml(sec.name)}</span><span class="sec-cnt">${secPages.length}</span><svg class="sec-arrow${isActive?' open':''}" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>`;
-    if(canEdit()){
-      const gearBtn=document.createElement('button');
-      gearBtn.className='sec-gear-btn';
-      gearBtn.title='Видимость раздела';
-      gearBtn.innerHTML='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>';
-      gearBtn.onclick=e=>{e.stopPropagation();openSectionVisibility(sec);};
-      hdr.appendChild(gearBtn);
-    }
-    hdr.onclick=e=>{if(!e.target.closest('.sec-gear-btn'))openSection(sec.slug);};
+    hdr.onclick=()=>openSection(sec.slug);
     wrap.appendChild(hdr);
 
     if(isActive){
@@ -1396,8 +1352,8 @@ async function openPage(page){
   const _e=canEditPage(page)?'flex':'none';
   const _o=canEdit()?'flex':'none';
   $('btn-edit').style.display=_e;
-  $('btn-visibility').style.display=_o;
-  $('btn-editors').style.display=_o;
+  $('btn-visibility').style.display=_e;
+  $('btn-editors').style.display=_e;
   $('btn-fav').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
@@ -1848,6 +1804,9 @@ function cancelEdit(){
   $('edit-btns').style.display='none';
   $('view-wrap').style.display=currentPath?'block':'none';
   const _ce=canEdit()&&!!currentPath;
+  const _curRel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
+  const _curPage=_curRel?tree.find(p=>p.path===_curRel):null;
+  const _e=canEditPage(_curPage)&&!!currentPath;
   // startEdit() disables btn-edit while its fetch is in flight and only
   // re-enables it on error — on the success path nothing ever did, so after
   // one successful edit the button stayed permanently unclickable. cancelEdit()
@@ -1855,14 +1814,14 @@ function cancelEdit(){
   // on every openPage(), so resetting it here covers every case.
   $('btn-edit').disabled=false;
   $('btn-edit').style.display=_ce?'flex':'none';
-  $('btn-visibility').style.display=_ce?'flex':'none';
+  $('btn-visibility').style.display=_e?'flex':'none';
+  $('btn-editors').style.display=_e?'flex':'none';
   $('btn-fav').style.display=currentPath?'flex':'none';
   $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=_ce?'flex':'none';
   $('btn-rename').style.display=_ce?'flex':'none';
   $('btn-history').style.display=_ce?'flex':'none';
-  const _curRel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
   $('btn-append').style.display=(FULL_ACCESS_ROLES.includes(currentRole?.slug)&&_curRel&&['glossary/index','incidents/index'].includes(_curRel))?'flex':'none';
   buildToc();
 }
