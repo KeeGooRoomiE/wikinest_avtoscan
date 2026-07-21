@@ -569,7 +569,7 @@ function canEditPage(page){
   return Array.isArray(page.editors)&&page.editors.includes(slug);
 }
 
-const FULL_ACCESS_ROLES=['owner','admin','director','head'];
+const FULL_ACCESS_ROLES=['owner'];
 
 // Finds the most specific folder (exact match or ancestor of `path`) that
 // has a roles[] whitelist set — sourced from _folder marker entries in
@@ -670,7 +670,7 @@ function trackRecentPage(page){
 }
 
 function openLinksPage(){
-  const page=tree.find(p=>p.path==='reference/links');
+  const page=tree.find(p=>p.path==='docs/software/ssylki-na-resursy');
   if(page) openPage(page);
   else toast('Страница ссылок не найдена');
 }
@@ -975,6 +975,9 @@ async function updateTreeJson(){
 
 // Role visibility checklist HTML (shared by page & section modals)
 const ROLE_OPTS=[
+  {slug:'admin',       label: 'Администратор'},
+  {slug:'director',    label: 'Директор'},
+  {slug:'head',        label: 'Руководитель отдела'},
   {slug:'support',     label:'Техническая поддержка'},
   {slug:'sales',       label:'Менеджер продаж'},
   {slug:'accounting',  label:'Бухгалтерия'},
