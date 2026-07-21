@@ -2721,7 +2721,12 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "service"
+    ]
   },
   {
     "_folder": true,
