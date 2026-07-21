@@ -710,7 +710,7 @@ function openPageVisibility(){
   $('modal-body').innerHTML=`
     <p style="font-size:12px;color:var(--text2);margin-bottom:12px">
       Кто может видеть <strong>${escHtml(page.title)}</strong>?<br>
-      <span style="color:var(--text3)">Владелец и администратор всегда видят все страницы. Роли, которым разрешено редактирование, видят страницу автоматически.</span>
+      <span style="color:var(--text3)">Администратор всегда видит все страницы. Роли, которым разрешено редактирование, видят страницу автоматически.</span>
     </p>
     <div class="field">${rolesChecklistHtml(page.roles||[])}</div>
     <div class="field" style="margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border)">
@@ -966,36 +966,22 @@ function forcedRoleRowHtml(){
 }
 
 function rolesChecklistHtml(selected=[]){
-  const all=selected.length===0;
-  return `<label class="toggle-row" style="margin-bottom:6px">
-    <input type="checkbox" id="vis-all" ${all?'checked':''} onchange="handleVisAll(this)">
-    <span style="font-weight:500">Все роли</span>
-  </label>
-  ${forcedRoleRowHtml()}
+  return `${forcedRoleRowHtml()}
   ${ROLE_OPTS.map(o=>`<label class="toggle-row" style="padding-left:16px">
-    <input type="checkbox" id="vis-${o.slug}" ${!all&&selected.includes(o.slug)?'checked':''} ${all?'disabled':''}>
+    <input type="checkbox" id="vis-${o.slug}" ${selected.includes(o.slug)?'checked':''}>
     <span>${o.label}</span>
   </label>`).join('')}`;
 }
 
 function editorsChecklistHtml(selected=[]){
-  return `<p style="font-size:11px;color:var(--text3);margin:0 0 8px">Владелец всегда может редактировать. Укажите дополнительные роли:</p>
-  ${forcedRoleRowHtml()}
+  return `${forcedRoleRowHtml()}
   ${EDITOR_OPTS.map(o=>`<label class="toggle-row">
     <input type="checkbox" id="edt-${o.slug}" ${selected.includes(o.slug)?'checked':''}>
     <span>${o.label}</span>
   </label>`).join('')}`;
 }
 
-function handleVisAll(cb){
-  ROLE_OPTS.forEach(o=>{
-    const el=$('vis-'+o.slug);
-    if(el){el.disabled=cb.checked;if(cb.checked)el.checked=false;}
-  });
-}
-
 function getSelectedRoles(){
-  if($('vis-all')?.checked) return [];
   return ROLE_OPTS.map(o=>o.slug).filter(s=>$('vis-'+s)?.checked);
 }
 
