@@ -16,6 +16,10 @@ isCounting: true
 
 [Краткая версия методики дорожного контроля](https://tahograf.online/2351-2/)
 
+[Портал НРД](https://portal.nrdrive.ru/dashboard/)
+
+[TAHOBASE информационный портал](https://www.tahobase.com/)
+
 ## Внутренние ссылки
  
 [Таблица Контакты][contacts_gdrive]
