@@ -1045,6 +1045,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/service-ops/ustanovka-takhografa-atol-drive",
+    "title": "Установка тахографа Атол Drive",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops",
+      "ustanovka-takhografa-atol-drive"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "service-ops": "Сервисные операции"
+    },
+    "updated_at": "2026-07-21T08:22:53.764523+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/markdown",
     "title": "Памятка по форматированию",
     "excerpt": "",
