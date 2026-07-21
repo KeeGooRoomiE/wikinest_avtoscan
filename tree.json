@@ -1005,6 +1005,24 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/ustanovka-oborudovaniya",
+    "title": "Установка оборудования",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "ustanovka-oborudovaniya"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-21T08:21:13.056286+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/markdown",
     "title": "Памятка по форматированию",
     "excerpt": "",
