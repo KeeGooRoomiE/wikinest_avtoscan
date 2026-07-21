@@ -4,11 +4,16 @@ isCounting: true
 # Ссылки на ресурсы
 
 ## Тахография
+
+[Портал НРД](https://portal.nrdrive.ru/dashboard/)
+
+[Портал TAHOBASE](https://www.tahobase.com/)
+
 [РСТ метрология](https://fgis.gost.ru/fundmetrology/cm/results) 
 
 [Оснащение тахографом с СКЗИ](https://portal.rosavtotransport.ru/check/)
-
-[Оснащение тахографом по госномеру](https://portal.rosavtotransport.ru/check-grz)
+| 
+[по Госномеру](https://portal.rosavtotransport.ru/check-grz)
 
 [Преобразование номера тахографа «ШТРИХ-ТахоRUS»](https://www.auto.shtrih-m.ru/converter/)
 
@@ -16,9 +21,6 @@ isCounting: true
 
 [Краткая версия методики дорожного контроля](https://tahograf.online/2351-2/)
 
-[Портал НРД](https://portal.nrdrive.ru/dashboard/)
-
-[TAHOBASE информационный портал](https://www.tahobase.com/)
 
 ## Внутренние ссылки
 
