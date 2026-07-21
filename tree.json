@@ -805,22 +805,6 @@
     "isCounting": true
   },
   {
-    "path": "reference/links",
-    "title": "Ссылки на ресурсы",
-    "excerpt": "",
-    "parts": [
-      "reference",
-      "links"
-    ],
-    "folder_titles": {
-      "reference": "Памятки"
-    },
-    "updated_at": "2026-07-21T05:10:24.443745+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reference/markdown",
     "title": "Памятка по форматированию",
     "excerpt": "",
