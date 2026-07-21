@@ -29,7 +29,11 @@
     "updated_at": "2026-07-21T04:31:50.060123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "editors": [
+      "director",
+      "office-manager"
+    ]
   },
   {
     "path": "devices/tachographs/nkm",
