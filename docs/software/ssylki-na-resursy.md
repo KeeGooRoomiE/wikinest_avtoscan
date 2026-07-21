@@ -57,7 +57,7 @@ isCounting: true
 ---
 ## Внешние ссылки
 
-[Аксента][nav_axenta] **логин:** demo_avtoscan, **пароль:** demo_avtoscan
+[Аксента][nav_axenta] (Демо доступ: **логин:** demo_avtoscan, **пароль:** demo_avtoscan)
 
 [ГлонассСофт][nav_glonass] 
 
