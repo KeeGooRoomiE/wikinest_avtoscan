@@ -20,6 +20,8 @@ isCounting: true
  
 [Таблица Контакты][contacts_gdrive]
 
+[Предиктивная модель Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0)
+
 [Расписание Кемерово][time_gdrive]
 
 [Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
