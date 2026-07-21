@@ -38,7 +38,7 @@ isCounting: true
 
 [Оборудование на складе Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
 
-[Реестр вх./исх документов](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
+[Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
 [Памятка пользователям][accounts_git]
 
