@@ -805,6 +805,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
+    "title": "Как создать заказ клиента",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zakaz-klienta"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:13:47.011035+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
     "title": "Как создать заявку на ТП",
     "excerpt": "",
