@@ -945,6 +945,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/support/1c/snyatie-s-ucheta-oborudovaniya-klientov",
+    "title": "Снятие с учета оборудования клиентов",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "support",
+      "1c",
+      "snyatie-s-ucheta-oborudovaniya-klientov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:18:41.934059+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/protsess-izgotovleniya-kv/karta-dlya-takhografov-s-skzi",
     "title": "Карта СКЗИ",
     "excerpt": "",
