@@ -21,8 +21,6 @@ isCounting: true
 [TAHOBASE информационный портал](https://www.tahobase.com/)
 
 ## Внутренние ссылки
- 
-[Таблица Контакты][contacts_gdrive]
 
 [Предиктивная модель Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0)
 
