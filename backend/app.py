@@ -287,6 +287,56 @@ def roles_visibility():
     return jsonify(auth.sanitize_roles(roles))
 
 
+@app.post('/api/write/page_visibility')
+def page_visibility():
+    """Sets a single page's roles[]/editors[]/isCounting. Scoped to exactly
+    that page (unlike put_file('tree.json'), which needs global can_edit
+    and round-trips the client's whole in-memory tree — stale-overwrite risk
+    if anyone else edited meanwhile) — anyone who can already edit this page
+    can also manage its visibility, per "edit access implies visibility-edit
+    access". Re-reads tree.json fresh under the lock rather than trusting
+    whatever the client last fetched.
+    """
+    role = _require_role()
+    body = request.get_json(silent=True) or {}
+    rel_path = body.get('path', '')  # 'docs/foo/bar.md'
+
+    import json
+    with write_lock:
+        tree = _load_tree()
+        page = _find_page(tree, rel_path)
+        if page is None:
+            raise ApiError('page not found', 404)
+        if not auth.can_edit_page(role, page):
+            raise ApiError('forbidden', 403)
+
+        if 'roles' in body:
+            new_roles = body['roles']
+            if not isinstance(new_roles, list):
+                raise ApiError('roles must be a list')
+            if new_roles:
+                page['roles'] = new_roles
+            else:
+                page.pop('roles', None)
+        if 'editors' in body:
+            new_editors = body['editors']
+            if not isinstance(new_editors, list):
+                raise ApiError('editors must be a list')
+            if new_editors:
+                page['editors'] = new_editors
+            else:
+                page.pop('editors', None)
+        if 'isCounting' in body:
+            page['isCounting'] = bool(body['isCounting'])
+
+        tree_path = os.path.join(DATA_DIR, 'tree.json')
+        with open(tree_path, 'w', encoding='utf-8') as fh:
+            json.dump(tree, fh, ensure_ascii=False, indent=2)
+        git_ops.commit_paths(DATA_DIR, ['tree.json'], f'docs: update visibility for {page["path"]}')
+
+    return jsonify({'ok': True})
+
+
 # ── Writes ────────────────────────────────────────────────────────────────
 
 @app.post('/api/write/put_file')
