@@ -26,6 +26,8 @@ isCounting: true
 
 [Предиктивная модель Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0)
 
+[Предиктивная модель Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
+
 [Расписание Кемерово][time_gdrive]
 
 [Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
