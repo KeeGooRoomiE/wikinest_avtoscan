@@ -853,6 +853,24 @@
     "isCounting": true
   },
   {
+    "path": "reference/otdel-servisa/kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov",
+    "title": "Коды ошибок и контакты ТП основных поставщиков",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "otdel-servisa",
+      "kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "otdel-servisa": "Отдел сервиса"
+    },
+    "updated_at": "2026-07-21T04:44:18.298928+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/support/adm",
     "title": "ADM",
     "excerpt": "",
