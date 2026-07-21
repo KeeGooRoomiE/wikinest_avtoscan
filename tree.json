@@ -2709,7 +2709,12 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "sales"
+    ]
   },
   {
     "_folder": true,
