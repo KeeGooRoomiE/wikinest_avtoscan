@@ -24,6 +24,8 @@ isCounting: true
 
 [Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
 
+[Расписание Екатеринбург](https://docs.google.com/spreadsheets/d/1vA4kTaoPUwT43OcpkojFargUJUCmB9nya91w4flNNrM/edit?gid=192929464#gid=192929464)
+
 [Оборудование на складе Кемерово/Екатеринбург][storage_gdrive]
 
 [Оборудование на складе Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
