@@ -33,6 +33,15 @@
     "editors": [
       "director",
       "office-manager"
+    ],
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
     ]
   },
   {
