@@ -74,6 +74,8 @@ isCounting: true
 
 [Личный кабинет МТС][sim_mts]
 
+[М2М МТС](https://m2m-manager.mts.ru/login#/sims/list)
+
 [Личный кабинет Теле2][sim_t2]
 
 [Личный кабинет SIM2M][sim_s2m]
@@ -81,6 +83,8 @@ isCounting: true
 [Личный кабинет Мегафон][sim_mgf]
 
 [Личный кабинет Билайн][sim_beeline]
+
+[Билайн телефония](https://my.beeline.ru/login.xhtml?expired=true)
 
 [Личный кабинет Ростелеком][sim_rtk]
 
