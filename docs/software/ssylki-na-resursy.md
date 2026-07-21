@@ -42,7 +42,7 @@ isCounting: true
 
 [Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
-[Реестр договоров](https://docs.google.com/spreadsheets/d/1n5FG3uYALKPhK-qDRGIk9Usjs-Kq6t8nJUQazxFBR6M/edit?pli=1&gid=0#gid=0)
+[Реестр договоров Кемерово](https://docs.google.com/spreadsheets/d/1n5FG3uYALKPhK-qDRGIk9Usjs-Kq6t8nJUQazxFBR6M/edit?pli=1&gid=0#gid=0)
 
 [Реестр договоров Екатеринбург](https://docs.google.com/spreadsheets/d/1TsLUIi2zeX1u61VcDKznuEmx7HQvI9mLHmkLMaOiTLs/edit?gid=0#gid=0)
 
@@ -68,6 +68,8 @@ isCounting: true
 [Битрикс24](https://avtoskan.bitrix24.ru/crm/lead/list/)
 
 [Torgbox](https://torgbox.ru/contragents/search)
+
+[Крастериск](https://pbx.krasterisk.ru/?module=queues&view=list)
 
 
 ---
