@@ -765,6 +765,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
+    "title": "Как создать заявку на ТП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zayavku-na-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:12:26.452975+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/bitrix/index",
     "title": "Битрикс — Процессы",
     "excerpt": "",
