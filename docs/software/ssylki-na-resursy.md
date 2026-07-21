@@ -44,6 +44,8 @@ isCounting: true
 
 [Касса Екатеринбург](https://docs.google.com/spreadsheets/d/1vZmAOOdcE1h-NvbRhCteDeQBoqO8sH0Nro-1xtKwRGA/edit?pli=1&gid=0#gid=0)
 
+[График отпусков Кемерово](https://docs.google.com/spreadsheets/d/1_IzkEteolgGTVh_qWGlXlFrR3hwNM_q7z9dvoUBHy7s/edit?gid=1428172384#gid=1428172384)
+
 [Памятка пользователям][accounts_git]
 
 **База знаний:** [Основная ссылка][wikinest_cname] | [Резервная ссылка][wikinest_git_link] | [Репозиторий][wikinest_git] 
