@@ -765,6 +765,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-ot-prodazh",
+    "title": "Как проверить поступление оплат от продаж",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-proverit-postuplenie-oplat-ot-prodazh"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:14:43.781074+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-po-ap",
     "title": "Как проверить поступление оплат по АП",
     "excerpt": "",
