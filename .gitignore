@@ -18,3 +18,5 @@ ansible/group_vars/all.yml
 *.mkv
 *.m4v
 *.3gp
+ansible/wikinest-vm
+ansible/wikinest-vm.pub

@@ -168,6 +168,14 @@
       notify: reload ufw
 
     # ---- ssh hardening ----------------------------------------------
+    - name: Ensure sshd runtime directory exists
+      ansible.builtin.file:
+        path: /run/sshd
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
     - name: Harden sshd (key-only, no root login)
       tags: [security]
       ansible.builtin.lineinfile:
@@ -209,105 +217,7 @@
         state: started
         enabled: true
 
-    # ---- vnc ------------------------------------------------------------
-    # Deliberately never opened in UFW and Xvnc itself is told -localhost
-    # yes (refuses non-loopback connections even if a firewall hole existed
-    # later by mistake) — reach it only via an SSH tunnel
-    # (`ssh -L 5050:localhost:5050 wikinest-vm`, port from vnc_port below),
-    # then point a VNC client at localhost:5050. Classic VNC auth is weak on
-    # its own; the SSH tunnel is what actually secures this.
-    - name: Install VNC server + lightweight desktop
-      tags: [vnc]
-      ansible.builtin.apt:
-        name:
-          - tigervnc-standalone-server
-          - tigervnc-common
-          - xfce4
-          - dbus-x11
-        state: present
-        update_cache: true
-
-    - name: Generate VNC password if not supplied
-      tags: [vnc]
-      ansible.builtin.set_fact:
-        vnc_password: "{{ lookup('ansible.builtin.password', '/dev/null length=16 chars=ascii_letters,digits') }}"
-      when: (vnc_password | default('')) | length == 0
-
-    - name: Ensure ~/.vnc directory exists
-      tags: [vnc]
-      ansible.builtin.file:
-        path: "/home/{{ ansible_user }}/.vnc"
-        state: directory
-        owner: "{{ ansible_user }}"
-        mode: "0700"
-
-    - name: Set VNC password (first run only — never overwrites a live one)
-      tags: [vnc]
-      no_log: true
-      ansible.builtin.shell: |
-        echo "{{ vnc_password }}" | vncpasswd -f > /home/{{ ansible_user }}/.vnc/passwd
-      args:
-        creates: "/home/{{ ansible_user }}/.vnc/passwd"
-      become_user: "{{ ansible_user }}"
-
-    - name: Fix VNC password file permissions
-      tags: [vnc]
-      ansible.builtin.file:
-        path: "/home/{{ ansible_user }}/.vnc/passwd"
-        owner: "{{ ansible_user }}"
-        mode: "0600"
-
-    - name: Write VNC xstartup (launches an XFCE session)
-      tags: [vnc]
-      ansible.builtin.copy:
-        dest: "/home/{{ ansible_user }}/.vnc/xstartup"
-        owner: "{{ ansible_user }}"
-        mode: "0755"
-        content: |
-          #!/bin/sh
-          unset SESSION_MANAGER
-          unset DBUS_SESSION_BUS_ADDRESS
-          exec startxfce4
-
-    - name: Install VNC systemd service
-      tags: [vnc]
-      ansible.builtin.copy:
-        dest: /etc/systemd/system/wikinest-vnc.service
-        mode: "0644"
-        content: |
-          [Unit]
-          Description=TigerVNC server for {{ ansible_user }} (SSH-tunnel only, never exposed in UFW)
-          After=network.target
-
-          [Service]
-          Type=forking
-          User={{ ansible_user }}
-          WorkingDirectory=/home/{{ ansible_user }}
-          PIDFile=/home/{{ ansible_user }}/.vnc/%H:50.pid
-          ExecStartPre=-/usr/bin/vncserver -kill :50
-          ExecStart=/usr/bin/vncserver :50 -rfbport {{ vnc_port }} -localhost yes -geometry 1280x800 -depth 24
-          ExecStop=/usr/bin/vncserver -kill :50
-          Restart=on-failure
-
-          [Install]
-          WantedBy=multi-user.target
-      notify:
-        - reload systemd
-        - restart vnc service
-
-    - name: Enable VNC service
-      tags: [vnc]
-      ansible.builtin.systemd:
-        name: wikinest-vnc
-        enabled: true
-
-    - name: Show VNC password (only place it's ever printed — save it now)
-      tags: [vnc]
-      ansible.builtin.debug:
-        msg: >-
-          VNC password: {{ vnc_password }} — connect via
-          `ssh -L {{ vnc_port }}:localhost:{{ vnc_port }} wikinest-vm`
-          then point a VNC client at localhost:{{ vnc_port }}.
+  
 
     # ---- docker -------------------------------------------------------
     - name: Add Docker's official GPG key
