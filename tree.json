@@ -2488,6 +2488,34 @@
   },
   {
     "_folder": true,
+    "path": "processes/sales/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "sales",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "processes/sales/bitrix",
+    "title": "Процессы Битрикс24",
+    "parts": [
+      "processes",
+      "sales",
+      "bitrix"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    }
+  },
+  {
+    "_folder": true,
     "path": "processes/sales/kurs-po-prodazham-salecraft",
     "title": "Курс по продажам Salecraft",
     "parts": [

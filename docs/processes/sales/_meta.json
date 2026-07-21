@@ -1,1 +1,8 @@
-{"title": "Отдел продаж"}
+{
+  "title": "Отдел продаж",
+  "pages": [
+    "1c",
+    "bitrix",
+    "kurs-po-prodazham-salecraft"
+  ]
+}
