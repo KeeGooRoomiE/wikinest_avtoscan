@@ -1183,7 +1183,7 @@
     "updated_at": "2026-07-21T04:31:50.067123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": false,
+    "isCounting": true,
     "roles": [
       "director",
       "head"
@@ -2733,7 +2733,12 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support"
+    ]
   },
   {
     "_folder": true,
