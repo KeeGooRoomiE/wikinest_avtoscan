@@ -42,6 +42,8 @@ isCounting: true
 
 [Реестр договоров Екатеринбург](https://docs.google.com/spreadsheets/d/1TsLUIi2zeX1u61VcDKznuEmx7HQvI9mLHmkLMaOiTLs/edit?gid=0#gid=0)
 
+[Касса Екатеринбург](https://docs.google.com/spreadsheets/d/1vZmAOOdcE1h-NvbRhCteDeQBoqO8sH0Nro-1xtKwRGA/edit?pli=1&gid=0#gid=0)
+
 [Памятка пользователям][accounts_git]
 
 **База знаний:** [Основная ссылка][wikinest_cname] | [Резервная ссылка][wikinest_git_link] | [Репозиторий][wikinest_git] 
