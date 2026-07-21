@@ -725,6 +725,26 @@
     "incidentCount": 24
   },
   {
+    "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
+    "title": "Для чего нужны соглашения",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "dlya-chego-nuzhny-soglasheniya"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:13:16.160013+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/1c/index",
     "title": "Как создать клиента в 1С",
     "excerpt": "",
