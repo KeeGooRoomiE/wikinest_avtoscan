@@ -745,6 +745,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-po-ap",
+    "title": "Как проверить поступление оплат по АП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-proverit-postuplenie-oplat-po-ap"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-21T08:11:52.219947+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/sales/bitrix/index",
     "title": "Битрикс — Процессы",
     "excerpt": "",
