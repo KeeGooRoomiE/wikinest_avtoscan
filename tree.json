@@ -2332,6 +2332,18 @@
   },
   {
     "_folder": true,
+    "path": "reference/otdel-servisa",
+    "title": "Отдел сервиса",
+    "parts": [
+      "reference",
+      "otdel-servisa"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
     "path": "reglamentation/common",
     "title": "Общие",
     "parts": [
