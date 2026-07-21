@@ -20,7 +20,7 @@ isCounting: true
  
 [Таблица Контакты][contacts_gdrive] - [Контакты](contacts)
 
-[Расписание][time_gdrive]
+[Расписание Кемерово][time_gdrive]
 
 [Оборудование на складе][storage_gdrive]
 
