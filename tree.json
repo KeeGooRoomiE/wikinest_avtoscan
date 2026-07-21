@@ -1857,6 +1857,22 @@
     "isCounting": true
   },
   {
+    "path": "software/ssylki-na-resursy",
+    "title": "Ссылки на ресурсы",
+    "excerpt": "",
+    "parts": [
+      "software",
+      "ssylki-na-resursy"
+    ],
+    "folder_titles": {
+      "software": "Сервисы"
+    },
+    "updated_at": "2026-07-21T05:12:02.783154+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "_folder": true,
     "path": "devices/tachographs",
     "title": "Тахографы",
