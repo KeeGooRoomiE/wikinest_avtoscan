@@ -1267,6 +1267,24 @@
     "isCounting": true
   },
   {
+    "path": "reference/support/axenta",
+    "title": "Axenta",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "support",
+      "axenta"
+    ],
+    "folder_titles": {
+      "reference": "Памятки",
+      "support": "Техническая поддержка"
+    },
+    "updated_at": "2026-07-21T19:00:53+07:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/support/galileosky",
     "title": "GalileoSky 5",
     "excerpt": "",
@@ -2160,22 +2178,6 @@
       "software": "Сервисы"
     },
     "updated_at": "2026-07-21T10:16:39Z",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "software/axenta",
-    "title": "Axenta",
-    "excerpt": "",
-    "parts": [
-      "software",
-      "axenta"
-    ],
-    "folder_titles": {
-      "software": "Сервисы"
-    },
-    "updated_at": "2026-07-07T13:46:58+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
