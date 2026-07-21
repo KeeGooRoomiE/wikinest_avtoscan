@@ -837,6 +837,22 @@
     "isCounting": true
   },
   {
+    "path": "reference/wikinest-tech",
+    "title": "Техническая информация по базе знаний",
+    "excerpt": "",
+    "parts": [
+      "reference",
+      "wikinest-tech"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    },
+    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/support/adm",
     "title": "ADM",
     "excerpt": "",
@@ -992,22 +1008,6 @@
     "folder_titles": {
       "reference": "Памятки",
       "support": "Техническая поддержка"
-    },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "reference/wikinest-tech",
-    "title": "Техническая информация по базе знаний",
-    "excerpt": "",
-    "parts": [
-      "reference",
-      "wikinest-tech"
-    ],
-    "folder_titles": {
-      "reference": "Памятки"
     },
     "updated_at": "2026-07-21T04:31:50.067123+00:00",
     "tags": [],
@@ -2296,30 +2296,6 @@
   },
   {
     "_folder": true,
-    "path": "reference/support",
-    "title": "Техническая поддержка",
-    "parts": [
-      "reference",
-      "support"
-    ],
-    "folder_titles": {
-      "reference": "Памятки"
-    }
-  },
-  {
-    "_folder": true,
-    "path": "reference/obshchie",
-    "title": "Общие",
-    "parts": [
-      "reference",
-      "obshchie"
-    ],
-    "folder_titles": {
-      "reference": "Памятки"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reference/otdel-prodazh",
     "title": "Отдел продаж",
     "parts": [
@@ -2337,6 +2313,30 @@
     "parts": [
       "reference",
       "otdel-servisa"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reference/support",
+    "title": "Техническая поддержка",
+    "parts": [
+      "reference",
+      "support"
+    ],
+    "folder_titles": {
+      "reference": "Памятки"
+    }
+  },
+  {
+    "_folder": true,
+    "path": "reference/obshchie",
+    "title": "Общие",
+    "parts": [
+      "reference",
+      "obshchie"
     ],
     "folder_titles": {
       "reference": "Памятки"
