@@ -30,6 +30,8 @@ isCounting: true
 
 [Предиктивная модель Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
 
+[Прайс по продажам](https://docs.google.com/spreadsheets/d/16-bC2pM0EePIIomsaocgtbX7Ux5JGWEWmBFgkrlUbVU/edit?gid=0#gid=0)
+
 [Расписание Кемерово][time_gdrive]
 
 [Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
