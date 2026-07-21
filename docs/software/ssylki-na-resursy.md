@@ -18,7 +18,7 @@ isCounting: true
 
 ## Внутренние ссылки
  
-[Таблица Контакты][contacts_gdrive] - [Контакты](contacts)
+[Таблица Контакты][contacts_gdrive]
 
 [Расписание Кемерово][time_gdrive]
 
