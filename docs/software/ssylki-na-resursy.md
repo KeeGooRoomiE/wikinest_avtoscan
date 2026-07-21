@@ -42,6 +42,8 @@ isCounting: true
 
 [Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
+[Реестр договоров](https://docs.google.com/spreadsheets/d/1n5FG3uYALKPhK-qDRGIk9Usjs-Kq6t8nJUQazxFBR6M/edit?pli=1&gid=0#gid=0)
+
 [Реестр договоров Екатеринбург](https://docs.google.com/spreadsheets/d/1TsLUIi2zeX1u61VcDKznuEmx7HQvI9mLHmkLMaOiTLs/edit?gid=0#gid=0)
 
 [Касса Екатеринбург](https://docs.google.com/spreadsheets/d/1vZmAOOdcE1h-NvbRhCteDeQBoqO8sH0Nro-1xtKwRGA/edit?pli=1&gid=0#gid=0)
