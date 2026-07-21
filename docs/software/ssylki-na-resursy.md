@@ -22,23 +22,22 @@ isCounting: true
 
 ## Внутренние ссылки
 
-[Предиктивная модель Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0)
-
-[Предиктивная модель Новокузнецк](https://docs.google.com/spreadsheets/d/1xCmeeICTiJYBezPq_T1hAIDihz5ukrQUI6m4o66UrII/edit?gid=854353943#gid=854353943)
-
-[Предиктивная модель Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
+Предиктивная модель [Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0) | 
+[Новокузнецк](https://docs.google.com/spreadsheets/d/1xCmeeICTiJYBezPq_T1hAIDihz5ukrQUI6m4o66UrII/edit?gid=854353943#gid=854353943)
+| 
+[Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
 
 [Прайс по продажам](https://docs.google.com/spreadsheets/d/16-bC2pM0EePIIomsaocgtbX7Ux5JGWEWmBFgkrlUbVU/edit?gid=0#gid=0)
 
-[Расписание Кемерово][time_gdrive]
+Расписание [Кемерово][time_gdrive]
+ | 
+[Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
+| 
+[Екатеринбург](https://docs.google.com/spreadsheets/d/1vA4kTaoPUwT43OcpkojFargUJUCmB9nya91w4flNNrM/edit?gid=192929464#gid=192929464)
 
-[Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
-
-[Расписание Екатеринбург](https://docs.google.com/spreadsheets/d/1vA4kTaoPUwT43OcpkojFargUJUCmB9nya91w4flNNrM/edit?gid=192929464#gid=192929464)
-
-[Оборудование на складе Кемерово][storage_gdrive]
-
-[Оборудование на складе Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
+Оборудование на складе [Кемерово][storage_gdrive]
+| 
+[Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
 
 [Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
