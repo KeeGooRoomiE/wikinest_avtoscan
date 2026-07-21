@@ -1,1 +1,9 @@
-{ "title": "Сервисы", "order": 2 }
+{
+  "title": "Сервисы",
+  "order": 2,
+  "pages": [
+    "ssylki-na-resursy",
+    "axenta",
+    "main"
+  ]
+}
