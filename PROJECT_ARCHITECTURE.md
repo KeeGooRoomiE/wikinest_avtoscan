@@ -1,6 +1,6 @@
 # Архитектура проекта — Wikinest Автоскан
 
-> Актуально на: 2026-07-01
+> Актуально на: 2026-07-21
 
 **Этот файл описывает путь GitHub/GitLab CI (`index.html`).** С 2026-07-03 это аварийный фолбэк — основной путь ежедневной работы переехал на VM (`docs.html` + `backend/`), см. [BACKEND_ARCHITECTURE.md](BACKEND_ARCHITECTURE.md) и [DEPLOYMENT.md](DEPLOYMENT.md). Сам движок (роли, рендеринг, поиск, редактор) общий для обоих путей — здесь описанное про UI/роли/паттерны верно для обоих, различается только транспорт чтения/записи.
 
@@ -18,7 +18,7 @@
 | Контент | `docs/*.md` — Markdown файлы |
 | Индекс | `tree.json` — авто-генерируется ботом, корректируется вручную |
 | Поиск | `search.json` — path → raw markdown, lazy-load |
-| Роли | `roles.json` — SHA-256 хеши паролей + права + hidden_sections |
+| Роли | `roles.json` — SHA-256 хеши паролей + can_edit; видимость — `roles[]`/`editors[]` в tree.json и `_meta.json` (см. ACCESS_CONTROL.md) |
 | Конфиг | `config.json` — owner, repo, site_name, lang, edit_password_hash |
 
 ---
@@ -33,39 +33,31 @@ wikinest_avtoscan/
 ├── roles.json                 # Роли, SHA-256 хеши, права доступа
 ├── tree.json                  # Индекс страниц (auto-generated + manual fixes)
 ├── search.json                # Полнотекстовый индекс (auto-generated)
+├── docs.html                  # VM-вариант index.html (see BACKEND_ARCHITECTURE.md)
+├── backend/                   # Flask-бэкенд VM-пути
 ├── CLAUDE.md                  # Инструкции для Claude Code
 ├── PROJECT_ARCHITECTURE.md    # Этот файл
 ├── ACCESS_CONTROL.md          # Документ по правам и видимости
 ├── i18n/
 │   ├── ru.json
 │   └── en.json
-├── docs/
+├── docs/                      # разделы = SECTIONS (июль-2026: tp/ расплющен в корень)
 │   ├── home.md
-│   ├── contacts.md            # Дубль — основной
-│   ├── company/
-│   │   └── contacts.md        # Дубль — в разделе Компания
-│   ├── glossary/index.md
+│   ├── company/               # + contacts.md (дубль docs/contacts.md)
+│   ├── products/
+│   ├── devices/               # Оборудование: nav-terminals/, tachographs/, fuel-sensors/, additional/, ...
+│   ├── processes/             # Процессы по отделам (sales/, support/, service/, common/, hr/)
+│   ├── reglamentation/        # Регламенты по отделам (common/, sales/, service/, support/, hr/)
 │   ├── incidents/index.md
-│   ├── processes/
-│   │   ├── 1c/index.md
-│   │   └── bitrix/index.md
-│   ├── reference/
-│   │   ├── links.md
-│   │   └── markdown.md
-│   ├── templates/
-│   │   └── markdown-reference.md   # Справочник по оформлению
-│   └── tp/
-│       ├── main.md
-│       ├── devices/           # adm, arnavi, at-links, galileosky, ...
-│       ├── examples/index.md  # Шаблоны для ТС
-│       ├── reglamentation/    # Регламенты + должностные функции
-│       └── software/axenta.md
-├── docs/assets/
-│   └── brand/
-│       ├── autoskan-logo-transparent.png
-│       └── autoskan-favicon-32x32.ico
+│   ├── software/              # Сервисы и инструменты
+│   ├── reference/             # Памятки (+ examples/ как extraFolder раздела)
+│   ├── examples/
+│   ├── glossary/index.md
+│   └── assets/                # картинки/pdf; видео — только на VM, в git не попадает
 └── .github/workflows/
     ├── build-tree.yml         # Авто-генерация tree.json при push в docs/**
+    ├── api-write.yml          # Запись через workflow_dispatch (аварийный путь)
+    ├── send-mail.yml          # «Предложить статью» с GitHub-пути
     └── deploy.yml             # Деплой на GitHub Pages
 ```
 
@@ -88,7 +80,7 @@ currentRole сохраняется в sessionStorage
     ↓
 fetch tree.json (raw.githubusercontent.com, no-cache)
     ↓
-renderTree() → строит навигацию, фильтруя по hidden_sections роли
+renderTree() → строит навигацию, фильтруя по isHiddenPage()/isHiddenByFolderRoles()
     ↓
 openPage(page) → fetch docs/{path}.md → marked.parse() → #view
 ```
@@ -114,20 +106,26 @@ DOM listeners на каждый результат:
 ### Ролевой доступ
 
 ```
-roles.json → currentRole (sessionStorage)
+roles.json → currentRole (localStorage)
     ↓
-FULL_ACCESS_ROLES = ['owner','admin','director','head']
+FULL_ACCESS_ROLES = ['owner','admin']   // только эти двое видят всё
     ↓
 isHiddenPage(page):
-  если роль в FULL_ACCESS_ROLES → false (видит всё)
-  иначе → проверить hidden_sections[]
+  роль в FULL_ACCESS_ROLES → false
+  роль в page.editors[] → false (право редактировать = право видеть)
+  page.roles[] непуст и роли там нет → true
+  roles[] ближайшей папки-предка (_meta.json) непуст и роли там нет → true
+  hidden_sections[] (legacy, сейчас пуст у всех) → true
     ↓
 canEdit():
-  currentRole?.can_edit === true (только owner)
+  currentRole?.can_edit === true (owner, admin)
     ↓
 canEditPage(page):
   canEdit() ИЛИ page.editors?.includes(currentRole.slug)
+  // canEditPage также открывает кнопки «глаз»/«редакторы» этой страницы
 ```
+
+Полное описание модели — [ACCESS_CONTROL.md](ACCESS_CONTROL.md).
 
 ---
 
@@ -168,18 +166,21 @@ canEditPage(page):
 }
 ```
 
-Вход: пароль → `sha256()` → сравнение → `currentRole` в sessionStorage.
+Вход: пароль → `sha256()` → сравнение → `currentRole` в localStorage. Пароль каждой роли уникален — роль определяется по хешу, дубликат делает роль недостижимой.
 
-### Видимость разделов
+9 ролей (с 2026-07-21): `owner`, `admin` (полный доступ), `director`, `head`, `support`, `sales`, `accounting`, `office-manager`, `service` — все кроме первых двух ограничиваемые.
 
-`hidden_sections` — массив префиксов путей. Страница скрывается если её `path` начинается с любого из префиксов.
+### Видимость
 
-`FULL_ACCESS_ROLES` (`owner`, `admin`, `director`, `head`) — полностью игнорируют `hidden_sections`.
+Основной механизм — `roles[]` per-страница (tree.json) и per-папка (`_meta.json`, каскадно на содержимое). Пусто = видно всем. `hidden_sections` в roles.json — legacy, очищен у всех ролей.
+
+`FULL_ACCESS_ROLES` (`owner`, `admin`) — игнорируют все ограничения. `owner` не показывается в чеклистах, `admin` показывается с несъёмной галочкой.
 
 ### Редактирование
 
-Только `owner` (`can_edit: true`). Остальные видят страницы, но не могут редактировать.
-На уровне страницы — поле `editors[]` в tree.json (сейчас не используется).
+`can_edit: true` — owner и admin. На уровне страницы — `editors[]` в tree.json: роль оттуда может редактировать страницу, автоматически её видит и может управлять её видимостью/списком редакторов.
+
+Подробности — [ACCESS_CONTROL.md](ACCESS_CONTROL.md).
 
 ---
 

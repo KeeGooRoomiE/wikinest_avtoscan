@@ -4,6 +4,84 @@ All notable changes to WikiNest are documented here.
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) · Versioning: [Semantic Versioning](https://semver.org/)
 
+## [2.3.0] — 2026-07-21
+
+### Roles & permissions — new model
+
+- **Permission model reworked** — no more hardcoded "sees everything" roles besides `owner` and `admin`. Director and department heads became ordinary, restrictable roles. `owner` never appears in any visibility/editors checklist (implicit full access); `admin` is always shown, forced-on and undisableable. Anyone in a page's `editors[]` can also see it automatically (edit access implies visibility) and can manage its visibility/editors list — not just the owner
+- **Role set reduced to 9** — Владелец, Администратор, Директор, Руководитель отдела, Техническая поддержка, Отдел продаж, Бухгалтерия, Офис-менеджер, Отдел сервиса. Кладовщик/Логист/Установщик removed. Each role has its own password; owner got a distinct one (previously shared with admin, which made admin unreachable at login since login resolves the role by password hash)
+- **`POST /api/write/page_visibility`** — narrow endpoint scoped to a single page's `roles[]`/`editors[]`/`isCounting`; requires edit rights on *that page* (per-page `editors[]` or global `can_edit`), re-reads tree.json fresh under the write lock instead of trusting the client's full-tree round-trip. docs.html visibility/editors modals now use it instead of PUTting the whole tree.json
+- **Old section-visibility gear removed** — the per-3-role `hidden_sections` mechanism (gear icon on section headers) is fully superseded by folder-level visibility; `hidden_sections` cleared to `[]` for every role
+- **Checklist UI** — visibility and editors modals show every restrictable role at once as individual checkboxes; the "Все роли" master toggle removed (empty selection still means unrestricted)
+
+### Content
+
+- Axenta doc moved from Сервисы to Памятки → Техническая поддержка; quick-access "Ссылки" button fixed (pointed at a page path that no longer exists after the links page moved to Сервисы)
+
+## [2.2.0] — 2026-07-20
+
+### Mail features
+
+- **"Предложить статью"** — the suggest-an-article button is live on both paths: docs.html POSTs to `/api/suggest` (backend sends plain-text mail via SMTP), index.html dispatches the reusable `send-mail.yml` GitHub Actions workflow
+- **Annual password rotation** — `POST /api/admin/rotate-passwords` (VM-only, owner session required, manual trigger): regenerates every role's password, rewrites `roles.json` hashes, commits via the VM's own git, mails all new passwords to the configured recipients
+
+### Video attachments
+
+- **Video pipeline** — drag-and-drop video upload fixed (silently did nothing when the browser reported an empty/non-standard MIME type, e.g. `.mkv`/`.mov` from Finder — now falls back to extension detection and shows a toast on truly unsupported files); non-browser-playable containers (`.mov`/`.mkv`/`.avi`/`.m4v`/`.3gp`) are transcoded to MP4 (H.264/AAC) by ffmpeg on upload; video files are gitignored and live only on the VM disk (too large for git history), so their URLs are absolute (`VM_PUBLIC_ORIGIN`) and keep working from the GitHub Pages fallback; player width capped at 920px
+
+### Sync
+
+- **Auto-sync before backup push** — the hourly GitHub backup push no longer fails with "fetch first" when GitHub has commits the VM doesn't: it fetches + merges first, and any conflict resolves in favor of the VM (`-X ours`) — the VM is the source of truth while alive, index.html's direct-to-GitHub path is only the outage fallback
+- **Git Pull button** — owner's Settings gained a manual `POST /api/sync/pull` trigger (same VM-wins fetch+merge) for pulling in GitHub-only changes on demand; sync status now shows both last push and last pull
+- **tree.json/search.json served by the backend** — Caddy reverse-proxies these two paths to Flask instead of single-file bind mounts, eliminating the stale-inode class of bugs (a `git pull` on the VM recreates the file; the old bind mount kept serving the pre-pull copy until a manual `docker compose restart caddy` — this is what made the page-visibility "eye" button look broken)
+- **Live tree polling** — docs.html silently re-fetches tree.json every 20s and re-renders on diff, so edits made by other people show up without a reload
+
+## [2.1.0] — 2026-07-16
+
+### Tree management (owner)
+
+- **Folder delete** — recursive, from the tree UI on both paths (`POST /api/write/delete_folder` on the VM; sequential per-file deletes via the git path)
+- **Folder rename** — display-title only (`_meta.json.title`), paths and URLs never change
+- **Drag-and-drop reorder** — docs.html only: an edit-structure toggle next to «РАЗДЕЛЫ» enters edit mode (drag handles + rename/delete buttons on every folder row); the second click applies all accumulated moves as one batched `POST /api/write/reorder` call/commit. index.html gets the same toggle for the buttons but no dragging (the git path's fire-and-forget writes can't batch)
+- Backup push interval to GitHub lowered from 24h to 1h
+
+## [2.0.0] — 2026-07-13/14
+
+### VM hosting path — second, primary deployment
+
+- **`backend/` + `docs.html`** — the wiki now has a second, self-hosted path: a Flask backend (Docker, gunicorn, Caddy with `tls internal` on a NAT-forwarded port) on a company VM. `docs.html` is a copy of `index.html` with the API layer swapped: same-origin CRUD endpoints instead of GitHub workflow dispatches. Every write commits synchronously to the VM's local git (full per-edit history, History modal works from it) and rebuilds tree.json/search.json in-process — no CI bot, no merge conflicts on this path
+- **Server-side auth** — password verified by `POST /api/login` (SHA-256 compare on the server), signed HttpOnly session cookie, per-IP login rate limiting; `GET /api/roles` never ships password hashes to the browser (unlike the GitHub path, where client-side compare is acceptable because writes hide behind GitHub's own auth)
+- **docx import** — upload a .docx, pandoc converts it to GFM (embedded images extracted to `docs/assets/`), result opens in the editor for review before saving
+- **Multipart uploads** — `POST /api/write/upload` streams files to disk (no base64-in-JSON), used by the editor's drag-and-drop
+- GitHub remains the hourly backup target and the outage fallback (GitHub Pages + workflow writes)
+
+### UI (both paths)
+
+- **2-level sidebar nesting** — subfolders inside subfolders render as collapsible groups; subfolders are collapsed by default, open state persists per-folder in localStorage
+- **Шаблоны + Памятки merged**, sections reordered to match the ТЗ
+- PDF/binary links open in a new tab instead of being routed as SPA pages
+- PDF drag-and-drop upload; image drops now ask for display size (full / 400px)
+- Back-to-top button on long pages
+
+## [1.6.0] — 2026-07-03
+
+### Dashboard & content
+
+- **Homepage widgets** — recently-updated, section counters (`isCounting` frontmatter flag), glossary term count, incidents count parsed from the incidents table
+- **Quick append modal** — one-click "add a row" for glossary and incidents tables (full-access roles), no editor round-trip
+- **Create from tree** — empty folders render in the sidebar; folders and documents can be created directly from the tree
+- Glossary replaced with the curated version (+16 terms); search term display fixed; birthday banner ordering fixes, then banner retired
+- All static files served same-origin — `raw.githubusercontent.com` dependency removed (cache-busting included)
+
+## [1.5.0] — 2026-07-01
+
+### Write path & sessions
+
+- **workflow_dispatch writes** — direct GitHub Contents API calls replaced with a `workflow_dispatch`-triggered Actions workflow (`api-write.yml`); the trigger token lives obfuscated in `config.json` instead of a full-power PAT in the browser
+- **Persistent login** — role session survives reloads and new tabs (localStorage), including the full role object so no roles.json re-fetch is needed
+- **Subfolder grouping** — sidebar groups pages by subfolder; `_meta.json` `pages[]` ordering support
+- Dark theme removed entirely; `docs/` restructured to match SECTIONS (tp/ flattened to root); pure-JS SHA-256 fallback for non-HTTPS contexts; deep-link fallback matching by basename; error toasts stay 6s with red background
+
 ## [1.4.0] — 2026-05-25
 
 ### Navigation

@@ -79,37 +79,32 @@ git push
 
 ## Структура ролей
 
-Файл `roles.json`. Роли и их доступ:
+Файл `roles.json`, 9 ролей (модель с 2026-07-21): `owner`, `admin` (оба `can_edit: true`, полный доступ), `director`, `head`, `support`, `sales`, `accounting`, `office-manager`, `service`.
 
-| Роль | can_edit | hidden_sections |
-|------|:--------:|-----------------|
-| `owner` | ✅ | — |
-| `admin`, `director`, `head` | ❌ | — (видят всё) |
-| `support` | ❌ | — |
-| `sales` | ❌ | `tp/devices` |
-| `accounting` | ❌ | `tp/devices`, `tp/reglamentation`, `tp/software`, `tp/examples` |
-| `office-manager` | ❌ | `products`, `tp/reglamentation`, `incidents`, `tp/software`, `tp/examples`, `glossary` |
-| `warehouse`, `logistics`, `installer` | ❌ | `company`, `products`, `tp/reglamentation`, `incidents`, `tp/software`, `tp/examples`, `glossary` |
-
-`FULL_ACCESS_ROLES = ['owner','admin','director','head']` — обходят все `hidden_sections`.
+Ключевые правила (детали — [ACCESS_CONTROL.md](ACCESS_CONTROL.md)):
+- `FULL_ACCESS_ROLES = ['owner','admin']` — только эти двое обходят все `roles[]`-ограничения. `owner` не показывается ни в одном чеклисте; `admin` показывается всегда с несъёмной галочкой (`FORCED_ROLE`).
+- Остальные роли — обычные, ограничиваемые: видимость и редактирование задаются per-страница (`roles[]`/`editors[]` в tree.json) и per-папка (`roles[]` в `_meta.json`, каскадно на содержимое).
+- Роль из `editors[]` видит страницу автоматически и может управлять её видимостью/редакторами.
+- `hidden_sections` — legacy, очищен у всех ролей, новые ограничения через него не делать.
+- Пароль каждой роли уникален — логин определяет роль по хешу, дубликат пароля делает роль недостижимой.
 
 ---
 
 ## Структура навигации (tree.json разделы)
 
-| Раздел в UI | folder_titles ключ | Путь docs/ |
-|-------------|-------------------|------------|
-| Компания | `company: "Company"` | `docs/company/` |
-| Памятки | `reference: "Памятки"` | `docs/reference/` |
-| Документация для ТП | `tp: "Документация для ТП"` | `docs/tp/` |
-| — Терминалы | `devices: "Терминалы"` | `docs/tp/devices/` |
-| — Регламенты | `reglamentation: "Регламенты"` | `docs/tp/reglamentation/` |
-| — Шаблоны (ТП) | `examples: "Шаблоны"` | `docs/tp/examples/` |
-| — Сервисы | `software: "Сервисы"` | `docs/tp/software/` |
-| Шаблоны | `templates: "Шаблоны"` | `docs/templates/` |
-| Глоссарий | `glossary: "Glossary"` | `docs/glossary/` |
-| Инциденты | `incidents: "Incidents"` | `docs/incidents/` |
-| Процессы | `processes: "Processes"` | `docs/processes/` |
+Разделы = массив `SECTIONS` в docs.html/index.html (порядок и названия — оттуда):
+
+| Раздел в UI | slug/folder | Путь docs/ |
+|-------------|-------------|------------|
+| Компания | `company` | `docs/company/` |
+| Продукты | `products` | `docs/products/` |
+| Оборудование | `devices` | `docs/devices/` |
+| Процессы | `processes` | `docs/processes/` |
+| Регламенты | `reglamentation` | `docs/reglamentation/` |
+| Инциденты и решения | `incidents` (direct → `incidents/index`) | `docs/incidents/` |
+| Сервисы и инструменты | `software` | `docs/software/` |
+| Шаблоны и памятки | `reference` (+extraFolder `examples`) | `docs/reference/`, `docs/examples/` |
+| Глоссарий | `glossary` (direct → `glossary/index`) | `docs/glossary/` |
 
 ---
 
