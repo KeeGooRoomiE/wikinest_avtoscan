@@ -834,8 +834,7 @@
     "updated_at": "2026-07-21T04:31:50.067123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": []
+    "isCounting": true
   },
   {
     "path": "reference/otdel-prodazh/pamyatki-i-shablony-soobshchenij-klientam",
@@ -850,7 +849,7 @@
       "reference": "Памятки",
       "otdel-prodazh": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:49:33.031182+00:00",
+    "updated_at": "2026-07-21T07:30:23.019430+00:00",
     "tags": [],
     "author": "",
     "isCounting": true

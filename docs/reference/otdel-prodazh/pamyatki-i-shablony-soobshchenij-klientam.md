@@ -15,7 +15,7 @@ isCounting: true
 
 # 1. Визитка менеджера
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -41,7 +41,7 @@ isCounting: true
 
 # 2. Техническая поддержка
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -70,7 +70,7 @@ isCounting: true
 
 Перед отправкой обязательно заполнить период, госномер и сумму.
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -94,7 +94,7 @@ isCounting: true
 
 # 4. Идентификаторы ЭДО
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -121,7 +121,7 @@ isCounting: true
 Не хранить постоянные пароли клиентов в общем шаблоне. Перед отправкой
 вставить индивидуальные данные.
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -148,7 +148,7 @@ isCounting: true
 Перед отправкой проверить, что демонстрационный аккаунт активен и пароль
 не изменён.
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -170,7 +170,7 @@ isCounting: true
 
 # 7. Карта водителя СКЗИ — оформление в офисе
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -206,7 +206,7 @@ isCounting: true
 Использовать только после согласования дистанционного оформления с
 ответственным менеджером.
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -251,7 +251,7 @@ isCounting: true
 
 # 9. Карта водителя ЕСТР — оформление в офисе
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -297,7 +297,7 @@ isCounting: true
 
 # 10. Активация блока СКЗИ — физические лица
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
@@ -332,7 +332,7 @@ isCounting: true
 
 # 11. Активация блока СКЗИ — юридические лица
 
-<table>
+<table style="text-align: left">
 <colgroup>
 <col style="width: 100%" />
 </colgroup>
