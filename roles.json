@@ -2,7 +2,7 @@
   {
     "slug": "owner",
     "name": "Владелец",
-    "password_hash": "b51f5f86009dc850edeed979b9a5b156e36e50359c2a9c01736745b966993bc9",
+    "password_hash": "755c5c3edb7d3c9e3bb82df03d24251ccf1e7c52ed31d29382fcf5f7f4fc835d",
     "can_edit": true,
     "hidden_sections": []
   },
