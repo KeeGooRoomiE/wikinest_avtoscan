@@ -1065,6 +1065,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/service-ops/zamena-bloka-skzi-na-vdo",
+    "title": "Замена блока СКЗИ на VDO",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops",
+      "zamena-bloka-skzi-na-vdo"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "service-ops": "Сервисные операции"
+    },
+    "updated_at": "2026-07-21T08:23:23.302855+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/markdown",
     "title": "Памятка по форматированию",
     "excerpt": "",
