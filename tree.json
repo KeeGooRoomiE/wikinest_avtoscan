@@ -1025,6 +1025,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/service-ops/ustanovka-datchikov-urovnya-topliva-eskort",
+    "title": "Установка датчиков уровня топлива Эскорт",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops",
+      "ustanovka-datchikov-urovnya-topliva-eskort"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "service-ops": "Сервисные операции"
+    },
+    "updated_at": "2026-07-21T08:22:10.102008+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "reference/markdown",
     "title": "Памятка по форматированию",
     "excerpt": "",
