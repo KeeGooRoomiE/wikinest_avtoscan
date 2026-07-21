@@ -2488,6 +2488,20 @@
   },
   {
     "_folder": true,
+    "path": "processes/sales/kurs-po-prodazham-salecraft",
+    "title": "Курс по продажам Salecraft",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж"
+    }
+  },
+  {
+    "_folder": true,
     "path": "processes/support",
     "title": "Техническая поддержка",
     "parts": [
