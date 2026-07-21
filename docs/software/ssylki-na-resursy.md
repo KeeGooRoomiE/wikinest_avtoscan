@@ -27,8 +27,6 @@ isCounting: true
 | 
 [Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
 
-[Прайс по продажам](https://docs.google.com/spreadsheets/d/16-bC2pM0EePIIomsaocgtbX7Ux5JGWEWmBFgkrlUbVU/edit?gid=0#gid=0)
-
 Расписание [Кемерово][time_gdrive]
  | 
 [Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
@@ -39,13 +37,15 @@ isCounting: true
 | 
 [Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
 
-[Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
-
 Реестр договоров [Кемерово](https://docs.google.com/spreadsheets/d/1n5FG3uYALKPhK-qDRGIk9Usjs-Kq6t8nJUQazxFBR6M/edit?pli=1&gid=0#gid=0)
  | 
 [Екатеринбург](https://docs.google.com/spreadsheets/d/1TsLUIi2zeX1u61VcDKznuEmx7HQvI9mLHmkLMaOiTLs/edit?gid=0#gid=0)
 
+[Прайс по продажам](https://docs.google.com/spreadsheets/d/16-bC2pM0EePIIomsaocgtbX7Ux5JGWEWmBFgkrlUbVU/edit?gid=0#gid=0)
+
 [Касса Екатеринбург](https://docs.google.com/spreadsheets/d/1vZmAOOdcE1h-NvbRhCteDeQBoqO8sH0Nro-1xtKwRGA/edit?pli=1&gid=0#gid=0)
+
+[Реестр вх./исх документов Кемерово/Екатеринбург](https://docs.google.com/spreadsheets/d/12JsF9_8dFViXzk-Vj35oLtBEnOKKo3XhC2nuNf3_K1k/edit?gid=0#gid=0)
 
 [График отпусков Кемерово](https://docs.google.com/spreadsheets/d/1_IzkEteolgGTVh_qWGlXlFrR3hwNM_q7z9dvoUBHy7s/edit?gid=1428172384#gid=1428172384)
 
