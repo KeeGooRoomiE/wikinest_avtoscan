@@ -8,7 +8,7 @@ isCounting: true
 
 [Оснащение тахографом с СКЗИ](https://portal.rosavtotransport.ru/check/)
 
-[Оснащение тахографом ЕСТР](https://portal.rosavtotransport.ru/check-grz)
+[Оснащение тахографом по госномеру](https://portal.rosavtotransport.ru/check-grz)
 
 [Преобразование номера тахографа «ШТРИХ-ТахоRUS»](https://www.auto.shtrih-m.ru/converter/)
 
