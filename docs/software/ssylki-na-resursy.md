@@ -71,7 +71,7 @@ isCounting: true
 
 [Torgbox](https://torgbox.ru/contragents/search)
 
-[Крастериск](https://pbx.krasterisk.ru/?module=queues&view=list)
+[Krasterisk*](https://pbx.krasterisk.ru/?module=queues&view=list) - сервис обслуживания IP-телефонии
 
 
 ---
