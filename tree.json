@@ -815,7 +815,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-21T04:31:50.066123+00:00",
+    "updated_at": "2026-07-21T05:10:24.443745+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -868,8 +868,7 @@
     "updated_at": "2026-07-21T04:49:33.031182+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": []
+    "isCounting": true
   },
   {
     "path": "reference/otdel-servisa/kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov",
