@@ -6,15 +6,15 @@ isCounting: true
 ## Внешние ссылки Тахография
 [РСТ метрология](https://fgis.gost.ru/fundmetrology/cm/results) 
 
-Оснащение тахографом с СКЗИ https://portal.rosavtotransport.ru/check/
+[Оснащение тахографом с СКЗИ](https://portal.rosavtotransport.ru/check/)
 
-Оснащение тахографом ЕСТР https://portal.rosavtotransport.ru/check-grz
+[Оснащение тахографом ЕСТР](https://portal.rosavtotransport.ru/check-grz)
 
-Преобразование номера тахографа «ШТРИХ-ТахоRUS» https://www.auto.shtrih-m.ru/converter/
+[Преобразование номера тахографа «ШТРИХ-ТахоRUS»](https://www.auto.shtrih-m.ru/converter/)
 
-Методика проверки тахографов в рамках проведения технического осмотра транспортного средства https://tahograf.online/metodika-proverki-tahografov-v-ramkah-provedeniya-tehnicheskogo-osmotra-transportnogo-sredstva/
+[Методика проверки тахографов в рамках проведения технического осмотра транспортного средства](https://tahograf.online/metodika-proverki-tahografov-v-ramkah-provedeniya-tehnicheskogo-osmotra-transportnogo-sredstva/)
 
-Краткая версия методики дорожного контроля https://tahograf.online/2351-2/
+[Краткая версия методики дорожного контроля](https://tahograf.online/2351-2/)
 
 ## Внутренние ссылки
  
