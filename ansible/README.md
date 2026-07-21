@@ -22,10 +22,16 @@ hold the real IP/port, same as `VM_SETUP.md`.
 ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
 ```
 
-Prompts for `SECRET_KEY` (leave blank to auto-generate) and `GIT_PUSH_TOKEN`
-(leave blank to skip — daily backup push stays off until you add it to
-`.env` on the box and restart the backend). Neither is written anywhere
-except the target VM's `.env`.
+Secrets (`secret_key`, `git_push_token`, `smtp_user`/`smtp_pass`) come from
+the gitignored `group_vars/all.yml` — no interactive prompts. Leave
+`secret_key` unset to auto-generate; leave `git_push_token` unset to skip
+(hourly backup push stays off until you add it to `.env` on the box and
+restart the backend). Nothing secret is written anywhere except the target
+VM's `.env`.
+
+Partial runs by tag (`network`, `security`, `docker`, `app` — see the
+playbook header): routine post-push update is just
+`ansible-playbook -i inventory.ini playbook.yml --tags app`.
 
 ## What it does
 

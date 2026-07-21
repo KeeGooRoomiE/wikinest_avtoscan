@@ -4,8 +4,6 @@
 
 # secret_key: ""            # blank/omitted = playbook auto-generates one
 # git_push_token: ""        # blank/omitted = backup push to GitHub stays disabled
-# vnc_password: ""          # blank/omitted = playbook auto-generates one and
-#                            # prints it once at the end of the vnc-tagged run
 # smtp_user: ""              # blank/omitted = "Предложить статью" / password
 # smtp_pass: ""              # rotation mail sending stays disabled (503 from /api/suggest)
 
@@ -17,16 +15,8 @@ smtp_host: smtp.mail.ru
 smtp_port: 465
 suggest_to: pso@navi42.ru
 
-# NAT-forwarded port for VNC (26505 -> 5050, see VM_SETUP.md). Xvnc binds
-# -localhost yes regardless, so this is only meaningful for the SSH tunnel
-# command (`ssh -L 5050:localhost:5050 wikinest-vm`) — it's never opened in
-# UFW and deliberately isn't in allowed_tcp_ports below. Don't add it there.
-vnc_port: 5050
-
 # Caddy is the only exposed service (see Caddyfile — no real port 80 on
-# this shared IP, so plain HTTP is deliberately not served at all). VNC is
-# reachable only via SSH tunnel (see vnc_port above) — do not add its port
-# here, that would defeat the whole point of keeping it loopback-only.
+# this shared IP, so plain HTTP is deliberately not served at all).
 allowed_tcp_ports:
   - 443
 

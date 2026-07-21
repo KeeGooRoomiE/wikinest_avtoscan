@@ -7,6 +7,9 @@ VM_SETUP_root_ca.crt
 graphify-out/
 ansible/inventory.ini
 ansible/group_vars/all.yml
+# SSH deploy keypair — never commit, even the .pub (it pins the private key's presence here)
+ansible/wikinest-vm
+ansible/wikinest-vm.pub
 
 # Video attachments — too large for git history, hosted on the server
 # outside git instead (see backend/app.py upload_file, which skips the

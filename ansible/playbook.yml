@@ -19,9 +19,10 @@
 #              commits), .env (first run only), docker compose up --build,
 #              restart caddy. This IS the update flow — after pushing new
 #              code just run --tags app; needs 'docker' already done once.
-#   vnc      — TigerVNC + XFCE, loopback-only (reachable via SSH tunnel only,
-#              never opened in UFW — see the vnc block below for why)
 #   always   — apt update/upgrade/base tooling (runs regardless of --tags)
+#
+# The vnc tag/block (TigerVNC + XFCE over SSH tunnel) was removed 2026-07-21
+# — resurrect from git history if a desktop on the VM is ever needed again.
 # ansible-playbook -i inventory.ini playbook.yml --tags network,security
 #
 # Safe to re-run: every task is idempotent, and the one secret-bearing step
@@ -169,6 +170,7 @@
 
     # ---- ssh hardening ----------------------------------------------
     - name: Ensure sshd runtime directory exists
+      tags: [security]
       ansible.builtin.file:
         path: /run/sshd
         state: directory
@@ -318,7 +320,7 @@
       tags: [app]
       ansible.builtin.debug:
         msg: >-
-          GIT_PUSH_TOKEN not set — backend will run fine but the daily
+          GIT_PUSH_TOKEN not set — backend will run fine but the hourly
           backup push to GitHub is disabled. Add it to
           {{ deploy_path }}/.env and restart the backend container later.
       when: (git_push_token | default('')) | length == 0
@@ -364,13 +366,4 @@
     - name: restart fail2ban
       ansible.builtin.systemd:
         name: fail2ban
-        state: restarted
-
-    - name: reload systemd
-      ansible.builtin.systemd:
-        daemon_reload: true
-
-    - name: restart vnc service
-      ansible.builtin.systemd:
-        name: wikinest-vnc
         state: restarted
