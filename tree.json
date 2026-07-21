@@ -50,6 +50,9 @@
     "isCounting": true,
     "editors": [
       "service"
+    ],
+    "roles": [
+      "service"
     ]
   },
   {
