@@ -22,7 +22,11 @@ isCounting: true
 
 [Расписание Кемерово][time_gdrive]
 
-[Оборудование на складе][storage_gdrive]
+[Расписание Новокузнецк](https://docs.google.com/spreadsheets/d/1uYEu-KH47UpOwo6UOAbDghCBU7sFGNZ7Eoe4mpLi3Gc/edit?gid=679813697#gid=679813697)
+
+[Оборудование на складе Кемерово/Екатеринбург][storage_gdrive]
+
+[Оборудование на складе Новокузнецк](https://docs.google.com/spreadsheets/d/1iSAqwEfUCZ3_2UPViFE-aMCDPZgmTOoREFcyqtEFsqM/edit?gid=0#gid=0)
 
 [Памятка пользователям][accounts_git]
 
