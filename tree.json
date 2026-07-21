@@ -2701,20 +2701,6 @@
   },
   {
     "_folder": true,
-    "path": "reference/otdel-prodazh/kemerovo",
-    "title": "кемерово",
-    "parts": [
-      "reference",
-      "otdel-prodazh",
-      "kemerovo"
-    ],
-    "folder_titles": {
-      "reference": "Памятки",
-      "otdel-prodazh": "Отдел продаж"
-    }
-  },
-  {
-    "_folder": true,
     "path": "reference/otdel-servisa",
     "title": "Отдел сервиса",
     "parts": [
