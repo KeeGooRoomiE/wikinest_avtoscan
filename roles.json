@@ -8,8 +8,8 @@
   },
   {
     "slug": "admin",
-    "name": "Редактор",
-    "password_hash": "0b97d9e9713257148de2aeb25ffe78ae0c81756008468d6f580ad5483981034a",
+    "name": "Администратор",
+    "password_hash": "b51f5f86009dc850edeed979b9a5b156e36e50359c2a9c01736745b966993bc9",
     "can_edit": true,
     "hidden_sections": []
   },
@@ -36,7 +36,7 @@
   },
   {
     "slug": "sales",
-    "name": "Менеджер продаж",
+    "name": "Отдел продаж",
     "password_hash": "08ea1ee0ee22007df922b95553a26c4995386b393122a5d40ec48b27ec9abb2c",
     "can_edit": false,
     "hidden_sections": []
@@ -56,23 +56,9 @@
     "hidden_sections": []
   },
   {
-    "slug": "warehouse",
-    "name": "Кладовщик",
+    "slug": "service",
+    "name": "Отдел сервиса",
     "password_hash": "cbc2b1fcbee319a9f50724c4ef8d20a62ca113600b9005bf0bee93538d1e234a",
-    "can_edit": false,
-    "hidden_sections": []
-  },
-  {
-    "slug": "logistics",
-    "name": "Логист",
-    "password_hash": "038886897b04aba39011f33cd8dd1a971f4636e75fcdc8d716ee710d2853fa87",
-    "can_edit": false,
-    "hidden_sections": []
-  },
-  {
-    "slug": "installer",
-    "name": "Установщик",
-    "password_hash": "6538023883effae66c92d51f798ab972473536e321642255cbc1099cc9f08864",
     "can_edit": false,
     "hidden_sections": []
   }
