@@ -61,7 +61,7 @@ isCounting: true
 
 [Виалон][nav_wialon] | [CMS Виалон][nav_cms_wialon] 
 
-[Биртикс24](https://avtoskan.bitrix24.ru/crm/lead/list/)
+[Битрикс24](https://avtoskan.bitrix24.ru/crm/lead/list/)
 
 [Torgbox](https://torgbox.ru/contragents/search)
 
