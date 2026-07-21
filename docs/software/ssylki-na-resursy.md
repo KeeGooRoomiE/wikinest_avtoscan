@@ -3,7 +3,7 @@ isCounting: true
 ---
 # Ссылки на ресурсы
 
-## Внешние ссылки Тахография
+## Тахография
 [РСТ метрология](https://fgis.gost.ru/fundmetrology/cm/results) 
 
 [Оснащение тахографом с СКЗИ](https://portal.rosavtotransport.ru/check/)
@@ -22,10 +22,7 @@ isCounting: true
 
 ## Внутренние ссылки
 
-Предиктивная модель [Кемерово](https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0) | 
-[Новокузнецк](https://docs.google.com/spreadsheets/d/1xCmeeICTiJYBezPq_T1hAIDihz5ukrQUI6m4o66UrII/edit?gid=854353943#gid=854353943)
-| 
-[Екатеринбург](https://docs.google.com/spreadsheets/d/1USDEzPz2_Q6tU5tq3zRPSAZaGz0Ma27PwflZCbavtPQ/edit?gid=259567341#gid=259567341)
+Предиктивная модель [Кемерово][pm_kem] | [Новокузнецк][pm_nkz] | [Екатеринбург][pm_ekb]
 
 Расписание [Кемерово][time_gdrive]
  | 
@@ -114,6 +111,9 @@ isCounting: true
 [sim_mgf]:https://b2blk.megafon.ru/soho/subscribers
 [sim_beeline]:https://iot.beeline.ru/login#/sims/list
 [sim_rtk]:https://m2m.rt.ru/iot_cmp_gui/simcards/edit-card.jsf
+
+[pm_kem]:https://docs.google.com/spreadsheets/d/1BW7ijbWMZ0Yfca7efjb_fCl_whddJ5D_tmRV7FBOAYg/edit?gid=0#gid=0
+[pm_nkz]:https://docs.google.com/spreadsheets/d/1xCmeeICTiJYBezPq_T1hAIDihz5ukrQUI6m4o66UrII/edit?gid=854353943#gid=854353943
 
 [krasterisk]:https://pbx.krasterisk.ru/?module=queues&view=list
 [kem_vacations]:https://docs.google.com/spreadsheets/d/1_IzkEteolgGTVh_qWGlXlFrR3hwNM_q7z9dvoUBHy7s/edit?gid=1428172384#gid=1428172384
