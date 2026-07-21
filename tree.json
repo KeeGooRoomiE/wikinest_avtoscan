@@ -1045,6 +1045,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-shtrikh",
+    "title": "Обновление ПО на тахографе Штрих",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops",
+      "obnovlenie-po-na-takhografe-shtrikh"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса",
+      "service-ops": "Сервисные операции"
+    },
+    "updated_at": "2026-07-21T08:24:34.001598+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/service/service-ops/ustanovka-datchika-urovnya-topliva-omnicomm-lls",
     "title": "Установка датчика уровня топлива Omnicomm LLS.",
     "excerpt": "",
