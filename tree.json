@@ -923,24 +923,6 @@
     "isCounting": true
   },
   {
-    "path": "processes/sales/modul-1-anatomiya-prodazh",
-    "title": "Модуль 1. Анатомия продаж",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "modul-1-anatomiya-prodazh"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж"
-    },
-    "updated_at": "2026-07-22T10:32:29.675792+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
