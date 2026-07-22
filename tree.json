@@ -2996,6 +2996,29 @@
   },
   {
     "_folder": true,
+    "path": "processes/support/1c",
+    "title": "Процессы 1С",
+    "parts": [
+      "processes",
+      "support",
+      "1c"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "support": "Техническая поддержка"
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
+  },
+  {
+    "_folder": true,
     "path": "processes/support/software",
     "title": "Процессы ПО",
     "parts": [
