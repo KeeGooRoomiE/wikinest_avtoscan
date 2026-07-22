@@ -1195,24 +1195,6 @@
     "isCounting": true
   },
   {
-    "path": "reference/otdel-prodazh/pamyatki-i-shablony-soobshchenij-klientam",
-    "title": "Памятки и шаблоны сообщений клиентам",
-    "excerpt": "",
-    "parts": [
-      "reference",
-      "otdel-prodazh",
-      "pamyatki-i-shablony-soobshchenij-klientam"
-    ],
-    "folder_titles": {
-      "reference": "Памятки",
-      "otdel-prodazh": "Отдел продаж"
-    },
-    "updated_at": "2026-07-21T09:32:20.620934+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "reference/otdel-servisa/kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov",
     "title": "Коды ошибок и контакты ТП основных поставщиков",
     "excerpt": "",
