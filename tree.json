@@ -2651,7 +2651,16 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,

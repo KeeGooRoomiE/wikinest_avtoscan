@@ -1,1 +1,12 @@
-{"title": "Мониторинг транспорта и спутниковая навигация"}
+{
+  "title": "Мониторинг транспорта и спутниковая навигация",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
