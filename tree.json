@@ -1001,7 +1001,16 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 24
+    "incidentCount": 24,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
