@@ -211,24 +211,6 @@
     ]
   },
   {
-    "path": "devices/tachographs/karty-takhografov",
-    "title": "Карты тахографов",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "tachographs",
-      "karty-takhografov"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "tachographs": "Тахографы"
-    },
-    "updated_at": "2026-07-22T05:16:07.758640+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2423",
     "title": "СМАРТ S-2423",
     "excerpt": "",
