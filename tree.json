@@ -924,7 +924,7 @@
   },
   {
     "path": "processes/sales/kurs-po-prodazham-salecraft/anatomiya-prodazh",
-    "title": "Анатомия продаж",
+    "title": "Модуль 1. Анатомия продаж",
     "excerpt": "",
     "parts": [
       "processes",
@@ -937,7 +937,7 @@
       "sales": "Отдел продаж",
       "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
     },
-    "updated_at": "2026-07-22T10:33:52.656209+00:00",
+    "updated_at": "2026-07-22T10:34:15.124339+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
