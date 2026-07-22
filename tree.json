@@ -3118,6 +3118,29 @@
   },
   {
     "_folder": true,
+    "path": "processes/service/protsess-izgotovleniya-kv",
+    "title": "Процесс изготовления КВ",
+    "parts": [
+      "processes",
+      "service",
+      "protsess-izgotovleniya-kv"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
+  },
+  {
+    "_folder": true,
     "path": "products",
     "title": "Продукты",
     "parts": [
