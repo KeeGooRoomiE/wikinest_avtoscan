@@ -42,6 +42,21 @@ tree = []
 search = {}
 folder_meta = {}
 
+# Carry forward UI-only fields (roles/editors/isCounting) keyed by path —
+# they don't exist in frontmatter, only in tree.json itself (set via the
+# visibility/editors modals or the VM's /api/write/page_visibility).
+# Rebuilding from scratch without this silently wiped every access
+# restriction on the next docs/** push — see backend/tree_builder.py.
+prev_by_path = {}
+if os.path.exists('tree.json'):
+    try:
+        with open('tree.json', encoding='utf-8') as fh:
+            for _entry in json.load(fh):
+                if not _entry.get('_folder'):
+                    prev_by_path[_entry['path']] = _entry
+    except Exception:
+        pass
+
 def parse_frontmatter(text):
     meta = {}
     body = text
@@ -121,12 +136,17 @@ for root, dirs, files in os.walk(docs_dir):
             capture_output=True, text=True
         ).stdout.strip() or None
 
+        prev = prev_by_path.get(path, {})
         entry = {
             'path': path, 'title': title, 'excerpt': excerpt,
             'parts': parts, 'folder_titles': folder_titles,
             'updated_at': updated_at, 'tags': tags, 'author': author,
-            'isCounting': is_counting,
+            'isCounting': fm_meta.get('isCounting') is not None and is_counting or prev.get('isCounting', is_counting),
         }
+        if prev.get('roles'):
+            entry['roles'] = prev['roles']
+        if prev.get('editors'):
+            entry['editors'] = prev['editors']
         if 'glossary' in parts:
             import re as _re
             entry['termCount'] = len(_re.findall(r'^\|\s*\*\*', body, _re.MULTILINE))
@@ -192,19 +212,25 @@ for rel_dir, meta in sorted(folder_meta.items(), key=folder_marker_key):
     has_child = any(p == rel_dir or p.startswith(rel_dir + '/') for p in page_paths)
     parent_dir = '/'.join(parts[:-1]) if len(parts) > 1 else '.'
     in_parent_pages = parts[-1] in folder_meta.get(parent_dir, {}).get('pages', [])
-    if not has_child or in_parent_pages:
+    # A folder also needs a marker entry (even with real children) when it
+    # has a roles[] restriction set in its _meta.json — that's the only
+    # place the frontend can read folder-level visibility from.
+    if not has_child or in_parent_pages or meta.get('roles'):
         ft = {}
         for i in range(len(parts) - 1):
             parent = '/'.join(parts[:i+1])
             m = folder_meta.get(parent, {})
             ft[parts[i]] = m.get('title', parts[i].replace('-',' ').replace('_',' ').capitalize())
-        tree.append({
+        folder_entry = {
             '_folder': True,
             'path': rel_dir,
             'title': meta.get('title', parts[-1].replace('-',' ').replace('_',' ').capitalize()),
             'parts': parts,
             'folder_titles': ft,
-        })
+        }
+        if meta.get('roles'):
+            folder_entry['roles'] = meta['roles']
+        tree.append(folder_entry)
 
 with open('tree.json', 'w', encoding='utf-8') as f:
     json.dump(tree, f, ensure_ascii=False, indent=2)

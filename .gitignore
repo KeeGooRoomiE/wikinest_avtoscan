@@ -1,13 +1,16 @@
 .claude/settings.local.json
 CREDENTIALS.md
-DIRECTOR_CREDENTIALS.md
+CREDENTIALS_actual.md
 .env
 VM_SETUP.md
 VM_SETUP_root_ca.crt
 graphify-out/
+
+#Ansible
+# SSH deploy keypair — never commit, even the .pub (it pins the private key's presence here)
 ansible/inventory.ini
 ansible/group_vars/all.yml
-# SSH deploy keypair — never commit, even the .pub (it pins the private key's presence here)
+
 ansible/wikinest-vm
 ansible/wikinest-vm.pub
 
@@ -21,5 +24,3 @@ ansible/wikinest-vm.pub
 *.mkv
 *.m4v
 *.3gp
-ansible/wikinest-vm
-ansible/wikinest-vm.pub
