@@ -2920,7 +2920,16 @@
     "folder_titles": {
       "processes": "Процессы",
       "sales": "Отдел продаж"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
