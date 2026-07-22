@@ -1079,7 +1079,16 @@
     "updated_at": "2026-07-21T08:14:43.781074+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-po-ap",
