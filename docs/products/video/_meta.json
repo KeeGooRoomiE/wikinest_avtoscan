@@ -1,1 +1,12 @@
-{"title": "Видеонаблюдение"}
+{
+  "title": "Видеонаблюдение",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
