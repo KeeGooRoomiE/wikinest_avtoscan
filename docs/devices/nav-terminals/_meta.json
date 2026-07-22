@@ -1,1 +1,17 @@
-{"title": "Навигационные терминалы", "pages": ["navtelecom", "galileo", "others"]}
+{
+  "title": "Навигационные терминалы",
+  "pages": [
+    "navtelecom",
+    "galileo",
+    "others"
+  ],
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
