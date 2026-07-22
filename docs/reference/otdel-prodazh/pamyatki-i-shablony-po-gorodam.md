@@ -1,14 +1,18 @@
-# Памятки и шаблоны сообщений клиентам
+Памятки и шаблоны сообщений клиентам
 
 Компания «Автоскан» · актуализировано 16.07.2026
 
 Как пользоваться: выберите нужный шаблон в колонке соответствующего города, скопируйте текст и замените поля в квадратных скобках. Служебные пометки серым цветом клиенту не отправляются. Перед отправкой реквизитов, логинов и сроков изготовления проверьте их актуальность.
 
+<h2 style="font-size: 24px; margin: 32px 0 12px;">Общие сообщения</h2>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Визитка менеджера</h3>
+
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -19,12 +23,6 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td colspan="3"><strong>Общие сообщения</strong></td>
-</tr>
-<tr class="even">
-<td colspan="3"><strong>1. Визитка менеджера</strong></td>
-</tr>
-<tr class="odd">
 <td>
 Здравствуйте!
 <br>
@@ -83,9 +81,25 @@
 <strong>Сайт:</strong> https://avtoscan42.ru/
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>2. Техническая поддержка</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Техническая поддержка</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Здравствуйте!
@@ -163,11 +177,27 @@
 — при наличии — фото или видео неисправности.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>3. Напоминание об абонентской плате (для физических лиц)</strong>
-<br>
-<em>Перед отправкой обязательно заполнить период, госномер и сумму.</em></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Напоминание об абонентской плате (для физических лиц)</h3>
+
+<div style="margin: -4px 0 12px; color: #6b7280;"><em>Перед отправкой обязательно заполнить период, госномер и сумму.</em></div>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Добрый день!
@@ -221,9 +251,25 @@
 После оплаты отправьте, пожалуйста, чек ответным сообщением. Это необходимо для привязки платежа.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>4. Идентификаторы ЭДО</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Идентификаторы ЭДО</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Здравствуйте!
@@ -283,11 +329,27 @@
 Укажите, пожалуйста, на какую организацию необходимо направить документ.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>5. Вход в AXENTA</strong>
-<br>
-<em>Не хранить постоянные пароли клиентов в общем шаблоне. Перед отправкой вставить индивидуальные данные.</em></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Вход в AXENTA</h3>
+
+<div style="margin: -4px 0 12px; color: #6b7280;"><em>Не хранить постоянные пароли клиентов в общем шаблоне. Перед отправкой вставить индивидуальные данные.</em></div>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Здравствуйте!
@@ -341,9 +403,95 @@
 Для входа используйте те же логин и пароль, что и для компьютерной версии.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>6. Демо-доступ AXENTA</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Вход в ГлонассСофт</h3>
+
+<div style="margin: -4px 0 12px; color: #6b7280;"><em>Не хранить постоянные пароли клиентов в общем шаблоне. Перед отправкой вставить индивидуальные данные.</em></div>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
+<tr class="odd"><td>
+Здравствуйте!
+<br>
+<strong>Вход в ГлонассСофт через компьютер:</strong>
+<br>
+Перейдите на сайт: [ссылка для входа]
+<br>
+<strong>Имя пользователя:</strong> [логин клиента]
+<br>
+<strong>Пароль:</strong> [пароль клиента]
+<br>
+<strong>Вход через смартфон:</strong>
+<br>
+Установите приложение <strong>ГлонассСофт</strong> из магазина приложений вашего устройства.
+<br>
+Для входа используйте те же логин и пароль, что и для компьютерной версии.
+</td><td>
+Здравствуйте!
+<br>
+<strong>Вход в ГлонассСофт через компьютер:</strong>
+<br>
+Перейдите на сайт: [ссылка для входа]
+<br>
+<strong>Имя пользователя:</strong> [логин клиента]
+<br>
+<strong>Пароль:</strong> [пароль клиента]
+<br>
+<strong>Вход через смартфон:</strong>
+<br>
+Установите приложение <strong>ГлонассСофт</strong> из магазина приложений вашего устройства.
+<br>
+Для входа используйте те же логин и пароль, что и для компьютерной версии.
+</td><td>
+Здравствуйте!
+<br>
+<strong>Вход в ГлонассСофт через компьютер:</strong>
+<br>
+Перейдите на сайт: [ссылка для входа]
+<br>
+<strong>Имя пользователя:</strong> [логин клиента]
+<br>
+<strong>Пароль:</strong> [пароль клиента]
+<br>
+<strong>Вход через смартфон:</strong>
+<br>
+Установите приложение <strong>ГлонассСофт</strong> из магазина приложений вашего устройства.
+<br>
+Для входа используйте те же логин и пароль, что и для компьютерной версии.
+</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Демо-доступ AXENTA</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Здравствуйте!
@@ -379,9 +527,75 @@
 Ссылка для входа: https://axenta.cloud/
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>7. Преобразование номера тахографа «ШТРИХ-ТахоRUS»</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Демо-доступ ГлонассСофт</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
+<tr class="odd"><td>
+Здравствуйте!
+<br>
+Доступен демонстрационный аккаунт ГлонассСофт. Его можно предоставить клиенту для знакомства с системой.
+<br>
+<strong>Логин:</strong> [демо-логин]
+<br>
+<strong>Пароль:</strong> [демо-пароль]
+<br>
+<strong>Ссылка для входа:</strong> [ссылка на демо-доступ]
+</td><td>
+Здравствуйте!
+<br>
+Доступен демонстрационный аккаунт ГлонассСофт. Его можно предоставить клиенту для знакомства с системой.
+<br>
+<strong>Логин:</strong> [демо-логин]
+<br>
+<strong>Пароль:</strong> [демо-пароль]
+<br>
+<strong>Ссылка для входа:</strong> [ссылка на демо-доступ]
+</td><td>
+Здравствуйте!
+<br>
+Доступен демонстрационный аккаунт ГлонассСофт. Его можно предоставить клиенту для знакомства с системой.
+<br>
+<strong>Логин:</strong> [демо-логин]
+<br>
+<strong>Пароль:</strong> [демо-пароль]
+<br>
+<strong>Ссылка для входа:</strong> [ссылка на демо-доступ]
+</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Преобразование номера тахографа «ШТРИХ-ТахоRUS»</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Для преобразования номера тахографа <strong>«ШТРИХ-ТахоRUS»</strong> и последующей проверки на портале Росавтотранса используйте сервис:
@@ -405,13 +619,28 @@ https://www.auto.shtrih-m.ru/converter/
 Введите серийный номер тахографа в указанном на странице формате и скопируйте полученный результат.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>Карты водителя</strong></td>
+</tbody>
+</table>
+
+<h2 style="font-size: 24px; margin: 32px 0 12px;">Карты водителя</h2>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Карта водителя СКЗИ — оформление в офисе</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td colspan="3"><strong>8. Карта водителя СКЗИ — оформление в офисе</strong></td>
-</tr>
-<tr class="even">
 <td>
 Здравствуйте!
 <br>
@@ -500,12 +729,28 @@ https://www.auto.shtrih-m.ru/converter/
 <strong>Режим работы:</strong> Пн–Чт 09:00–18:00; Пт 09:00–17:00; перерыв 12:00–13:00; Сб–Вс — выходные.
 </td>
 </tr>
-<tr class="odd">
-<td colspan="3"><strong>9. Карта водителя СКЗИ — дистанционное оформление для юридических лиц</strong>
-<br>
-<em>Использовать только после согласования дистанционного оформления с ответственным менеджером.</em></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Карта водителя СКЗИ — дистанционное оформление для юридических лиц</h3>
+
+<div style="margin: -4px 0 12px; color: #6b7280;"><em>Использовать только после согласования дистанционного оформления с ответственным менеджером.</em></div>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
-<tr class="even">
+</thead>
+<tbody>
+<tr class="odd">
 <td>
 Здравствуйте!
 <br>
@@ -648,10 +893,26 @@ https://www.auto.shtrih-m.ru/converter/
 <strong>Режим работы:</strong> Пн–Чт 09:00–18:00; Пт 09:00–17:00; перерыв 12:00–13:00; Сб–Вс — выходные.
 </td>
 </tr>
-<tr class="odd">
-<td colspan="3"><strong>10. Карта водителя ЕСТР — оформление в офисе</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Карта водителя ЕСТР — оформление в офисе</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
-<tr class="even">
+</thead>
+<tbody>
+<tr class="odd">
 <td>
 Здравствуйте!
 <br>
@@ -776,13 +1037,28 @@ https://www.auto.shtrih-m.ru/converter/
 <strong>Режим работы:</strong> Пн–Чт 09:00–18:00; Пт 09:00–17:00; перерыв 12:00–13:00; Сб–Вс — выходные.
 </td>
 </tr>
+</tbody>
+</table>
+
+<h2 style="font-size: 24px; margin: 32px 0 12px;">Активация блока СКЗИ</h2>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Активация блока СКЗИ — физические лица</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td colspan="3"><strong>Активация блока СКЗИ</strong></td>
-</tr>
-<tr class="even">
-<td colspan="3"><strong>11. Активация блока СКЗИ — физические лица</strong></td>
-</tr>
-<tr class="odd">
 <td>
 Здравствуйте!
 <br>
@@ -865,9 +1141,25 @@ https://www.auto.shtrih-m.ru/converter/
 <strong>Режим работы:</strong> Пн–Чт 09:00–18:00; Пт 09:00–17:00; перерыв 12:00–13:00; Сб–Вс — выходные.
 </td>
 </tr>
-<tr class="even">
-<td colspan="3"><strong>12. Активация блока СКЗИ — юридические лица</strong></td>
+</tbody>
+</table>
+
+<h3 style="font-size: 20px; margin: 24px 0 10px;">Активация блока СКЗИ — юридические лица</h3>
+
+<table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Кемерово</strong></th>
+<th><strong>Новокузнецк</strong></th>
+<th><strong>Екатеринбург</strong></th>
 </tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>
 Здравствуйте!
