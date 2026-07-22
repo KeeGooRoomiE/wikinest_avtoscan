@@ -2534,7 +2534,13 @@
     "updated_at": "2026-07-21T04:31:50.069123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "sales",
+      "service"
+    ]
   },
   {
     "path": "reglamentation/service/zapolnenie-zakaz-naryadov",
