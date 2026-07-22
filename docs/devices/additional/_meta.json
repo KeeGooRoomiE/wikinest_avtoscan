@@ -1,1 +1,17 @@
-{"title": "Дополнительное оборудование", "pages": ["tachography", "monitoring", "uos"]}
+{
+  "title": "Дополнительное оборудование",
+  "pages": [
+    "tachography",
+    "monitoring",
+    "uos"
+  ],
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
