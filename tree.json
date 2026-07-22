@@ -10,19 +10,10 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-21T04:31:50.060123+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "company/contacts",
@@ -35,19 +26,10 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-21T04:31:50.060123+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/nkm",
@@ -62,19 +44,10 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T10:29:01Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/vdo-3283",
@@ -89,19 +62,10 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-21T08:46:27.501324+00:00",
+    "updated_at": "2026-07-21T08:46:27Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/tachographs/nrd/drive-base",
@@ -118,7 +82,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:55:50Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -138,7 +102,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:55:55Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -158,7 +122,7 @@
       "tachographs": "Тахографы",
       "nrd": "Линейка НРД (Атол)"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:56:02Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -178,7 +142,7 @@
       "tachographs": "Тахографы",
       "shtrikh": "ШТРИХ-ТахоRUS"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:56:09Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -196,19 +160,10 @@
       "devices": "Оборудование",
       "tachographs": "Тахографы"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:55:44Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2423",
@@ -225,19 +180,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T08:04:37Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2425",
@@ -254,19 +200,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T08:06:03Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2435",
@@ -283,19 +220,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T08:06:19Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2613",
@@ -312,19 +240,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T08:05:04Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2651",
@@ -341,19 +260,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T08:06:43Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2653",
@@ -370,19 +280,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T08:07:01Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-4752",
@@ -399,19 +300,10 @@
       "nav-terminals": "Навигационные терминалы",
       "navtelecom": "Линейка Навтелеком"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T07:14:07Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-10",
@@ -428,19 +320,10 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-21T10:09:41.326874+00:00",
+    "updated_at": "2026-07-21T10:09:41Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-10-asn",
@@ -457,19 +340,10 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-17T02:16:02Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-7x",
@@ -486,19 +360,10 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T07:52:34Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-base-block-lite",
@@ -515,19 +380,10 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-17T02:16:33Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
@@ -544,19 +400,10 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-17T02:21:06Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-ble",
@@ -573,19 +420,10 @@
       "fuel-sensors": "Контроль топлива",
       "escort": "Линейка ДУТ Эскорт"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-17T02:29:38Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/fuel-sensors/omnicom/omnicomm-lls4",
@@ -602,19 +440,10 @@
       "fuel-sensors": "Контроль топлива",
       "omnicom": "Линейка ДУТ Омником"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T09:09:30Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/fuel-sensors/omnicom/omnicomm-lls5",
@@ -631,19 +460,10 @@
       "fuel-sensors": "Контроль топлива",
       "omnicom": "Линейка ДУТ Омником"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-20T09:10:33Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/fuel-sensors/uss",
@@ -658,19 +478,10 @@
       "devices": "Оборудование",
       "fuel-sensors": "Контроль топлива"
     },
-    "updated_at": "2026-07-22T03:21:23.609539+00:00",
+    "updated_at": "2026-07-22T03:21:23Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/video/registrators/carvis-registrators",
@@ -687,19 +498,10 @@
       "video": "Видеонаблюдение",
       "registrators": "Видеорегистраторы"
     },
-    "updated_at": "2026-07-21T04:31:50.064123+00:00",
+    "updated_at": "2026-07-17T02:30:18Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/video/cameras/carvis-cameras",
@@ -716,19 +518,10 @@
       "video": "Видеонаблюдение",
       "cameras": "Видеокамеры"
     },
-    "updated_at": "2026-07-21T04:31:50.064123+00:00",
+    "updated_at": "2026-07-17T03:18:11Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/video/accessories/carvis-accessories",
@@ -745,19 +538,10 @@
       "video": "Видеонаблюдение",
       "accessories": "Сопутствующее оборудование"
     },
-    "updated_at": "2026-07-21T04:31:50.064123+00:00",
+    "updated_at": "2026-07-17T03:18:11Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/axle-load/pnevmopodveska",
@@ -772,19 +556,10 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/axle-load/ressornaya-podveska",
@@ -799,19 +574,10 @@
       "devices": "Оборудование",
       "axle-load": "Датчики нагрузки на ось"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-16T17:30:31Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/radios/optim-270",
@@ -826,19 +592,10 @@
       "devices": "Оборудование",
       "radios": "Рации"
     },
-    "updated_at": "2026-07-21T04:31:50.063123+00:00",
+    "updated_at": "2026-07-20T09:15:01Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/additional/tachography/dop-obor-tahograf",
@@ -855,19 +612,10 @@
       "additional": "Дополнительное оборудование",
       "tachography": "Тахография"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-20T09:50:13+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/additional/monitoring/dop-obor-monitoring",
@@ -884,19 +632,10 @@
       "additional": "Дополнительное оборудование",
       "monitoring": "Система мониторинга"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-20T08:45:00Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/additional/uos/uos-bars",
@@ -913,19 +652,10 @@
       "additional": "Дополнительное оборудование",
       "uos": "УОС"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "devices/additional/uos/uos-nk80",
@@ -942,19 +672,10 @@
       "additional": "Дополнительное оборудование",
       "uos": "УОС"
     },
-    "updated_at": "2026-07-21T04:31:50.061123+00:00",
+    "updated_at": "2026-07-20T10:47:39+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "glossary/index",
@@ -967,7 +688,7 @@
     "folder_titles": {
       "glossary": "Глоссарий"
     },
-    "updated_at": "2026-07-22T03:13:59.586706+00:00",
+    "updated_at": "2026-07-22T03:13:59Z",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -981,7 +702,7 @@
       "home"
     ],
     "folder_titles": {},
-    "updated_at": "2026-07-21T04:31:50.065123+00:00",
+    "updated_at": "2026-07-02T19:33:51+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -997,7 +718,7 @@
     "folder_titles": {
       "incidents": "Инциденты"
     },
-    "updated_at": "2026-07-21T04:31:50.065123+00:00",
+    "updated_at": "2026-07-20T23:45:09+07:00",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -1018,19 +739,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:13:16.160013+00:00",
+    "updated_at": "2026-07-21T08:13:16Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/index",
@@ -1047,19 +759,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T04:31:50.065123+00:00",
+    "updated_at": "2026-07-20T07:49:40Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-ot-prodazh",
@@ -1076,19 +779,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:14:43.781074+00:00",
+    "updated_at": "2026-07-21T08:14:43Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-po-ap",
@@ -1105,19 +799,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:11:52.219947+00:00",
+    "updated_at": "2026-07-21T08:11:52Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-proverit-zadolzhennost",
@@ -1134,19 +819,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:15:01.996086+00:00",
+    "updated_at": "2026-07-21T08:15:02Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-sozdat-dogovory-v-1s",
@@ -1163,19 +839,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:12:51.995995+00:00",
+    "updated_at": "2026-07-21T08:12:52Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
@@ -1192,19 +859,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:13:47.011035+00:00",
+    "updated_at": "2026-07-21T08:13:47Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
@@ -1221,19 +879,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:12:26.452975+00:00",
+    "updated_at": "2026-07-21T08:12:26Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zto",
@@ -1250,19 +899,10 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:14:11.931052+00:00",
+    "updated_at": "2026-07-21T08:14:11Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/sales/bitrix/index",
@@ -1279,7 +919,7 @@
       "sales": "Отдел продаж",
       "bitrix": "Процессы Битрикс24"
     },
-    "updated_at": "2026-07-21T04:31:50.065123+00:00",
+    "updated_at": "2026-07-20T11:45:50+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1299,7 +939,7 @@
       "support": "Техническая поддержка",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:18:15.292610+00:00",
+    "updated_at": "2026-07-21T08:18:15Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1319,7 +959,7 @@
       "support": "Техническая поддержка",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-21T08:18:41.934059+00:00",
+    "updated_at": "2026-07-21T08:18:41Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1339,19 +979,10 @@
       "service": "Отдел сервиса",
       "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
     },
-    "updated_at": "2026-07-21T04:31:50.065123+00:00",
+    "updated_at": "2026-07-20T10:09:53Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/protsess-izgotovleniya-kv/karta-estr",
@@ -1368,19 +999,10 @@
       "service": "Отдел сервиса",
       "protsess-izgotovleniya-kv": "Процесс изготовления КВ"
     },
-    "updated_at": "2026-07-21T04:31:50.066123+00:00",
+    "updated_at": "2026-07-20T10:10:18Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-atol",
@@ -1397,19 +1019,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:24:05.981312+00:00",
+    "updated_at": "2026-07-21T08:24:06Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-merkurij",
@@ -1426,19 +1039,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:24:20.173458+00:00",
+    "updated_at": "2026-07-21T08:24:20Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-shtrikh",
@@ -1455,19 +1059,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:24:34.001598+00:00",
+    "updated_at": "2026-07-21T08:24:34Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/ustanovka-datchika-urovnya-topliva-omnicomm-lls",
@@ -1484,19 +1079,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:21:56.068836+00:00",
+    "updated_at": "2026-07-21T08:21:56Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/ustanovka-datchikov-urovnya-topliva-eskort",
@@ -1513,19 +1099,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:22:10.102008+00:00",
+    "updated_at": "2026-07-21T08:22:10Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/ustanovka-takhografa-atol-drive",
@@ -1542,19 +1119,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-21T08:22:53.764523+00:00",
+    "updated_at": "2026-07-21T08:22:53Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "processes/service/service-ops/zamena-bloka-skzi-na-vdo",
@@ -1571,19 +1139,10 @@
       "service": "Отдел сервиса",
       "service-ops": "Сервисные операции"
     },
-    "updated_at": "2026-07-22T04:09:04.231263+00:00",
+    "updated_at": "2026-07-21T08:23:23Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reference/markdown",
@@ -1596,7 +1155,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-21T04:31:50.066123+00:00",
+    "updated_at": "2026-07-20T05:01:44Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1612,7 +1171,7 @@
     "folder_titles": {
       "reference": "Памятки"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T06:50:38Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1630,10 +1189,10 @@
       "reference": "Памятки",
       "otdel-prodazh": "Отдел продаж"
     },
-    "updated_at": "2026-07-22T04:04:07.851591+00:00",
+    "updated_at": "2026-07-22T04:04:07Z",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": false
   },
   {
     "path": "reference/otdel-servisa/kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov",
@@ -1648,7 +1207,7 @@
       "reference": "Памятки",
       "otdel-servisa": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:44:18.298928+00:00",
+    "updated_at": "2026-07-21T04:44:18Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1666,7 +1225,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1684,7 +1243,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1702,7 +1261,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1720,7 +1279,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T12:01:49.681904+00:00",
+    "updated_at": "2026-07-21T19:00:53+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1738,7 +1297,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1756,7 +1315,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1774,7 +1333,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1792,7 +1351,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1810,7 +1369,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1828,7 +1387,7 @@
       "reference": "Памятки",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-13T12:23:29+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -1846,19 +1405,10 @@
       "reglamentation": "Регламенты",
       "common": "Общие"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T10:58:00+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/common/politika-ckp",
@@ -1873,19 +1423,10 @@
       "reglamentation": "Регламенты",
       "common": "Общие"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/aktivizaciya-skzi",
@@ -1900,15 +1441,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T09:30:25Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/attestaciya-mop",
@@ -1923,15 +1459,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/kriterii-veduschiy-mop",
@@ -1946,15 +1477,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/numeraciya-dogovorov",
@@ -1969,15 +1495,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T09:30:43Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/nuzhen-li-tahograf",
@@ -1992,15 +1513,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T06:56:50Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/opisanie-dolzhnosti-mop",
@@ -2015,15 +1531,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/otchet-ap-rop",
@@ -2038,14 +1549,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/otchet-vp-rop",
@@ -2060,14 +1567,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/perenapravlenie-obrashcheniy-v-tp",
@@ -2082,15 +1585,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/pravila-zaklyucheniya-dogovorov",
@@ -2105,16 +1603,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "accounting"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/rabota-s-dz",
@@ -2129,16 +1621,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T10:58:00+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "accounting"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/sroki-blokirovki",
@@ -2153,16 +1639,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "accounting"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/sales/zakrytie-zakaz-naryadov",
@@ -2177,15 +1657,10 @@
       "reglamentation": "Регламенты",
       "sales": "Отдел продаж"
     },
-    "updated_at": "2026-07-21T04:31:50.068123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/avariyniy-zapas-ustanovshchika",
@@ -2200,19 +1675,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T10:23:34.114180+00:00",
+    "updated_at": "2026-07-21T10:23:34Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/fotofiksaciya-rabot",
@@ -2227,16 +1693,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/kategorii-ustanovshchikov",
@@ -2251,15 +1711,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/kompensacii-montazhnikov",
@@ -2274,15 +1729,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/kv-manufacturing",
@@ -2297,17 +1747,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/nadbavka-montazhnye-raboty",
@@ -2322,16 +1765,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "accounting",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/nastroyka-navtelecom-dut",
@@ -2346,16 +1783,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/nastroyka-videonablyudeniya",
@@ -2370,16 +1801,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/opisanie-dolzhnosti-armp",
@@ -2394,15 +1819,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/opisanie-dolzhnosti-logist",
@@ -2417,15 +1837,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/opisanie-dolzhnosti-montazhnika",
@@ -2440,15 +1855,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/opisanie-dolzhnosti-ro4",
@@ -2463,14 +1873,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/opisanie-dolzhnosti-servisniy-inzhener",
@@ -2485,15 +1891,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/stavki-oplaty-montazhnikov",
@@ -2508,15 +1909,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/vedenie-raspisaniya",
@@ -2531,16 +1927,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.069123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/service/zapolnenie-zakaz-naryadov",
@@ -2555,16 +1945,10 @@
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "sales",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/add-car-reglament",
@@ -2579,15 +1963,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-16T11:54:15+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/add-object-axenta",
@@ -2602,15 +1981,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-16T11:55:16+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/forma-zayavki-tp",
@@ -2625,15 +1999,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/opisanie-dolzhnosti-tp",
@@ -2648,15 +2017,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/reglament-zayavok-tp",
@@ -2671,18 +2035,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T09:54:35Z",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "office-manager",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/retranslyaciya-dannyh",
@@ -2697,17 +2053,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/support/tahograf-princip-raboty",
@@ -2722,17 +2071,10 @@
       "reglamentation": "Регламенты",
       "support": "Техническая поддержка"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "service"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/hr/forma-zayavki-personal",
@@ -2747,15 +2089,10 @@
       "reglamentation": "Регламенты",
       "hr": "HR-менеджер"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "accounting"
-    ]
+    "isCounting": true
   },
   {
     "path": "reglamentation/hr/formy-shablony-hr",
@@ -2770,7 +2107,7 @@
       "reglamentation": "Регламенты",
       "hr": "HR-менеджер"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T04:39:04Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2788,7 +2125,7 @@
       "reglamentation": "Регламенты",
       "hr": "HR-менеджер"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2806,7 +2143,7 @@
       "reglamentation": "Регламенты",
       "hr": "HR-менеджер"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2824,7 +2161,7 @@
       "reglamentation": "Регламенты",
       "hr": "HR-менеджер"
     },
-    "updated_at": "2026-07-21T04:31:50.067123+00:00",
+    "updated_at": "2026-07-20T11:30:35+07:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2840,7 +2177,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-21T13:04:36.729776+00:00",
+    "updated_at": "2026-07-21T13:04:36Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2856,7 +2193,7 @@
     "folder_titles": {
       "software": "Сервисы"
     },
-    "updated_at": "2026-07-21T04:31:50.070123+00:00",
+    "updated_at": "2026-07-20T09:21:16Z",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -2871,16 +2208,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -2920,16 +2248,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -2983,16 +2302,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3032,16 +2342,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3095,16 +2396,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3116,16 +2408,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3137,16 +2420,7 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3209,16 +2483,7 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3232,16 +2497,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "sales": "Отдел продаж"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3255,16 +2511,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "sales": "Отдел продаж"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3278,12 +2525,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "sales": "Отдел продаж"
-    },
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3295,39 +2537,7 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
-  },
-  {
-    "_folder": true,
-    "path": "processes/support/1c",
-    "title": "Процессы 1С",
-    "parts": [
-      "processes",
-      "support",
-      "1c"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "support": "Техническая поддержка"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3341,16 +2551,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "support": "Техническая поддержка"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3362,16 +2563,7 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3385,16 +2577,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3408,62 +2591,7 @@
     "folder_titles": {
       "processes": "Процессы",
       "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
-  },
-  {
-    "_folder": true,
-    "path": "processes/service/protsess-izgotovleniya-kv",
-    "title": "Процесс изготовления КВ",
-    "parts": [
-      "processes",
-      "service",
-      "protsess-izgotovleniya-kv"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
-  },
-  {
-    "_folder": true,
-    "path": "processes/service/service-ops",
-    "title": "Сервисные операции",
-    "parts": [
-      "processes",
-      "service",
-      "service-ops"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3484,16 +2612,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3505,16 +2624,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3526,16 +2636,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3547,16 +2648,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3568,16 +2660,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3589,16 +2672,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3610,16 +2684,7 @@
     ],
     "folder_titles": {
       "products": "Продукты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3631,12 +2696,7 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    },
-    "roles": [
-      "director",
-      "head",
-      "sales"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3648,12 +2708,7 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    },
-    "roles": [
-      "director",
-      "head",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3665,12 +2720,7 @@
     ],
     "folder_titles": {
       "reference": "Памятки"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3682,16 +2732,7 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3703,16 +2744,7 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3724,16 +2756,7 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3747,16 +2770,7 @@
     "folder_titles": {
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3770,13 +2784,7 @@
     "folder_titles": {
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3788,16 +2796,7 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   },
   {
     "_folder": true,
@@ -3809,15 +2808,6 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    },
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
+    }
   }
 ]
