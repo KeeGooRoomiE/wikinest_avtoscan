@@ -971,7 +971,6 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "termCount": 189,
     "roles": [
       "director",
       "head",
@@ -980,7 +979,8 @@
       "accounting",
       "office-manager",
       "service"
-    ]
+    ],
+    "termCount": 189
   },
   {
     "path": "home",
@@ -1658,7 +1658,7 @@
       "reference": "Памятки",
       "otdel-prodazh": "Отдел продаж"
     },
-    "updated_at": "2026-07-22T04:55:10.937556+00:00",
+    "updated_at": "2026-07-22T04:56:10.163922+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
