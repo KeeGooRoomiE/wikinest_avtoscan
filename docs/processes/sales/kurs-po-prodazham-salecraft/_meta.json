@@ -1,3 +1,8 @@
 {
-  "title": "Курс по продажам Salecraft"
+  "title": "Курс по продажам Salecraft",
+  "roles": [
+    "director",
+    "head",
+    "sales"
+  ]
 }

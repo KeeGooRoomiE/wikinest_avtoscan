@@ -2948,7 +2948,12 @@
     "folder_titles": {
       "processes": "Процессы",
       "sales": "Отдел продаж"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "sales"
+    ]
   },
   {
     "_folder": true,
