@@ -1647,8 +1647,8 @@
   },
   {
     "path": "reference/otdel-prodazh/pamyatki-i-shablony-po-gorodam",
-    "title": "Pamyatki i shablony po gorodam",
-    "excerpt": "**Памятки и шаблоны сообщений клиентам**",
+    "title": "Памятки и шаблоны сообщений клиентам",
+    "excerpt": "",
     "parts": [
       "reference",
       "otdel-prodazh",
@@ -1658,7 +1658,7 @@
       "reference": "Памятки",
       "otdel-prodazh": "Отдел продаж"
     },
-    "updated_at": "2026-07-22T04:56:10.163922+00:00",
+    "updated_at": "2026-07-22T04:56:52.671181+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
