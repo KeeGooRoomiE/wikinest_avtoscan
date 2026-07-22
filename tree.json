@@ -625,7 +625,16 @@
     "updated_at": "2026-07-22T03:21:23.609539+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/video/registrators/carvis-registrators",
