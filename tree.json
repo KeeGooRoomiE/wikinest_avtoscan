@@ -3723,7 +3723,13 @@
     "folder_titles": {
       "reglamentation": "Регламенты",
       "service": "Отдел сервиса"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "service"
+    ]
   },
   {
     "_folder": true,

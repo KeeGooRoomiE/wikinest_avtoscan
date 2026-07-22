@@ -1,1 +1,9 @@
-{"title": "Сервисные операции"}
+{
+  "title": "Сервисные операции",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "service"
+  ]
+}
