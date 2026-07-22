@@ -764,7 +764,7 @@
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
-    "title": "Как создать заказ клиента",
+    "title": "2. Как создать заказ клиента",
     "excerpt": "",
     "parts": [
       "processes",
@@ -777,7 +777,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-22T10:19:30.898931+00:00",
+    "updated_at": "2026-07-22T11:00:50.347157+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
