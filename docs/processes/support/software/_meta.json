@@ -1,1 +1,12 @@
-{"title": "Процессы ПО"}
+{
+  "title": "Процессы ПО",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}

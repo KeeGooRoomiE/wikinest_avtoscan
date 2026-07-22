@@ -3006,7 +3006,16 @@
     "folder_titles": {
       "processes": "Процессы",
       "support": "Техническая поддержка"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
