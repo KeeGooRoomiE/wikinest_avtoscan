@@ -1,1 +1,12 @@
-{"title": "Контроль топлива"}
+{
+  "title": "Контроль топлива",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
