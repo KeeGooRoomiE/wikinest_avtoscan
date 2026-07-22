@@ -37,7 +37,6 @@ isCounting: true
 <br>
 Меня зовут <strong>[имя менеджера]</strong>, компания
 <strong>«Автоскан»</strong>.
-<br>
 <br><strong>Телефон менеджера:</strong> [номер телефона]
 <br><strong>E-mail:</strong> [e-mail менеджера]
 <br>Тахографы, карты водителя, GPS/ГЛОНАСС-мониторинг, системы
