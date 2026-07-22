@@ -1,1 +1,12 @@
-{"title": "Процессы Битрикс24"}
+{
+  "title": "Процессы Битрикс24",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
