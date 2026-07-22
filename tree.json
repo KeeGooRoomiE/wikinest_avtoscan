@@ -1574,7 +1574,16 @@
     "updated_at": "2026-07-22T04:09:04.231263+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "reference/markdown",
