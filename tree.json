@@ -1021,7 +1021,16 @@
     "updated_at": "2026-07-21T08:13:16.160013+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/index",
