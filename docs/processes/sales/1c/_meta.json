@@ -8,5 +8,16 @@
     "accounting",
     "office-manager",
     "service"
+  ],
+  "pages": [
+    "index",
+    "kak-sozdat-zakaz-klienta",
+    "kak-sozdat-dogovory-v-1s",
+    "kak-sozdat-zayavku-na-tp",
+    "kak-sozdat-zto",
+    "dlya-chego-nuzhny-soglasheniya",
+    "kak-proverit-postuplenie-oplat-ot-prodazh",
+    "kak-proverit-postuplenie-oplat-po-ap",
+    "kak-proverit-zadolzhennost"
   ]
 }

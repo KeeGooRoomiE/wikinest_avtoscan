@@ -743,26 +743,6 @@
     "incidentCount": 24
   },
   {
-    "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
-    "title": "Для чего нужны соглашения",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "1c",
-      "dlya-chego-nuzhny-soglasheniya"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-22T10:07:34.378648+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "processes/sales/1c/index",
     "title": "Как создать клиента в 1С",
     "excerpt": "",
@@ -778,6 +758,106 @@
       "1c": "Процессы 1С"
     },
     "updated_at": "2026-07-22T10:09:53.875244+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
+    "title": "Как создать заказ клиента",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zakaz-klienta"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-22T10:19:30.898931+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/1c/kak-sozdat-dogovory-v-1s",
+    "title": "Как создать договоры в 1С",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-dogovory-v-1s"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-22T10:16:52.194168+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
+    "title": "Как создать заявку на ТП",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zayavku-na-tp"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-22T10:20:13.614138+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/1c/kak-sozdat-zto",
+    "title": "Как создать ЗТО",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "kak-sozdat-zto"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-22T10:22:42.081865+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
+    "title": "Для чего нужны соглашения",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "1c",
+      "dlya-chego-nuzhny-soglasheniya"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "1c": "Процессы 1С"
+    },
+    "updated_at": "2026-07-22T10:07:34.378648+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -838,86 +918,6 @@
       "1c": "Процессы 1С"
     },
     "updated_at": "2026-07-22T10:14:25.340475+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/sales/1c/kak-sozdat-dogovory-v-1s",
-    "title": "Как создать договоры в 1С",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "1c",
-      "kak-sozdat-dogovory-v-1s"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-22T10:16:52.194168+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
-    "title": "Как создать заказ клиента",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "1c",
-      "kak-sozdat-zakaz-klienta"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-22T10:19:30.898931+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
-    "title": "Как создать заявку на ТП",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "1c",
-      "kak-sozdat-zayavku-na-tp"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-22T10:20:13.614138+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
-    "path": "processes/sales/1c/kak-sozdat-zto",
-    "title": "Как создать ЗТО",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "1c",
-      "kak-sozdat-zto"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "1c": "Процессы 1С"
-    },
-    "updated_at": "2026-07-22T10:22:42.081865+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
