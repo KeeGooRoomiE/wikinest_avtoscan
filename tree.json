@@ -2450,7 +2450,16 @@
     ],
     "folder_titles": {
       "devices": "Оборудование"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
