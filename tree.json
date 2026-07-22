@@ -744,7 +744,11 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 24
+    "incidentCount": 24,
+    "editors": [
+      "director",
+      "head"
+    ]
   },
   {
     "path": "processes/sales/1c/index",
