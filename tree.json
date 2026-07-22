@@ -3141,6 +3141,29 @@
   },
   {
     "_folder": true,
+    "path": "processes/service/service-ops",
+    "title": "Сервисные операции",
+    "parts": [
+      "processes",
+      "service",
+      "service-ops"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "service": "Отдел сервиса"
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
+  },
+  {
+    "_folder": true,
     "path": "products",
     "title": "Продукты",
     "parts": [
