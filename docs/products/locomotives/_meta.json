@@ -1,1 +1,12 @@
-{"title": "Кейс: оснащение тепловозов"}
+{
+  "title": "Кейс: оснащение тепловозов",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
