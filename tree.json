@@ -1108,7 +1108,16 @@
     "updated_at": "2026-07-21T08:11:52.219947+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/kak-proverit-zadolzhennost",
