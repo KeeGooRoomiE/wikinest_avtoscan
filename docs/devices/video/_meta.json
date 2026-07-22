@@ -1,1 +1,17 @@
-{"title": "Видеонаблюдение", "pages": ["registrators", "cameras", "accessories"]}
+{
+  "title": "Видеонаблюдение",
+  "pages": [
+    "registrators",
+    "cameras",
+    "accessories"
+  ],
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
