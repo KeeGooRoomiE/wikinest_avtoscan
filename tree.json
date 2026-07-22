@@ -1001,7 +1001,6 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 24,
     "roles": [
       "director",
       "head",
@@ -1010,7 +1009,8 @@
       "accounting",
       "office-manager",
       "service"
-    ]
+    ],
+    "incidentCount": 24
   },
   {
     "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
@@ -1639,7 +1639,7 @@
   {
     "path": "reference/otdel-prodazh/pamyatki-i-shablony-po-gorodam",
     "title": "Pamyatki i shablony po gorodam",
-    "excerpt": "Памятки и шаблоны сообщений клиентам",
+    "excerpt": "**Памятки и шаблоны сообщений клиентам**",
     "parts": [
       "reference",
       "otdel-prodazh",
@@ -1649,7 +1649,7 @@
       "reference": "Памятки",
       "otdel-prodazh": "Отдел продаж"
     },
-    "updated_at": "2026-07-22T04:04:07.851591+00:00",
+    "updated_at": "2026-07-22T04:55:10.937556+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
