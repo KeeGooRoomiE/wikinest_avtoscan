@@ -710,7 +710,11 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "termCount": 189
+    "termCount": 189,
+    "editors": [
+      "director",
+      "head"
+    ]
   },
   {
     "path": "home",
