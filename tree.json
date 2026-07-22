@@ -3551,7 +3551,16 @@
     ],
     "folder_titles": {
       "reglamentation": "Регламенты"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
