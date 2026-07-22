@@ -3105,7 +3105,16 @@
     "folder_titles": {
       "processes": "Процессы",
       "service": "Отдел сервиса"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
