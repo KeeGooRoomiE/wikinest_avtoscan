@@ -1,1 +1,12 @@
-{ "title": "Отдел продаж" }
+{
+  "title": "Отдел продаж",
+  "roles": [
+    "director",
+    "head",
+    "support",
+    "sales",
+    "accounting",
+    "office-manager",
+    "service"
+  ]
+}
