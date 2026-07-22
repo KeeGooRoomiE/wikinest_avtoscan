@@ -28,8 +28,9 @@ isCounting: true
 <tr class="odd">
 <td colspan="3"><strong>Общие сообщения</strong></td>
 </tr>
+
+##  Визитка менеджера
 <tr class="even">
-<td colspan="3"><strong>1. Визитка менеджера</strong></td>
 </tr>
 <tr class="odd">
 <td>
