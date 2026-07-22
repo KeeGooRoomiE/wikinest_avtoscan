@@ -845,7 +845,28 @@ function openFavoritesView(){
     const div=document.createElement('div');
     div.className='recent-item';
     div.innerHTML=`<span class="recent-item-title">${escHtml(p.title)}</span>`;
-    div.onclick=()=>{closeModal();openPage(p);};
+    // sessionFavorites only stores {path,title} — openPage() needs the full
+    // tree entry (parts/folder_titles for the breadcrumb), otherwise it
+    // throws on page.parts.map() before ever fetching the content, which
+    // looked like "just highlights the tree row, never opens the page".
+    div.onclick=()=>{
+      closeModal();
+      const full=tree.find(t=>t.path===p.path);
+      if(full) openPage(full); else toast('Страница не найдена в дереве',true);
+    };
+    const removeBtn=document.createElement('button');
+    removeBtn.className='recent-item-remove';
+    removeBtn.title='Убрать из избранного';
+    removeBtn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    removeBtn.onclick=e=>{
+      e.stopPropagation();
+      const idx=sessionFavorites.findIndex(f=>f.path===p.path);
+      if(idx>=0) sessionFavorites.splice(idx,1);
+      updateFavBtn();
+      div.remove();
+      if(!sessionFavorites.length) closeModal();
+    };
+    div.appendChild(removeBtn);
     $('modal-body').appendChild(div);
   });
   $('modal-actions').innerHTML='';
@@ -863,7 +884,11 @@ function openRecentView(){
     const div=document.createElement('div');
     div.className='recent-item';
     div.innerHTML=`<span class="recent-item-title">${escHtml(p.title)}</span>`;
-    div.onclick=()=>{closeModal();openPage(p);};
+    div.onclick=()=>{
+      closeModal();
+      const full=tree.find(t=>t.path===p.path);
+      if(full) openPage(full); else toast('Страница не найдена в дереве',true);
+    };
     $('modal-body').appendChild(div);
   });
   $('modal-actions').innerHTML='';

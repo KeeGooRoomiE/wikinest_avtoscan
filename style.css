@@ -816,6 +816,26 @@ span.wiki-link.broken {
   text-overflow: ellipsis;
 }
 
+.recent-item-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+}
+
+.recent-item-remove:hover {
+  background: var(--bg3);
+  color: var(--text);
+}
+
 .recent-item-date {
   color: var(--text3);
   font-size: 11px;
