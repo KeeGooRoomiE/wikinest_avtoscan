@@ -3059,7 +3059,16 @@
     ],
     "folder_titles": {
       "processes": "Процессы"
-    }
+    },
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "_folder": true,
