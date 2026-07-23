@@ -2383,7 +2383,16 @@
     "updated_at": "2026-07-21T04:31:50.068123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "reglamentation/sales/pravila-zaklyucheniya-dogovorov",
