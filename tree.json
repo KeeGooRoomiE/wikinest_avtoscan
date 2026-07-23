@@ -1424,6 +1424,26 @@
     ]
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-2-ustanovlenie-kontakta",
+    "title": "Модуль 2. Установление контакта",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-2-ustanovlenie-kontakta"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-23T16:56:23.932977+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
