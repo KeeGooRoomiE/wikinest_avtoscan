@@ -60,12 +60,12 @@ isCounting: true
 ---
 ## Внешние ссылки
 
-[Аксента][nav_axenta] 
+[Axenta][nav_axenta] | [CMS Axenta](https://cms.axenta.cloud/main/accounts) 
 
 Демо доступ:
 ` логин: demo_avtoscan, пароль: demo_avtoscan`
 
-[ГлонассСофт][nav_glonass] 
+[ГлонассSoft](https://avtoscanonline.ru/login) 
 
 [Виалон][nav_wialon] | [CMS Виалон][nav_cms_wialon] 
 
@@ -75,7 +75,6 @@ isCounting: true
 
 [Krasterisk*][krasterisk] - сервис обслуживания IP-телефонии
 
-[
 
 
 ---
