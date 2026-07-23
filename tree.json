@@ -1586,7 +1586,16 @@
     "updated_at": "2026-07-23T17:45:58.959650+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
