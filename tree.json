@@ -436,7 +436,16 @@
     "updated_at": "2026-07-23T04:03:47.982646+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-4752",
