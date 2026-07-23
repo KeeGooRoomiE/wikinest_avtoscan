@@ -912,7 +912,7 @@
   },
   {
     "path": "processes/sales/1c/kak-proverit-zadolzhennost",
-    "title": "Как проверить задолженность",
+    "title": "9. Как проверить задолженность",
     "excerpt": "",
     "parts": [
       "processes",
@@ -925,7 +925,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-22T10:14:25.340475+00:00",
+    "updated_at": "2026-07-23T04:29:16.924941+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
