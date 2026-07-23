@@ -407,7 +407,16 @@
     "updated_at": "2026-07-23T04:03:18.199517+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2653",
