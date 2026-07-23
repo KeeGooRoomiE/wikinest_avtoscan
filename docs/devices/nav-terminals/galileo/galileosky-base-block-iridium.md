@@ -111,4 +111,4 @@ Driving, Modbus, автоинформатор и голосовую связь. 
 
 **Документация**
 
-📥 [Паспорт изделия](/docs/assets/1784783809734-_______.pdf)
+📥 [Паспорт Galileosky Base Block Iridium](/docs/assets/1784783809734-_______.pdf)
