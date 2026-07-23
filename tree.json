@@ -226,7 +226,16 @@
     "updated_at": "2026-07-22T08:22:32.994052+00:00",
     "tags": [],
     "author": "",
-    "isCounting": false
+    "isCounting": false,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/nav-terminals/navtelecom/navtelecom-s-2423",
