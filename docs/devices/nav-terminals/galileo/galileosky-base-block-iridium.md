@@ -128,3 +128,5 @@ Block</u>**](https://base.galileosky.com/articles/) — разделы по
 • [**<u>Конфигуратор
 Galileosky</u>**](https://galileosky.ru/configurator/) — настройка,
 диагностика и обновление прошивки.
+
+[**Паспорт изделия**](/docs/assets/1784783809734-_______.pdf)
