@@ -668,7 +668,16 @@
     "updated_at": "2026-07-23T04:06:07.299247+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/fuel-sensors/omnicom/omnicomm-lls4",
