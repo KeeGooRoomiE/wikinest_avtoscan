@@ -1799,7 +1799,16 @@
     "updated_at": "2026-07-22T05:57:13.287225+00:00",
     "tags": [],
     "author": "",
-    "isCounting": false
+    "isCounting": false,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "reference/otdel-servisa/kody-oshibok-i-kontakty-tp-osnovnykh-postavshchikov",
