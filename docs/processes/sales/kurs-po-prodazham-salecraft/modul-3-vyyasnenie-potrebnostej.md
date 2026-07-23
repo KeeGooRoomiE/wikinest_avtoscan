@@ -7,3 +7,7 @@ isCounting: true
 ## Личная встреча. Выявление потребностей.
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784827398804-m2v4.mp4"></video>
+
+## Техника задавания вопросов
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784827658936-m3v2.mp4"></video>
