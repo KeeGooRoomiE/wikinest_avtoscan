@@ -11,3 +11,8 @@ isCounting: true
 ## Техника задавания вопросов
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784827658936-m3v2.mp4"></video>
+
+## Техника активного слушания
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784827700866-m3v3.mp4"></video>
+
