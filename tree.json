@@ -852,7 +852,7 @@
   },
   {
     "path": "processes/sales/1c/dlya-chego-nuzhny-soglasheniya",
-    "title": "Для чего нужны соглашения",
+    "title": "4. Для чего нужны соглашения",
     "excerpt": "",
     "parts": [
       "processes",
@@ -865,7 +865,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-22T10:07:34.378648+00:00",
+    "updated_at": "2026-07-23T04:27:38.927845+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
