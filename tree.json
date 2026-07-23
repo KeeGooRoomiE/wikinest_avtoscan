@@ -35,7 +35,7 @@
     "folder_titles": {
       "company": "Компания"
     },
-    "updated_at": "2026-07-02T19:33:51+07:00",
+    "updated_at": "2026-07-23T07:05:56Z",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -47,6 +47,9 @@
       "accounting",
       "office-manager",
       "service"
+    ],
+    "editors": [
+      "office-manager"
     ]
   },
   {
@@ -607,7 +610,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-23T05:19:33.014832+00:00",
+    "updated_at": "2026-07-23T05:19:33Z",
     "tags": [],
     "author": "",
     "isCounting": true,
@@ -1063,11 +1066,6 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "editors": [
-      "director",
-      "head"
-    ],
-    "termCount": 190,
     "roles": [
       "director",
       "head",
@@ -1076,7 +1074,12 @@
       "accounting",
       "office-manager",
       "service"
-    ]
+    ],
+    "editors": [
+      "director",
+      "head"
+    ],
+    "termCount": 190
   },
   {
     "path": "home",
@@ -1115,11 +1118,6 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "editors": [
-      "director",
-      "head"
-    ],
-    "incidentCount": 24,
     "roles": [
       "director",
       "head",
@@ -1128,7 +1126,12 @@
       "accounting",
       "office-manager",
       "service"
-    ]
+    ],
+    "editors": [
+      "director",
+      "head"
+    ],
+    "incidentCount": 24
   },
   {
     "path": "processes/sales/1c/index",
