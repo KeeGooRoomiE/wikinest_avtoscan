@@ -58,11 +58,16 @@ app.config.update(
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE='Strict',
     SESSION_COOKIE_SECURE=COOKIE_SECURE,
-    # Stay under GitHub's hard 100MB per-file push limit — better to reject an
-    # oversized upload here, immediately, than have it commit fine locally and
-    # only surface as a broken nightly backup push days later.
-    MAX_CONTENT_LENGTH=95 * 1024 * 1024,
+    # Global ceiling covers every request body, including video (gitignored,
+    # never pushed — see upload_file, which enforces the tighter git-safe
+    # cap below for the file types that DO reach GitHub). 500MB is just a
+    # sanity bound against accidental/abusive uploads, not a git constraint.
+    MAX_CONTENT_LENGTH=500 * 1024 * 1024,
 )
+# GitHub's hard per-file push limit is 100MB — images/pdf/docx go through
+# git (unlike video), so reject those before they'd commit fine locally
+# and only surface as a broken nightly backup push days later.
+GIT_SAFE_UPLOAD_LIMIT = 95 * 1024 * 1024
 # Caddy sits in front — trust its X-Forwarded-* so rate limiting and any
 # logging see the real client IP, not Caddy's container IP.
 app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
@@ -525,6 +530,14 @@ def upload_file():
 
     with write_lock:
         request.files['file'].save(full)
+
+        if not is_video and os.path.getsize(full) > GIT_SAFE_UPLOAD_LIMIT:
+            os.remove(full)
+            raise ApiError(
+                f'file too large ({GIT_SAFE_UPLOAD_LIMIT // (1024*1024)}MB max) — '
+                'this file type is tracked in git and must fit GitHub\'s per-file push limit',
+                413,
+            )
 
         if ext in _VIDEO_TRANSCODE_EXTS:
             mp4_rel_path = rel_path[:-len(ext)] + '.mp4'

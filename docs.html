@@ -527,7 +527,12 @@ async function apiUploadFile(path,message,file){
   fd.append('file',file);
   const r=await fetch('/api/write/upload',{method:'POST',body:fd,credentials:'same-origin'});
   if(!r.ok){
-    let msg=r.statusText;
+    // r.statusText is often empty over HTTP/2 (no reason phrase at the
+    // protocol level), so a non-JSON error body (e.g. Werkzeug's plain
+    // 413 page when MAX_CONTENT_LENGTH is hit) used to surface as a
+    // completely blank "Upload failed: " toast — fall back to the status
+    // code so there's always something to read.
+    let msg=r.statusText||`HTTP ${r.status}`;
     try{const e=await r.json();msg=e.error||msg;}catch{}
     throw new Error(msg);
   }
