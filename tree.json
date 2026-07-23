@@ -1264,7 +1264,16 @@
     "updated_at": "2026-07-23T04:28:04.659866+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zto",
