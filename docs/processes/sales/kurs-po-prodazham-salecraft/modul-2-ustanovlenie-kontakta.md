@@ -15,3 +15,7 @@ isCounting: true
 ## Метод Сократа
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784826301884-m2v3.mp4"></video>
+
+## Холодный звонок. Выход на ЛПР
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784827263365-m2v4.mp4"></video>
