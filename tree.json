@@ -1322,7 +1322,16 @@
     "updated_at": "2026-07-23T04:29:01.019922+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/kak-proverit-postuplenie-oplat-po-ap",
