@@ -65,7 +65,7 @@ isCounting: true
 Демо доступ:
 ` логин: demo_avtoscan, пароль: demo_avtoscan`
 
-[ГлонассСофт](https://avtoscanonline.ru/login) 
+[ГлонассSoft](https://avtoscanonline.ru/login) 
 
 [Виалон][nav_wialon] | [CMS Виалон][nav_cms_wialon] 
 
