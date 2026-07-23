@@ -14,3 +14,5 @@ roles: [director,head,sales]
 
 ## Этапы продаж. Структура.
 
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784825672031-m1v3.mp4"></video>
