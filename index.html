@@ -1765,13 +1765,19 @@ function cancelEdit(){
   $('view-wrap').style.display=currentPath?'block':'none';
   const _ce=canEdit()&&!!currentPath;
   const _curRel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
+  const _curPage=_curRel?tree.find(p=>p.path===_curRel):null;
+  const _e=canEditPage(_curPage)&&!!currentPath;
   // startEdit() disables btn-edit while its fetch is in flight and only
   // re-enables it on error — on the success path nothing ever did, so after
   // one successful edit the button stayed permanently unclickable. cancelEdit()
   // runs on every exit from edit mode (including after a successful save) and
   // on every openPage(), so resetting it here covers every case.
+  // btn-edit/btn-history use per-page canEditPage() (same as openPage()) —
+  // a role listed only in this page's editors[] (not globally can_edit)
+  // must still see them; using the coarser _ce here hid Edit entirely for
+  // such roles right after openPage() had just correctly shown it.
   $('btn-edit').disabled=false;
-  $('btn-edit').style.display=_ce?'flex':'none';
+  $('btn-edit').style.display=_e?'flex':'none';
   $('btn-visibility').style.display=_ce?'flex':'none';
   $('btn-editors').style.display=_ce?'flex':'none';
   $('btn-fav').style.display=currentPath?'flex':'none';
@@ -1779,7 +1785,7 @@ function cancelEdit(){
   $('btn-print').style.display=currentPath?'flex':'none';
   $('btn-delete').style.display=_ce?'flex':'none';
   $('btn-rename').style.display=_ce?'flex':'none';
-  $('btn-history').style.display=_ce?'flex':'none';
+  $('btn-history').style.display=_e?'flex':'none';
   $('btn-append').style.display=(FULL_ACCESS_ROLES.includes(currentRole?.slug)&&_curRel&&['glossary/index','incidents/index'].includes(_curRel))?'flex':'none';
   buildToc();
 }
