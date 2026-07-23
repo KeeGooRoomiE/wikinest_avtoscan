@@ -1511,6 +1511,26 @@
     ]
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-5-glubokoe-tipirovanie-klientov",
+    "title": "Модуль 5. Глубокое типирование клиентов",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-5-glubokoe-tipirovanie-klientov"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-23T17:36:26.097802+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
