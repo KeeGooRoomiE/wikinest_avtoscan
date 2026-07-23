@@ -421,7 +421,16 @@
     "updated_at": "2026-07-23T05:19:33.014832+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/fuel-sensors/escort/dut-eskort-td-150",
