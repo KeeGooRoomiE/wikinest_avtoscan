@@ -1699,7 +1699,16 @@
     "updated_at": "2026-07-21T08:22:53.764523+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/service/service-ops/zamena-bloka-skzi-na-vdo",
