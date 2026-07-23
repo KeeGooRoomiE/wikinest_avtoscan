@@ -121,7 +121,16 @@
     "updated_at": "2026-07-23T03:23:41.824513+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/tachographs/nrd/drive-smart",
