@@ -6,7 +6,7 @@ isCounting: true
 
 **Galileosky Base Block Iridium**
 
-| <img src="/tmp/tmpqk8kd37o/media/image1.png"  
+| <img src="/tmp/tmpqk8kd37o/media/image1.png"<img src="/docs/assets/1784783720572-123.jpg" alt="123.jpg" style="max-width:400px;height:auto">  >
 
 
 **Galileosky Base Block Iridium** — спутниковый навигационный
