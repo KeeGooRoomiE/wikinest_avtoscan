@@ -384,26 +384,6 @@
     "isCounting": true
   },
   {
-    "path": "devices/nav-terminals/galileo/galileosky-base-block-iridium",
-    "title": "Galileosky Base Block Iridium",
-    "excerpt": "",
-    "parts": [
-      "devices",
-      "nav-terminals",
-      "galileo",
-      "galileosky-base-block-iridium"
-    ],
-    "folder_titles": {
-      "devices": "Оборудование",
-      "nav-terminals": "Навигационные терминалы",
-      "galileo": "Линейка Галилео"
-    },
-    "updated_at": "2026-07-23T05:14:13.612792+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true
-  },
-  {
     "path": "devices/nav-terminals/galileo/galileosky-base-block-lite",
     "title": "Galileosky Base Block Lite",
     "excerpt": "",
@@ -419,6 +399,26 @@
       "galileo": "Линейка Галилео"
     },
     "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
+    "path": "devices/nav-terminals/galileo/galileosky-base-block-iridium",
+    "title": "Galileosky Base Block Iridium",
+    "excerpt": "",
+    "parts": [
+      "devices",
+      "nav-terminals",
+      "galileo",
+      "galileosky-base-block-iridium"
+    ],
+    "folder_titles": {
+      "devices": "Оборудование",
+      "nav-terminals": "Навигационные терминалы",
+      "galileo": "Линейка Галилео"
+    },
+    "updated_at": "2026-07-23T05:14:13.612792+00:00",
     "tags": [],
     "author": "",
     "isCounting": true

@@ -1,1 +1,10 @@
-{"title": "Линейка Галилео"}
+{
+  "title": "Линейка Галилео",
+  "pages": [
+    "galileosky-10",
+    "galileosky-10-asn",
+    "galileosky-7x",
+    "galileosky-base-block-lite",
+    "galileosky-base-block-iridium"
+  ]
+}
