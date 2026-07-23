@@ -1569,6 +1569,26 @@
     ]
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-7-rabota-s-vozrazheniyami",
+    "title": "Модуль 7. Работа с возражениями",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-7-rabota-s-vozrazheniyami"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-23T17:45:55.785639+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
