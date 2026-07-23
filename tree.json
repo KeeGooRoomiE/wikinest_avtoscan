@@ -1583,7 +1583,16 @@
     "updated_at": "2026-07-21T08:24:20.173458+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-shtrikh",
