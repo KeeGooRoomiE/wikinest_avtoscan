@@ -792,7 +792,7 @@
   },
   {
     "path": "processes/sales/1c/kak-sozdat-dogovory-v-1s",
-    "title": "Как создать договоры в 1С",
+    "title": "3. Как создать договоры в 1С",
     "excerpt": "",
     "parts": [
       "processes",
@@ -805,7 +805,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-22T10:16:52.194168+00:00",
+    "updated_at": "2026-07-23T04:27:16.399828+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
