@@ -52,7 +52,10 @@ isCounting: true
 
 **База знаний:** [Основная ссылка][wikinest_cname] | [Резервная ссылка][wikinest_git_link] | [Репозиторий][wikinest_git] 
 
-[Waddle][waddle_monitoring] - мониторинг сервисов
+
+[Waddle][waddle_monitoring] | [Grafana][grafana]  - мониторинг сервисов
+
+Доступ Grafana:` логин: user, пароль: longpass123`
 
 ---
 ## Внешние ссылки
@@ -71,6 +74,8 @@ isCounting: true
 [Torgbox](https://torgbox.ru/contragents/search)
 
 [Krasterisk*][krasterisk] - сервис обслуживания IP-телефонии
+
+[
 
 
 ---
@@ -103,6 +108,7 @@ isCounting: true
 
 [accounts_git]:https://account.avtoscan42.ru
 [waddle_monitoring]: https://avtoscan.github.io/waddle/
+[grafana]:http://192.168.1.65:3000/d/NEzutrbMk/osnovnoj-monitoring?orgId=1&from=now-6h&to=now&timezone=browser&var-job=$__all&var-instance=$__all&refresh=5s
 [wikinest_git]:https://github.com/KeeGooRoomiE/wikinest_avtoscan
 [wikinest_git_link]:https://keegooroomie.github.io/wikinest_avtoscan/
 [wikinest_cname]:http://base.avtoscan42.ru
