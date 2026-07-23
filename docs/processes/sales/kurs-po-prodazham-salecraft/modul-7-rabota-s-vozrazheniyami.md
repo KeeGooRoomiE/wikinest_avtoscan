@@ -11,3 +11,7 @@ isCounting: true
 ## Природа возражений
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784828843810-m7v1.mp4"></video>
+
+## Обработка ложных возражений
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784828972167-m7v2.mp4"></video>
