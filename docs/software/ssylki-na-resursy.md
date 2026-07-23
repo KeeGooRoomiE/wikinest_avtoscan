@@ -75,7 +75,6 @@ isCounting: true
 
 [Krasterisk*][krasterisk] - сервис обслуживания IP-телефонии
 
-[
 
 
 ---
