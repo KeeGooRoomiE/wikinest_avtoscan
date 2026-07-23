@@ -6,3 +6,6 @@ isCounting: true
 
 ## Установление контакта
 
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784825829101-1.______________________.mp4"></video>
+
