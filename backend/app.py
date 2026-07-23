@@ -292,12 +292,12 @@ def page_visibility():
     """Sets a single page's roles[]/editors[]/isCounting. Scoped to exactly
     that page (unlike put_file('tree.json'), which needs global can_edit
     and round-trips the client's whole in-memory tree — stale-overwrite risk
-    if anyone else edited meanwhile) — anyone who can already edit this page
-    can also manage its visibility, per "edit access implies visibility-edit
-    access". Re-reads tree.json fresh under the lock rather than trusting
-    whatever the client last fetched.
+    if anyone else edited meanwhile). Only owner/admin (global can_edit) may
+    grant visibility/editor rights — a per-page editor can edit the page's
+    content but not its access rules. Re-reads tree.json fresh under the
+    lock rather than trusting whatever the client last fetched.
     """
-    role = _require_role()
+    role = _require_can_edit()
     body = request.get_json(silent=True) or {}
     rel_path = body.get('path', '')  # 'docs/foo/bar.md'
 
@@ -307,8 +307,6 @@ def page_visibility():
         page = _find_page(tree, rel_path)
         if page is None:
             raise ApiError('page not found', 404)
-        if not auth.can_edit_page(role, page):
-            raise ApiError('forbidden', 403)
 
         if 'roles' in body:
             new_roles = body['roles']

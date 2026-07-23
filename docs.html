@@ -1363,8 +1363,8 @@ async function openPage(page){
   const _e=canEditPage(page)?'flex':'none';
   const _o=canEdit()?'flex':'none';
   $('btn-edit').style.display=_e;
-  $('btn-visibility').style.display=_e;
-  $('btn-editors').style.display=_e;
+  $('btn-visibility').style.display=_o;
+  $('btn-editors').style.display=_o;
   $('btn-fav').style.display='flex';
   $('btn-share').style.display='flex';
   $('btn-print').style.display='flex';
@@ -1816,8 +1816,6 @@ function cancelEdit(){
   $('view-wrap').style.display=currentPath?'block':'none';
   const _ce=canEdit()&&!!currentPath;
   const _curRel=currentPath?currentPath.replace('docs/','').replace(/\.md$/,''):null;
-  const _curPage=_curRel?tree.find(p=>p.path===_curRel):null;
-  const _e=canEditPage(_curPage)&&!!currentPath;
   // startEdit() disables btn-edit while its fetch is in flight and only
   // re-enables it on error — on the success path nothing ever did, so after
   // one successful edit the button stayed permanently unclickable. cancelEdit()
@@ -1825,8 +1823,8 @@ function cancelEdit(){
   // on every openPage(), so resetting it here covers every case.
   $('btn-edit').disabled=false;
   $('btn-edit').style.display=_ce?'flex':'none';
-  $('btn-visibility').style.display=_e?'flex':'none';
-  $('btn-editors').style.display=_e?'flex':'none';
+  $('btn-visibility').style.display=_ce?'flex':'none';
+  $('btn-editors').style.display=_ce?'flex':'none';
   $('btn-fav').style.display=currentPath?'flex':'none';
   $('btn-share').style.display=currentPath?'flex':'none';
   $('btn-print').style.display=currentPath?'flex':'none';
