@@ -1148,7 +1148,16 @@
     "updated_at": "2026-07-22T11:00:57.283195+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zakaz-klienta",
