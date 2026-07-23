@@ -9,3 +9,8 @@ roles: [director,head,sales]
 <video controls src="https://95.190.201.194:26502/docs/assets/1784716000586-1.________.mp4"></video>
 
 ## Личные качества идеального продавца
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784825289520-m1v2.mp4"></video>
+
+## Этапы продаж. Структура.
+
