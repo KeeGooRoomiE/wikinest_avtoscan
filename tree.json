@@ -581,7 +581,16 @@
     "updated_at": "2026-07-21T04:31:50.062123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-base-block-iridium",
