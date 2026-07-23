@@ -1037,7 +1037,16 @@
     "updated_at": "2026-07-23T04:07:41.407646+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "glossary/index",
