@@ -7,3 +7,7 @@ isCounting: true
 ## Виды возражений. Работа с деструктивными возражениями
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784828599812-m6v2.mp4"></video>
+
+## Природа возражений
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784828843810-m7v1.mp4"></video>
