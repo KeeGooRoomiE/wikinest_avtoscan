@@ -812,7 +812,7 @@
   },
   {
     "path": "processes/sales/1c/kak-sozdat-zayavku-na-tp",
-    "title": "Как создать заявку на ТП",
+    "title": "5. Как создать заявку на ТП",
     "excerpt": "",
     "parts": [
       "processes",
@@ -825,7 +825,7 @@
       "sales": "Отдел продаж",
       "1c": "Процессы 1С"
     },
-    "updated_at": "2026-07-22T10:20:13.614138+00:00",
+    "updated_at": "2026-07-23T04:28:04.659866+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
