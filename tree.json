@@ -1525,7 +1525,16 @@
     "updated_at": "2026-07-21T04:31:50.066123+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/service/service-ops/obnovlenie-po-na-takhografe-atol",
