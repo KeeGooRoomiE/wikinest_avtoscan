@@ -6,13 +6,12 @@ isCounting: true
 
 ## Установление контакта
 
-
 <video controls src="https://95.190.201.194:26502/docs/assets/1784825829101-1.______________________.mp4"></video>
 
 ## Ошибки в коммуникациях. Слова-паразиты
-
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784826059502-m2v2.mp4"></video>
 
 ## Метод Сократа
 
+<video controls src="https://95.190.201.194:26502/docs/assets/1784826301884-m2v3.mp4"></video>
