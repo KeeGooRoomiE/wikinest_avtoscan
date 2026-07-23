@@ -378,7 +378,7 @@
       "nav-terminals": "Навигационные терминалы",
       "galileo": "Линейка Галилео"
     },
-    "updated_at": "2026-07-21T04:31:50.062123+00:00",
+    "updated_at": "2026-07-23T02:59:05.181646+00:00",
     "tags": [],
     "author": "",
     "isCounting": true
@@ -710,11 +710,11 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "termCount": 189,
     "editors": [
       "director",
       "head"
-    ]
+    ],
+    "termCount": 189
   },
   {
     "path": "home",
@@ -744,11 +744,11 @@
     "tags": [],
     "author": "",
     "isCounting": true,
-    "incidentCount": 24,
     "editors": [
       "director",
       "head"
-    ]
+    ],
+    "incidentCount": 24
   },
   {
     "path": "processes/sales/1c/index",
