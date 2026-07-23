@@ -552,7 +552,16 @@
     "updated_at": "2026-07-23T02:59:05.181646+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/nav-terminals/galileo/galileosky-base-block-lite",
