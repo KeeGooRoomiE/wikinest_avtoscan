@@ -47,6 +47,9 @@
       "accounting",
       "office-manager",
       "service"
+    ],
+    "editors": [
+      "office-manager"
     ]
   },
   {
