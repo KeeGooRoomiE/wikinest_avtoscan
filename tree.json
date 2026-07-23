@@ -199,7 +199,16 @@
     "updated_at": "2026-07-23T03:24:29.372636+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/tachographs/karty-takhografov",
