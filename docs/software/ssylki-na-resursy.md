@@ -60,7 +60,7 @@ isCounting: true
 ---
 ## Внешние ссылки
 
-[Аксента][nav_axenta] 
+[Axenta][nav_axenta] | [CMS Axenta](https://cms.axenta.cloud/main/accounts) 
 
 Демо доступ:
 ` логин: demo_avtoscan, пароль: demo_avtoscan`
