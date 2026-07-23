@@ -1826,7 +1826,16 @@
     "updated_at": "2026-07-21T04:44:18.298928+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "reference/support/adm",
