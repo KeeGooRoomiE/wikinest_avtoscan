@@ -111,22 +111,4 @@ Driving, Modbus, автоинформатор и голосовую связь. 
 
 **Документация**
 
-• [**<u>Официальная страница Galileosky Base Block
-Iridium</u>**](https://galileosky.ru/products/base-block-iridium.html)
-
-• [**<u>Руководство пользователя линейки Galileosky Base
-Block</u>**](https://base.galileosky.com/articles/) — разделы по
-подключению, интерфейсам, антенне Iridium и настройке терминала.
-
-• [**<u>Гарантийные условия и сервисная поддержка
-производителя</u>**](https://drive.google.com/file/d/1Svq2ytxoBW8h4irEPk3WiFs3mD02GBPn/view?usp=sharing)
-
-• [**<u>Декларация
-соответствия</u>**](https://galileosky.com/products/assets/files/sertif/declaration-of-conformity-ce-1304-galileosky-7-%282%29.pdf)
-— на официальной странице указан срок действия до 28.08.2028.
-
-• [**<u>Конфигуратор
-Galileosky</u>**](https://galileosky.ru/configurator/) — настройка,
-диагностика и обновление прошивки.
-
-[**Паспорт изделия**](/docs/assets/1784783809734-_______.pdf)
+📥 [Паспорт изделия](/docs/assets/1784783809734-_______.pdf)
