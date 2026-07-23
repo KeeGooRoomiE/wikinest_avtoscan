@@ -179,7 +179,16 @@
     "updated_at": "2026-07-23T03:15:29.919616+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "devices/tachographs/shtrikh/shtrikh-takhorus",
