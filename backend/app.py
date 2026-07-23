@@ -529,9 +529,16 @@ def upload_file():
         if ext in _VIDEO_TRANSCODE_EXTS:
             mp4_rel_path = rel_path[:-len(ext)] + '.mp4'
             mp4_full = _safe_full_path(mp4_rel_path)
+            # veryfast over fast: this holds write_lock for the whole
+            # encode (single-writer design, see module docstring), so
+            # every other write on the site — including the next video in
+            # a multi-file drop — queues behind it. An 11MB source took
+            # ~60s at 'fast'; dropping 3 videos in one go serialized to
+            # 3+ minutes with zero progress feedback, which is what made
+            # this look broken/stuck rather than just slow.
             result = subprocess.run(
                 ['ffmpeg', '-y', '-i', full,
-                 '-c:v', 'libx264', '-preset', 'fast', '-crf', '23',
+                 '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23',
                  '-c:a', 'aac', '-movflags', '+faststart', mp4_full],
                 capture_output=True, text=True, timeout=280,
             )

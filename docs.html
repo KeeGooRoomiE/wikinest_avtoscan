@@ -1695,11 +1695,21 @@ function initDragDrop(){
     }
     const ok=await requireUnlock();
     if(!ok) return;
+    let fileIdx=0;
     for(const file of files){
+      fileIdx++;
       const kind=detectKind(file);
       const isVideo=kind==='video';
       const isPdf=kind==='pdf';
       const isDoc=kind==='doc';
+      // Video goes through ffmpeg transcode server-side (~1min per file,
+      // serialized behind a single write_lock — see upload_file in
+      // app.py), with no progress events to show. Without this, dropping
+      // several videos at once looked stuck/broken rather than just slow.
+      if(isVideo){
+        const countLabel=files.length>1?` (${fileIdx}/${files.length})`:'';
+        toast(`Загружаю видео${countLabel} — это может занять минуту-другую, дождитесь сообщения`,false,120000);
+      }
       try{
         let size=null;
         if(kind==='image') size=await chooseImageSize(file.name);
@@ -2769,13 +2779,13 @@ function closeModal(){$('modal-overlay').classList.remove('open');}
 
 // ── Toast ──
 let toastTimer;
-function toast(msg,isError=false){
+function toast(msg,isError=false,durationMs){
   const el=$('toast');
   el.textContent=msg;
   el.classList.toggle('toast-error',isError);
   el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},isError?6000:2500);
+  toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},durationMs??(isError?6000:2500));
 }
 
 

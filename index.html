@@ -2598,13 +2598,13 @@ function clearAllTreeStatuses(){
 
 // ── Toast ──
 let toastTimer;
-function toast(msg,isError=false){
+function toast(msg,isError=false,durationMs){
   const el=$('toast');
   el.textContent=msg;
   el.classList.toggle('toast-error',isError);
   el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},isError?6000:2500);
+  toastTimer=setTimeout(()=>{el.classList.remove('show','toast-error')},durationMs??(isError?6000:2500));
 }
 
 
