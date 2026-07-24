@@ -39,7 +39,7 @@ isCounting: false
 
 <tr class="even">
 <td>
-<img src="./Карты_тахографов_изображения/karta-predpriyatiya-skzi.png" alt="Карта предприятия для тахографа с блоком СКЗИ" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784858891179-___________.png" alt="___________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта предприятия для тахографа с блоком СКЗИ</strong>
