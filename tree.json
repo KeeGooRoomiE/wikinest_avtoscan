@@ -1754,6 +1754,26 @@
     "isCounting": true
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-14-lichnaya-effektivnost-v-prodazhakh-chast-1",
+    "title": "Модуль 14. Личная эффективность в продажах. Часть 1",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-14-lichnaya-effektivnost-v-prodazhakh-chast-1"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-24T04:03:01.106064+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
