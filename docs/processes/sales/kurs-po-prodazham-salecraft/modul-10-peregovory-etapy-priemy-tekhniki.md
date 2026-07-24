@@ -10,8 +10,8 @@ isCounting: true
 
 ## Подготовка к переговорам
 
-
 <video controls src="https://95.190.201.194:26502/docs/assets/1784861052330-m10v2.mp4"></video>
 
 ## 25 приемов в переговорах
 
+<video controls src="https://95.190.201.194:26502/docs/assets/1784861539672-m10v3.mp4"></video>
