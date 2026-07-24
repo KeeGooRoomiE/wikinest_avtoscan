@@ -1783,6 +1783,26 @@
     ]
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-15-lichnaya-effektivnost-v-prodazhakh-chast-2-tekhniki",
+    "title": "Модуль 15. Личная эффективность в продажах. Часть 2. Техники психологического настроя",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-15-lichnaya-effektivnost-v-prodazhakh-chast-2-tekhniki"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-24T04:28:00.810099+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
