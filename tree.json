@@ -1627,6 +1627,26 @@
     ]
   },
   {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-9-peregovory-ponyatiya-vidy-osnova",
+    "title": "Модуль 9. Переговоры. Понятия. Виды. Основа",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-9-peregovory-ponyatiya-vidy-osnova"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-24T02:31:30.749330+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true
+  },
+  {
     "path": "processes/support/1c/ruchnaya-registratsiya-oborudovaniya-ot-klientov",
     "title": "Ручная регистрация оборудования от клиентов",
     "excerpt": "",
