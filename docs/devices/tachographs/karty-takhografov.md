@@ -96,7 +96,7 @@ isCounting: false
 
 <tr class="odd">
 <td>
-<img src="./Карты_тахографов_изображения/karta-voditelya-estr.png" alt="Карта водителя для тахографа ЕСТР" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784859262198-_____________.png" alt="_____________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта водителя для тахографа ЕСТР</strong>
@@ -109,7 +109,7 @@ isCounting: false
 
 <tr class="even">
 <td>
-<img src="./Карты_тахографов_изображения/karta-predpriyatiya-estr.png" alt="Карта предприятия для тахографа ЕСТР" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784859278983-___________.png" alt="___________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта предприятия для тахографа ЕСТР</strong>
@@ -122,7 +122,7 @@ isCounting: false
 
 <tr class="odd">
 <td>
-<img src="./Карты_тахографов_изображения/karta-masterskoy-estr.png" alt="Карта мастерской для тахографа ЕСТР" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784859294875-______.png" alt="______.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта мастерской для тахографа ЕСТР</strong>
