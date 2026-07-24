@@ -15,3 +15,4 @@ isCounting: true
 
 ## Тайм-менеджмент в продажах
 
+<video controls src="https://95.190.201.194:26502/docs/assets/1784866970481-m14v3.mp4"></video>
