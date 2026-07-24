@@ -65,7 +65,7 @@ isCounting: false
 
 <tr class="even">
 <td>
-<img src="./Карты_тахографов_изображения/karta-kontrolera-skzi.png" alt="Карта контролёра для тахографа с блоком СКЗИ" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784858981979-_________.png" alt="_________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта контролёра для тахографа с блоком СКЗИ</strong>
