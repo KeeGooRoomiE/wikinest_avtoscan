@@ -13,8 +13,8 @@ isCounting: false
 
 <table>
 <colgroup>
-<col style="width: 24%"/>
-<col style="width: 76%"/>
+<col style="width: 20%"/>
+<col style="width: 80%"/>
 </colgroup>
 <thead>
 <tr class="header">
