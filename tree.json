@@ -1441,7 +1441,16 @@
     "updated_at": "2026-07-24T02:40:36.203512+00:00",
     "tags": [],
     "author": "",
-    "isCounting": true
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
   },
   {
     "path": "processes/sales/kurs-po-prodazham-salecraft/modul-2-ustanovlenie-kontakta",
