@@ -33,3 +33,8 @@ isCounting: true
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784914350854-skziv6.mp4"></video>
 
+## Замена СКЗИ на VDO. Часть 7.
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784914799163-skziv7.mp4"></video>
+
+
