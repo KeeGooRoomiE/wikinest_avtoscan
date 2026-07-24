@@ -10,3 +10,5 @@ isCounting: true
 
 ## Обновление тахографа штрих. Часть 2.
 
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784879902736-shtrihv2.mp4"></video>
