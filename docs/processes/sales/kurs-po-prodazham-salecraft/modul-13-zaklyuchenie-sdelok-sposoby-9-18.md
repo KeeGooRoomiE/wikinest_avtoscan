@@ -13,3 +13,5 @@ isCounting: true
 <video controls src="https://95.190.201.194:26502/docs/assets/1784864651145-m13v2.mp4"></video>
 
 ## Работа с рекламациями
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784865480668-m13v3.mp4"></video>
