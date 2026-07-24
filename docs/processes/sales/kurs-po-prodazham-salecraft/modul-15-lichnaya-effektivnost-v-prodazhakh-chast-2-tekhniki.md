@@ -7,3 +7,7 @@ isCounting: true
 ## Пять убийц и 10 принципов личной эффективности
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784870367354-m15v1.mp4"></video>
+
+## Двадцать пожирателей времени
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784870800755-m15v2.mp4"></video>
