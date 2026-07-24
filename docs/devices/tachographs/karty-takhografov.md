@@ -52,7 +52,7 @@ isCounting: false
 
 <tr class="odd">
 <td>
-<img src="./Карты_тахографов_изображения/karta-masterskoy-skzi.png" alt="Карта мастерской для тахографа с блоком СКЗИ" style="width: 100%; max-width: 260px;"/>
+<img src="/docs/assets/1784858945863-__________.png" alt="__________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта мастерской для тахографа с блоком СКЗИ</strong>
