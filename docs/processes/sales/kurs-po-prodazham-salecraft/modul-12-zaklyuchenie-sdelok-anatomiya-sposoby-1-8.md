@@ -8,4 +8,6 @@ isCounting: true
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784863356720-m12v1.mp4"></video>
 
+## Первые 9 техник заключения сделки
 
+<video controls src="https://95.190.201.194:26502/docs/assets/1784864166732-m12v2.mp4"></video>
