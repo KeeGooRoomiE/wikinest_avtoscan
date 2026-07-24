@@ -11,3 +11,7 @@ isCounting: true
 ## Двадцать пожирателей времени
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784870800755-m15v2.mp4"></video>
+
+## Техники психологического настроя
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784872254844-m15v3.mp4"></video>
