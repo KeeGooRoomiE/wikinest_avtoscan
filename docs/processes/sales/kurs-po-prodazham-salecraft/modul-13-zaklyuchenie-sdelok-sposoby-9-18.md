@@ -7,3 +7,9 @@ isCounting: true
 ## Вторые 9 техник заключения сделки
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784864290033-m13v1.mp4"></video>
+
+## Что делать после заключения сделки
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784864651145-m13v2.mp4"></video>
+
+## Работа с рекламациями
