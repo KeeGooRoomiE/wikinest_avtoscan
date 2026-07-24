@@ -7,3 +7,11 @@ isCounting: true
 ## Этапы переговоров
 
 <video controls src="https://95.190.201.194:26502/docs/assets/1784860918795-m10v1.mp4"></video>
+
+## Подготовка к переговорам
+
+
+<video controls src="https://95.190.201.194:26502/docs/assets/1784861052330-m10v2.mp4"></video>
+
+## 25 приемов в переговорах
+
