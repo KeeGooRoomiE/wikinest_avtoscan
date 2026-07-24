@@ -327,7 +327,8 @@ isCounting: true
     </tr>
     <tr>
       <td><img src="/docs/assets/devices/video/accessories/carvis-shirokopolosnaya-vneshnyaya-antena-3-v-1-gsm-gps-glonass-3g-wifi-4g.jpg"></td>
-      <td><strong>Широкополосная внешняя антена 3 в 1 GSM/GPS/ГЛОНАСС/3G/WiFi/4G</strong></td>
+      <td><strong>Широкополосная внешняя антена 3 в 1 GSM/GPS/ГЛОНАСС/3G/
+WiFi/4G</strong></td>
       <td>Магнитное крепление<br>Резьбовое крепление</td>
       <td>Широкополосная внешняя антенна совмещает в себе одновременный прием и передачу данных в трех стандартах — 3G/4G, GPS и Wi-Fi. Разъем SMA (3G/4G, GPS - папа, WiFi - мама), длина кабель 3 метра, крепление винт/магнит/клейкое основание, 11мА. Вес 240 г.</td>
     </tr>
