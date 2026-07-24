@@ -1424,35 +1424,6 @@
     ]
   },
   {
-    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-10-peregovory-etapy-priemy-tekhniki",
-    "title": "Модуль 10. Переговоры. Этапы. Приемы. Техники",
-    "excerpt": "",
-    "parts": [
-      "processes",
-      "sales",
-      "kurs-po-prodazham-salecraft",
-      "modul-10-peregovory-etapy-priemy-tekhniki"
-    ],
-    "folder_titles": {
-      "processes": "Процессы",
-      "sales": "Отдел продаж",
-      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
-    },
-    "updated_at": "2026-07-24T02:40:36.203512+00:00",
-    "tags": [],
-    "author": "",
-    "isCounting": true,
-    "roles": [
-      "director",
-      "head",
-      "support",
-      "sales",
-      "accounting",
-      "office-manager",
-      "service"
-    ]
-  },
-  {
     "path": "processes/sales/kurs-po-prodazham-salecraft/modul-2-ustanovlenie-kontakta",
     "title": "Модуль 2. Установление контакта",
     "excerpt": "",
@@ -1671,6 +1642,35 @@
       "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
     },
     "updated_at": "2026-07-24T02:40:10.213428+00:00",
+    "tags": [],
+    "author": "",
+    "isCounting": true,
+    "roles": [
+      "director",
+      "head",
+      "support",
+      "sales",
+      "accounting",
+      "office-manager",
+      "service"
+    ]
+  },
+  {
+    "path": "processes/sales/kurs-po-prodazham-salecraft/modul-10-peregovory-etapy-priemy-tekhniki",
+    "title": "Модуль 10. Переговоры. Этапы. Приемы. Техники",
+    "excerpt": "",
+    "parts": [
+      "processes",
+      "sales",
+      "kurs-po-prodazham-salecraft",
+      "modul-10-peregovory-etapy-priemy-tekhniki"
+    ],
+    "folder_titles": {
+      "processes": "Процессы",
+      "sales": "Отдел продаж",
+      "kurs-po-prodazham-salecraft": "Курс по продажам Salecraft"
+    },
+    "updated_at": "2026-07-24T02:40:36.203512+00:00",
     "tags": [],
     "author": "",
     "isCounting": true,
