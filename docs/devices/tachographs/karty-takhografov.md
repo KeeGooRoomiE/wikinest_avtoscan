@@ -26,7 +26,7 @@ isCounting: false
 
 <tr class="odd">
 <td>
-<img src="/docs/assets/1784858652611-________.png" alt="________.png" style="max-width:120px;height:auto">
+<img src="/docs/assets/1784858652611-________.png" alt="________.png" style="max-width:150px;height:auto">
 </td>
 <td>
 <strong>Карта водителя для тахографа с блоком СКЗИ</strong>
