@@ -26,3 +26,6 @@ isCounting: true
 
 ## Замена СКЗИ на VDO. Часть 5.
 
+<video controls src="https://95.190.201.194:26502/docs/assets/1784886452507-skziv5.mp4"></video>
+
+
